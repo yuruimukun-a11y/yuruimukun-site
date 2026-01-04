@@ -1,0 +1,27 @@
+# WAV files (source files for conversion)
+wav_input/
+*.wav
+
+# Node.js
+node_modules/
+
+# Backup files
+playlist_data.js
+
+# OS generated files
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

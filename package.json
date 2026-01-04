@@ -1,0 +1,12 @@
+{
+  "name": "yuruimukun-site",
+  "version": "1.0.0",
+  "description": "ゆるいむくん音楽配信サイト - HLSストリーミング",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "author": "ゆるいむくん",
+  "license": "UNLICENSED",
+  "private": true
+}
