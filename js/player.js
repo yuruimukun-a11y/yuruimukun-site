@@ -337,6 +337,13 @@
     src: '/music/onnrei/playlist.m3u8',
   },
   {
+    id: 'oumagadoki',
+    title: 'oumagadoki',
+    artist: 'yuruimukun',
+    genre: 'vocaloid',
+    src: '/music/oumagadoki/playlist.m3u8',
+  },
+  {
     id: 'owatte-hajimatte',
     title: 'owatte-hajimatte',
     artist: 'yuruimukun',
