@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(wrangler r2 object put:*)"
+      "Bash(wrangler r2 object put:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)"
     ]
   }
 }

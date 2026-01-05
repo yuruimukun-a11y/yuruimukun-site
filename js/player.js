@@ -12,6 +12,7 @@
     title: 'Danmaku',
     artist: 'yuruimukun',
     genre: 'aki-music',
+    description: '弾幕シューティングゲームをイメージした疾走感のあるエレクトロニック曲。高速で飛び交う弾幕のような電子音と、緊張感のあるビートが特徴です。ゲーム中のBGMや、集中力を高めたい作業時に。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/Danmaku/playlist.m3u8',
   },
   {
@@ -19,6 +20,7 @@
     title: 'Marron battle',
     artist: 'yuruimukun',
     genre: 'aki-music',
+    description: '栗をテーマにした秋らしい戦闘曲。可愛らしさと緊張感が同居する不思議なバランスが特徴。秋の収穫祭のような賑やかさを感じられる一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/Marron battle/playlist.m3u8',
   },
   {
@@ -26,6 +28,7 @@
     title: 'ninja',
     artist: 'yuruimukun',
     genre: 'aki-music',
+    description: '忍者の静かな足音と素早い動きをイメージした和風エレクトロニック。闇夜を駆け抜けるような疾走感と、息を潜めるような静寂が交互に訪れます。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/ninja/playlist.m3u8',
   },
   {
@@ -33,6 +36,7 @@
     title: 'oyasumi',
     artist: 'yuruimukun',
     genre: 'aki-music',
+    description: '一日の終わりに聴きたい穏やかな曲。柔らかな音色が心を落ち着かせ、ゆったりとした眠りへと誘います。夜のリラックスタイムにおすすめです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oyasumi/playlist.m3u8',
   },
   {
@@ -40,6 +44,7 @@
     title: 'tomoshibi',
     artist: 'yuruimukun',
     genre: 'aki-music',
+    description: '小さな灯火のような温かみのあるメロディ。暗闘の中でほのかに光る希望をイメージした、心に寄り添う優しい一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tomoshibi/playlist.m3u8',
   },
   {
@@ -47,6 +52,7 @@
     title: 'meitantei',
     artist: 'yuruimukun',
     genre: 'bgm',
+    description: 'ミステリアスな雰囲気漂う探偵風BGM。謎解きの場面や、考え事をしながらの作業に。少しコミカルな要素も含んだ親しみやすい曲調です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/meitantei/playlist.m3u8',
   },
   {
@@ -54,6 +60,7 @@
     title: 'nekokan',
     artist: 'yuruimukun',
     genre: 'bgm',
+    description: '猫の完璧さを表現した曲。のんびりとした猫の日常と、時折見せる俊敏な動きを音楽で表現。猫好きな方に捧げる一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/nekokan/playlist.m3u8',
   },
   {
@@ -61,6 +68,7 @@
     title: 'battle',
     artist: 'yuruimukun',
     genre: 'game-bgmfuu',
+    description: 'ゲームの戦闘シーンを想起させるアップテンポな曲。緊張感のあるビートと盛り上がるメロディで、集中力を高めたい時に最適です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/battle/playlist.m3u8',
   },
   {
@@ -68,6 +76,7 @@
     title: 'chirizakura',
     artist: 'yuruimukun',
     genre: 'game-bgmfuu',
+    description: '散りゆく桜をテーマにした和風の楽曲。儚くも美しい桜吹雪の情景を、繊細なメロディで表現しています。春の終わりに聴きたい一曲。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/chirizakura/playlist.m3u8',
   },
   {
@@ -75,6 +84,7 @@
     title: 'kokokokomebattle',
     artist: 'yuruimukun',
     genre: 'game-bgmfuu',
+    description: 'コメバトルの激しさを表現したコミカルかつ熱い戦闘曲。連続する「ココココ」というリズムが印象的。ゲーム実況やテンションを上げたい時に。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kokokokomebattle/playlist.m3u8',
   },
   {
@@ -82,6 +92,7 @@
     title: 'komebattle',
     artist: 'yuruimukun',
     genre: 'game-bgmfuu',
+    description: 'お米をめぐる壮大なバトルをイメージした曲。日本の主食への敬意を込めた、ユーモラスながらも本格的な戦闘BGMです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/komebattle/playlist.m3u8',
   },
   {
@@ -89,6 +100,7 @@
     title: 'odoro-',
     artist: 'yuruimukun',
     genre: 'game-bgmfuu',
+    description: '「踊ろう」をテーマにした楽しいダンスミュージック。体が自然と動き出すようなリズムで、気分を上げたい時にぴったりです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/odoro-/playlist.m3u8',
   },
   {
@@ -96,6 +108,7 @@
     title: 'acid',
     artist: 'yuruimukun',
     genre: 'guitar',
+    description: '歪んだギターサウンドが特徴的なアシッドロック風の楽曲。サイケデリックな音の波に身を任せて、非日常的な音楽体験を。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/acid/playlist.m3u8',
   },
   {
@@ -103,6 +116,7 @@
     title: 'atsu',
     artist: 'yuruimukun',
     genre: 'guitar',
+    description: '暑い夏の日を思わせる熱いギターサウンド。汗をかきながら弾いているような生々しいエネルギーが伝わる一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/atsu/playlist.m3u8',
   },
   {
@@ -110,6 +124,7 @@
     title: 'BINGO',
     artist: 'yuruimukun',
     genre: 'guitar',
+    description: 'ビンゴゲームの興奮とワクワク感を表現したポップなギター曲。当たりが出そうな期待感に満ちたメロディをお楽しみください。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/BINGO/playlist.m3u8',
   },
   {
@@ -117,6 +132,7 @@
     title: 'neko car',
     artist: 'yuruimukun',
     genre: 'guitar',
+    description: '猫がドライブしている様子をイメージした軽快なギター曲。窓から入る風と、自由気ままな猫の姿が浮かぶ爽やかなサウンドです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/neko car/playlist.m3u8',
   },
   {
@@ -124,6 +140,7 @@
     title: 'sekaizora',
     artist: 'yuruimukun',
     genre: 'guitar',
+    description: '世界中の空をつなぐような壮大なギターサウンド。どこまでも広がる青空をイメージした、開放感あふれる一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sekaizora/playlist.m3u8',
   },
   {
@@ -131,6 +148,7 @@
     title: 'yuruimukun-beat1',
     artist: 'yuruimukun',
     genre: 'guitar',
+    description: 'ゆるいむくんらしさ全開のビート曲。ゆるさとかっこよさを両立した独自のグルーヴで、作業用BGMとしても最適です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yuruimukun-beat1/playlist.m3u8',
   },
   {
@@ -138,6 +156,7 @@
     title: 'yuruimukun-beat2',
     artist: 'yuruimukun',
     genre: 'guitar',
+    description: 'yuruimukun-beat1に続く第二弾。より洗練されたビートと、少しメロウな雰囲気が特徴。夕暮れ時の作業にぴったりです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yuruimukun-beat2/playlist.m3u8',
   },
   {
@@ -145,6 +164,7 @@
     title: 'atawo',
     artist: 'yuruimukun',
     genre: 'guitar-aco or clean',
+    description: 'アコースティックギターの温かみある音色が心地よい一曲。指先から紡ぎ出される素朴なメロディで、穏やかなひとときを。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/atawo/playlist.m3u8',
   },
   {
@@ -152,6 +172,7 @@
     title: 'awafuki',
     artist: 'yuruimukun',
     genre: 'guitar-aco or clean',
+    description: '泡のように軽やかで儚いアコースティック曲。クリーントーンのギターが奏でる透明感のあるサウンドをお楽しみください。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/awafuki/playlist.m3u8',
   },
   {
@@ -159,6 +180,7 @@
     title: 'band CatsF',
     artist: 'yuruimukun',
     genre: 'guitar-aco or clean',
+    description: '猫たちのバンドをイメージしたアコースティック曲。自由気ままに演奏する猫たちの姿が目に浮かぶ、ほのぼのとした一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/band CatsF/playlist.m3u8',
   },
   {
@@ -166,6 +188,7 @@
     title: 'forest session',
     artist: 'yuruimukun',
     genre: 'guitar-aco or clean',
+    description: '森の中でのセッションをイメージしたナチュラルなサウンド。木漏れ日の中で奏でられる穏やかなギターの調べをお楽しみください。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/forest session/playlist.m3u8',
   },
   {
@@ -173,6 +196,7 @@
     title: 'sakana',
     artist: 'yuruimukun',
     genre: 'guitar-aco or clean',
+    description: '魚が泳ぐ様子を表現したゆらゆらとしたアコースティック曲。水の中を漂うような心地よさで、リラックスタイムにおすすめです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sakana/playlist.m3u8',
   },
   {
@@ -180,6 +204,7 @@
     title: 'SUNMA',
     artist: 'yuruimukun',
     genre: 'guitar-aco or clean',
+    description: '秋刀魚への愛を込めたアコースティック曲。秋の味覚を思い出しながら聴きたい、どこか懐かしい温かみのある一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/SUNMA/playlist.m3u8',
   },
   {
@@ -187,6 +212,7 @@
     title: 'yabimi',
     artist: 'yuruimukun',
     genre: 'guitar-aco or clean',
+    description: '夜の美しさをテーマにしたクリーンギター曲。静かな夜に一人で聴きたくなるような、繊細で美しいメロディです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yabimi/playlist.m3u8',
   },
   {
@@ -194,6 +220,7 @@
     title: 'halloween-manul neko',
     artist: 'yuruimukun',
     genre: 'halloween',
+    description: 'ハロウィンとマヌルネコをテーマにした曲。ちょっと不気味だけど可愛らしい、ハロウィンの夜にぴったりの雰囲気です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/halloween-manul neko/playlist.m3u8',
   },
   {
@@ -201,6 +228,7 @@
     title: 'halloween-okataduke',
     artist: 'yuruimukun',
     genre: 'halloween',
+    description: 'ハロウィンが終わった後のお片付けをイメージ。少し寂しげだけど前向きな気持ちになれる、季節の変わり目の一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/halloween-okataduke/playlist.m3u8',
   },
   {
@@ -208,6 +236,7 @@
     title: 'MIKAN NEKOSAN',
     artist: 'yuruimukun',
     genre: 'halloween',
+    description: 'みかんと猫さんをテーマにしたハロウィン曲。オレンジ色の暖かみと猫の気まぐれさが織りなす不思議な世界観をお楽しみください。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/MIKAN NEKOSAN/playlist.m3u8',
   },
   {
@@ -215,6 +244,7 @@
     title: 'kelt',
     artist: 'yuruimukun',
     genre: 'kelt',
+    description: 'ケルト音楽をベースにしたファンタジックな一曲。緑の丘と古い伝説を思わせる、どこか懐かしい異国の音楽体験を。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kelt/playlist.m3u8',
   },
   {
@@ -222,6 +252,7 @@
     title: 'ie-cafe',
     artist: 'yuruimukun',
     genre: 'lofi',
+    description: '家でカフェ気分を味わえるLo-Fi曲。コーヒーの香りと午後の光を感じながら、ゆったりとした時間を過ごせます。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/ie-cafe/playlist.m3u8',
   },
   {
@@ -229,6 +260,7 @@
     title: 'neko-cafe',
     artist: 'yuruimukun',
     genre: 'lofi',
+    description: '猫カフェにいるような癒しのLo-Fi曲。猫たちに囲まれてくつろぐ幸せな時間をイメージした、心温まるサウンドです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/neko-cafe/playlist.m3u8',
   },
   {
@@ -236,6 +268,7 @@
     title: 'oyasumi',
     artist: 'yuruimukun',
     genre: 'lofi',
+    description: '一日の終わりに聴きたい穏やかな曲。柔らかな音色が心を落ち着かせ、ゆったりとした眠りへと誘います。夜のリラックスタイムにおすすめです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oyasumi/playlist.m3u8',
   },
   {
@@ -243,6 +276,7 @@
     title: 'tomoshibi',
     artist: 'yuruimukun',
     genre: 'lofi',
+    description: '小さな灯火のような温かみのあるメロディ。暗闘の中でほのかに光る希望をイメージした、心に寄り添う優しい一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tomoshibi/playlist.m3u8',
   },
   {
@@ -250,6 +284,7 @@
     title: 'umi-cafe',
     artist: 'yuruimukun',
     genre: 'lofi',
+    description: '海辺のカフェをイメージしたLo-Fi曲。波の音と潮風を感じながら、リゾート気分でリラックスできる一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/umi-cafe/playlist.m3u8',
   },
   {
@@ -257,6 +292,7 @@
     title: 'reverth going back',
     artist: 'yuruimukun',
     genre: 'lofi-kelt',
+    description: 'ケルトとLo-Fiを融合させた曲。過去への郷愁と前へ進む決意が交差する、感傷的でありながら前向きな楽曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/reverth going back/playlist.m3u8',
   },
   {
@@ -264,6 +300,7 @@
     title: 'revolutionary event',
     artist: 'yuruimukun',
     genre: 'lofi-kelt',
+    description: '革命的な出来事をテーマにしたケルト風Lo-Fi。日常の中の小さな革命を祝うような、心躍るメロディをお楽しみください。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/revolutionary event/playlist.m3u8',
   },
   {
@@ -271,6 +308,7 @@
     title: 'runing culture',
     artist: 'yuruimukun',
     genre: 'lofi-kelt',
+    description: '走り続ける文化をイメージしたケルト風Lo-Fi。伝統を守りながらも進化し続ける力強さを感じられる一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/runing culture/playlist.m3u8',
   },
   {
@@ -278,6 +316,7 @@
     title: 'second of the world',
     artist: 'yuruimukun',
     genre: 'lofi-kelt',
+    description: '世界の二番目をテーマにした曲。一番ではないけれど大切な存在への賛歌。ケルトとLo-Fiの心地よい融合を堪能できます。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/second of the world/playlist.m3u8',
   },
   {
@@ -285,6 +324,7 @@
     title: 'yugudorasiru-1',
     artist: 'yuruimukun',
     genre: 'lofi-kelt',
+    description: 'ユグドラシルをテーマにしたケルト風Lo-Fiシリーズ第一弾。世界樹の根元で聴くような神秘的な雰囲気を感じてください。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-1/playlist.m3u8',
   },
   {
@@ -292,6 +332,7 @@
     title: 'yugudorasiru-2',
     artist: 'yuruimukun',
     genre: 'lofi-kelt',
+    description: 'ユグドラシルシリーズ第二弾。世界樹の幹を登るような展開で、徐々に視界が開けていく感覚を音楽で表現しています。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-2/playlist.m3u8',
   },
   {
@@ -299,6 +340,7 @@
     title: 'yugudorasiru-3',
     artist: 'yuruimukun',
     genre: 'lofi-kelt',
+    description: 'ユグドラシルシリーズ完結編。世界樹の頂上から見渡す景色をイメージした、壮大でありながら穏やかなサウンドです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-3/playlist.m3u8',
   },
   {
@@ -306,6 +348,7 @@
     title: 'picnic',
     artist: 'yuruimukun',
     genre: 'natsu-music',
+    description: '晴れた日のピクニックをイメージした爽やかな夏曲。青空の下でお弁当を広げる幸せな瞬間を音楽にしました。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/picnic/playlist.m3u8',
   },
   {
@@ -313,6 +356,7 @@
     title: 'sakana',
     artist: 'yuruimukun',
     genre: 'natsu-music',
+    description: '魚が泳ぐ様子を表現したゆらゆらとしたアコースティック曲。水の中を漂うような心地よさで、リラックスタイムにおすすめです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sakana/playlist.m3u8',
   },
   {
@@ -320,6 +364,7 @@
     title: 'manji',
     artist: 'yuruimukun',
     genre: 'uta',
+    description: '卍をテーマにした歌もの。東洋の神秘と現代的なサウンドが融合した、独特の世界観を持つボーカル曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/manji/playlist.m3u8',
   },
   {
@@ -327,6 +372,7 @@
     title: 'nekosan wa sugoi-uta',
     artist: 'yuruimukun',
     genre: 'uta',
+    description: '猫さんのすごさを歌った曲。猫の魅力を余すことなく表現した、猫好き必聴のユーモラスで愛らしい歌ものです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/nekosan wa sugoi-uta/playlist.m3u8',
   },
   {
@@ -334,6 +380,7 @@
     title: 'mujun-sanka',
     artist: 'yuruimukun',
     genre: 'vocaloid',
+    description: '矛盾をテーマにしたボカロ曲。相反するものが共存する世界を歌った、哲学的でありながらキャッチーな一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/mujun-sanka/playlist.m3u8',
   },
   {
@@ -341,6 +388,7 @@
     title: 'onnrei',
     artist: 'yuruimukun',
     genre: 'vocaloid',
+    description: '音霊をテーマにしたボカロ曲。言葉に宿る魂と、音楽の持つ力を表現した神秘的な楽曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/onnrei/playlist.m3u8',
   },
   {
@@ -348,6 +396,7 @@
     title: 'oumagadoki',
     artist: 'yuruimukun',
     genre: 'vocaloid',
+    description: '逢魔が時をテーマにしたボカロ曲。夕暮れ時の不思議な空気感と、現実と幻想の境界を描いた妖しい一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki/playlist.m3u8',
   },
   {
@@ -355,6 +404,7 @@
     title: 'owatte-hajimatte',
     artist: 'yuruimukun',
     genre: 'vocaloid',
+    description: '終わりと始まりをテーマにしたボカロ曲。何かが終わることは新しい何かの始まり。前向きなメッセージを込めた楽曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/owatte-hajimatte/playlist.m3u8',
   },
   {
@@ -362,6 +412,7 @@
     title: 'wasure-oto',
     artist: 'yuruimukun',
     genre: 'vocaloid',
+    description: '忘れられた音をテーマにしたボカロ曲。記憶の片隅に残る音の断片を集めたような、ノスタルジックで切ない一曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/wasure-oto/playlist.m3u8',
   },
   {
@@ -369,6 +420,7 @@
     title: 'yoku',
     artist: 'yuruimukun',
     genre: 'vocaloid',
+    description: '欲をテーマにしたボカロ曲。人間の持つ欲望と向き合い、その本質を問いかける深いメッセージ性を持った楽曲です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yoku/playlist.m3u8',
   },
   {
@@ -376,6 +428,7 @@
     title: 'antinomy day',
     artist: 'yuruimukun',
     genre: 'wa',
+    description: '二律背反をテーマにした和風曲。相反する二つの真理が共存する日を描いた、哲学的で美しい和風サウンドです。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/antinomy day/playlist.m3u8',
   },
   {
@@ -383,6 +436,7 @@
     title: 'chirizakura',
     artist: 'yuruimukun',
     genre: 'wa',
+    description: '散りゆく桜をテーマにした和風の楽曲。儚くも美しい桜吹雪の情景を、繊細なメロディで表現しています。春の終わりに聴きたい一曲。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/chirizakura/playlist.m3u8',
   },
 ];
@@ -407,6 +461,7 @@
     albumArt: document.getElementById('albumArt'),
     trackTitle: document.getElementById('trackTitle'),
     trackArtist: document.getElementById('trackArtist'),
+    trackDescription: document.getElementById('trackDescription'),
     timeCurrent: document.getElementById('timeCurrent'),
     timeTotal: document.getElementById('timeTotal'),
     progressBar: document.getElementById('progressBar'),
@@ -674,6 +729,7 @@
     var track = PLAYLIST[index];
     elements.trackTitle.textContent = track.title;
     elements.trackArtist.textContent = track.artist;
+    elements.trackDescription.textContent = track.description || '';
     elements.timeCurrent.textContent = '0:00';
     elements.timeTotal.textContent = formatTime(track.duration);
     elements.progressFill.style.width = '0%';
