@@ -2,6 +2,12 @@
 wav_input/
 *.wav
 
+# Music files (HLS segments - avoid GitHub spam detection)
+music/
+*.ts
+*.m3u8
+*.mp3
+
 # Node.js
 node_modules/
 
