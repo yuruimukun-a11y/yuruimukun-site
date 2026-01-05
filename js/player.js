@@ -330,6 +330,13 @@
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/nekosan wa sugoi-uta/playlist.m3u8',
   },
   {
+    id: 'mujun-sanka',
+    title: 'mujun-sanka',
+    artist: 'yuruimukun',
+    genre: 'vocaloid',
+    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/mujun-sanka/playlist.m3u8',
+  },
+  {
     id: 'onnrei',
     title: 'onnrei',
     artist: 'yuruimukun',

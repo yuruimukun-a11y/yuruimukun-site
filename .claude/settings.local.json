@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wrangler r2 object put:*)"
+    ]
+  }
+}
