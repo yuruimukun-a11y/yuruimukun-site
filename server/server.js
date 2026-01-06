@@ -153,8 +153,13 @@ const server = http.createServer((req, res) => {
     urlPath = '/index.html';
   }
 
+  // ディレクトリパスの場合はindex.htmlを追加
+  if (urlPath.endsWith('/')) {
+    urlPath = urlPath + 'index.html';
+  }
+
   // ファイルパス構築
-  const filePath = path.join(ROOT_DIR, urlPath);
+  let filePath = path.join(ROOT_DIR, urlPath);
 
   // ディレクトリトラバーサル防止
   if (!filePath.startsWith(ROOT_DIR)) {

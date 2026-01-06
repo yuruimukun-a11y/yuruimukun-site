@@ -441,6 +441,12 @@
   },
 ];
 
+  // Single track mode for individual track pages
+  if (window.SINGLE_TRACK) {
+    PLAYLIST.length = 0;
+    PLAYLIST.push(window.SINGLE_TRACK);
+  }
+
   const state = {
     currentIndex: 0,
     isPlaying: false,

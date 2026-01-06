@@ -3,7 +3,12 @@
     "allow": [
       "Bash(wrangler r2 object put:*)",
       "Bash(python3:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(cat:*)",
+      "Bash(node:*)",
+      "Bash(grep:*)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)"
     ]
   }
 }

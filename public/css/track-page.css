@@ -375,3 +375,19 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.play-link {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.play-link:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
