@@ -88,6 +88,28 @@ body {
   letter-spacing: 0.1em;
 }
 
+.header-nav {
+  margin-top: var(--spacing-sm);
+}
+
+.header-nav-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(255, 107, 138, 0.3);
+}
+
+.header-nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 138, 0.4);
+}
+
 /* Player Section */
 .player-section {
   background: var(--color-bg-card);
