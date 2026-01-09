@@ -31,6 +31,12 @@ Desktop.ini
 # Logs
 *.log
 npm-debug.log*
+
+# Local manuals (not for GitHub)
 yuruimukun-manual.md
-旧/
+yuruimukun-song-update-manual.md
 SITE_STRUCTURE.md
+
+# Backup folder
+旧/
+PLAY_COUNT_MANUAL.md

@@ -690,13 +690,10 @@
 
   function sendPlayCount(trackId) {
     if (!trackId) return;
-    fetch('/api/play-count', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ trackId: trackId })
-    }).catch(function(err) {
-      console.log('Play count error:', err);
-    });
+    // Firebase経由で再生カウントを送信
+    if (typeof window.firebasePlayCount === 'function') {
+      window.firebasePlayCount(trackId);
+    }
   }
 
   function initHLS(src) {
