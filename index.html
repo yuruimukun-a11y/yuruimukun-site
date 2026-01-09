@@ -43,7 +43,7 @@
   <!-- Firebase -->
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-    import { getDatabase, ref, get, set } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+    import { getDatabase, ref, set, increment } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 
     const firebaseConfig = {
       apiKey: "AIzaSyCUod3aNnqLD_27vvJQ0ziOvyqDpdwOcRQ",
@@ -62,10 +62,8 @@
       if (!trackId) return;
       try {
         const countRef = ref(db, 'playCounts/' + trackId);
-        const snapshot = await get(countRef);
-        const currentCount = snapshot.exists() ? snapshot.val() : 0;
-        await set(countRef, currentCount + 1);
-        console.log('Play count updated:', trackId, currentCount + 1);
+        await set(countRef, increment(1));
+        console.log('Play count updated:', trackId);
       } catch (err) {
         console.log('Firebase play count error:', err);
       }
