@@ -160,6 +160,14 @@
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yuruimukun-beat2/playlist.m3u8',
   },
   {
+    id: 'travel-manul-nekosan',
+    title: 'travel-manul-nekosan',
+    artist: 'yuruimukun',
+    genre: 'guitar',
+    description: 'マヌルネコの旅をテーマにしたギター曲。広大な草原を悠々と歩くマヌルネコの姿が目に浮かぶ、冒険心をくすぐる一曲です。',
+    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/travel-manul-nekosan/playlist.m3u8',
+  },
+  {
     id: 'atawo',
     title: 'atawo',
     artist: 'yuruimukun',
