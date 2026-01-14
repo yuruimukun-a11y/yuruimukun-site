@@ -61,9 +61,18 @@
     window.firebasePlayCount = async function(trackId) {
       if (!trackId) return;
       try {
+        // 今日の日付を取得（YYYY-MM-DD形式）
+        const today = new Date().toISOString().split('T')[0];
+
+        // 総合カウント（既存）
         const countRef = ref(db, 'playCounts/' + trackId);
         await set(countRef, increment(1));
-        console.log('Play count updated:', trackId);
+
+        // 日別ログ（追加）
+        const dailyRef = ref(db, 'dailyLogs/' + today + '/' + trackId);
+        await set(dailyRef, increment(1));
+
+        console.log('Play count updated:', trackId, 'date:', today);
       } catch (err) {
         console.log('Firebase play count error:', err);
       }
