@@ -168,12 +168,12 @@
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/travel-manul-nekosan/playlist.m3u8',
   },
   {
-    id: 'sora-toshi',
-    title: 'sora-toshi',
+    id: 'negai',
+    title: 'negai',
     artist: 'yuruimukun',
     genre: 'guitar',
     description: '空と街をテーマにしたギター曲。都会の空を見上げた時の開放感と、街の喧騒が交差する情景を表現した一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sora-toshi/playlist.m3u8',
+    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/negai/playlist.m3u8',
   },
   {
     id: 'atawo',
