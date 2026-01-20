@@ -1131,8 +1131,10 @@
     // URLパラメータで曲が指定されていれば、その曲を自動再生
     if (initialTrackIndex >= 0) {
       loadTrack(initialTrackIndex, true);
-    } else {
-      loadTrack(0, false);
+    } else if (state.filteredPlaylist.length > 0) {
+      // filteredPlaylistの最初の曲を読み込む
+      var firstOriginalIndex = getOriginalIndex(0);
+      if (firstOriginalIndex >= 0) loadTrack(firstOriginalIndex, false);
     }
   }
 
