@@ -463,6 +463,12 @@
     PLAYLIST.push(window.SINGLE_TRACK);
   }
 
+  // メインプレイリスト定義（ランキング順）
+  const MAIN_LISTS = {
+    lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi'],
+    normal: ['oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid']
+  };
+
   const state = {
     currentIndex: 0,
     isPlaying: false,
@@ -472,6 +478,7 @@
     isMuted: false,
     shuffleOrder: [],
     hls: null,
+    currentMainList: 'lofi',
     currentGenre: 'all',
     filteredPlaylist: [],
     isGenreExpanded: false,
@@ -500,6 +507,7 @@
     volumeHandle: document.getElementById('volumeHandle'),
     playlist: document.getElementById('playlist'),
     genreFilter: document.getElementById('genreFilter'),
+    mainListFilter: document.getElementById('mainListFilter'),
     playShuffleBtn: document.getElementById('playShuffleBtn'),
     playOrderBtn: document.getElementById('playOrderBtn')
   };
@@ -534,13 +542,45 @@
   }
 
   function filterPlaylist(genre) {
+    // まずメインリストでフィルタリング
+    var mainListIds = MAIN_LISTS[state.currentMainList] || [];
+    var baseList = [];
+    
+    // メインリストの順番を維持してフィルタリング
+    mainListIds.forEach(function(id) {
+      var track = PLAYLIST.find(function(t) { return t.id === id; });
+      if (track) baseList.push(track);
+    });
+    
+    // ジャンルでさらにフィルタリング
     if (genre === 'all') {
-      state.filteredPlaylist = PLAYLIST.slice();
+      state.filteredPlaylist = baseList;
     } else {
-      state.filteredPlaylist = PLAYLIST.filter(function(track) {
+      state.filteredPlaylist = baseList.filter(function(track) {
         return track.genre === genre;
       });
     }
+  }
+
+  function setMainList(listType) {
+    state.currentMainList = listType;
+    state.currentGenre = 'all';
+    filterPlaylist('all');
+    updateMainListFilter();
+    updateGenreFilter();
+    updatePlaylistUI();
+    if (state.filteredPlaylist.length > 0) {
+      var firstOriginalIndex = getOriginalIndex(0);
+      if (firstOriginalIndex >= 0) loadTrack(firstOriginalIndex, false);
+    }
+  }
+
+  function updateMainListFilter() {
+    if (!elements.mainListFilter) return;
+    var buttons = elements.mainListFilter.querySelectorAll('.main-list-btn');
+    buttons.forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.list === state.currentMainList);
+    });
   }
 
   function getOriginalIndex(filteredIndex) {
@@ -1052,13 +1092,48 @@
       elements.trackTitle.textContent = 'No tracks';
       return;
     }
+    
+    // URLパラメータで曲指定があるかチェック
+    var urlParams = new URLSearchParams(window.location.search);
+    var trackParam = urlParams.get('track');
+    var initialTrackIndex = -1;
+    
+    if (trackParam) {
+      // 指定された曲を全PLAYLISTから検索
+      for (var i = 0; i < PLAYLIST.length; i++) {
+        if (PLAYLIST[i].id === trackParam) {
+          initialTrackIndex = i;
+          break;
+        }
+      }
+    }
+    
+    // メインリストフィルターのイベント設定
+    if (elements.mainListFilter) {
+      var buttons = elements.mainListFilter.querySelectorAll('.main-list-btn');
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          setMainList(btn.dataset.list);
+        });
+      });
+    }
+    
+    // デフォルトはlofi
+    state.currentMainList = 'lofi';
     filterPlaylist('all');
+    updateMainListFilter();
     updateGenreFilter();
     setVolume(1);
     updateVolumeIcon();
     updatePlaylistUI();
     setupEventListeners();
-    loadTrack(0, false);
+    
+    // URLパラメータで曲が指定されていれば、その曲を自動再生
+    if (initialTrackIndex >= 0) {
+      loadTrack(initialTrackIndex, true);
+    } else {
+      loadTrack(0, false);
+    }
   }
 
   if (document.readyState === 'loading') {

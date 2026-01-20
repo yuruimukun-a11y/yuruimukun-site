@@ -916,3 +916,36 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 107, 138, 0.4);
 }
+
+
+/* Main List Filter */
+.main-list-filter {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  justify-content: center;
+}
+
+.main-list-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.main-list-btn:hover {
+  border-color: var(--color-primary-light);
+  background: var(--color-bg-hover);
+}
+
+.main-list-btn.active {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 107, 138, 0.3);
+}
