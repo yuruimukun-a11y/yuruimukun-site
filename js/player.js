@@ -466,7 +466,8 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi'],
-    normal: ['oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid']
+    normal: ['oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid'],
+    all: null  // nullの場合は全曲を名前順で表示
   };
 
   const state = {
@@ -543,14 +544,21 @@
 
   function filterPlaylist(genre) {
     // まずメインリストでフィルタリング
-    var mainListIds = MAIN_LISTS[state.currentMainList] || [];
+    var mainListIds = MAIN_LISTS[state.currentMainList];
     var baseList = [];
     
-    // メインリストの順番を維持してフィルタリング
-    mainListIds.forEach(function(id) {
-      var track = PLAYLIST.find(function(t) { return t.id === id; });
-      if (track) baseList.push(track);
-    });
+    if (mainListIds === null) {
+      // ALLの場合は全曲を名前順でソート
+      baseList = PLAYLIST.slice().sort(function(a, b) {
+        return a.id.toLowerCase().localeCompare(b.id.toLowerCase());
+      });
+    } else {
+      // メインリストの順番を維持してフィルタリング
+      mainListIds.forEach(function(id) {
+        var track = PLAYLIST.find(function(t) { return t.id === id; });
+        if (track) baseList.push(track);
+      });
+    }
     
     // ジャンルでさらにフィルタリング
     if (genre === 'all') {
