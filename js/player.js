@@ -176,6 +176,14 @@
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/negai/playlist.m3u8',
   },
   {
+    id: 'meow',
+    title: 'meow',
+    artist: 'yuruimukun',
+    genre: 'guitar',
+    description: '猫の鳴き声を思わせるフレーズが印象的なギター曲。ゆるいノリと軽快なリズムで、散歩や作業に合う一曲です。',
+    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/meow/playlist.m3u8',
+  },
+  {
     id: 'atawo',
     title: 'atawo',
     artist: 'yuruimukun',
