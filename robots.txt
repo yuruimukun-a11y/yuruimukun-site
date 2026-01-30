@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yuruimukun.com/sitemap.xml
+
+# クローラーに優しい設定
+Crawl-delay: 1
+
+# 不要なディレクトリは除外
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.wrangler/
+Disallow: /tools/
+Disallow: /server/
