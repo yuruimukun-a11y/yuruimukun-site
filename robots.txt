@@ -1,6 +1,13 @@
 User-agent: *
 Allow: /
 
+# Google AdSenseのクローラーを明示的に許可
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
 # Sitemap
 Sitemap: https://yuruimukun.com/sitemap.xml
 
