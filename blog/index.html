@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ブログ - ゆるいむくん</title>
+  <meta name="description" content="yuruimukunの音楽制作日記。曲の制作背景や日常のことをゆるく書いています。">
+  <link rel="canonical" href="https://yuruimukun.com/blog/">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .blog-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: var(--spacing-lg);
+    }
+    .blog-header {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+    .blog-header h1 {
+      color: var(--color-primary-dark);
+      font-size: 1.8rem;
+      margin-bottom: var(--spacing-sm);
+    }
+    .blog-header p {
+      color: var(--color-text-light);
+    }
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    .blog-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      box-shadow: var(--shadow-soft);
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-normal);
+    }
+    .blog-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .blog-card-date {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-bottom: var(--spacing-xs);
+    }
+    .blog-card-title {
+      font-size: 1.2rem;
+      color: var(--color-text-dark);
+      margin-bottom: var(--spacing-xs);
+    }
+    .blog-card-excerpt {
+      color: var(--color-text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-container">
+    <a href="/" class="back-link">← トップページに戻る</a>
+    
+    <header class="blog-header">
+      <h1>📝 ブログ</h1>
+      <p>音楽制作のこととか、日常のこととか。ゆるく書いてます。</p>
+    </header>
+
+    <div class="blog-list">
+      <a href="negai.html" class="blog-card">
+        <div class="blog-card-date">2025年1月</div>
+        <h2 class="blog-card-title">「negai」について</h2>
+        <p class="blog-card-excerpt">マヌルネコさんの映像に合わせてSFチックな浮遊感を出したくて作った曲。またカノン進行使っちゃった（笑）</p>
+      </a>
+    </div>
+
+    <footer style="margin-top: var(--spacing-xl); text-align: center; color: var(--color-text-light); font-size: 0.85rem;">
+      <p>© 2025 ゆるいむくん</p>
+    </footer>
+  </div>
+</body>
+</html>
