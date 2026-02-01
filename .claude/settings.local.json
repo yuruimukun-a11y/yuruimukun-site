@@ -8,7 +8,16 @@
       "Bash(node:*)",
       "Bash(grep:*)",
       "Bash(git add:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\n楽曲説明ページを更新：プレイヤーの代わりにトップページへのリンクを追加\n\n- 各トラックページのプレースホルダーを「トップページで聴く」リンクに変更\n- server.jsにディレクトリアクセス時のindex.html対応を追加\n- play-linkスタイルをCSSに追加\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push)",
+      "Bash(git -C \"E:/ルーティン用 イムなど/イム/yuruimukun-site\" add .gitignore)",
+      "Bash(git -C \"E:/ルーティン用 イムなど/イム/yuruimukun-site\" commit -m \"$\\(cat <<''EOF''\n.gitignoreにSITE_STRUCTURE.mdを追加\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"E:/ルーティン用 イムなど/イム/yuruimukun-site\" push)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFirebase Realtime Databaseによる再生カウント機能を追加\n\n- index.htmlにFirebase SDK（v10.7.1）を追加\n- player.jsのsendPlayCount関数をFirebase経由に変更\n- 曲再生時にplayCounts/{trackId}へカウントを保存\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(git -C \"E:/ルーティン用 イムなど/イム/yuruimukun-site\" log --oneline -20)"
     ]
   }
 }
