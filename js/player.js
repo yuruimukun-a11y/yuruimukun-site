@@ -32,22 +32,6 @@
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/ninja/playlist.m3u8',
   },
   {
-    id: 'oyasumi',
-    title: 'oyasumi',
-    artist: 'yuruimukun',
-    genre: 'aki-music',
-    description: '一日の終わりに聴きたい穏やかな曲。柔らかな音色が心を落ち着かせ、ゆったりとした眠りへと誘います。夜のリラックスタイムにおすすめです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oyasumi/playlist.m3u8',
-  },
-  {
-    id: 'tomoshibi',
-    title: 'tomoshibi',
-    artist: 'yuruimukun',
-    genre: 'aki-music',
-    description: '小さな灯火のような温かみのあるメロディ。暗闘の中でほのかに光る希望をイメージした、心に寄り添う優しい一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tomoshibi/playlist.m3u8',
-  },
-  {
     id: 'meitantei',
     title: 'meitantei',
     artist: 'yuruimukun',
@@ -70,14 +54,6 @@
     genre: 'game-bgmfuu',
     description: 'ゲームの戦闘シーンを想起させるアップテンポな曲。緊張感のあるビートと盛り上がるメロディで、集中力を高めたい時に最適です。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/battle/playlist.m3u8',
-  },
-  {
-    id: 'chirizakura',
-    title: 'chirizakura',
-    artist: 'yuruimukun',
-    genre: 'game-bgmfuu',
-    description: '散りゆく桜をテーマにした和風の楽曲。儚くも美しい桜吹雪の情景を、繊細なメロディで表現しています。春の終わりに聴きたい一曲。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/chirizakura/playlist.m3u8',
   },
   {
     id: 'kokokokomebattle',
@@ -374,14 +350,6 @@
     genre: 'natsu-music',
     description: '晴れた日のピクニックをイメージした爽やかな夏曲。青空の下でお弁当を広げる幸せな瞬間を音楽にしました。',
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/picnic/playlist.m3u8',
-  },
-  {
-    id: 'sakana',
-    title: 'sakana',
-    artist: 'yuruimukun',
-    genre: 'natsu-music',
-    description: '魚が泳ぐ様子を表現したゆらゆらとしたアコースティック曲。水の中を漂うような心地よさで、リラックスタイムにおすすめです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sakana/playlist.m3u8',
   },
   {
     id: 'manji',
