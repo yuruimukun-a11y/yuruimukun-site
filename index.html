@@ -186,10 +186,11 @@
     <section class="playlist-section">
       <!-- Main List Filter -->
       <div class="main-list-filter" id="mainListFilter">
-        <button class="main-list-btn active" data-list="lofi">🎵 Lofi</button>
-        <button class="main-list-btn" data-list="normal">🎸 通常</button>
-        <button class="main-list-btn" data-list="all">📋 ALL</button>
+        <button class="main-list-btn active" data-list="lofi" title="ゆったり系の曲だけ表示">🎵 ゆったり</button>
+        <button class="main-list-btn" data-list="normal" title="通常の曲だけ表示">🎸 通常</button>
+        <button class="main-list-btn" data-list="all" title="全曲を表示">📋 全曲</button>
       </div>
+      <p class="filter-hint">🎵ゆったり＝Lofi・カフェ系 ／ 🎸通常＝ゲーム・ロック系 ／ 📋全曲＝すべての曲</p>
 
       <!-- Genre Filter -->
       <div class="genre-filter" id="genreFilter">
@@ -198,19 +199,20 @@
 
       <!-- Play Mode Buttons -->
       <div class="play-mode">
-        <button class="play-mode-btn" id="playShuffleBtn">
+        <button class="play-mode-btn" id="playShuffleBtn" title="表示中の曲をランダムに再生">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
             <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
           </svg>
-          Shuffle Play
+          🔀 ランダム再生
         </button>
-        <button class="play-mode-btn" id="playOrderBtn">
+        <button class="play-mode-btn" id="playOrderBtn" title="表示中の曲を順番に再生">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
             <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
           </svg>
-          Play in Order
+          ▶️ 順番に再生
         </button>
       </div>
+      <p class="filter-hint" style="margin-top: 0.5rem; font-size: 0.8rem;">※選んだリスト内の曲だけが再生されます（全曲聴きたい場合は📋全曲を選択）</p>
 
       <h3 class="playlist-title">プレイリスト</h3>
       <ul class="playlist" id="playlist">
