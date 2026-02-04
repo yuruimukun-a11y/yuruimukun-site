@@ -1,5 +1,109 @@
 {
   "buildCommand": "",
   "outputDirectory": ".",
-  "framework": null
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.yuruimukun.com" }
+      ],
+      "destination": "https://yuruimukun.com/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "query", "key": "utm_source" }
+      ],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "query", "key": "utm_medium" }
+      ],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "query", "key": "utm_campaign" }
+      ],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "query", "key": "utm_term" }
+      ],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "query", "key": "utm_content" }
+      ],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "query", "key": "utm_id" }
+      ],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "query", "key": "gclid" }
+      ],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "query", "key": "fbclid" }
+      ],
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/public/tracks/index.html",
+      "destination": "/public/tracks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/public/tracks",
+      "destination": "/public/tracks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/public/ninja.html",
+      "destination": "/public/tracks/ninja.html",
+      "statusCode": 301
+    }
+  ]
 }
