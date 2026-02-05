@@ -416,6 +416,14 @@
     src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yoku/playlist.m3u8',
   },
   {
+    id: 'jibungajibunzyanainonara',
+    title: 'jibungajibunzyanainonara',
+    artist: 'yuruimukun',
+    genre: 'vocaloid',
+    description: '自分が自分じゃないのならというテーマのボカロ曲。自己のアイデンティティを問いかける、哲学的で感情的な一曲です。',
+    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/jibungajibunzyanainonara/playlist.m3u8',
+  },
+  {
     id: 'antinomy day',
     title: 'antinomy day',
     artist: 'yuruimukun',
