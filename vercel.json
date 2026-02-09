@@ -1,5 +1,15 @@
 {
   "buildCommand": "",
   "outputDirectory": ".",
-  "framework": null
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.yuruimukun.com" }
+      ],
+      "destination": "https://yuruimukun.com/:path*",
+      "statusCode": 301
+    }
+  ]
 }
