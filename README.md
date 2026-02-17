@@ -13,41 +13,40 @@ npm start
 
 ## 曲の追加方法
 
+サイトへの楽曲追加は、**1. HLS変換**, **2. R2アップロード**, **3. プレイリスト更新** の3ステップで行います。
+
 ### 1. 音声ファイルをHLSに変換
 
-```bash
-# 単一ファイル変換
-./tools/convert.sh sample.wav music/sample
+ffmpegを使用して、音声ファイルをストリーミング用のHLS形式（`.m3u8`と`.ts`）に変換します。
 
-# 一括変換
-./tools/batch_convert.sh ./raw_audio ./music
+```bash
+# 例: 192kbps MP3に変換してHLS出力
+ffmpeg -i input.wav -codec:a libmp3lame -b:a 192k -map 0:a -f hls -hls_time 10 -hls_playlist_type event -hls_segment_filename "seg_%03d.ts" index.m3u8
 ```
 
-**必要なもの:** ffmpeg
+### 2. Cloudflare R2へのアップロード
 
-### 2. プレイリストに曲を追加
+生成されたファイルを Cloudflare R2 の `yuruimukun-music` バケットにアップロードします。
 
-`js/player.js` の `PLAYLIST` 配列を編集:
+- 構成例: `uta/SONG_ID/index.m3u8`
+- 公開URL例: `https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/uta/SONG_ID/index.m3u8`
+
+### 3. プレイリストに曲を追加 (GitHub)
+
+`js/player.js` の `PLAYLIST` 配列を編集し、GitHubへプッシュします。
 
 ```javascript
-const PLAYLIST = [
-  {
-    id: 'sample',
-    title: 'サンプル曲',
-    artist: 'ゆるいむくん',
-    src: '/music/sample/playlist.m3u8',
-    duration: 0
-  },
-  // 新しい曲を追加
-  {
-    id: 'newsong',
-    title: '新しい曲',
-    artist: 'ゆるいむくん',
-    src: '/music/newsong/playlist.m3u8',
-    duration: 0
-  }
-];
+{
+  id: 'SONG_ID',
+  title: '日本語の曲名',
+  artist: 'yuruimukun',
+  genre: 'uta', // ジャンル
+  description: '説明文...',
+  src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/uta/SONG_ID/index.m3u8',
+}
 ```
+
+※ `MAIN_LISTS.normal` に ID を追加すると、トップページの推奨リストに表示されます。
 
 ## ファイル構成
 
