@@ -8,6 +8,14 @@
 
   const PLAYLIST = [
     {
+      id: 'hai',
+      title: 'hai',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/hai/playlist.m3u8',
+    },
+    {
       id: 'Danmaku',
       title: '弾幕',
       artist: 'yuruimukun',
