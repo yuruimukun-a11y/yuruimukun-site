@@ -460,8 +460,8 @@
       title: '逢魔時 (piano)',
       artist: 'yuruimukun',
       genre: 'vocaloid',
-      description: 'yuruimukun 2025年の音楽活動を振り返ってのラストに流れる曲です。
-逢魔時の本当のラストといったイメージで作りました。落下ノーツなどの音ゲー感も動画の方では感じられるのでそちらも是非です。',
+      description: `yuruimukun 2025年の音楽活動を振り返ってのラストに流れる曲です。
+逢魔時の本当のラストといったイメージで作りました。落下ノーツなどの音ゲー感も動画の方では感じられるのでそちらも是非です。`,
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki-piano/playlist.m3u8',
     },
   ];
