@@ -3,443 +3,468 @@
  * HLS.js based streaming player with genre filter
  */
 
-(function() {
+(function () {
   'use strict';
 
   const PLAYLIST = [
-  {
-    id: 'Danmaku',
-    title: 'Danmaku',
-    artist: 'yuruimukun',
-    genre: 'aki-music',
-    description: '弾幕シューティングゲームをイメージした疾走感のあるエレクトロニック曲。高速で飛び交う弾幕のような電子音と、緊張感のあるビートが特徴です。ゲーム中のBGMや、集中力を高めたい作業時に。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/Danmaku/playlist.m3u8',
-  },
-  {
-    id: 'Marron battle',
-    title: 'Marron battle',
-    artist: 'yuruimukun',
-    genre: 'aki-music',
-    description: '栗をテーマにした秋らしい戦闘曲。可愛らしさと緊張感が同居する不思議なバランスが特徴。秋の収穫祭のような賑やかさを感じられる一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/Marron battle/playlist.m3u8',
-  },
-  {
-    id: 'ninja',
-    title: 'ninja',
-    artist: 'yuruimukun',
-    genre: 'aki-music',
-    description: '忍者の静かな足音と素早い動きをイメージした和風エレクトロニック。闇夜を駆け抜けるような疾走感と、息を潜めるような静寂が交互に訪れます。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/ninja/playlist.m3u8',
-  },
-  {
-    id: 'meitantei',
-    title: 'meitantei',
-    artist: 'yuruimukun',
-    genre: 'bgm',
-    description: 'ミステリアスな雰囲気漂う探偵風BGM。謎解きの場面や、考え事をしながらの作業に。少しコミカルな要素も含んだ親しみやすい曲調です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/meitantei/playlist.m3u8',
-  },
-  {
-    id: 'nekokan',
-    title: 'nekokan',
-    artist: 'yuruimukun',
-    genre: 'bgm',
-    description: '猫の完璧さを表現した曲。のんびりとした猫の日常と、時折見せる俊敏な動きを音楽で表現。猫好きな方に捧げる一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/nekokan/playlist.m3u8',
-  },
-  {
-    id: 'battle',
-    title: 'battle',
-    artist: 'yuruimukun',
-    genre: 'game-bgmfuu',
-    description: 'ゲームの戦闘シーンを想起させるアップテンポな曲。緊張感のあるビートと盛り上がるメロディで、集中力を高めたい時に最適です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/battle/playlist.m3u8',
-  },
-  {
-    id: 'kokokokomebattle',
-    title: 'kokokokomebattle',
-    artist: 'yuruimukun',
-    genre: 'game-bgmfuu',
-    description: 'コメバトルの激しさを表現したコミカルかつ熱い戦闘曲。連続する「ココココ」というリズムが印象的。ゲーム実況やテンションを上げたい時に。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kokokokomebattle/playlist.m3u8',
-  },
-  {
-    id: 'komebattle',
-    title: 'komebattle',
-    artist: 'yuruimukun',
-    genre: 'game-bgmfuu',
-    description: 'お米をめぐる壮大なバトルをイメージした曲。日本の主食への敬意を込めた、ユーモラスながらも本格的な戦闘BGMです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/komebattle/playlist.m3u8',
-  },
-  {
-    id: 'odoro-',
-    title: 'odoro-',
-    artist: 'yuruimukun',
-    genre: 'game-bgmfuu',
-    description: '「踊ろう」をテーマにした楽しいダンスミュージック。体が自然と動き出すようなリズムで、気分を上げたい時にぴったりです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/odoro-/playlist.m3u8',
-  },
-  {
-    id: 'acid',
-    title: 'acid',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: '歪んだギターサウンドが特徴的なアシッドロック風の楽曲。サイケデリックな音の波に身を任せて、非日常的な音楽体験を。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/acid/playlist.m3u8',
-  },
-  {
-    id: 'atsu',
-    title: 'atsu',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: '暑い夏の日を思わせる熱いギターサウンド。汗をかきながら弾いているような生々しいエネルギーが伝わる一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/atsu/playlist.m3u8',
-  },
-  {
-    id: 'BINGO',
-    title: 'BINGO',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: 'ビンゴゲームの興奮とワクワク感を表現したポップなギター曲。当たりが出そうな期待感に満ちたメロディをお楽しみください。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/BINGO/playlist.m3u8',
-  },
-  {
-    id: 'neko car',
-    title: 'neko car',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: '猫がドライブしている様子をイメージした軽快なギター曲。窓から入る風と、自由気ままな猫の姿が浮かぶ爽やかなサウンドです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/neko car/playlist.m3u8',
-  },
-  {
-    id: 'sekaizora',
-    title: 'sekaizora',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: '世界中の空をつなぐような壮大なギターサウンド。どこまでも広がる青空をイメージした、開放感あふれる一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sekaizora/playlist.m3u8',
-  },
-  {
-    id: 'yuruimukun-beat1',
-    title: 'yuruimukun-beat1',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: 'ゆるいむくんらしさ全開のビート曲。ゆるさとかっこよさを両立した独自のグルーヴで、作業用BGMとしても最適です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yuruimukun-beat1/playlist.m3u8',
-  },
-  {
-    id: 'yuruimukun-beat2',
-    title: 'yuruimukun-beat2',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: 'yuruimukun-beat1に続く第二弾。より洗練されたビートと、少しメロウな雰囲気が特徴。夕暮れ時の作業にぴったりです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yuruimukun-beat2/playlist.m3u8',
-  },
-  {
-    id: 'travel-manul-nekosan',
-    title: 'travel-manul-nekosan',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: 'マヌルネコの旅をテーマにしたギター曲。広大な草原を悠々と歩くマヌルネコの姿が目に浮かぶ、冒険心をくすぐる一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/travel-manul-nekosan/playlist.m3u8',
-  },
-  {
-    id: 'negai',
-    title: 'negai',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: '空と街をテーマにしたギター曲。都会の空を見上げた時の開放感と、街の喧騒が交差する情景を表現した一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/negai/playlist.m3u8',
-  },
-  {
-    id: 'meow',
-    title: 'meow',
-    artist: 'yuruimukun',
-    genre: 'guitar',
-    description: '猫の鳴き声を思わせるフレーズが印象的なギター曲。ゆるいノリと軽快なリズムで、散歩や作業に合う一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/meow/playlist.m3u8',
-  },
-  {
-    id: 'atawo',
-    title: 'atawo',
-    artist: 'yuruimukun',
-    genre: 'guitar-aco or clean',
-    description: 'アコースティックギターの温かみある音色が心地よい一曲。指先から紡ぎ出される素朴なメロディで、穏やかなひとときを。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/atawo/playlist.m3u8',
-  },
-  {
-    id: 'awafuki',
-    title: 'awafuki',
-    artist: 'yuruimukun',
-    genre: 'guitar-aco or clean',
-    description: '泡のように軽やかで儚いアコースティック曲。クリーントーンのギターが奏でる透明感のあるサウンドをお楽しみください。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/awafuki/playlist.m3u8',
-  },
-  {
-    id: 'band CatsF',
-    title: 'band CatsF',
-    artist: 'yuruimukun',
-    genre: 'guitar-aco or clean',
-    description: '猫たちのバンドをイメージしたアコースティック曲。自由気ままに演奏する猫たちの姿が目に浮かぶ、ほのぼのとした一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/band CatsF/playlist.m3u8',
-  },
-  {
-    id: 'forest session',
-    title: 'forest session',
-    artist: 'yuruimukun',
-    genre: 'guitar-aco or clean',
-    description: '森の中でのセッションをイメージしたナチュラルなサウンド。木漏れ日の中で奏でられる穏やかなギターの調べをお楽しみください。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/forest session/playlist.m3u8',
-  },
-  {
-    id: 'sakana',
-    title: 'sakana',
-    artist: 'yuruimukun',
-    genre: 'guitar-aco or clean',
-    description: '魚が泳ぐ様子を表現したゆらゆらとしたアコースティック曲。水の中を漂うような心地よさで、リラックスタイムにおすすめです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sakana/playlist.m3u8',
-  },
-  {
-    id: 'SUNMA',
-    title: 'SUNMA',
-    artist: 'yuruimukun',
-    genre: 'guitar-aco or clean',
-    description: '秋刀魚への愛を込めたアコースティック曲。秋の味覚を思い出しながら聴きたい、どこか懐かしい温かみのある一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/SUNMA/playlist.m3u8',
-  },
-  {
-    id: 'yabimi',
-    title: 'yabimi',
-    artist: 'yuruimukun',
-    genre: 'guitar-aco or clean',
-    description: '夜の美しさをテーマにしたクリーンギター曲。静かな夜に一人で聴きたくなるような、繊細で美しいメロディです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yabimi/playlist.m3u8',
-  },
-  {
-    id: 'halloween-manul neko',
-    title: 'halloween-manul neko',
-    artist: 'yuruimukun',
-    genre: 'halloween',
-    description: 'ハロウィンとマヌルネコをテーマにした曲。ちょっと不気味だけど可愛らしい、ハロウィンの夜にぴったりの雰囲気です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/halloween-manul neko/playlist.m3u8',
-  },
-  {
-    id: 'halloween-okataduke',
-    title: 'halloween-okataduke',
-    artist: 'yuruimukun',
-    genre: 'halloween',
-    description: 'ハロウィンが終わった後のお片付けをイメージ。少し寂しげだけど前向きな気持ちになれる、季節の変わり目の一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/halloween-okataduke/playlist.m3u8',
-  },
-  {
-    id: 'MIKAN NEKOSAN',
-    title: 'MIKAN NEKOSAN',
-    artist: 'yuruimukun',
-    genre: 'halloween',
-    description: 'みかんと猫さんをテーマにしたハロウィン曲。オレンジ色の暖かみと猫の気まぐれさが織りなす不思議な世界観をお楽しみください。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/MIKAN NEKOSAN/playlist.m3u8',
-  },
-  {
-    id: 'kelt',
-    title: 'kelt',
-    artist: 'yuruimukun',
-    genre: 'kelt',
-    description: 'ケルト音楽をベースにしたファンタジックな一曲。緑の丘と古い伝説を思わせる、どこか懐かしい異国の音楽体験を。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kelt/playlist.m3u8',
-  },
-  {
-    id: 'ie-cafe',
-    title: 'ie-cafe',
-    artist: 'yuruimukun',
-    genre: 'lofi',
-    description: '家でカフェ気分を味わえるLo-Fi曲。コーヒーの香りと午後の光を感じながら、ゆったりとした時間を過ごせます。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/ie-cafe/playlist.m3u8',
-  },
-  {
-    id: 'neko-cafe',
-    title: 'neko-cafe',
-    artist: 'yuruimukun',
-    genre: 'lofi',
-    description: '猫カフェにいるような癒しのLo-Fi曲。猫たちに囲まれてくつろぐ幸せな時間をイメージした、心温まるサウンドです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/neko-cafe/playlist.m3u8',
-  },
-  {
-    id: 'oyasumi',
-    title: 'oyasumi',
-    artist: 'yuruimukun',
-    genre: 'lofi',
-    description: '一日の終わりに聴きたい穏やかな曲。柔らかな音色が心を落ち着かせ、ゆったりとした眠りへと誘います。夜のリラックスタイムにおすすめです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oyasumi/playlist.m3u8',
-  },
-  {
-    id: 'tomoshibi',
-    title: 'tomoshibi',
-    artist: 'yuruimukun',
-    genre: 'lofi',
-    description: '小さな灯火のような温かみのあるメロディ。暗闘の中でほのかに光る希望をイメージした、心に寄り添う優しい一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tomoshibi/playlist.m3u8',
-  },
-  {
-    id: 'umi-cafe',
-    title: 'umi-cafe',
-    artist: 'yuruimukun',
-    genre: 'lofi',
-    description: '海辺のカフェをイメージしたLo-Fi曲。波の音と潮風を感じながら、リゾート気分でリラックスできる一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/umi-cafe/playlist.m3u8',
-  },
-  {
-    id: 'reverth going back',
-    title: 'reverth going back',
-    artist: 'yuruimukun',
-    genre: 'lofi-kelt',
-    description: 'ケルトとLo-Fiを融合させた曲。過去への郷愁と前へ進む決意が交差する、感傷的でありながら前向きな楽曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/reverth going back/playlist.m3u8',
-  },
-  {
-    id: 'revolutionary event',
-    title: 'revolutionary event',
-    artist: 'yuruimukun',
-    genre: 'lofi-kelt',
-    description: '革命的な出来事をテーマにしたケルト風Lo-Fi。日常の中の小さな革命を祝うような、心躍るメロディをお楽しみください。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/revolutionary event/playlist.m3u8',
-  },
-  {
-    id: 'runing culture',
-    title: 'runing culture',
-    artist: 'yuruimukun',
-    genre: 'lofi-kelt',
-    description: '走り続ける文化をイメージしたケルト風Lo-Fi。伝統を守りながらも進化し続ける力強さを感じられる一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/runing culture/playlist.m3u8',
-  },
-  {
-    id: 'second of the world',
-    title: 'second of the world',
-    artist: 'yuruimukun',
-    genre: 'lofi-kelt',
-    description: '世界の二番目をテーマにした曲。一番ではないけれど大切な存在への賛歌。ケルトとLo-Fiの心地よい融合を堪能できます。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/second of the world/playlist.m3u8',
-  },
-  {
-    id: 'yugudorasiru-1',
-    title: 'yugudorasiru-1',
-    artist: 'yuruimukun',
-    genre: 'lofi-kelt',
-    description: 'ユグドラシルをテーマにしたケルト風Lo-Fiシリーズ第一弾。世界樹の根元で聴くような神秘的な雰囲気を感じてください。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-1/playlist.m3u8',
-  },
-  {
-    id: 'yugudorasiru-2',
-    title: 'yugudorasiru-2',
-    artist: 'yuruimukun',
-    genre: 'lofi-kelt',
-    description: 'ユグドラシルシリーズ第二弾。世界樹の幹を登るような展開で、徐々に視界が開けていく感覚を音楽で表現しています。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-2/playlist.m3u8',
-  },
-  {
-    id: 'yugudorasiru-3',
-    title: 'yugudorasiru-3',
-    artist: 'yuruimukun',
-    genre: 'lofi-kelt',
-    description: 'ユグドラシルシリーズ完結編。世界樹の頂上から見渡す景色をイメージした、壮大でありながら穏やかなサウンドです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-3/playlist.m3u8',
-  },
-  {
-    id: 'picnic',
-    title: 'picnic',
-    artist: 'yuruimukun',
-    genre: 'natsu-music',
-    description: '晴れた日のピクニックをイメージした爽やかな夏曲。青空の下でお弁当を広げる幸せな瞬間を音楽にしました。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/picnic/playlist.m3u8',
-  },
-  {
-    id: 'manji',
-    title: 'manji',
-    artist: 'yuruimukun',
-    genre: 'uta',
-    description: '卍をテーマにした歌もの。東洋の神秘と現代的なサウンドが融合した、独特の世界観を持つボーカル曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/manji/playlist.m3u8',
-  },
-  {
-    id: 'nekosan wa sugoi-uta',
-    title: 'nekosan wa sugoi-uta',
-    artist: 'yuruimukun',
-    genre: 'uta',
-    description: '猫さんのすごさを歌った曲。猫の魅力を余すことなく表現した、猫好き必聴のユーモラスで愛らしい歌ものです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/nekosan wa sugoi-uta/playlist.m3u8',
-  },
-  {
-    id: 'mujun-sanka',
-    title: 'mujun-sanka',
-    artist: 'yuruimukun',
-    genre: 'vocaloid',
-    description: '矛盾をテーマにしたボカロ曲。相反するものが共存する世界を歌った、哲学的でありながらキャッチーな一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/mujun-sanka/playlist.m3u8',
-  },
-  {
-    id: 'onnrei',
-    title: 'onnrei',
-    artist: 'yuruimukun',
-    genre: 'vocaloid',
-    description: '音霊をテーマにしたボカロ曲。言葉に宿る魂と、音楽の持つ力を表現した神秘的な楽曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/onnrei/playlist.m3u8',
-  },
-  {
-    id: 'oumagadoki',
-    title: 'oumagadoki',
-    artist: 'yuruimukun',
-    genre: 'vocaloid',
-    description: '逢魔が時をテーマにしたボカロ曲。夕暮れ時の不思議な空気感と、現実と幻想の境界を描いた妖しい一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki/playlist.m3u8',
-  },
-  {
-    id: 'owatte-hajimatte',
-    title: 'owatte-hajimatte',
-    artist: 'yuruimukun',
-    genre: 'vocaloid',
-    description: '終わりと始まりをテーマにしたボカロ曲。何かが終わることは新しい何かの始まり。前向きなメッセージを込めた楽曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/owatte-hajimatte/playlist.m3u8',
-  },
-  {
-    id: 'wasure-oto',
-    title: 'wasure-oto',
-    artist: 'yuruimukun',
-    genre: 'vocaloid',
-    description: '忘れられた音をテーマにしたボカロ曲。記憶の片隅に残る音の断片を集めたような、ノスタルジックで切ない一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/wasure-oto/playlist.m3u8',
-  },
-  {
-    id: 'yoku',
-    title: 'yoku',
-    artist: 'yuruimukun',
-    genre: 'vocaloid',
-    description: '欲をテーマにしたボカロ曲。人間の持つ欲望と向き合い、その本質を問いかける深いメッセージ性を持った楽曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yoku/playlist.m3u8',
-  },
-  {
-    id: 'jibungajibunzyanainonara',
-    title: 'jibungajibunzyanainonara',
-    artist: 'yuruimukun',
-    genre: 'vocaloid',
-    description: '自分が自分じゃないのならというテーマのボカロ曲。自己のアイデンティティを問いかける、哲学的で感情的な一曲です。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/jibungajibunzyanainonara/playlist.m3u8',
-  },
-  {
-    id: 'antinomy day',
-    title: 'antinomy day',
-    artist: 'yuruimukun',
-    genre: 'wa',
-    description: '二律背反をテーマにした和風曲。相反する二つの真理が共存する日を描いた、哲学的で美しい和風サウンドです。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/antinomy day/playlist.m3u8',
-  },
-  {
-    id: 'chirizakura',
-    title: 'chirizakura',
-    artist: 'yuruimukun',
-    genre: 'wa',
-    description: '散りゆく桜をテーマにした和風の楽曲。儚くも美しい桜吹雪の情景を、繊細なメロディで表現しています。春の終わりに聴きたい一曲。',
-    src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/chirizakura/playlist.m3u8',
-  },
-];
+    {
+      id: 'hai',
+      title: 'hai',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/hai/playlist.m3u8',
+    },
+    {
+      id: 'Danmaku',
+      title: '弾幕',
+      artist: 'yuruimukun',
+      genre: 'aki-music',
+      description: '弾幕シューティングゲームをイメージした疾走感のあるエレクトロニック曲。高速で飛び交う弾幕のような電子音と、緊張感のあるビートが特徴です。ゲーム中のBGMや、集中力を高めたい作業時に。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/Danmaku/playlist.m3u8',
+    },
+    {
+      id: 'Marron battle',
+      title: 'マロンバトル',
+      artist: 'yuruimukun',
+      genre: 'aki-music',
+      description: '栗をテーマにした秋らしい戦闘曲。可愛らしさと緊張感が同居する不思議なバランスが特徴。秋の収穫祭のような賑やかさを感じられる一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/Marron battle/playlist.m3u8',
+    },
+    {
+      id: 'ninja',
+      title: '忍者',
+      artist: 'yuruimukun',
+      genre: 'aki-music',
+      description: '忍者の静かな足音と素早い動きをイメージした和風エレクトロニック。闇夜を駆け抜けるような疾走感と、息を潜めるような静寂が交互に訪れます。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/ninja/playlist.m3u8',
+    },
+    {
+      id: 'meitantei',
+      title: '名探偵',
+      artist: 'yuruimukun',
+      genre: 'bgm',
+      description: 'ミステリアスな雰囲気漂う探偵風BGM。謎解きの場面や、考え事をしながらの作業に。少しコミカルな要素も含んだ親しみやすい曲調です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/meitantei/playlist.m3u8',
+    },
+    {
+      id: 'nekokan',
+      title: 'ねこかん',
+      artist: 'yuruimukun',
+      genre: 'bgm',
+      description: '猫の完璧さを表現した曲。のんびりとした猫の日常と、時折見せる俊敏な動きを音楽で表現。猫好きな方に捧げる一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/nekokan/playlist.m3u8',
+    },
+    {
+      id: 'battle',
+      title: 'バトル',
+      artist: 'yuruimukun',
+      genre: 'game-bgmfuu',
+      description: 'ゲームの戦闘シーンを想起させるアップテンポな曲。緊張感のあるビートと盛り上がるメロディで、集中力を高めたい時に最適です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/battle/playlist.m3u8',
+    },
+    {
+      id: 'kokokokomebattle',
+      title: 'コココココメバトル',
+      artist: 'yuruimukun',
+      genre: 'game-bgmfuu',
+      description: 'コメバトルの激しさを表現したコミカルかつ熱い戦闘曲。連続する「ココココ」というリズムが印象的。ゲーム実況やテンションを上げたい時に。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kokokokomebattle/playlist.m3u8',
+    },
+    {
+      id: 'komebattle',
+      title: 'コメバトル',
+      artist: 'yuruimukun',
+      genre: 'game-bgmfuu',
+      description: 'お米をめぐる壮大なバトルをイメージした曲。日本の主食への敬意を込めた、ユーモラスながらも本格的な戦闘BGMです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/komebattle/playlist.m3u8',
+    },
+    {
+      id: 'odoro-',
+      title: '踊ろう',
+      artist: 'yuruimukun',
+      genre: 'game-bgmfuu',
+      description: '「踊ろう」をテーマにした楽しいダンスミュージック。体が自然と動き出すようなリズムで、気分を上げたい時にぴったりです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/odoro-/playlist.m3u8',
+    },
+    {
+      id: 'acid',
+      title: 'アシッド',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '歪んだギターサウンドが特徴的なアシッドロック風の楽曲。サイケデリックな音の波に身を任せて、非日常的な音楽体験を。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/acid/playlist.m3u8',
+    },
+    {
+      id: 'atsu',
+      title: 'あつ',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '暑い夏の日を思わせる熱いギターサウンド。汗をかきながら弾いているような生々しいエネルギーが伝わる一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/atsu/playlist.m3u8',
+    },
+    {
+      id: 'BINGO',
+      title: 'ビンゴ',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: 'ビンゴゲームの興奮とワクワク感を表現したポップなギター曲。当たりが出そうな期待感に満ちたメロディをお楽しみください。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/BINGO/playlist.m3u8',
+    },
+    {
+      id: 'neko car',
+      title: 'ねこカー',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '猫がドライブしている様子をイメージした軽快なギター曲。窓から入る風と、自由気ままな猫の姿が浮かぶ爽やかなサウンドです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/neko car/playlist.m3u8',
+    },
+    {
+      id: 'sekaizora',
+      title: 'せかいぞら',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '世界中の空をつなぐような壮大なギターサウンド。どこまでも広がる青空をイメージした、開放感あふれる一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sekaizora/playlist.m3u8',
+    },
+    {
+      id: 'yuruimukun-beat1',
+      title: 'ゆるいむくん・ビート 1',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: 'ゆるいむくんらしさ全開のビート曲。ゆるさとかっこよさを両立した独自のグルーヴで、作業用BGMとしても最適です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yuruimukun-beat1/playlist.m3u8',
+    },
+    {
+      id: 'yuruimukun-beat2',
+      title: 'ゆるいむくん・ビート 2',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: 'yuruimukun-beat1に続く第二弾。より洗練されたビートと、少しメロウな雰囲気が特徴。夕暮れ時の作業にぴったりです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yuruimukun-beat2/playlist.m3u8',
+    },
+    {
+      id: 'travel-manul-nekosan',
+      title: '旅するマヌルネコさん',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: 'マヌルネコの旅をテーマにしたギター曲。広大な草原を悠々と歩くマヌルネコの姿が目に浮かぶ、冒険心をくすぐる一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/travel-manul-nekosan/playlist.m3u8',
+    },
+    {
+      id: 'negai',
+      title: 'ねがい',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '空と街をテーマにしたギター曲。都会の空を見上げた時の開放感と、街の喧騒が交差する情景を表現した一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/negai/playlist.m3u8',
+    },
+    {
+      id: 'meow',
+      title: 'ミャオ',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '猫の鳴き声を思わせるフレーズが印象的なギター曲。ゆるいノリと軽快なリズムで、散歩や作業に合う一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/meow/playlist.m3u8',
+    },
+    {
+      id: 'atawo',
+      title: 'あたを',
+      artist: 'yuruimukun',
+      genre: 'guitar-aco or clean',
+      description: 'アコースティックギターの温かみある音色が心地よい一曲。指先から紡ぎ出される素朴なメロディで、穏やかなひとときを。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/atawo/playlist.m3u8',
+    },
+    {
+      id: 'awafuki',
+      title: 'あわふき',
+      artist: 'yuruimukun',
+      genre: 'guitar-aco or clean',
+      description: '泡のように軽やかで儚いアコースティック曲。クリーントーンのギターが奏でる透明感のあるサウンドをお楽しみください。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/awafuki/playlist.m3u8',
+    },
+    {
+      id: 'band CatsF',
+      title: 'バンド・キャッツF',
+      artist: 'yuruimukun',
+      genre: 'guitar-aco or clean',
+      description: '猫たちのバンドをイメージしたアコースティック曲。自由気ままに演奏する猫たちの姿が目に浮かぶ、ほのぼのとした一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/band CatsF/playlist.m3u8',
+    },
+    {
+      id: 'forest session',
+      title: 'フォレスト・セッション',
+      artist: 'yuruimukun',
+      genre: 'guitar-aco or clean',
+      description: '森の中でのセッションをイメージしたナチュラルなサウンド。木漏れ日の中で奏でられる穏やかなギターの調べをお楽しみください。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/forest session/playlist.m3u8',
+    },
+    {
+      id: 'sakana',
+      title: 'さかな',
+      artist: 'yuruimukun',
+      genre: 'guitar-aco or clean',
+      description: '魚が泳ぐ様子を表現したゆらゆらとしたアコースティック曲。水の中を漂うような心地よさで、リラックスタイムにおすすめです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sakana/playlist.m3u8',
+    },
+    {
+      id: 'SUNMA',
+      title: 'さんま',
+      artist: 'yuruimukun',
+      genre: 'guitar-aco or clean',
+      description: '秋刀魚への愛を込めたアコースティック曲。秋の味覚を思い出しながら聴きたい、どこか懐かしい温かみのある一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/SUNMA/playlist.m3u8',
+    },
+    {
+      id: 'yabimi',
+      title: 'やびみ',
+      artist: 'yuruimukun',
+      genre: 'guitar-aco or clean',
+      description: '夜の美しさをテーマにしたクリーンギター曲。静かな夜に一人で聴きたくなるような、繊細で美しいメロディです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yabimi/playlist.m3u8',
+    },
+    {
+      id: 'halloween-manul neko',
+      title: 'ハロウィン・マヌルネコ',
+      artist: 'yuruimukun',
+      genre: 'halloween',
+      description: 'ハロウィンとマヌルネコをテーマにした曲。ちょっと不気味だけど可愛らしい、ハロウィンの夜にぴったりの雰囲気です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/halloween-manul neko/playlist.m3u8',
+    },
+    {
+      id: 'halloween-okataduke',
+      title: 'ハロウィン・おかたづけ',
+      artist: 'yuruimukun',
+      genre: 'halloween',
+      description: 'ハロウィンが終わった後のお片付けをイメージ。少し寂しげだけど前向きな気持ちになれる、季節の変わり目の一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/halloween-okataduke/playlist.m3u8',
+    },
+    {
+      id: 'MIKAN NEKOSAN',
+      title: 'みかんねこさん',
+      artist: 'yuruimukun',
+      genre: 'halloween',
+      description: 'みかんと猫さんをテーマにしたハロウィン曲。オレンジ色の暖かみと猫の気まぐれさが織りなす不思議な世界観をお楽しみください。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/MIKAN NEKOSAN/playlist.m3u8',
+    },
+    {
+      id: 'kelt',
+      title: 'ケルト',
+      artist: 'yuruimukun',
+      genre: 'kelt',
+      description: 'ケルト音楽をベースにしたファンタジックな一曲。緑の丘と古い伝説を思わせる、どこか懐かしい異国の音楽体験を。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kelt/playlist.m3u8',
+    },
+    {
+      id: 'ie-cafe',
+      title: '家カフェ',
+      artist: 'yuruimukun',
+      genre: 'lofi',
+      description: '家でカフェ気分を味わえるLo-Fi曲。コーヒーの香りと午後の光を感じながら、ゆったりとした時間を過ごせます。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/ie-cafe/playlist.m3u8',
+    },
+    {
+      id: 'neko-cafe',
+      title: 'ねこカフェ',
+      artist: 'yuruimukun',
+      genre: 'lofi',
+      description: '猫カフェにいるような癒しのLo-Fi曲。猫たちに囲まれてくつろぐ幸せな時間をイメージした、心温まるサウンドです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/neko-cafe/playlist.m3u8',
+    },
+    {
+      id: 'oyasumi',
+      title: 'おやすみ',
+      artist: 'yuruimukun',
+      genre: 'lofi',
+      description: '一日の終わりに聴きたい穏やかな曲。柔らかな音色が心を落ち着かせ、ゆったりとした眠りへと誘います。夜のリラックスタイムにおすすめです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oyasumi/playlist.m3u8',
+    },
+    {
+      id: 'tomoshibi',
+      title: 'ともしび',
+      artist: 'yuruimukun',
+      genre: 'lofi',
+      description: '小さな灯火のような温かみのあるメロディ。暗闘の中でほのかに光る希望をイメージした、心に寄り添う優しい一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tomoshibi/playlist.m3u8',
+    },
+    {
+      id: 'umi-cafe',
+      title: '海カフェ',
+      artist: 'yuruimukun',
+      genre: 'lofi',
+      description: '海辺のカフェをイメージしたLo-Fi曲。波の音と潮風を感じながら、リゾート気分でリラックスできる一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/umi-cafe/playlist.m3u8',
+    },
+    {
+      id: 'reverth going back',
+      title: 'リバース・ゴーイング・バック',
+      artist: 'yuruimukun',
+      genre: 'lofi-kelt',
+      description: 'ケルトとLo-Fiを融合させた曲。過去への郷愁と前へ進む決意が交差する、感傷的でありながら前向きな楽曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/reverth going back/playlist.m3u8',
+    },
+    {
+      id: 'revolutionary event',
+      title: 'レボリューショナリー・イベント',
+      artist: 'yuruimukun',
+      genre: 'lofi-kelt',
+      description: '革命的な出来事をテーマにしたケルト風Lo-Fi。日常の中の小さな革命を祝うような、心躍るメロディをお楽しみください。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/revolutionary event/playlist.m3u8',
+    },
+    {
+      id: 'runing culture',
+      title: 'ランニング・カルチャー',
+      artist: 'yuruimukun',
+      genre: 'lofi-kelt',
+      description: '走り続ける文化をイメージしたケルト風Lo-Fi。伝統を守りながらも進化し続ける力強さを感じられる一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/runing culture/playlist.m3u8',
+    },
+    {
+      id: 'second of the world',
+      title: 'セカンド・オブ・ザ・ワールド',
+      artist: 'yuruimukun',
+      genre: 'lofi-kelt',
+      description: '世界の二番目をテーマにした曲。一番ではないけれど大切な存在への賛歌。ケルトとLo-Fiの心地よい融合を堪能できます。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/second of the world/playlist.m3u8',
+    },
+    {
+      id: 'yugudorasiru-1',
+      title: 'ユグドラシル 1',
+      artist: 'yuruimukun',
+      genre: 'lofi-kelt',
+      description: 'ユグドラシルをテーマにしたケルト風Lo-Fiシリーズ第一弾。世界樹の根元で聴くような神秘的な雰囲気を感じてください。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-1/playlist.m3u8',
+    },
+    {
+      id: 'yugudorasiru-2',
+      title: 'ユグドラシル 2',
+      artist: 'yuruimukun',
+      genre: 'lofi-kelt',
+      description: 'ユグドラシルシリーズ第二弾。世界樹の幹を登るような展開で、徐々に視界が開けていく感覚を音楽で表現しています。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-2/playlist.m3u8',
+    },
+    {
+      id: 'yugudorasiru-3',
+      title: 'ユグドラシル 3',
+      artist: 'yuruimukun',
+      genre: 'lofi-kelt',
+      description: 'ユグドラシルシリーズ完結編。世界樹の頂上から見渡す景色をイメージした、壮大でありながら穏やかなサウンドです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yugudorasiru-3/playlist.m3u8',
+    },
+    {
+      id: 'picnic',
+      title: 'ピクニック',
+      artist: 'yuruimukun',
+      genre: 'natsu-music',
+      description: '晴れた日のピクニックをイメージした爽やかな夏曲。青空の下でお弁当を広げる幸せな瞬間を音楽にしました。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/picnic/playlist.m3u8',
+    },
+    {
+      id: 'manji',
+      title: '卍',
+      artist: 'yuruimukun',
+      genre: 'uta',
+      description: '卍をテーマにした歌もの。東洋の神秘と現代的なサウンドが融合した、独特の世界観を持つボーカル曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/manji/playlist.m3u8',
+    },
+    {
+      id: 'nekosan wa sugoi-uta',
+      title: '猫さんはすごい（歌）',
+      artist: 'yuruimukun',
+      genre: 'uta',
+      description: '猫さんのすごさを歌った曲。猫の魅力を余すことなく表現した、猫好き必聴のユーモラスで愛らしい歌ものです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/nekosan wa sugoi-uta/playlist.m3u8',
+    },
+    {
+      id: 'nekosanka',
+      title: 'ねこさんか（猫賛歌）',
+      artist: 'yuruimukun',
+      genre: 'uta',
+      description: '猫への感謝と賛美を込めた力強い楽曲。画面の端で見つけた小さな命への想いを、疾走感のあるビートに乗せて歌い上げます。猫と共にある日常の尊さを感じられる一曲。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/uta/nekosanka/index.m3u8',
+    },
+    {
+      id: 'mujun-sanka',
+      title: '矛盾賛歌',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '矛盾をテーマにしたボカロ曲。相反するものが共存する世界を歌った、哲学的でありながらキャッチーな一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/mujun-sanka/playlist.m3u8',
+    },
+    {
+      id: 'onnrei',
+      title: 'おんれい',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '音霊をテーマにしたボカロ曲。言葉に宿る魂と、音楽の持つ力を表現した神秘的な楽曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/onnrei/playlist.m3u8',
+    },
+    {
+      id: 'oumagadoki',
+      title: '逢魔が時',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '逢魔が時をテーマにしたボカロ曲。夕暮れ時の不思議な空気感と、現実と幻想の境界を描いた妖しい一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki/playlist.m3u8',
+    },
+    {
+      id: 'owatte-hajimatte',
+      title: 'おわって・はじまって',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '終わりと始まりをテーマにしたボカロ曲。何かが終わることは新しい何かの始まり。前向きなメッセージを込めた楽曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/owatte-hajimatte/playlist.m3u8',
+    },
+    {
+      id: 'wasure-oto',
+      title: 'わすれおと',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '忘れられた音をテーマにしたボカロ曲。記憶の片隅に残る音の断片を集めたような、ノスタルジックで切ない一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/wasure-oto/playlist.m3u8',
+    },
+    {
+      id: 'yoku',
+      title: '欲',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '欲をテーマにしたボカロ曲。人間の持つ欲望と向き合い、その本質を問いかける深いメッセージ性を持った楽曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yoku/playlist.m3u8',
+    },
+    {
+      id: 'jibungajibunzyanainonara',
+      title: '自分が自分じゃないのなら',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: '自分が自分じゃないのならというテーマのボカロ曲。自己のアイデンティティを問いかける、哲学的で感情的な一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/jibungajibunzyanainonara/playlist.m3u8',
+    },
+    {
+      id: 'antinomy day',
+      title: 'アンチノミー・デイ',
+      artist: 'yuruimukun',
+      genre: 'wa',
+      description: '二律背反をテーマにした和風曲。相反する二つの真理が共存する日を描いた、哲学的で美しい和風サウンドです。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/antinomy day/playlist.m3u8',
+    },
+    {
+      id: 'chirizakura',
+      title: '散り桜',
+      artist: 'yuruimukun',
+      genre: 'wa',
+      description: '散りゆく桜をテーマにした和風の楽曲。儚くも美しい桜吹雪の情景を、繊細なメロディで表現しています。春の終わりに聴きたい一曲。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/chirizakura/playlist.m3u8',
+    },
+    {
+      id: 'oumagadoki-piano',
+      title: '逢魔時 (piano)',
+      artist: 'yuruimukun',
+      genre: 'vocaloid',
+      description: 'yuruimukun 2025年の音楽活動を振り返ってのラストに流れる曲です。
+逢魔時の本当のラストといったイメージで作りました。落下ノーツなどの音ゲー感も動画の方では感じられるのでそちらも是非です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki-piano/playlist.m3u8',
+    },
+  ];
 
   // Single track mode for individual track pages
   if (window.SINGLE_TRACK) {
@@ -450,7 +475,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi'],
-    normal: ['oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid'],
+    normal: ['nekosanka', 'oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid', 'oumagadoki-piano'],
     all: null  // nullの場合は全曲を名前順で表示
   };
 
@@ -517,7 +542,7 @@
 
   function getGenres() {
     var genres = [];
-    PLAYLIST.forEach(function(track) {
+    PLAYLIST.forEach(function (track) {
       if (track.genre && genres.indexOf(track.genre) === -1) {
         genres.push(track.genre);
       }
@@ -530,25 +555,25 @@
     // まずメインリストでフィルタリング
     var mainListIds = MAIN_LISTS[state.currentMainList];
     var baseList = [];
-    
+
     if (mainListIds === null) {
       // ALLの場合は全曲を名前順でソート
-      baseList = PLAYLIST.slice().sort(function(a, b) {
+      baseList = PLAYLIST.slice().sort(function (a, b) {
         return a.id.toLowerCase().localeCompare(b.id.toLowerCase());
       });
     } else {
       // メインリストの順番を維持してフィルタリング
-      mainListIds.forEach(function(id) {
-        var track = PLAYLIST.find(function(t) { return t.id === id; });
+      mainListIds.forEach(function (id) {
+        var track = PLAYLIST.find(function (t) { return t.id === id; });
         if (track) baseList.push(track);
       });
     }
-    
+
     // ジャンルでさらにフィルタリング
     if (genre === 'all') {
       state.filteredPlaylist = baseList;
     } else {
-      state.filteredPlaylist = baseList.filter(function(track) {
+      state.filteredPlaylist = baseList.filter(function (track) {
         return track.genre === genre;
       });
     }
@@ -570,7 +595,7 @@
   function updateMainListFilter() {
     if (!elements.mainListFilter) return;
     var buttons = elements.mainListFilter.querySelectorAll('.main-list-btn');
-    buttons.forEach(function(btn) {
+    buttons.forEach(function (btn) {
       btn.classList.toggle('active', btn.dataset.list === state.currentMainList);
     });
   }
@@ -608,7 +633,7 @@
     allBtn.textContent = 'All';
     allBtn.dataset.genre = 'all';
     if (state.currentGenre === 'all') allBtn.classList.add('active');
-    allBtn.addEventListener('click', function() { setGenre('all'); });
+    allBtn.addEventListener('click', function () { setGenre('all'); });
     header.appendChild(allBtn);
 
     // Toggle button (only if there are other genres)
@@ -637,7 +662,7 @@
       // Separate instrument and vocal genres
       var instGenres = [];
       var vocalList = [];
-      genres.forEach(function(genre) {
+      genres.forEach(function (genre) {
         if (genre === 'all') return;
         if (vocalGenres.indexOf(genre) >= 0) {
           vocalList.push(genre);
@@ -658,13 +683,13 @@
 
         var instButtons = document.createElement('div');
         instButtons.className = 'genre-section-buttons';
-        instGenres.forEach(function(genre) {
+        instGenres.forEach(function (genre) {
           var btn = document.createElement('button');
           btn.className = 'genre-btn';
           btn.textContent = genre;
           btn.dataset.genre = genre;
           if (genre === state.currentGenre) btn.classList.add('active');
-          btn.addEventListener('click', function() { setGenre(genre); });
+          btn.addEventListener('click', function () { setGenre(genre); });
           instButtons.appendChild(btn);
         });
         instSection.appendChild(instButtons);
@@ -683,13 +708,13 @@
 
         var vocalButtons = document.createElement('div');
         vocalButtons.className = 'genre-section-buttons';
-        vocalList.forEach(function(genre) {
+        vocalList.forEach(function (genre) {
           var btn = document.createElement('button');
           btn.className = 'genre-btn genre-btn-vocal';
           btn.textContent = genre;
           btn.dataset.genre = genre;
           if (genre === state.currentGenre) btn.classList.add('active');
-          btn.addEventListener('click', function() { setGenre(genre); });
+          btn.addEventListener('click', function () { setGenre(genre); });
           vocalButtons.appendChild(btn);
         });
         vocalSection.appendChild(vocalButtons);
@@ -758,10 +783,10 @@
       });
       state.hls.loadSource(src);
       state.hls.attachMedia(elements.audio);
-      state.hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      state.hls.on(Hls.Events.MANIFEST_PARSED, function () {
         if (state.isPlaying) elements.audio.play();
       });
-      state.hls.on(Hls.Events.ERROR, function(event, data) {
+      state.hls.on(Hls.Events.ERROR, function (event, data) {
         if (data.fatal) {
           if (data.type === Hls.ErrorTypes.NETWORK_ERROR) state.hls.startLoad();
           else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) state.hls.recoverMediaError();
@@ -792,7 +817,7 @@
 
   function play() {
     if (PLAYLIST.length === 0) return;
-    elements.audio.play().then(function() {
+    elements.audio.play().then(function () {
       state.isPlaying = true;
       updatePlayButton();
       updatePlaylistUI();
@@ -802,7 +827,7 @@
         var track = PLAYLIST[state.currentIndex];
         if (track) sendPlayCount(track.id);
       }
-    }).catch(function() {
+    }).catch(function () {
       state.isPlaying = false;
       updatePlayButton();
     });
@@ -964,7 +989,7 @@
 
   function updatePlaylistUI() {
     elements.playlist.innerHTML = '';
-    state.filteredPlaylist.forEach(function(track, filteredIndex) {
+    state.filteredPlaylist.forEach(function (track, filteredIndex) {
       var originalIndex = getOriginalIndex(filteredIndex);
       var li = document.createElement('li');
       li.className = 'playlist-item';
@@ -994,7 +1019,7 @@
       li.appendChild(icon);
       li.appendChild(info);
       li.appendChild(duration);
-      li.addEventListener('click', function() {
+      li.addEventListener('click', function () {
         if (originalIndex === state.currentIndex) togglePlay();
         else loadTrack(originalIndex, true);
       });
@@ -1017,17 +1042,17 @@
       var rect = elements.progressBar.getBoundingClientRect();
       seek(Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)));
     }
-    elements.progressBar.addEventListener('mousedown', function(e) {
+    elements.progressBar.addEventListener('mousedown', function (e) {
       isDraggingProgress = true;
       handleProgressDrag(e);
     });
-    document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function (e) {
       if (isDraggingProgress) handleProgressDrag(e);
     });
-    document.addEventListener('mouseup', function() {
+    document.addEventListener('mouseup', function () {
       isDraggingProgress = false;
     });
-    elements.progressBar.addEventListener('touchstart', function(e) {
+    elements.progressBar.addEventListener('touchstart', function (e) {
       var touch = e.touches[0];
       var rect = elements.progressBar.getBoundingClientRect();
       seek(Math.max(0, Math.min(1, (touch.clientX - rect.left) / rect.width)));
@@ -1038,20 +1063,20 @@
       var rect = elements.volumeSlider.getBoundingClientRect();
       setVolume(Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)));
     }
-    elements.volumeSlider.addEventListener('mousedown', function(e) {
+    elements.volumeSlider.addEventListener('mousedown', function (e) {
       isDraggingVolume = true;
       handleVolumeDrag(e);
     });
-    document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function (e) {
       if (isDraggingVolume) handleVolumeDrag(e);
     });
-    document.addEventListener('mouseup', function() {
+    document.addEventListener('mouseup', function () {
       isDraggingVolume = false;
     });
 
     elements.audio.addEventListener('timeupdate', updateProgress);
     elements.audio.addEventListener('ended', playNext);
-    elements.audio.addEventListener('loadedmetadata', function() {
+    elements.audio.addEventListener('loadedmetadata', function () {
       elements.timeTotal.textContent = formatTime(elements.audio.duration);
       if (PLAYLIST[state.currentIndex]) {
         PLAYLIST[state.currentIndex].duration = elements.audio.duration;
@@ -1059,7 +1084,7 @@
       }
     });
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
       switch (e.code) {
         case 'Space': e.preventDefault(); togglePlay(); break;
@@ -1084,12 +1109,12 @@
       elements.trackTitle.textContent = 'No tracks';
       return;
     }
-    
+
     // URLパラメータで曲指定があるかチェック
     var urlParams = new URLSearchParams(window.location.search);
     var trackParam = urlParams.get('track');
     var initialTrackIndex = -1;
-    
+
     if (trackParam) {
       // 指定された曲を全PLAYLISTから検索
       for (var i = 0; i < PLAYLIST.length; i++) {
@@ -1099,17 +1124,17 @@
         }
       }
     }
-    
+
     // メインリストフィルターのイベント設定
     if (elements.mainListFilter) {
       var buttons = elements.mainListFilter.querySelectorAll('.main-list-btn');
-      buttons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
           setMainList(btn.dataset.list);
         });
       });
     }
-    
+
     // デフォルトはlofi
     state.currentMainList = 'lofi';
     filterPlaylist('all');
@@ -1119,7 +1144,7 @@
     updateVolumeIcon();
     updatePlaylistUI();
     setupEventListeners();
-    
+
     // URLパラメータで曲が指定されていれば、その曲を自動再生
     if (initialTrackIndex >= 0) {
       loadTrack(initialTrackIndex, true);
