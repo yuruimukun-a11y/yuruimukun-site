@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボカロ調声、最低限やっていること - ゆるいむくん ブログ</title>
+    <meta name="description" content="ゆるいむくんが実際にボカロ調声で最低限やっていることを正直に書きます。難しい技術より、まず聴けるレベルにするための話。">
+    <link rel="canonical" href="https://yuruimukun.com/blog/vocal-tuning.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .blog-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: var(--spacing-lg);
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .article-header {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .article-date {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .article-title {
+            color: var(--color-text-dark);
+            font-size: 1.6rem;
+            line-height: 1.4;
+        }
+
+        .article-content {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-soft);
+            line-height: 1.9;
+            color: var(--color-text);
+        }
+
+        .article-content p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .article-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-content h2 {
+            font-size: 1.1rem;
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text-dark);
+        }
+
+        .signature {
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blog-container">
+        <a href="index.html" class="back-link">← ブログ一覧に戻る</a>
+
+        <article>
+            <header class="article-header">
+                <div class="article-date">2025年4月</div>
+                <h1 class="article-title">ボカロ調声、最低限やっていること</h1>
+            </header>
+
+            <div class="article-content">
+                <p>調声が得意かどうかと聞かれれば、正直あまり得意ではないです。プロのボカロPのような細かいピッチ調整やブレス制御は、自分にはまだ難しい。それでも「まあ聴けるかな」というレベルには持っていけているので、そこまでにやっていることを書いてみます。
+                </p>
+
+                <h2>まずデフォルトのまま歌わせてみる</h2>
+                <p>SynthesizerVの場合、何もしなくてもかなり自然に歌ってくれます。なので最初はノートを入れただけの状態でひとまず通して聴いてみます。「ここが変」と感じた箇所だけ修正するのが自分のやり方です。全部完璧にしようとすると終わらないので。
+                </p>
+
+                <h2>母音のタイミングを確認する</h2>
+                <p>日本語の歌は、母音が音の中心になります。「あ（a）」「い（i）」「う（u）」などがビートの頭に当たっているかどうかを確認して、ずれていたらノートの位置を少し動かします。この調整だけでかなり聴きやすくなります。
+                </p>
+
+                <h2>リバーブで馴染ませる</h2>
+                <p>ボーカルと他の楽器が浮いて聴こえるときは、リバーブの量と質を調整します。ボーカルに短めのルームリバーブをかけることで、バンドのサウンドに馴染みやすくなります。Pre-delayを10〜20msくらい入れると、乾いた感じを保ちつつ奥行きが出てちょうどよくなることが多いです。
+                </p>
+
+                <p>「調声が下手だからいい曲が作れない」という思い込みは、一度手放してみることをおすすめします。聴く人が気にするのは、技術よりも「この曲、なんか好きだな」という感覚の方が先です。</p>
+
+                <p class="signature">上手く作るより、好きに作る。</p>
+            </div>
+        </article>
+
+        <footer
+            style="margin-top: var(--spacing-xl); text-align: center; color: var(--color-text-light); font-size: 0.85rem;">
+            <p>© 2025 ゆるいむくん</p>
+        </footer>
+    </div>
+</body>
+
+</html>
