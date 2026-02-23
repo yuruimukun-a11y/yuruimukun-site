@@ -272,9 +272,11 @@
       <div class="footer-legal">
         <a href="/privacy.html" class="legal-link">プライバシーポリシー</a>
         <span class="legal-divider">|</span>
-        <a href="/contact.html" class="legal-link">お問い合わせ</a>
+        <a href="/terms.html" class="legal-link">利用規約</a>
         <span class="legal-divider">|</span>
-        <button class="legal-toggle" id="termsToggle">利用規約</button>
+        <a href="/about.html" class="legal-link">サイトについて</a>
+        <span class="legal-divider">|</span>
+        <a href="/contact.html" class="legal-link">お問い合わせ</a>
       </div>
 
       <!-- Terms of Service -->
@@ -319,11 +321,14 @@
       content.classList.toggle('expanded');
       this.classList.toggle('active');
     });
-    document.getElementById('privacyToggle').addEventListener('click', function () {
-      var content = document.getElementById('privacyContent');
-      content.classList.toggle('expanded');
-      this.classList.toggle('active');
-    });
+    var privacyToggleBtn = document.getElementById('privacyToggle');
+    if (privacyToggleBtn) {
+      privacyToggleBtn.addEventListener('click', function () {
+        var content = document.getElementById('privacyContent');
+        content.classList.toggle('expanded');
+        this.classList.toggle('active');
+      });
+    }
   </script>
 </body>
 
