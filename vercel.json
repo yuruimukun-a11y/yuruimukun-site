@@ -9,7 +9,12 @@
         { "type": "host", "value": "www.yuruimukun.com" }
       ],
       "destination": "https://yuruimukun.com/:path*",
-      "statusCode": 301
+      "permanent": true
+    },
+    {
+      "source": "/public/ninja.html",
+      "destination": "/public/tracks/ninja.html",
+      "permanent": true
     }
   ]
 }
