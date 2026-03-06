@@ -53,13 +53,25 @@ const MIME_TYPES = {
   '.ttf': 'font/ttf'
 };
 
-// CORSヘッダー
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, HEAD, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Range',
-  'Access-Control-Expose-Headers': 'Content-Length, Content-Range'
-};
+// 許可するオリジン（本番・開発環境のみ）
+const ALLOWED_ORIGINS = [
+  'https://yuruimukun.com',
+  'https://www.yuruimukun.com',
+  'http://localhost:3000',
+  'http://localhost:5173'
+];
+
+// CORSヘッダー（オリジン制限付き）
+function getCorsHeaders(origin) {
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Methods': 'GET, POST, HEAD, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Range',
+    'Access-Control-Expose-Headers': 'Content-Length, Content-Range',
+    'Vary': 'Origin'
+  };
+}
 
 // Parse JSON body from request
 function parseJsonBody(req) {
@@ -79,15 +91,19 @@ function parseJsonBody(req) {
 
 // Handle API requests
 async function handleApi(req, res, urlPath) {
+  const origin = req.headers.origin || '';
+  const corsHeaders = getCorsHeaders(origin);
+
   // POST /api/play-count - Increment play count
   if (urlPath === '/api/play-count' && req.method === 'POST') {
     try {
       const body = await parseJsonBody(req);
       const trackId = body.trackId;
 
-      if (!trackId) {
-        res.writeHead(400, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'trackId is required' }));
+      // trackId のバリデーション（英数字・ハイフン・スペースのみ許可）
+      if (!trackId || typeof trackId !== 'string' || !/^[\w\s\-\.]{1,100}$/.test(trackId)) {
+        res.writeHead(400, { ...corsHeaders, 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid trackId' }));
         return;
       }
 
@@ -97,36 +113,48 @@ async function handleApi(req, res, urlPath) {
 
       console.log(`Play count: ${trackId} = ${playCounts[trackId]}`);
 
-      res.writeHead(200, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
+      res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ trackId, count: playCounts[trackId] }));
     } catch (err) {
-      res.writeHead(400, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
+      res.writeHead(400, { ...corsHeaders, 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: 'Invalid JSON' }));
     }
     return;
   }
 
-  // GET /api/play-counts - Get all play counts (admin)
+  // GET /api/play-counts - Get all play counts (要：管理者トークン)
   if (urlPath === '/api/play-counts' && req.method === 'GET') {
+    const adminToken = process.env.ADMIN_TOKEN;
+    const authHeader = req.headers['authorization'];
+
+    if (adminToken && authHeader !== `Bearer ${adminToken}`) {
+      res.writeHead(401, { ...corsHeaders, 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Unauthorized' }));
+      return;
+    }
+
     // Sort by count descending
     const sorted = Object.entries(playCounts)
       .sort((a, b) => b[1] - a[1])
       .reduce((acc, [k, v]) => { acc[k] = v; return acc; }, {});
 
-    res.writeHead(200, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
+    res.writeHead(200, { ...corsHeaders, 'Content-Type': 'application/json' });
     res.end(JSON.stringify(sorted, null, 2));
     return;
   }
 
   // Unknown API endpoint
-  res.writeHead(404, { ...CORS_HEADERS, 'Content-Type': 'application/json' });
+  res.writeHead(404, { ...corsHeaders, 'Content-Type': 'application/json' });
   res.end(JSON.stringify({ error: 'Not Found' }));
 }
 
 const server = http.createServer((req, res) => {
+  const origin = req.headers.origin || '';
+  const corsHeaders = getCorsHeaders(origin);
+
   // OPTIONSリクエスト（CORS preflight）
   if (req.method === 'OPTIONS') {
-    res.writeHead(204, CORS_HEADERS);
+    res.writeHead(204, corsHeaders);
     res.end();
     return;
   }
@@ -182,7 +210,7 @@ const server = http.createServer((req, res) => {
 
     // レスポンスヘッダー
     const headers = {
-      ...CORS_HEADERS,
+      ...corsHeaders,
       'Content-Type': contentType,
       'Content-Length': stats.size,
       'Cache-Control': 'no-cache'

@@ -40,3 +40,12 @@ SITE_STRUCTURE.md
 # Backup folder
 旧/
 PLAY_COUNT_MANUAL.md
+
+# Wrangler local state (contains local DB/blob data - not for repo)
+.wrangler/
+
+# Claude Code temp files
+tmpclaude-*
+
+# Play counts data (runtime data, not source code)
+server/play_counts.json

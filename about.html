@@ -127,8 +127,11 @@
         <span class="legal-divider">|</span>
         <a href="/contact.html" class="legal-link">お問い合わせ</a>
       </div>
-      <p class="copyright">&copy; 2025 ゆるいむくん. All rights reserved.</p>
+      <p class="copyright">&copy; <span id="copyrightYear"></span> ゆるいむくん. All rights reserved.</p>
     </footer>
   </div>
+  <script>
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

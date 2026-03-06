@@ -315,12 +315,15 @@
     // Dynamic copyright year
     document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
-    // Legal toggle functionality
-    document.getElementById('termsToggle').addEventListener('click', function () {
-      var content = document.getElementById('termsContent');
-      content.classList.toggle('expanded');
-      this.classList.toggle('active');
-    });
+    // Legal toggle functionality（要素が存在する場合のみ）
+    var termsToggleBtn = document.getElementById('termsToggle');
+    if (termsToggleBtn) {
+      termsToggleBtn.addEventListener('click', function () {
+        var content = document.getElementById('termsContent');
+        content.classList.toggle('expanded');
+        this.classList.toggle('active');
+      });
+    }
     var privacyToggleBtn = document.getElementById('privacyToggle');
     if (privacyToggleBtn) {
       privacyToggleBtn.addEventListener('click', function () {

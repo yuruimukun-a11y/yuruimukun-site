@@ -2,58 +2,141 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プライバシーポリシー - ゆるいむくん</title>
-    <style>
-        body {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        h1 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        h2 {
-            margin-top: 30px;
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - ゆるいむくん</title>
+  <meta name="description" content="ゆるいむくんサイトのプライバシーポリシー。個人情報の取扱い、Cookie・広告・アクセス解析について説明します。">
+  <link rel="canonical" href="https://yuruimukun.com/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .privacy-page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .privacy-page h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-primary, #e91e8c);
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+    .privacy-page .updated {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+    .privacy-page h2 {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      border-left: 4px solid var(--color-primary, #e91e8c);
+      padding-left: 0.8rem;
+    }
+    .privacy-page p, .privacy-page li {
+      line-height: 1.9;
+      color: #444;
+    }
+    .privacy-page ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: var(--color-primary, #e91e8c);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+  </style>
 </head>
 
 <body>
-    <h1>プライバシーポリシー</h1>
+  <div class="container">
+    <header class="header">
+      <h1 class="logo"><a href="/" style="color:inherit;text-decoration:none;">ゆるいむくん</a></h1>
+      <p class="tagline">Music Streaming</p>
+      <nav class="header-nav">
+        <a href="/" class="header-nav-link">ホーム</a>
+        <a href="/public/tracks/" class="header-nav-link">楽曲一覧</a>
+        <a href="/blog/" class="header-nav-link">ブログ</a>
+      </nav>
+    </header>
 
-    <p>「ゆるいむくん」（以下「当サイト」）における個人情報の取扱いおよび広告等の配信について以下の通り定めます。</p>
+    <main class="privacy-page">
+      <h1>プライバシーポリシー</h1>
+      <p class="updated">最終更新日：2026年3月</p>
 
-    <h2>1. 広告の配信について</h2>
-    <p>当サイトは、第三者配信の広告サービス「Google AdSense（グーグルアドセンス）」を利用しています。広告配信事業者は、ユーザーの興味に応じた広告を表示するためにCookie（クッキー）を使用することがあります。</p>
-    <p>Cookieを無効にする設定およびGoogleアドセンスに関する詳細は「<a href="https://policies.google.com/technologies/ads">広告 – ポリシーと規約 –
-            Google</a>」をご覧ください。</p>
+      <p>「ゆるいむくん」（以下「当サイト」、URL：https://yuruimukun.com）は、ユーザーのプライバシーを尊重し、個人情報の保護に努めます。本ポリシーでは、当サイトにおける情報の収集・利用・第三者提供について説明します。</p>
 
-    <h2>2. アクセス解析ツールについて</h2>
-    <p>当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。
-    </p>
+      <h2>1. 収集する情報</h2>
+      <p>当サイトでは、以下の情報を収集する場合があります。</p>
+      <ul>
+        <li>アクセスログ（IPアドレス、ブラウザ種別、アクセス日時、参照元URL等）</li>
+        <li>Cookie による行動データ（広告配信・アクセス解析目的）</li>
+        <li>お問い合わせフォームにご入力いただいた情報（氏名・メールアドレス・お問い合わせ内容）</li>
+        <li>楽曲の再生回数（Firebase Realtime Database に匿名で記録）</li>
+      </ul>
 
-    <h2>3. 免責事項</h2>
-    <p>当サイトからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、誤情報が入り込んだり、情報が古くなっていることもございます。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
-    </p>
+      <h2>2. 広告の配信について（Google AdSense）</h2>
+      <p>当サイトは、Googleが提供する広告配信サービス「Google AdSense（グーグルアドセンス）」を利用しています。</p>
+      <ul>
+        <li>Google AdSense は、Cookie を使用してユーザーの興味・関心に基づいた広告を表示します。</li>
+        <li>Google はこの Cookie を使用して、ユーザーがそのサイトや他のサイトにアクセスした情報に基づいて広告を配信します。</li>
+        <li>ユーザーは <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google 広告設定</a> にアクセスすることで、パーソナライズド広告を無効にすることができます。</li>
+        <li>Cookie の使用については <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google の広告ポリシー</a> をご覧ください。</li>
+      </ul>
 
-    <footer>
-        <p>&copy; 2026 ゆるいむくん</p>
-        <p><a href="/">トップページに戻る</a></p>
+      <h2>3. アクセス解析について（Firebase）</h2>
+      <p>当サイトでは、楽曲の再生回数を計測するために Firebase Realtime Database を利用しています。収集されるデータは再生された楽曲IDと日付のみであり、個人を特定する情報は含まれません。</p>
+
+      <h2>4. Cookie（クッキー）について</h2>
+      <p>Cookie とは、ウェブサイトがユーザーのブラウザに保存する小さなテキストファイルです。当サイトでは以下の目的で Cookie を使用します。</p>
+      <ul>
+        <li>Google AdSense による広告配信の最適化</li>
+        <li>サイトの利用状況の分析</li>
+      </ul>
+      <p>ブラウザの設定から Cookie を無効にすることができますが、一部の機能が利用できなくなる場合があります。</p>
+
+      <h2>5. 個人情報の第三者提供</h2>
+      <p>当サイトは、以下の場合を除き、取得した個人情報を第三者に提供しません。</p>
+      <ul>
+        <li>法令に基づく場合</li>
+        <li>人の生命・身体・財産の保護のために必要な場合</li>
+        <li>ご本人の同意がある場合</li>
+      </ul>
+
+      <h2>6. 外部リンクについて</h2>
+      <p>当サイトには外部サイトへのリンクが含まれる場合があります。リンク先のサイトのプライバシー慣行については、当サイトは責任を負いません。</p>
+
+      <h2>7. プライバシーポリシーの変更</h2>
+      <p>本ポリシーは、法令の変更やサービス内容の変更に伴い、予告なく更新される場合があります。重要な変更がある場合は、サイト上でお知らせします。</p>
+
+      <h2>8. お問い合わせ</h2>
+      <p>本ポリシーに関するご質問は、<a href="/contact.html">お問い合わせページ</a>よりご連絡ください。</p>
+
+      <a href="/" class="back-link">← トップページに戻る</a>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-legal">
+        <a href="/privacy.html" class="legal-link">プライバシーポリシー</a>
+        <span class="legal-divider">|</span>
+        <a href="/terms.html" class="legal-link">利用規約</a>
+        <span class="legal-divider">|</span>
+        <a href="/about.html" class="legal-link">サイトについて</a>
+        <span class="legal-divider">|</span>
+        <a href="/contact.html" class="legal-link">お問い合わせ</a>
+      </div>
+      <p class="copyright">&copy; <span id="copyrightYear"></span> ゆるいむくん. All rights reserved.</p>
     </footer>
+  </div>
+  <script>
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>

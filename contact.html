@@ -2,56 +2,173 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせ - ゆるいむくん</title>
-    <style>
-        body {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        h1 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .contact-box {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ - ゆるいむくん</title>
+  <meta name="description" content="ゆるいむくんへのお問い合わせはこちらから。楽曲の利用許可・ご意見・ご感想などお気軽にどうぞ。">
+  <link rel="canonical" href="https://yuruimukun.com/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .contact-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .contact-page h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-primary, #e91e8c);
+    }
+    .contact-page > p {
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    .contact-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .contact-section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--color-primary, #e91e8c);
+      padding-left: 0.8rem;
+    }
+    .form-iframe-wrapper {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .form-iframe-wrapper iframe {
+      width: 100%;
+      min-height: 600px;
+      border: none;
+      display: block;
+    }
+    .sns-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .sns-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: #f5f5f5;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .sns-link:hover {
+      background: #ebebeb;
+    }
+    .note {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 1rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: var(--color-primary, #e91e8c);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+  </style>
 </head>
 
 <body>
-    <h1>お問い合わせ</h1>
+  <div class="container">
+    <header class="header">
+      <h1 class="logo"><a href="/" style="color:inherit;text-decoration:none;">ゆるいむくん</a></h1>
+      <p class="tagline">Music Streaming</p>
+      <nav class="header-nav">
+        <a href="/" class="header-nav-link">ホーム</a>
+        <a href="/public/tracks/" class="header-nav-link">楽曲一覧</a>
+        <a href="/blog/" class="header-nav-link">ブログ</a>
+      </nav>
+    </header>
 
-    <p>当サイトに関するお問い合わせ、楽曲のご利用に関するご相談などは、以下のSNSダイレクトメッセージ（DM）にて承っております。</p>
+    <main class="contact-page">
+      <h1>お問い合わせ</h1>
+      <p>楽曲のご利用許可・ご意見・ご感想など、お気軽にご連絡ください。<br>
+      通常2〜5営業日以内にご返信いたします。</p>
 
-    <div class="contact-box">
-        <p><strong>X (Twitter):</strong> <a href="https://x.com/yuruimukun_koho">@yuruimukun_koho</a></p>
-        <p><strong>Bluesky:</strong> <a
-                href="https://bsky.app/profile/yuruimukun.bsky.social">@yuruimukun.bsky.social</a></p>
-    </div>
+      <!-- お問い合わせフォーム -->
+      <div class="contact-section">
+        <h2>お問い合わせフォーム</h2>
+        <div class="form-iframe-wrapper">
+          <!--
+            Google フォームを作成後、以下の手順で埋め込みURLを取得してください：
+            1. Google フォーム (forms.google.com) で新規フォームを作成
+            2. 右上「送信」→「リンク」アイコン→「埋め込む」タブを選択
+            3. 表示されたiframe の src URL を下記 PLACEHOLDER 部分に貼り付け
+          -->
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSd_PLACEHOLDER_FORM_ID/viewform?embedded=true"
+            title="お問い合わせフォーム"
+            loading="lazy">
+            読み込んでいます...
+          </iframe>
+        </div>
+        <p class="note">※ フォームが表示されない場合は、下記SNSからもご連絡いただけます。</p>
+      </div>
 
-    <p>※現在、フォームの設置を順次進めております。お急ぎの場合はSNSよりご連絡いただけますと幸いです。</p>
+      <!-- SNS でのお問い合わせ -->
+      <div class="contact-section">
+        <h2>SNS からのお問い合わせ</h2>
+        <div class="sns-links">
+          <a href="https://x.com/yuruimukun_koho" class="sns-link" target="_blank" rel="noopener noreferrer">
+            <span>𝕏</span> X (Twitter) DM
+          </a>
+          <a href="https://bsky.app/profile/yuruimukun.bsky.social" class="sns-link" target="_blank" rel="noopener noreferrer">
+            <span>🦋</span> Bluesky DM
+          </a>
+        </div>
+        <p class="note">※ DMが来ない設定になっている場合は、フォームをご利用ください。</p>
+      </div>
 
-    <footer>
-        <p>&copy; 2026 ゆるいむくん</p>
-        <p><a href="/">トップページに戻る</a></p>
+      <!-- よくある質問 -->
+      <div class="contact-section">
+        <h2>よくある質問</h2>
+        <dl style="line-height:1.8;">
+          <dt style="font-weight:bold;margin-top:1rem;">楽曲をYouTube動画のBGMに使いたい</dt>
+          <dd>SoundOn経由のサブスクリプションを通じてご利用いただくか、お問い合わせフォームよりご相談ください。</dd>
+          <dt style="font-weight:bold;margin-top:1rem;">楽曲のダウンロードはできますか？</dt>
+          <dd>現在、このサイトからのダウンロードには対応しておりません。</dd>
+          <dt style="font-weight:bold;margin-top:1rem;">新曲のリクエストはできますか？</dt>
+          <dd>お問い合わせフォームよりご要望をお聞かせください。制作の参考にさせていただきます。</dd>
+        </dl>
+      </div>
+
+      <a href="/" class="back-link">← トップページに戻る</a>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-legal">
+        <a href="/privacy.html" class="legal-link">プライバシーポリシー</a>
+        <span class="legal-divider">|</span>
+        <a href="/terms.html" class="legal-link">利用規約</a>
+        <span class="legal-divider">|</span>
+        <a href="/about.html" class="legal-link">サイトについて</a>
+        <span class="legal-divider">|</span>
+        <a href="/contact.html" class="legal-link">お問い合わせ</a>
+      </div>
+      <p class="copyright">&copy; <span id="copyrightYear"></span> ゆるいむくん. All rights reserved.</p>
     </footer>
+  </div>
+  <script>
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
