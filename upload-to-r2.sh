@@ -8,7 +8,14 @@ find . -type f ! -path "./.wrangler/*" ! -path "./node_modules/*" ! -path "./sam
   key="${file#./}"
   count=$((count + 1))
   echo "[$count/$total] Uploading: $key"
-  wrangler r2 object put "yuruimukun-music/$key" --file "$file" --remote 2>&1 | head -1
+  
+  if [[ "$file" == *.m3u8 ]]; then
+    wrangler r2 object put "yuruimukun-music/$key" --file "$file" --content-type "application/x-mpegURL" --remote 2>&1 | head -1
+  elif [[ "$file" == *.ts ]]; then
+    wrangler r2 object put "yuruimukun-music/$key" --file "$file" --content-type "video/MP2T" --remote 2>&1 | head -1
+  else
+    wrangler r2 object put "yuruimukun-music/$key" --file "$file" --remote 2>&1 | head -1
+  fi
 done
 
 echo "Upload complete!"
