@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIを使ったボカロ楽曲の作り方【初心者向け】 - ゆるいむくん ブログ</title>
+  <meta name="description" content="AI音声合成ツールを使ってボカロ楽曲を作る具体的な手順を解説。Synthesizer Vや無料ツールを組み合わせれば、初心者でも本格的なボカロ曲が作れます。">
+  <link rel="canonical" href="https://yuruimukun.com/blog/ai-vocalo-how-to.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .blog-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: var(--spacing-lg);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .article-header { margin-bottom: var(--spacing-lg); }
+    .article-date {
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-bottom: var(--spacing-xs);
+    }
+    .article-title {
+      color: var(--color-text-dark);
+      font-size: 1.6rem;
+      line-height: 1.4;
+    }
+    .article-content {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-soft);
+      line-height: 1.9;
+      color: var(--color-text);
+    }
+    .article-content p { margin-bottom: var(--spacing-md); }
+    .article-content h2 {
+      color: var(--color-text-dark);
+      font-size: 1.2rem;
+      margin: var(--spacing-lg) 0 var(--spacing-sm);
+      padding-bottom: var(--spacing-xs);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .article-content ul {
+      padding-left: 1.5rem;
+      margin-bottom: var(--spacing-md);
+    }
+    .article-content li { margin-bottom: var(--spacing-xs); }
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: var(--spacing-md);
+      font-size: 0.9rem;
+    }
+    .article-content th, .article-content td {
+      border: 1px solid var(--color-border);
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+    }
+    .article-content th { background: var(--color-bg); }
+    .signature {
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-light);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-container">
+    <a href="index.html" class="back-link">← ブログ一覧に戻る</a>
+
+    <article>
+      <header class="article-header">
+        <div class="article-date">2026年3月</div>
+        <h1 class="article-title">AIを使ったボカロ楽曲の作り方【初心者向け完全ガイド】</h1>
+      </header>
+
+      <div class="article-content">
+        <p>「ボカロ曲を作ってみたいけど、どこから始めればいいかわからない」という人は多い。DAWの使い方、ピアノロールの打ち込み、声の調整…覚えることが多すぎて途中で諦めてしまう。自分も最初はそうだった。</p>
+        <p>でもここ1〜2年で状況は大きく変わった。AIを活用した音声合成ツールが普及したことで、歌声の調整にかかる時間が激減した。ゆるねこスタジオでもAIツールをフル活用してボカロ楽曲を制作しているので、実際の流れをそのまま紹介する。</p>
+
+        <h2>AIボカロとは</h2>
+        <p>「AIボカロ」とは、機械学習で学習した音声モデルを使って歌声を合成する技術の総称だ。従来のVOCALOIDは手動でピッチや抑揚を細かく調整する必要があったが、AIベースのシンガーは自動的に自然な歌い方を生成してくれる。</p>
+        <p>代表的なツールは以下のとおり。</p>
+        <ul>
+          <li><strong>Synthesizer V（SynthV）</strong>: 現時点で最も完成度が高いAI歌声合成ソフト。AIリテイク機能で同じフレーズのバリエーションを複数生成できる。</li>
+          <li><strong>OpenUtau</strong>: 無料で使えるUTAU互換エンジン。コミュニティが活発でモデルも豊富。</li>
+          <li><strong>RVC</strong>: 既存の音声をAIで別の声に変換できる。独自のキャラクターボイスを作ることも可能。</li>
+        </ul>
+        <p>ゆるねこスタジオではSynthesizer Vを主に使っている。</p>
+
+        <h2>実際の制作フロー</h2>
+        <p><strong>Step 1：曲（オケ）を作る</strong><br>
+        まずインストゥルメンタルトラックを作る。DAWはなんでもいいが、自分はReaperを使っている。コード進行を決めて、ドラム・ベース・コード楽器の順に打ち込み、メロディーラインをピアノロールで入力する。</p>
+        <p><strong>Step 2：歌詞を入力する</strong><br>
+        SynthVを開いてシンガーを選び、ノートにメロディーを打ち込んで歌詞をテキストで入力する。日本語は一文字一音節が基本なので比較的打ち込みやすい。</p>
+        <p><strong>Step 3：AIリテイクで表現を調整する</strong><br>
+        SynthVのAIリテイク機能でフレーズごとに4〜8パターンを生成して、一番自然に聞こえるものを選ぶ。手動で細かく調整するより圧倒的に早い。</p>
+        <p><strong>Step 4：ミックスとマスタリング</strong><br>
+        ボーカルトラックをDAWに取り込んでEQ・コンプ・リバーブで整える。マスタリングはiZotope Ozone Elementsを使っている。</p>
+
+        <h2>使っている主なツール・環境</h2>
+        <table>
+          <tr><th>ツール</th><th>用途</th><th>費用</th></tr>
+          <tr><td>Reaper</td><td>DAW・録音・ミックス</td><td>$60（買い切り）</td></tr>
+          <tr><td>Synthesizer V Studio Pro</td><td>歌声合成</td><td>$89（本体）+ シンガー代</td></tr>
+          <tr><td>iZotope Ozone Elements</td><td>マスタリング</td><td>セール時$30〜</td></tr>
+          <tr><td>ComfyUI</td><td>ジャケット・MV背景生成</td><td>無料（ローカル）</td></tr>
+          <tr><td>Remotion</td><td>MV動画生成</td><td>無料（個人利用）</td></tr>
+        </table>
+
+        <h2>まとめ</h2>
+        <p>AIツールを組み合わせることで、歌声の調整にかかる時間を大幅に短縮できるようになった。まずSynthVと無料DAWから始めて、曲が1本完成したら少しずつ環境を整えていくのがおすすめだ。ゆるねこスタジオの楽曲も実際にこの環境で作っているので、ぜひ参考にしてみてほしい。</p>
+        <p class="signature">今日が、やさしい一日になりますように。</p>
+      </div>
+    </article>
+
+    <footer style="margin-top: var(--spacing-xl); text-align: center; color: var(--color-text-light); font-size: 0.85rem;">
+      <p>© 2025 ゆるいむくん</p>
+    </footer>
+  </div>
+</body>
+</html>
