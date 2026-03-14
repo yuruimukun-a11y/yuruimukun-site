@@ -224,6 +224,14 @@
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/yabimi/playlist.m3u8',
     },
     {
+      id: 'sun-cafe',
+      title: 'ハレカフェ',
+      artist: 'yuruimukun',
+      genre: 'guitar-aco or clean',
+      description: '',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/sun-cafe/playlist.m3u8',
+    },
+    {
       id: 'halloween-manul neko',
       title: 'ハロウィン・マヌルネコ',
       artist: 'yuruimukun',
