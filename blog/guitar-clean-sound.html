@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クリーンギターの音作り——自分流のこだわりとポイント - ゆるいむくん ブログ</title>
+  <meta name="description" content="ゆるいむくんが曲作りで一番使うクリーンギターの音作りについて。アンプシミュレーターの設定やEQ・コンプの使い方を正直に書きます。">
+  <link rel="canonical" href="https://yuruimukun.com/blog/guitar-clean-sound.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .blog-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: var(--spacing-lg);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .article-header { margin-bottom: var(--spacing-lg); }
+    .article-date {
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-bottom: var(--spacing-xs);
+    }
+    .article-title {
+      color: var(--color-text-dark);
+      font-size: 1.6rem;
+      line-height: 1.4;
+    }
+    .article-content {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-soft);
+      line-height: 1.9;
+      color: var(--color-text);
+    }
+    .article-content p { margin-bottom: var(--spacing-md); }
+    .article-content h2 {
+      color: var(--color-text-dark);
+      font-size: 1.2rem;
+      margin: var(--spacing-lg) 0 var(--spacing-sm);
+      padding-bottom: var(--spacing-xs);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .article-content ul {
+      padding-left: 1.5rem;
+      margin-bottom: var(--spacing-md);
+    }
+    .article-content li { margin-bottom: var(--spacing-xs); }
+    .signature {
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-light);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-container">
+    <a href="index.html" class="back-link">← ブログ一覧に戻る</a>
+
+    <article>
+      <header class="article-header">
+        <div class="article-date">2026年3月</div>
+        <h1 class="article-title">クリーンギターの音作り——自分流のこだわりとポイント</h1>
+      </header>
+
+      <div class="article-content">
+        <p>ゆるいむくんの楽曲を聴いたことがある方はわかると思いますが、歪んだロックサウンドよりもクリーン〜クランチのギターが多いです。アコースティック感のある柔らかいクリーントーンが、自分の作る曲のテーマに一番合っていると感じているからです。今回はそのクリーンギターの音作りについて書いてみます。</p>
+
+        <h2>クリーンギターが難しい理由</h2>
+        <p>ギターを弾き始めたころ、クリーンよりも歪みの方が「誤魔化しが効く」と感じていました。歪んだサウンドは倍音が豊かで、多少弾き方が雑でも音が太く聞こえます。ところがクリーントーンはごまかしが利かない。タッチのムラ、指のノイズ、ピッキングの強弱——すべてがそのまま音になります。その代わり、上手く決まったときの気持ちよさは格別です。</p>
+
+        <h2>アンプシミュレーターの設定</h2>
+        <p>実機アンプは持っていないので、アンプシミュレーターで音を作っています。クリーントーンを作るときの基本設定は以下のとおりです。</p>
+        <ul>
+          <li><strong>ゲイン</strong>：できるだけ低く設定。歪まないギリギリのラインを探します。強く弾いたときにわずかにクランチになる程度が好みです。</li>
+          <li><strong>トレブル</strong>：少し控えめに。高音が出すぎると耳に刺さるので、丸みを残します。</li>
+          <li><strong>ミドル</strong>：やや持ち上げる。クリーントーンはミドルが抜けると薄くなるので、ここで存在感を作ります。</li>
+          <li><strong>ベース</strong>：程々に。低域が出すぎるとミックスで他の楽器と被るので控えめにしておきます。</li>
+        </ul>
+
+        <h2>EQとコンプの使い方</h2>
+        <p>録音後はCubase Pro上でEQとコンプを使って整えています。クリーンギターはダイナミクスの幅が大きいので、コンプで音量のムラを軽くまとめるのが最初のステップです。アタックを遅めにしてピッキングの粒感を残しながら、リリースを調整して不自然にならないようにします。</p>
+        <p>EQはローカット（100Hz以下）を基本として、800Hz〜1kHz付近のこもった成分を少しカット。そのかわり3〜5kHz付近を少し持ち上げることで、ミックスの中でギターの輪郭が際立つようにしています。</p>
+
+        <h2>リバーブとディレイの量</h2>
+        <p>クリーンギターはリバーブをかけすぎると輪郭がぼやけてしまいます。自分はショートルームリバーブを薄くかけて「部屋の空気感」を出す程度にとどめています。曲によってはディレイ（8分音符か付点8分）を加えてリズム感を出すこともありますが、ドライサウンドの良さを活かしたいときはほぼ無しで仕上げることもあります。</p>
+
+        <h2>「今どき感」のために意識していること</h2>
+        <p>シティポップや最近のJ-POPのギターサウンドを参考にして、古くならないクリーントーンを意識しています。具体的には、チョーキングやビブラートに頼りすぎず、カッティングやアルペジオでコードの響きを活かすアプローチが多いです。ピッキングは弦に食い込ませず、少し撫でるような軽めのタッチで弾くと、今っぽい柔らかい音になります。</p>
+        <p>クリーンギターは「音が少ないほどかっこよくなる」と感じています。弾かない音、鳴らさない瞬間を意識することで、余白のある音楽になります。</p>
+
+        <p class="signature">今日が、やさしい一日になりますように。</p>
+      </div>
+    </article>
+
+    <footer style="margin-top: var(--spacing-xl); text-align: center; color: var(--color-text-light); font-size: 0.85rem;">
+      <p>© 2026 ゆるいむくん</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/privacy.html" style="color: var(--color-text-light); margin: 0 0.5rem;">プライバシーポリシー</a>
+        <a href="/contact.html" style="color: var(--color-text-light); margin: 0 0.5rem;">お問い合わせ</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

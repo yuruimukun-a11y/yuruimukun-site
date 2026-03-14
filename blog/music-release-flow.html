@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>曲ができてから公開するまでにやっていること - ゆるいむくん ブログ</title>
+  <meta name="description" content="楽曲が完成してから公開するまでの流れ。音源ファイルの書き出し、ジャケット制作、配信登録、サイトへのアップロードまでを一人でこなす手順をまとめます。">
+  <link rel="canonical" href="https://yuruimukun.com/blog/music-release-flow.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .blog-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: var(--spacing-lg);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .article-header { margin-bottom: var(--spacing-lg); }
+    .article-date {
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-bottom: var(--spacing-xs);
+    }
+    .article-title {
+      color: var(--color-text-dark);
+      font-size: 1.6rem;
+      line-height: 1.4;
+    }
+    .article-content {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-soft);
+      line-height: 1.9;
+      color: var(--color-text);
+    }
+    .article-content p { margin-bottom: var(--spacing-md); }
+    .article-content h2 {
+      color: var(--color-text-dark);
+      font-size: 1.2rem;
+      margin: var(--spacing-lg) 0 var(--spacing-sm);
+      padding-bottom: var(--spacing-xs);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .article-content ol {
+      padding-left: 1.5rem;
+      margin-bottom: var(--spacing-md);
+    }
+    .article-content li { margin-bottom: var(--spacing-sm); }
+    .signature {
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-md);
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-light);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-container">
+    <a href="index.html" class="back-link">← ブログ一覧に戻る</a>
+
+    <article>
+      <header class="article-header">
+        <div class="article-date">2026年3月</div>
+        <h1 class="article-title">曲ができてから公開するまでにやっていること</h1>
+      </header>
+
+      <div class="article-content">
+        <p>「曲を作る」ことと「曲を公開する」ことは別の作業です。楽曲が完成してから実際にリスナーに届くまでには、意外とたくさんのステップがあります。一人で全部やっているので、リリースするたびに同じ流れを繰り返しています。今回はその手順を全部書き出してみます。</p>
+
+        <h2>Step 1：最終確認とファイル書き出し</h2>
+        <p>Cubase Pro上でミックスとマスタリングが終わったら、最終的な音源を書き出します。書き出しフォーマットはWAV（44.1kHz / 16bit）が基本です。書き出したあとは必ずイヤホンとスピーカーの両方で聴き直して、音量バランスや不自然な音がないかを確認します。</p>
+        <p>この確認で問題が見つかることは多いです。スピーカーで聴くと低域のバランスが違って聞こえたり、イヤホンで聴くと特定の帯域がうるさく感じたり。「もう完成だ」と思っても一晩置いてからもう一度聴くと、修正したくなる箇所が出てくることがよくあります。</p>
+
+        <h2>Step 2：ジャケット画像の制作</h2>
+        <p>音源が確定したらジャケット画像を作ります。ComfyUIを使って楽曲のイメージに合ったAI画像を生成し、そこにタイトルテキストを加えて完成させます。</p>
+        <p>配信用のジャケットはSpotify・Apple Musicの規格に合わせて3000×3000px以上のJPEGで書き出します。テキストは読みやすいフォントで、サムネイルサイズでも潰れない大きさにしています。</p>
+
+        <h2>Step 3：配信登録（SoundOn）</h2>
+        <p>各ストリーミングサービスへの配信はSoundOnを通じて行っています。SoundOnは無料で使える音楽配信ディストリビューターで、Spotify・Apple Music・YouTube Music・Amazon Musicなど主要なプラットフォームに一括配信できます。</p>
+        <p>登録に必要なのは音源ファイル（WAV）とジャケット画像、タイトル・アーティスト名・ジャンル・リリース日などのメタデータです。配信が反映されるまで通常1〜3営業日ほどかかります。</p>
+
+        <h2>Step 4：サイトへのアップロード</h2>
+        <p>配信登録と並行して、このサイト（yuruimukun.com）にも楽曲を追加します。音源をHLS形式（ストリーミング配信用のフォーマット）に変換して、Cloudflare R2にアップロードします。サイトのプレイヤーデータに楽曲情報を追記してデプロイすると、数分でサイト上で聴けるようになります。</p>
+
+        <h2>Step 5：SNSで告知</h2>
+        <p>すべての公開作業が終わったら、BlueskyやXで告知します。長い文章より、「こんな曲を作った、聴いてほしい」というシンプルな一言の方が届きやすいと感じています。制作の裏話や曲のコンセプトを短くまとめて添えると、少し反応してもらいやすくなります。</p>
+        <p>一連の流れを全部一人でこなすのは大変ですが、「公開する」という行動をルーティン化することで、作るペースが保てるようになってきました。曲が増えるほどサイトも充実していくので、地道に続けることが大事だと思っています。</p>
+
+        <p class="signature">今日が、やさしい一日になりますように。</p>
+      </div>
+    </article>
+
+    <footer style="margin-top: var(--spacing-xl); text-align: center; color: var(--color-text-light); font-size: 0.85rem;">
+      <p>© 2026 ゆるいむくん</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/privacy.html" style="color: var(--color-text-light); margin: 0 0.5rem;">プライバシーポリシー</a>
+        <a href="/contact.html" style="color: var(--color-text-light); margin: 0 0.5rem;">お問い合わせ</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
