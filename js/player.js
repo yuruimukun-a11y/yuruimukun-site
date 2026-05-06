@@ -312,6 +312,14 @@
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/umi-cafe/playlist.m3u8',
     },
     {
+      id: 'kitsuneko',
+      title: 'きつねこ',
+      artist: 'yuruimukun',
+      genre: 'wa',
+      description: '和の静けさを残したまま、短くやさしくほどけていく和風ヒーリング曲。眠る前や気持ちを落ち着けたい時間に寄り添う一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kitsuneko/playlist.m3u8',
+    },
+    {
       id: 'reverth going back',
       title: 'リバース・ゴーイング・バック',
       artist: 'yuruimukun',
@@ -490,7 +498,7 @@
 
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
-    lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi'],
+    lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi', 'kitsuneko'],
     normal: ['nekosanka', 'oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid', 'kitsune-punk', 'oumagadoki-piano'],
     all: null  // nullの場合は全曲を名前順で表示
   };
