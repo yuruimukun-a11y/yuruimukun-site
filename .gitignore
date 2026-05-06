@@ -1,6 +1,7 @@
 # WAV files (source files for conversion)
 wav_input/
 *.wav
+.env.r2.local
 
 # Music files (HLS segments - avoid GitHub spam detection)
 music/

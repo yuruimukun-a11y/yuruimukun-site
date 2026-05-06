@@ -96,6 +96,14 @@
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/acid/playlist.m3u8',
     },
     {
+      id: 'kitsune-punk',
+      title: '狐パンク',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '歪んだギターと太いベース、少し荒いライブ感を前に出したギターパンク曲。ラフな熱量と抜けの良い輪郭が同居する、狐のように鋭く走る一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kitsune-punk/playlist.m3u8',
+    },
+    {
       id: 'atsu',
       title: 'あつ',
       artist: 'yuruimukun',
@@ -483,7 +491,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi'],
-    normal: ['nekosanka', 'oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid', 'oumagadoki-piano'],
+    normal: ['nekosanka', 'oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid', 'kitsune-punk', 'oumagadoki-piano'],
     all: null  // nullの場合は全曲を名前順で表示
   };
 
