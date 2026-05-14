@@ -1,0 +1,125 @@
+<svg width="1200" height="780" viewBox="0 0 1200 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="70" x2="1080" y2="710" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9FB"/>
+      <stop offset="1" stop-color="#FFF0F5"/>
+    </linearGradient>
+    <linearGradient id="card" x1="247" y1="136" x2="955" y2="621" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFF8FA"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FF8FAB"/>
+      <stop offset="1" stop-color="#FF6B8A"/>
+    </linearGradient>
+    <filter id="shadow" x="190" y="88" width="820" height="592" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="14"/>
+      <feGaussianBlur stdDeviation="18"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.560784 0 0 0 0 0.670588 0 0 0 0.22 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="780" rx="32" fill="url(#bg)"/>
+  <circle cx="1024" cy="106" r="88" fill="#FFD6E3" fill-opacity="0.55"/>
+  <circle cx="144" cy="650" r="104" fill="#FFE5EE" fill-opacity="0.9"/>
+
+  <text x="88" y="96" fill="#FF6B8A" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="28" font-weight="700" letter-spacing="0.08em">PLAYER GUIDE</text>
+  <text x="88" y="148" fill="#332A2E" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="56" font-weight="700">Yuruimukun Player Guide</text>
+  <text x="88" y="194" fill="#705C64" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="22">Pick a track, press play, then adjust seek and volume if needed.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="226" y="124" width="748" height="520" rx="34" fill="url(#card)"/>
+  </g>
+
+  <rect x="288" y="182" width="190" height="190" rx="28" fill="#FFD8E4"/>
+  <rect x="318" y="214" width="130" height="130" rx="22" fill="#FFF5F8"/>
+  <path d="M364 282L408 256V308L364 282Z" fill="#FF8FAB"/>
+
+  <rect x="520" y="205" width="282" height="24" rx="12" fill="#4A3C42"/>
+  <rect x="520" y="246" width="156" height="16" rx="8" fill="#B08A96"/>
+  <rect x="520" y="286" width="332" height="52" rx="18" fill="#FFF2F6" stroke="#FFD5E2" stroke-width="2"/>
+  <text x="546" y="318" fill="#755E67" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="22" font-weight="700">The selected track title appears here</text>
+
+  <text x="292" y="428" fill="#8F7580" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="22">0:32</text>
+  <rect x="358" y="416" width="420" height="12" rx="6" fill="#FFE1EB"/>
+  <rect x="358" y="416" width="184" height="12" rx="6" fill="url(#accent)"/>
+  <circle cx="542" cy="422" r="14" fill="#FF6B8A"/>
+  <text x="796" y="428" fill="#8F7580" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="22">3:21</text>
+
+  <circle cx="408" cy="505" r="28" fill="#FFF0F5"/>
+  <path d="M396 505H420" stroke="#8B6F79" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="474" cy="505" r="28" fill="#FFF0F5"/>
+  <path d="M486 491V519" stroke="#8B6F79" stroke-width="4" stroke-linecap="round"/>
+  <path d="M460 505L486 489V521L460 505Z" fill="#8B6F79"/>
+  <circle cx="572" cy="505" r="46" fill="url(#accent)"/>
+  <path d="M556 480V530L604 505L556 480Z" fill="white"/>
+  <circle cx="670" cy="505" r="28" fill="#FFF0F5"/>
+  <path d="M658 489L684 505L658 521V489Z" fill="#8B6F79"/>
+  <path d="M686 491V519" stroke="#8B6F79" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="736" cy="505" r="28" fill="#FFF0F5"/>
+  <path d="M722 498H748" stroke="#8B6F79" stroke-width="4" stroke-linecap="round"/>
+  <path d="M738 488L748 498L738 508" stroke="#8B6F79" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M802 494H818L836 478V532L818 516H802V494Z" fill="#8B6F79"/>
+  <rect x="850" y="502" width="94" height="10" rx="5" fill="#FFE1EB"/>
+  <rect x="850" y="502" width="62" height="10" rx="5" fill="#FF8FAB"/>
+  <circle cx="912" cy="507" r="12" fill="#FF6B8A"/>
+
+  <rect x="288" y="566" width="118" height="42" rx="21" fill="#FFF0F5"/>
+  <text x="321" y="593" fill="#8B6F79" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="19" font-weight="700">Chill</text>
+  <rect x="420" y="566" width="118" height="42" rx="21" fill="url(#accent)"/>
+  <text x="452" y="593" fill="white" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="19" font-weight="700">Normal</text>
+  <rect x="552" y="566" width="118" height="42" rx="21" fill="#FFF0F5"/>
+  <text x="591" y="593" fill="#8B6F79" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="19" font-weight="700">All</text>
+
+  <rect x="710" y="560" width="212" height="16" rx="8" fill="#FFE5EE"/>
+  <rect x="710" y="584" width="170" height="16" rx="8" fill="#FFE5EE"/>
+  <rect x="710" y="608" width="232" height="16" rx="8" fill="#FFE5EE"/>
+  <circle cx="734" cy="568" r="5" fill="#FF8FAB"/>
+  <circle cx="734" cy="592" r="5" fill="#FF8FAB"/>
+  <circle cx="734" cy="616" r="5" fill="#FF8FAB"/>
+
+  <g>
+    <circle cx="216" cy="420" r="26" fill="#FF6B8A"/>
+    <text x="206.5" y="429" fill="white" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="24" font-weight="700">1</text>
+    <path d="M238 420H270" stroke="#FF6B8A" stroke-width="4" stroke-linecap="round"/>
+    <text x="76" y="470" fill="#332A2E" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="28" font-weight="700">Choose a track from the playlist</text>
+    <text x="76" y="505" fill="#705C64" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="20">Tap any title below to load it into the player.</text>
+  </g>
+
+  <g>
+    <circle cx="572" cy="612" r="26" fill="#FF6B8A"/>
+    <text x="562.5" y="621" fill="white" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="24" font-weight="700">2</text>
+    <path d="M572 586V554" stroke="#FF6B8A" stroke-width="4" stroke-linecap="round"/>
+    <text x="500" y="704" fill="#332A2E" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="28" font-weight="700">Use the big center button to play or pause</text>
+    <text x="500" y="739" fill="#705C64" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="20">If you are unsure, start here.</text>
+  </g>
+
+  <g>
+    <circle cx="820" cy="394" r="26" fill="#FF6B8A"/>
+    <text x="810.5" y="403" fill="white" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="24" font-weight="700">3</text>
+    <path d="M801 410L768 428" stroke="#FF6B8A" stroke-width="4" stroke-linecap="round"/>
+    <text x="880" y="390" fill="#332A2E" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="28" font-weight="700">Drag the bar to seek</text>
+    <text x="880" y="425" fill="#705C64" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="20">Jump straight to the part you want to hear.</text>
+  </g>
+
+  <g>
+    <circle cx="962" cy="500" r="26" fill="#FF6B8A"/>
+    <text x="952.5" y="509" fill="white" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="24" font-weight="700">4</text>
+    <path d="M940 500H924" stroke="#FF6B8A" stroke-width="4" stroke-linecap="round"/>
+    <text x="970" y="548" fill="#332A2E" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="28" font-weight="700">Adjust volume on the right</text>
+    <text x="970" y="583" fill="#705C64" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="20">Some tracks work best at a low, gentle volume.</text>
+  </g>
+
+  <g>
+    <circle cx="702" cy="660" r="26" fill="#FF6B8A"/>
+    <text x="692.5" y="669" fill="white" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="24" font-weight="700">5</text>
+    <path d="M718 646L736 626" stroke="#FF6B8A" stroke-width="4" stroke-linecap="round"/>
+    <text x="760" y="685" fill="#332A2E" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="28" font-weight="700">Switch between Chill, Normal, and All</text>
+    <text x="760" y="720" fill="#705C64" font-family="'Zen Maru Gothic', 'Hiragino Sans', sans-serif" font-size="20">Filter first if you want a smoother starting point.</text>
+  </g>
+</svg>
