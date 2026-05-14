@@ -1010,7 +1010,7 @@ body {
   display: inline-block;
   font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
   color: var(--color-primary-dark);
   background: rgba(255, 143, 171, 0.14);
   border-radius: var(--radius-full);
@@ -1098,6 +1098,33 @@ body {
 .player-guide-note a {
   color: var(--color-primary-dark);
   font-weight: 700;
+}
+
+.player-mode-guide {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.player-mode-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 143, 171, 0.14);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 0.95rem;
+}
+
+.player-mode-card strong {
+  display: block;
+  color: var(--color-text-dark);
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.player-mode-card p {
+  font-size: 0.83rem;
+  color: var(--color-text);
+  line-height: 1.75;
 }
 
 .pillar-list {
@@ -1209,6 +1236,10 @@ body {
 
 @media (max-width: 820px) {
   .player-guide-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .player-mode-guide {
     grid-template-columns: 1fr;
   }
 }
