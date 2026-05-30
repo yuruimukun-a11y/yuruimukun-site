@@ -48,5 +48,9 @@ PLAY_COUNT_MANUAL.md
 # Claude Code temp files
 tmpclaude-*
 
+# Cloudflare API token (local only, never commit)
+.env.r2.local
+.env
+
 # Play counts data (runtime data, not source code)
 server/play_counts.json

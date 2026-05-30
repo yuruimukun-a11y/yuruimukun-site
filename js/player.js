@@ -488,6 +488,30 @@
 逢魔時の本当のラストといったイメージで作りました。落下ノーツなどの音ゲー感も動画の方では感じられるのでそちらも是非です。`,
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki-piano/playlist.m3u8',
     },
+    {
+      id: 'breakbeats',
+      title: 'ブレイクブレイクビーツ',
+      artist: 'yuruimukun',
+      genre: 'uta',
+      description: 'ブレイクビーツのリズムにのせた歌もの。跳ねるビートと歌が絡み合う、体が動き出す一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/breakbeats/playlist.m3u8',
+    },
+    {
+      id: 'run',
+      title: 'ラン',
+      artist: 'yuruimukun',
+      genre: 'uta',
+      description: '走ることをテーマにした歌もの。前へ前へと駆け出したくなるような疾走感と、静かな芯を持つボーカルが印象的な一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/run/playlist.m3u8',
+    },
+    {
+      id: 'wakeup-nekosan',
+      title: '起きろネコさん',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '眠い猫さんを優しく起こすようなギター曲。ゆったりとした朝の空気感と、ほっこりする猫のモフモフ感が伝わる一曲です。',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/wakeup-nekosan/playlist.m3u8',
+    },
   ];
 
   // Single track mode for individual track pages
