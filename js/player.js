@@ -506,7 +506,7 @@
     },
     {
       id: 'wakeup-nekosan',
-      title: '起きろネコさん',
+      title: 'ウェイクアップ・ねこさんs',
       artist: 'yuruimukun',
       genre: 'guitar',
       description: '眠い猫さんを優しく起こすようなギター曲。ゆったりとした朝の空気感と、ほっこりする猫のモフモフ感が伝わる一曲です。',
