@@ -8,14 +8,14 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ゆるいむくん | 作業用BGM・睡眠用BGM・和風/幻想フリーBGM</title>
-  <meta name="description" content="ゆるいむくんの公式サイト。作業用BGM、睡眠用BGM、和風ヒーリング、幻想系のオリジナル音楽を無料でストリーミング視聴できます。">
+  <title>ゆるいむくん | ボカロ・BGM・AI猫の個人音楽プロジェクト</title>
+  <meta name="description" content="ゆるいむくんの公式サイト。ボカロ曲、インストBGM、AI猫映像を通して、日常の隙間に置いておける小さな世界を作るプロジェクト。全楽曲を無料でストリーミング視聴できます。">
   <meta name="keywords" content="ゆるいむくん, 作業用BGM, 睡眠用BGM, フリーBGM, 和風BGM, lofi bgm 無料, 幻想音楽, オリジナル曲">
   <meta name="author" content="ゆるいむくん">
 
   <!-- OGP (Open Graph Protocol) -->
-  <meta property="og:title" content="ゆるいむくん | 作業用BGM・睡眠用BGM・和風/幻想フリーBGM">
-  <meta property="og:description" content="作業中、考え事の途中、眠る前に戻ってこられる音楽を集めた個人音楽プロジェクト。無料ストリーミングで楽しめます。">
+  <meta property="og:title" content="ゆるいむくん | ボカロ・BGM・AI猫の個人音楽プロジェクト">
+  <meta property="og:description" content="ボカロ曲、インストBGM、AI猫映像を通して、日常の隙間に置いておける小さな世界を作るプロジェクト。作業中、考え事の途中、眠る前に流せる音楽を無料で公開しています。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yuruimukun.com/">
   <meta property="og:image" content="https://yuruimukun.com/images/ogp.png">
@@ -24,8 +24,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ゆるいむくん | 作業用BGM・睡眠用BGM・和風/幻想フリーBGM">
-  <meta name="twitter:description" content="作業中、考え事の途中、眠る前に戻ってこられる音楽を集めた個人音楽プロジェクト。無料ストリーミングで楽しめます。">
+  <meta name="twitter:title" content="ゆるいむくん | ボカロ・BGM・AI猫の個人音楽プロジェクト">
+  <meta name="twitter:description" content="ボカロ曲、インストBGM、AI猫映像を通して、日常の隙間に置いておける小さな世界を作るプロジェクト。全楽曲を無料で公開しています。">
   <meta name="twitter:image" content="https://yuruimukun.com/images/ogp.png">
 
   <!-- Canonical URL -->
@@ -64,8 +64,6 @@
     import { getDatabase, ref, set, increment } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 
     const firebaseConfig = {
-      // Firebase configuration logic (Dynamic load or placeholder)
-      // apiKey: process.env.FIREBASE_API_KEY, 
       authDomain: "yuruimukun-bb86c.firebaseapp.com",
       databaseURL: "https://yuruimukun-bb86c-default-rtdb.asia-southeast1.firebasedatabase.app",
       projectId: "yuruimukun-bb86c",
@@ -80,17 +78,11 @@
     window.firebasePlayCount = async function (trackId) {
       if (!trackId) return;
       try {
-        // 今日の日付を取得（YYYY-MM-DD形式）
         const today = new Date().toISOString().split('T')[0];
-
-        // 総合カウント（既存）
         const countRef = ref(db, 'playCounts/' + trackId);
         await set(countRef, increment(1));
-
-        // 日別ログ（追加）
         const dailyRef = ref(db, 'dailyLogs/' + today + '/' + trackId);
         await set(dailyRef, increment(1));
-
         console.log('Play count updated:', trackId, 'date:', today);
       } catch (err) {
         console.log('Firebase play count error:', err);
@@ -107,7 +99,7 @@
     <!-- Header -->
     <header class="header">
       <h1 class="logo">ゆるいむくん</h1>
-      <p class="tagline">作業用BGM / 睡眠用BGM / 幻想音楽</p>
+      <p class="tagline">ボカロ / インストBGM / AI猫</p>
       <nav class="header-nav">
         <a href="/public/tracks/" class="header-nav-link">楽曲一覧</a>
         <a href="/about.html" class="header-nav-link">サイトについて</a>
@@ -233,8 +225,7 @@
       <div class="controls">
         <button class="control-btn" id="shuffleBtn" title="シャッフル">
           <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" />
+            <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" />
           </svg>
         </button>
         <button class="control-btn" id="prevBtn" title="前の曲">
@@ -266,12 +257,10 @@
       <div class="volume-container">
         <button class="volume-btn" id="volumeBtn" title="ミュート">
           <svg class="icon-volume" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
           </svg>
           <svg class="icon-mute" viewBox="0 0 24 24" fill="currentColor" style="display:none">
-            <path
-              d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
           </svg>
         </button>
         <div class="volume-slider" id="volumeSlider">
@@ -379,8 +368,7 @@
       <div class="play-mode">
         <button class="play-mode-btn" id="playShuffleBtn" title="表示中の曲をランダムに再生">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-            <path
-              d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" />
+            <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" />
           </svg>
           🔀 ランダム再生
         </button>
@@ -396,6 +384,28 @@
       <ul class="playlist" id="playlist">
         <!-- 曲はJSで動的に追加 -->
       </ul>
+    </section>
+
+    <!-- AI猫セクション - ゆるねこスタジオ導線 -->
+    <section class="neko-section">
+      <p class="neko-section-kicker">AI CAT STUDIO</p>
+      <h2 class="neko-section-title">猫さんたちの小さな世界</h2>
+      <p class="neko-section-copy">マヌルネコやAI猫が登場する映像は、「ゆるねこスタジオ」で公開しています。<br>音楽と一緒にどうぞ。</p>
+      <div class="neko-thumb-grid">
+        <div class="neko-thumb">
+          <img src="/images/neko/neko-thumb-1.jpg" alt="ゆるねこスタジオ - AI猫動画">
+        </div>
+        <div class="neko-thumb">
+          <img src="/images/neko/neko-thumb-2.jpg" alt="ゆるねこスタジオ - AI猫動画">
+        </div>
+        <div class="neko-thumb">
+          <img src="/images/neko/neko-thumb-3.jpg" alt="ゆるねこスタジオ - AI猫動画">
+        </div>
+      </div>
+      <a class="neko-cta" href="https://www.youtube.com/channel/UCdqpN463kUQhBkt2J9SqAZw" target="_blank" rel="noopener">
+        <span class="neko-cta-icon">📺</span>
+        ゆるねこスタジオを見る
+      </a>
     </section>
 
     <!-- Subscription Links -->
@@ -434,7 +444,7 @@
 
     <!-- Blog Link -->
     <section class="subscribe-section">
-      <h3 class="subscribe-title">雑記</h3>
+      <h3 class="subscribe-title">制作メモ・ブログ</h3>
       <div class="subscribe-links">
         <a href="/blog/" class="subscribe-link">
           <span class="subscribe-icon">📝</span>
@@ -445,7 +455,6 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <!-- Legal Links -->
       <div class="footer-legal">
         <a href="/privacy.html" class="legal-link">プライバシーポリシー</a>
         <span class="legal-divider">|</span>
@@ -455,7 +464,6 @@
         <span class="legal-divider">|</span>
         <a href="/contact.html" class="legal-link">お問い合わせ</a>
       </div>
-
       <p class="copyright">&copy; <span id="copyrightYear">2025</span> ゆるいむくん. All rights reserved.</p>
     </footer>
   </div>
@@ -468,10 +476,8 @@
 
   <!-- Footer Script -->
   <script>
-    // Dynamic copyright year
     document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
-    // Legal toggle functionality（要素が存在する場合のみ）
     var termsToggleBtn = document.getElementById('termsToggle');
     if (termsToggleBtn) {
       termsToggleBtn.addEventListener('click', function () {
