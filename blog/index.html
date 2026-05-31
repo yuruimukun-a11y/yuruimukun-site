@@ -5,26 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ブログ - ゆるいむくん</title>
-  <meta name="description" content="yuruimukunの音楽制作日記。曲の制作背景や日常のことをゆるく書いています。">
+  <meta name="description" content="ゆるいむくんの制作メモ。曲の制作背景、音作りの記録、日常のことなど。">
   <link rel="canonical" href="https://yuruimukun.com/blog/">
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .blog-container {
-      max-width: 680px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: var(--spacing-lg);
+      padding: clamp(1.2rem, 4vw, var(--spacing-lg));
     }
     .blog-header {
       text-align: center;
       margin-bottom: var(--spacing-xl);
     }
     .blog-header h1 {
-      color: var(--color-primary-dark);
-      font-size: 1.8rem;
+      color: #251d18;
+      font-size: clamp(1.65rem, 4vw, 1.95rem);
       margin-bottom: var(--spacing-sm);
     }
     .blog-header p {
-      color: var(--color-text-light);
+      color: #5c4d41;
     }
     .blog-card {
       display: block;
@@ -43,7 +43,7 @@
     }
     .blog-card-date {
       font-size: 0.85rem;
-      color: var(--color-text-light);
+      color: #7a6858;
       margin-bottom: var(--spacing-xs);
     }
     .blog-card-title {
@@ -59,7 +59,7 @@
     .back-link {
       display: inline-block;
       margin-bottom: var(--spacing-lg);
-      color: var(--color-primary);
+      color: #5e4632;
       text-decoration: none;
     }
     .back-link:hover {
@@ -69,12 +69,14 @@
 </head>
 
 <body>
-  <div class="blog-container">
-    <a href="/" class="back-link">← トップページに戻る</a>
+  <div class="blog-container ornamental-page">
+    <a href="/" class="back-link ui-button ui-button--cream page-back-link">← トップページに戻る</a>
 
-    <header class="blog-header">
+    <header class="blog-header ornament-header ornament-header--center">
+      <span class="ui-badge ui-badge--small" aria-hidden="true"></span>
       <h1>📝 ブログ</h1>
-      <p>音楽制作のこととか、日常のこととか。ゆるく書いてます。</p>
+      <p>制作の背景、音作りの記録、日常のことなど。</p>
+      <div class="ui-divider ui-divider--compact" aria-hidden="true"></div>
     </header>
 
     <a href="music-release-flow.html" class="blog-card">

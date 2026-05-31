@@ -15,33 +15,35 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <style>
     .about-page {
-      max-width: 800px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: clamp(1.5rem, 4vw, 2.4rem) clamp(1rem, 4vw, 1.6rem);
     }
     .about-page h1 {
-      font-size: 2rem;
+      font-size: clamp(1.8rem, 4vw, 2.15rem);
       margin-bottom: 1.5rem;
-      color: var(--color-primary, #e91e8c);
+      color: #261e19;
     }
     .about-page h2 {
       font-size: 1.3rem;
       margin: 2rem 0 0.8rem;
-      border-left: 4px solid var(--color-primary, #e91e8c);
+      border-left: 4px solid rgba(171, 123, 72, 0.78);
       padding-left: 0.8rem;
+      color: #30261f;
     }
     .about-page p {
       line-height: 1.9;
       margin-bottom: 1rem;
-      color: #333;
+      color: #342923;
     }
     .about-page ul {
       line-height: 1.9;
       padding-left: 1.5rem;
       margin-bottom: 1rem;
+      color: #342923;
     }
     .about-page .profile-table {
       width: 100%;
@@ -50,19 +52,22 @@
     }
     .about-page .profile-table th,
     .about-page .profile-table td {
-      border: 1px solid #ddd;
+      border: 1px solid rgba(113, 83, 57, 0.18);
       padding: 0.7rem 1rem;
       text-align: left;
+      color: #342923;
+      background: rgba(251, 247, 240, 0.82);
     }
     .about-page .profile-table th {
-      background: #f9f0f5;
+      background: linear-gradient(180deg, rgba(246, 235, 217, 0.94) 0%, rgba(234, 220, 199, 0.92) 100%);
       width: 30%;
       font-weight: 600;
+      color: #2e241d;
     }
     .back-link {
       display: inline-block;
       margin-top: 2rem;
-      color: var(--color-primary, #e91e8c);
+      color: #5e4632;
       text-decoration: none;
     }
     .back-link:hover { text-decoration: underline; }
@@ -80,8 +85,10 @@
       </nav>
     </header>
 
-    <main class="about-page">
+    <main class="about-page ornamental-page">
+      <span class="ui-badge ui-badge--small about-page-badge" aria-hidden="true"></span>
       <h1>ゆるいむくんについて</h1>
+      <div class="ui-divider ui-divider--compact about-page-divider" aria-hidden="true"></div>
 
       <p>ゆるいむくん（yuruimukun）は、ボカロ曲、インストBGM、AI猫映像をのんびり作っている個人音楽プロジェクトです。作業中、眠る前、何もしたくない時間——そんな隙間にそっと置いておける音楽を、少しずつ積み上げています。</p>
       <p>「何かを教える」のでも「思想を押し付ける」のでもなく、ただそこにあるだけの音楽でいいと思っています。曲の背景や考え方も一緒に置いておくために、このサイトがあります。</p>
@@ -128,7 +135,7 @@
       <h2>お問い合わせ</h2>
       <p>ご質問・ご依頼などは<a href="/contact.html">お問い合わせページ</a>より。</p>
 
-      <a href="/" class="back-link">← トップページに戻る</a>
+      <a href="/" class="back-link ui-button ui-button--cream page-back-link">← トップページに戻る</a>
     </main>
 
     <footer class="footer">
