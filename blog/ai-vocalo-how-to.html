@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .blog-container {
-      position: relative;
-      z-index: 1;
+            position: relative;
+            z-index: 1;
       max-width: 680px;
       margin: 0 auto;
       padding: var(--spacing-lg);
@@ -54,18 +54,6 @@
       margin-bottom: var(--spacing-md);
     }
     .article-content li { margin-bottom: var(--spacing-xs); }
-    .article-content table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: var(--spacing-md);
-      font-size: 0.9rem;
-    }
-    .article-content th, .article-content td {
-      border: 1px solid var(--color-border);
-      padding: 0.5rem 0.75rem;
-      text-align: left;
-    }
-    .article-content th { background: var(--color-bg); }
     .signature {
       margin-top: var(--spacing-lg);
       padding-top: var(--spacing-md);
@@ -87,38 +75,29 @@
 
       <div class="article-content">
         <p>「どうやって曲を作っているの？」とよく聞かれます。一人で全部やっているので制作環境もシンプルです。メインのDAWはCubase Proで、ギター録音からミックス・マスタリングまでほぼすべてをこれ一本でやっています。実際の流れをそのまま書いてみます。</p>
-
         <h2>使っている主な制作環境</h2>
-        <table>
-          <tr><th>ツール</th><th>用途</th></tr>
-          <tr><td>Cubase Pro</td><td>DAW・録音・ミックス・マスタリング（メイン）</td></tr>
-          <tr><td>ギター（実機）</td><td>ギタートラック録音</td></tr>
-          <tr><td>アンプシミュレーター</td><td>ギターの音作り</td></tr>
-          <tr><td>Addictive Drums 2</td><td>ドラム音源</td></tr>
-          <tr><td>ComfyUI</td><td>ジャケット・MV背景のAI画像生成</td></tr>
-          <tr><td>Remotion</td><td>MV動画組み上げ</td></tr>
-        </table>
-
+        <ul>
+          <li>Cubase Pro：DAW・録音・ミックス・マスタリング（メイン）</li>
+          <li>ギター（実機）：ギタートラック録音</li>
+          <li>アンプシミュレーター：ギターの音作り</li>
+          <li>Addictive Drums 2：ドラム音源</li>
+          <li>ComfyUI：ジャケット・MV背景のAI画像生成</li>
+          <li>Remotion：MV動画組み上げ</li>
+        </ul>
         <h2>制作フロー</h2>
-        <p><strong>Step 1：コード進行とデモを作る</strong><br>
-        まずギターを弾いてコード進行を決めます。「この進行でいこう」と決まったらCubase Proを開いて、ドラム・ベース・コード楽器の順にトラックを組んでいきます。この段階ではざっくりとした構成を作るだけで、細かい音作りはあとまわしです。</p>
-
-        <p><strong>Step 2：ギターを録音する</strong><br>
-        デモのバランスが決まったら実機のギターを録音します。アンプシミュレーターで音を作りながら直接Cubase Proに録音しています。クリーン・クランチ・歪みと複数のトーンを録って、曲の雰囲気に合うものを選びます。リズムギターとリードギターでトラックを分けて管理しています。</p>
-
-        <p><strong>Step 3：メロディーとボーカルを入れる</strong><br>
-        ギターが録れたらメロディーラインを確定させます。インストの曲はここで完成に近い形になります。ボーカルが入る曲は自分で歌を録音して、EQとコンプで整えてからミックスに馴染ませます。</p>
-
-        <p><strong>Step 4：ミックスとマスタリング</strong><br>
-        各トラックのバランスを整えてパン（左右配置）を決めます。低域が被らないようにEQでカットし、リバーブやディレイで空間を作ります。マスタリングもCubase Pro内で完結させています。ラウドネスの基準はSpotifyやYouTubeの配信仕様に合わせて-14LUFS付近を目安にしています。</p>
-
-        <p><strong>Step 5：ビジュアル制作</strong><br>
-        楽曲が完成したらジャケットとMVを作ります。ComfyUIで楽曲の雰囲気に合わせたAI画像を生成し、RemotionでMV動画に組み上げています。一人で音楽もビジュアルも完結させるために、AI画像生成は欠かせないツールになっています。</p>
-
+        <p><strong>Step 1：コード進行とデモを作る</strong></p>
+        <p>まずギターを弾いてコード進行を決めます。「この進行でいこう」と決まったらCubase Proを開いて、ドラム・ベース・コード楽器の順にトラックを組んでいきます。この段階ではざっくりとした構成を作るだけで、細かい音作りはあとまわしです。</p>
+        <p><strong>Step 2：ギターを録音する</strong></p>
+        <p>デモのバランスが決まったら実機のギターを録音します。アンプシミュレーターで音を作りながら直接Cubase Proに録音しています。クリーン・クランチ・歪みと複数のトーンを録って、曲の雰囲気に合うものを選びます。リズムギターとリードギターでトラックを分けて管理しています。</p>
+        <p><strong>Step 3：メロディーと必要ならボーカルを入れる</strong></p>
+        <p>ギターが録れたらメロディーラインを確定させます。インストの曲はここで完成に近い形になります。ボーカルが入る曲は自分で歌を録音して、EQとコンプで整えてからミックスに馴染ませます。</p>
+        <p><strong>Step 4：ミックスとマスタリング</strong></p>
+        <p>各トラックのバランスを整えてパン（左右配置）を決めます。低域が被らないようにEQでカットし、リバーブやディレイで空間を作ります。マスタリングもCubase Pro内で完結させています。ラウドネスの基準はSpotifyやYouTubeの配信仕様に合わせて-14LUFS付近を目安にしています。</p>
+        <p><strong>Step 5：ビジュアル制作</strong></p>
+        <p>楽曲が完成したらジャケットとMVを作ります。ComfyUIで楽曲の雰囲気に合わせたAI画像を生成し、RemotionでMV動画に組み上げています。一人で音楽もビジュアルも完結させるために、AI画像生成は欠かせないツールになっています。</p>
         <h2>Cubase Proを選んでいる理由</h2>
         <p>DAWはいくつか試しましたが、今はCubase Proに落ち着いています。録音・編集・ミックス・マスタリングまで一環してできる安定感と、MIDIの扱いやすさが自分の制作スタイルに合っています。コードトラック機能でコード進行を管理しながら作れるのも便利です。</p>
         <p>一人で全部やっているからこそ、ツールはできるだけ少なくシンプルにまとめておきたい。Cubase Proはその軸になっているDAWです。</p>
-
         <p class="signature">今日が、やさしい一日になりますように。</p>
       </div>
     </article>
