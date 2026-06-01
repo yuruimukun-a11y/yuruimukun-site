@@ -650,6 +650,14 @@ body {
   margin-bottom: var(--spacing-sm);
 }
 
+.subscribe-sublabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.04em;
+}
+
 .subscribe-links {
   display: flex;
   justify-content: center;
