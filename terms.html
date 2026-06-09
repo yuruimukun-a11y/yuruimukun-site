@@ -3,29 +3,277 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>利用規約 - ゆるいむくん</title>
-  <meta name="description" content="ゆるいむくん（yuruimukun.com）の利用規約です。楽曲の利用条件や禁止事項についてご確認ください。">
+  <title>楽曲の使い方・利用条件 - ゆるいむくん</title>
+  <meta name="description" content="ゆるいむくんの楽曲をBGMとして使いたい方へ。個人の動画で無料で使える条件、問い合わせが必要な場合、禁止事項をわかりやすくまとめています。">
   <link rel="canonical" href="https://yuruimukun.com/terms.html">
+
+  <!-- OGP -->
+  <meta property="og:title" content="楽曲の使い方・利用条件 - ゆるいむくん">
+  <meta property="og:description" content="ゆるいむくんの楽曲をBGMとして使いたい方へ。無料で使える条件・問い合わせが必要な場合・禁止事項をわかりやすく案内しています。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yuruimukun.com/terms.html">
+  <meta property="og:image" content="https://yuruimukun.com/images/ogp.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    .legal-page { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
-    .legal-page h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--color-primary, #e91e8c); }
-    .legal-page .updated { color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
-    .legal-page h2 { font-size: 1.2rem; margin: 2rem 0 0.8rem; border-left: 4px solid var(--color-primary, #e91e8c); padding-left: 0.8rem; }
-    .legal-page p, .legal-page li { line-height: 1.9; margin-bottom: 0.8rem; }
-    .legal-page ul { padding-left: 1.5rem; }
-    .back-link { display: inline-block; margin-top: 2rem; color: var(--color-primary, #e91e8c); text-decoration: none; }
+    /* ── ページ全体 ── */
+    .terms-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.4rem) clamp(1rem, 4vw, 1.6rem);
+    }
+    .terms-page h1 {
+      font-size: clamp(1.8rem, 4vw, 2.15rem);
+      margin-bottom: 0.4rem;
+      color: #261e19;
+    }
+    .terms-updated {
+      color: #9a8a7a;
+      font-size: 0.85rem;
+      margin-bottom: 1.6rem;
+    }
+    .terms-page h2 {
+      font-size: 1.3rem;
+      margin: 2.4rem 0 0.8rem;
+      border-left: 4px solid rgba(171, 123, 72, 0.78);
+      padding-left: 0.8rem;
+      color: #30261f;
+    }
+    .terms-page p {
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      color: #342923;
+    }
+    .terms-intro {
+      font-size: 1.02rem;
+      line-height: 2;
+      margin-bottom: 2rem;
+    }
+
+    /* ── 3段階カード ── */
+    .tier-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin: 1.6rem 0 2rem;
+    }
+    .tier-card {
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .tier-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+    }
+
+    /* 無料 */
+    .tier-free {
+      background: linear-gradient(135deg, rgba(232, 245, 233, 0.88) 0%, rgba(241, 248, 233, 0.72) 100%);
+      border: 1px solid rgba(129, 199, 132, 0.35);
+    }
+    .tier-free::before { background: #66bb6a; }
+    .tier-free .tier-badge { background: #66bb6a; }
+
+    /* 問い合わせ */
+    .tier-contact {
+      background: linear-gradient(135deg, rgba(255, 248, 225, 0.88) 0%, rgba(255, 243, 224, 0.72) 100%);
+      border: 1px solid rgba(255, 183, 77, 0.35);
+    }
+    .tier-contact::before { background: #ffa726; }
+    .tier-contact .tier-badge { background: #ffa726; }
+
+    /* 不可 */
+    .tier-deny {
+      background: linear-gradient(135deg, rgba(255, 235, 238, 0.88) 0%, rgba(252, 228, 236, 0.72) 100%);
+      border: 1px solid rgba(239, 154, 154, 0.35);
+    }
+    .tier-deny::before { background: #ef5350; }
+    .tier-deny .tier-badge { background: #ef5350; }
+
+    .tier-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .tier-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #2a221c;
+    }
+    .tier-body {
+      padding-left: 0.2rem;
+    }
+    .tier-body p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #4a3f36;
+      margin-bottom: 0.5rem;
+    }
+    .tier-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+    }
+    .tier-list li {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: #4a3f36;
+      padding-left: 1.3rem;
+      position: relative;
+      margin-bottom: 0.2rem;
+    }
+    .tier-list li::before {
+      content: "\30FB";
+      position: absolute;
+      left: 0.2rem;
+      color: #8a7a6a;
+    }
+    .tier-condition {
+      display: inline-block;
+      font-size: 0.84rem;
+      color: #6b5a4a;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 0.25rem 0.7rem;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* ── クレジット表記セクション ── */
+    .credit-section {
+      background: linear-gradient(135deg, rgba(251, 247, 240, 0.95) 0%, rgba(246, 238, 226, 0.85) 100%);
+      border: 1px solid rgba(171, 143, 110, 0.22);
+      border-radius: 14px;
+      padding: 1.6rem;
+      margin: 2rem 0;
+    }
+    .credit-section h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #2a221c;
+      margin-bottom: 0.6rem;
+    }
+    .credit-section > p {
+      font-size: 0.92rem;
+      color: #5e4e3e;
+      margin-bottom: 1rem;
+    }
+    .credit-box {
+      position: relative;
+      background: #fff;
+      border: 1px solid rgba(171, 143, 110, 0.28);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .credit-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #9a8a7a;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+    .credit-text {
+      font-size: 0.95rem;
+      color: #2a221c;
+      line-height: 1.7;
+      font-family: 'Zen Maru Gothic', monospace;
+      word-break: break-all;
+      user-select: all;
+    }
+    .credit-copy-btn {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      background: rgba(171, 123, 72, 0.12);
+      border: 1px solid rgba(171, 123, 72, 0.24);
+      border-radius: 8px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+      font-family: inherit;
+      color: #6b5a4a;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .credit-copy-btn:hover {
+      background: rgba(171, 123, 72, 0.22);
+    }
+    .credit-copy-btn.copied {
+      background: rgba(102, 187, 106, 0.18);
+      border-color: rgba(102, 187, 106, 0.35);
+      color: #2e7d32;
+    }
+    .credit-note {
+      font-size: 0.84rem;
+      color: #8a7a6a;
+      line-height: 1.7;
+      margin-top: 0.6rem;
+    }
+
+    /* ── 補足・免責 ── */
+    .terms-supplement {
+      margin-top: 2.4rem;
+    }
+    .terms-supplement h2 {
+      font-size: 1.15rem;
+    }
+    .terms-supplement p,
+    .terms-supplement li {
+      font-size: 0.92rem;
+      line-height: 1.9;
+      color: #5e4e3e;
+    }
+    .terms-supplement ul {
+      list-style: disc;
+      padding-left: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ── 戻るリンク ── */
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #5e4632;
+      text-decoration: none;
+    }
     .back-link:hover { text-decoration: underline; }
+
+    /* ── レスポンシブ ── */
+    @media (max-width: 520px) {
+      .tier-card { padding: 1.1rem 1.2rem; }
+      .tier-header { flex-wrap: wrap; }
+      .credit-box { padding: 0.85rem 1rem; }
+      .credit-copy-btn { position: static; display: block; margin-top: 0.6rem; text-align: center; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header class="header">
       <h1 class="logo"><a href="/" style="color:inherit;text-decoration:none;">ゆるいむくん</a></h1>
-      <p class="tagline">Music Streaming</p>
+      <p class="tagline">ボカロ / インストBGM / AI猫</p>
       <nav class="header-nav">
         <a href="/" class="header-nav-link">ホーム</a>
         <a href="/public/tracks/" class="header-nav-link">楽曲一覧</a>
@@ -33,47 +281,115 @@
       </nav>
     </header>
 
-    <main class="legal-page">
-      <h1>利用規約</h1>
-      <p class="updated">最終更新日：2026年2月23日</p>
+    <main class="terms-page ornamental-page">
+      <span class="ui-badge ui-badge--small about-page-badge" aria-hidden="true"></span>
+      <h1>楽曲の使い方・利用条件</h1>
+      <div class="ui-divider ui-divider--compact about-page-divider" aria-hidden="true"></div>
+      <p class="terms-updated">最終更新日：2026年6月10日</p>
 
-      <p>この利用規約（以下「本規約」）は、ゆるいむくん（以下「当サイト」）が提供するウェブサイト yuruimukun.com（以下「本サービス」）の利用条件を定めるものです。本サービスをご利用いただく前に、本規約をよくお読みください。</p>
+      <p class="terms-intro">ゆるいむくんの楽曲を動画BGMなどに使いたい方へ。<br>利用の可否を3段階でまとめています。迷ったらこのページだけ見れば大丈夫です。</p>
 
-      <h2>第1条（適用）</h2>
-      <p>本規約は、本サービスの利用に関わるすべての関係に適用されます。本サービスを利用したユーザーは、本規約に同意したものとみなします。</p>
+      <!-- ── 3段階カード ── -->
+      <h2>利用条件</h2>
 
-      <h2>第2条（楽曲の利用条件）</h2>
-      <p>当サイトに掲載している楽曲は、以下の条件に従ってご利用いただけます。</p>
-      <ul>
-        <li>個人での視聴・鑑賞目的での利用は自由です</li>
-        <li>非商用・個人制作の動画等でのBGM利用については、事前にお問い合わせください</li>
-        <li>商用利用を希望される場合は、SoundOn経由のサブスクリプションをご利用いただくか、別途ご相談ください</li>
-      </ul>
+      <div class="tier-grid">
+        <!-- 無料 -->
+        <div class="tier-card tier-free">
+          <div class="tier-header">
+            <span class="tier-badge">無料で使える</span>
+            <span class="tier-title">個人の非商用投稿</span>
+          </div>
+          <div class="tier-body">
+            <ul class="tier-list">
+              <li>個人のYouTube動画（収益化なし）</li>
+              <li>X（Twitter）の投稿</li>
+              <li>TikTokの投稿</li>
+              <li>Instagramの投稿・リール</li>
+              <li>その他、個人の非商用SNS投稿</li>
+            </ul>
+            <span class="tier-condition">条件：概要欄またはキャプションにクレジット表記（下記参照）</span>
+          </div>
+        </div>
 
-      <h2>第3条（禁止事項）</h2>
-      <p>ユーザーは、本サービスの利用にあたり、以下の行為を行ってはなりません。</p>
-      <ul>
-        <li>楽曲ファイルの無断ダウンロード・複製・再配布</li>
-        <li>楽曲の無断商用利用（動画広告収益を得る配信でのBGM使用を含む）</li>
-        <li>楽曲の改変・二次創作の無断公開</li>
-        <li>当サイトへの不正アクセスやサーバーへの過度な負荷をかける行為</li>
-        <li>その他、法令または公序良俗に違反する行為</li>
-      </ul>
+        <!-- 問い合わせ -->
+        <div class="tier-card tier-contact">
+          <div class="tier-header">
+            <span class="tier-badge">お問い合わせください</span>
+            <span class="tier-title">商用・収益化コンテンツ</span>
+          </div>
+          <div class="tier-body">
+            <ul class="tier-list">
+              <li>収益化済みYouTubeチャンネルでのBGM利用</li>
+              <li>企業アカウントのSNS投稿</li>
+              <li>広告・プロモーション動画</li>
+              <li>案件動画・タイアップ</li>
+              <li>店舗・イベントでのBGM利用</li>
+            </ul>
+            <span class="tier-condition">まずは<a href="/contact.html" style="color:#b8860b; text-decoration:underline;">お問い合わせページ</a>よりご連絡ください。内容に応じてご案内します。</span>
+          </div>
+        </div>
 
-      <h2>第4条（免責事項）</h2>
-      <p>当サイトは、本サービスの内容の正確性・完全性について保証しません。本サービスの利用によって生じた損害について、当サイトは責任を負いません。</p>
-      <p>本サービスは予告なく内容を変更・中断・終了することがあります。</p>
+        <!-- 不可 -->
+        <div class="tier-card tier-deny">
+          <div class="tier-header">
+            <span class="tier-badge">不可・別途契約</span>
+            <span class="tier-title">以下は許可なくできません</span>
+          </div>
+          <div class="tier-body">
+            <ul class="tier-list">
+              <li>楽曲ファイルの再配布</li>
+              <li>BGM素材集・サンプルパックへの収録</li>
+              <li>AI学習データとしての使用</li>
+              <li>楽曲の単体販売・サブライセンス</li>
+              <li>自作発言（自分が作ったと偽ること）</li>
+            </ul>
+            <span class="tier-condition">別途契約が必要な場合は、<a href="/contact.html" style="color:#c62828; text-decoration:underline;">お問い合わせ</a>よりご相談ください。</span>
+          </div>
+        </div>
+      </div>
 
-      <h2>第5条（著作権）</h2>
-      <p>本サービスに掲載されているすべての楽曲・テキスト・画像等の著作権は、ゆるいむくんに帰属します。無断転載・複製・改変等を禁じます。</p>
+      <!-- ── クレジット表記 ── -->
+      <div class="credit-section">
+        <h3>クレジット表記のしかた</h3>
+        <p>動画の概要欄やキャプションに、以下のどれかをコピペしてください。</p>
 
-      <h2>第6条（規約の変更）</h2>
-      <p>当サイトは、必要に応じて本規約を変更することがあります。変更後の規約はサイト上に掲載した時点から効力を持ちます。</p>
+        <div class="credit-box" id="creditBox1">
+          <div class="credit-label">日本語（推奨）</div>
+          <div class="credit-text" id="creditText1">BGM：ゆるいむくん https://yuruimukun.com/</div>
+          <button class="credit-copy-btn" onclick="copyCredit('creditText1', this)">コピー</button>
+        </div>
 
-      <h2>お問い合わせ</h2>
-      <p>本規約に関するご質問は、<a href="/contact.html">お問い合わせページ</a>よりご連絡ください。</p>
+        <div class="credit-box" id="creditBox2">
+          <div class="credit-label">曲名を入れる場合</div>
+          <div class="credit-text" id="creditText2">BGM：ゆるいむくん「oyasumi」 https://yuruimukun.com/</div>
+          <button class="credit-copy-btn" onclick="copyCredit('creditText2', this)">コピー</button>
+        </div>
 
-      <a href="/" class="back-link">← トップページに戻る</a>
+        <div class="credit-box" id="creditBox3">
+          <div class="credit-label">英語</div>
+          <div class="credit-text" id="creditText3">Music: yuruimukun https://yuruimukun.com/</div>
+          <button class="credit-copy-btn" onclick="copyCredit('creditText3', this)">コピー</button>
+        </div>
+
+        <p class="credit-note">曲名は入れても入れなくてもOKです。リンクだけでも構いません。<br>使ってくれてありがとうございます。</p>
+      </div>
+
+      <!-- ── 補足事項 ── -->
+      <div class="terms-supplement">
+        <h2>著作権について</h2>
+        <p>このサイトに掲載しているすべての楽曲・テキスト・画像等の著作権は、ゆるいむくんに帰属します。</p>
+
+        <h2>免責事項</h2>
+        <p>当サイトは内容の正確性・完全性を保証しません。利用によって生じた損害については責任を負いかねます。<br>本サービスの内容は予告なく変更・中断・終了する場合があります。</p>
+
+        <h2>規約の変更</h2>
+        <p>必要に応じてこのページの内容を更新することがあります。変更後はサイト上に掲載した時点から効力を持ちます。</p>
+
+        <h2>お問い合わせ</h2>
+        <p>不明点やご相談は<a href="/contact.html">お問い合わせページ</a>よりお気軽にどうぞ。</p>
+      </div>
+
+      <a href="/" class="back-link ui-button ui-button--cream page-back-link">← トップページに戻る</a>
     </main>
 
     <footer class="footer">
@@ -86,8 +402,53 @@
         <span class="legal-divider">|</span>
         <a href="/contact.html" class="legal-link">お問い合わせ</a>
       </div>
-      <p class="copyright">&copy; 2025 ゆるいむくん. All rights reserved.</p>
+      <p class="copyright">&copy; <span id="copyrightYear"></span> ゆるいむくん. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    // 年号を自動更新
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+
+    // クレジットコピー機能
+    function copyCredit(elementId, btn) {
+      var text = document.getElementById(elementId).textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          showCopied(btn);
+        }).catch(function() {
+          fallbackCopy(text, btn);
+        });
+      } else {
+        fallbackCopy(text, btn);
+      }
+    }
+
+    function fallbackCopy(text, btn) {
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showCopied(btn);
+      } catch (e) {
+        // コピー失敗時は何もしない
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showCopied(btn) {
+      var original = btn.textContent;
+      btn.textContent = 'コピーしました';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
