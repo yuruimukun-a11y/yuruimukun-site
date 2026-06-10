@@ -1,22 +1,62 @@
 /**
- * 逢魔時の寄り道 - Secret Feature
- * フウラ（紫マントマヌルネコ）がサイト内を逃げ、追いかけると曲が解禁される
+ * 逢魔時の寄り道 - Secret Feature v2
+ * ページ巡回型：index → tracks → blog → about → contact
  */
 (function () {
   'use strict';
 
-  /* ============================================================
-     Configuration
-     ============================================================ */
   var SPRITE_BASE = '/images/secret/';
-  var TAP_THRESHOLD = 5;
-  var STORAGE_KEY = 'fuura_quest';
+  var STORAGE_KEY = 'fuura_quest_v2';
+  var OLD_STORAGE_KEY = 'fuura_quest';
   var REWARD_SRC = 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki-piano-b/playlist.m3u8';
   var NEXT_TRACK_ID = 'oumagadoki-piano';
 
-  /* ============================================================
-     Animation Definitions
-     ============================================================ */
+  var ORDER = ['home', 'tracks', 'blog', 'about', 'contact'];
+  var ROUND = {
+    home: {
+      label: '出会い',
+      anim: 'idle',
+      loop: true,
+      message: '……にゃ',
+      nextText: '次は、楽曲一覧へ',
+      nextUrl: '/public/tracks/',
+      leave: 'right'
+    },
+    tracks: {
+      label: '気配',
+      anim: 'cloak',
+      loop: true,
+      message: '…にゃっ',
+      nextText: '次は、ブログへ',
+      nextUrl: '/blog/',
+      leave: 'left'
+    },
+    blog: {
+      label: 'かくれんぼ',
+      anim: 'look_up',
+      loop: true,
+      message: 'にゃ……？',
+      nextText: '次は、サイトについてへ',
+      nextUrl: '/about.html',
+      leave: 'left'
+    },
+    about: {
+      label: '幻',
+      anim: 'walk',
+      loop: true,
+      message: '…にゃん',
+      nextText: '最後は、お問い合わせへ',
+      nextUrl: '/contact.html',
+      leave: 'right'
+    },
+    contact: {
+      label: '再会',
+      anim: 'sleep',
+      loop: true,
+      message: 'ついてきたのかにゃ'
+    }
+  };
+
   var ANIMS = {
     idle:      { frames: ['idle_01.png','idle_02.png','idle_03.png','idle_04.png','idle_05.png'], fps: 3 },
     blink:     { frames: ['blink_01.png','blink_02.png','blink_03.png','blink_04.png'], fps: 6 },
@@ -28,28 +68,46 @@
     happy:     { frames: ['happy_01.png','happy_02.png'], fps: 3 },
     look_up:   { frames: ['look_up_01.png','look_up_02.png','look_up_03.png'], fps: 4 },
     sleep:     { frames: ['sleep_01.png','sleep_02.png','sleep_03.png'], fps: 2 },
-    tail_wag:  { frames: ['tail_wag_01.png','tail_wag_02.png','tail_wag_03.png'], fps: 4 },
+    tail_wag:  { frames: ['tail_wag_01.png','tail_wag_02.png','tail_wag_03.png'], fps: 4 }
   };
 
-  /* ============================================================
-     State Persistence
-     ============================================================ */
+  function pageId() {
+    var p = window.location.pathname.replace(/\/+$/, '/') || '/';
+    if (p === '/' || p === '/index.html') return 'home';
+    if (p === '/public/tracks/' || p === '/public/tracks/index.html') return 'tracks';
+    if (p === '/blog/' || p === '/blog/index.html') return 'blog';
+    if (p === '/about.html') return 'about';
+    if (p === '/contact.html') return 'contact';
+    return null;
+  }
+
+  function defaultState() {
+    return { found: {}, unlocked: false, rated: false };
+  }
+
   function loadState() {
     try {
-      var s = localStorage.getItem(STORAGE_KEY);
-      return s ? JSON.parse(s) : { tapCount: 0, unlocked: false, rated: false };
-    } catch (e) { return { tapCount: 0, unlocked: false, rated: false }; }
+      var raw = localStorage.getItem(STORAGE_KEY);
+      var st = raw ? JSON.parse(raw) : defaultState();
+      st.found = st.found || {};
+      return st;
+    } catch (e) {
+      return defaultState();
+    }
   }
 
   function saveState(st) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(st)); } catch (e) { /* silent */ }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(st)); } catch (e) { }
   }
 
-  /* ============================================================
-     Image Preloader
-     ============================================================ */
-  var preloadedSets = {};
+  function nextNeeded(st) {
+    for (var i = 0; i < ORDER.length; i++) {
+      if (!st.found[ORDER[i]]) return ORDER[i];
+    }
+    return st.unlocked ? null : 'contact';
+  }
 
+  var preloadedSets = {};
   function preloadAnim(name) {
     if (preloadedSets[name]) return;
     preloadedSets[name] = true;
@@ -61,9 +119,6 @@
     });
   }
 
-  /* ============================================================
-     Sprite Animator
-     ============================================================ */
   function SpriteAnimator(imgElement) {
     this.el = imgElement;
     this.timer = null;
@@ -78,12 +133,11 @@
     var fps = anim.fps;
     var idx = 0;
     var self = this;
-
     function tick() {
       self.el.src = SPRITE_BASE + frames[idx];
       idx++;
       if (idx >= frames.length) {
-        if (loop) { idx = 0; }
+        if (loop) idx = 0;
         else { self.timer = null; if (onComplete) onComplete(); return; }
       }
       self.timer = setTimeout(tick, 1000 / fps);
@@ -92,12 +146,12 @@
   };
 
   SpriteAnimator.prototype.stop = function () {
-    if (this.timer) { clearTimeout(this.timer); this.timer = null; }
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
   };
 
-  /* ============================================================
-     Helper: Format Time
-     ============================================================ */
   function fmt(sec) {
     if (!sec || !isFinite(sec)) return '0:00';
     var m = Math.floor(sec / 60);
@@ -105,45 +159,69 @@
     return m + ':' + (s < 10 ? '0' : '') + s;
   }
 
-  /* ============================================================
-     FuuraQuest - Main Controller
-     ============================================================ */
+  function ensureHls(callback) {
+    if (typeof Hls !== 'undefined') { callback(); return; }
+    var existing = document.querySelector('script[data-secret-hls]');
+    if (existing) {
+      existing.addEventListener('load', callback, { once: true });
+      existing.addEventListener('error', callback, { once: true });
+      return;
+    }
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/hls.js@latest';
+    s.async = true;
+    s.setAttribute('data-secret-hls', '1');
+    s.onload = callback;
+    s.onerror = callback;
+    document.head.appendChild(s);
+  }
+
   function FuuraQuest() {
     this.state = loadState();
+    this.current = pageId();
+    this.required = nextNeeded(this.state);
     this.container = null;
     this.sprite = null;
     this.animator = null;
     this.bubble = null;
-    this.blinkInterval = null;
     this.overlay = null;
     this.particles = null;
 
-    // If already unlocked, show just the player (cat sits)
+    if (!this.current) return;
+
     if (this.state.unlocked) {
-      this.initUnlockedState();
+      if (this.current === 'contact') this.initUnlockedState();
       return;
     }
+
+    if (this.current !== this.required) return;
+    if (this.current === 'contact' && !this.hasFoundBeforeContact()) return;
 
     this.init();
   }
 
-  FuuraQuest.prototype.init = function () {
-    // Preload essentials
-    preloadAnim('idle');
-    preloadAnim('blink');
-    preloadAnim('cloak');
+  FuuraQuest.prototype.hasFoundBeforeContact = function () {
+    return this.state.found.home && this.state.found.tracks && this.state.found.blog && this.state.found.about;
+  };
 
-    this.createElements();
+  FuuraQuest.prototype.init = function () {
+    preloadAnim('idle');
+    preloadAnim('surprised');
+    preloadAnim('run');
+    preloadAnim('sit');
+    preloadAnim('sleep');
+    preloadAnim('look_up');
+    preloadAnim('cloak');
+    preloadAnim('walk');
+
+    this.createOverlay();
+    this.createCat();
     this.animator = new SpriteAnimator(this.sprite);
 
-    // Start idle with periodic blink
-    this.startIdleBlink();
+    var cfg = ROUND[this.current];
+    this.animator.play(cfg.anim, cfg.loop);
 
-    // Hint animation after 4s
     var self = this;
-    setTimeout(function () { self.playHint(); }, 4000);
-
-    // Click/tap handler
     this.container.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -151,13 +229,11 @@
     });
   };
 
-  FuuraQuest.prototype.createElements = function () {
-    // Twilight overlay (hidden initially)
+  FuuraQuest.prototype.createOverlay = function () {
     this.overlay = document.createElement('div');
     this.overlay.className = 'oumagadoki-overlay';
     document.body.appendChild(this.overlay);
 
-    // Particles
     this.particles = document.createElement('div');
     this.particles.className = 'oumagadoki-particles';
     for (var i = 0; i < 5; i++) {
@@ -168,14 +244,15 @@
       this.particles.appendChild(p);
     }
     document.body.appendChild(this.particles);
+  };
 
-    // Cat container
+  FuuraQuest.prototype.createCat = function () {
     this.container = document.createElement('div');
-    this.container.className = 'fuura-container';
+    this.container.className = 'fuura-container fuura-round-' + this.current;
 
     this.sprite = document.createElement('img');
     this.sprite.className = 'fuura-sprite';
-    this.sprite.src = SPRITE_BASE + 'idle_01.png';
+    this.sprite.src = SPRITE_BASE + (this.current === 'contact' ? 'sleep_01.png' : 'idle_01.png');
     this.sprite.alt = '';
     this.sprite.draggable = false;
 
@@ -188,30 +265,6 @@
     document.body.appendChild(this.container);
   };
 
-  FuuraQuest.prototype.startIdleBlink = function () {
-    var self = this;
-    this.animator.play('idle', true);
-    if (this.blinkInterval) clearInterval(this.blinkInterval);
-    this.blinkInterval = setInterval(function () {
-      self.animator.play('blink', false, function () {
-        self.animator.play('idle', true);
-      });
-    }, 3000 + Math.random() * 3000);
-  };
-
-  FuuraQuest.prototype.playHint = function () {
-    if (this.state.tapCount > 0) return;
-    var self = this;
-    preloadAnim('cloak');
-    this.animator.play('cloak', false, function () {
-      self.animator.play('idle', true);
-    });
-    this.container.classList.add('fuura-hint');
-    setTimeout(function () {
-      self.container.classList.remove('fuura-hint');
-    }, 1500);
-  };
-
   FuuraQuest.prototype.showBubble = function (text, dur) {
     dur = dur || 2000;
     this.bubble.textContent = text;
@@ -220,142 +273,66 @@
     setTimeout(function () { self.bubble.classList.remove('visible'); }, dur);
   };
 
+  FuuraQuest.prototype.showNextToast = function (cfg) {
+    if (!cfg || !cfg.nextUrl) return;
+    var toast = document.createElement('div');
+    toast.className = 'fuura-next-toast';
+    toast.innerHTML = '<a href="' + cfg.nextUrl + '">' + cfg.nextText + '</a>';
+    document.body.appendChild(toast);
+    requestAnimationFrame(function () { toast.classList.add('visible'); });
+    setTimeout(function () {
+      toast.classList.remove('visible');
+      setTimeout(function () { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 350);
+    }, 6500);
+  };
+
   FuuraQuest.prototype.onTap = function () {
-    this.state.tapCount++;
-    saveState(this.state);
-
-    // Preload next-needed anims
-    preloadAnim('surprised');
-    preloadAnim('run');
-    preloadAnim('walk');
-
-    if (this.state.tapCount >= TAP_THRESHOLD) {
-      preloadAnim('look_up');
-      preloadAnim('sit');
+    if (this.current === 'contact') {
       this.onComplete();
       return;
     }
 
-    // Bounce feedback
-    this.container.classList.remove('fuura-tapped');
-    void this.container.offsetWidth; // force reflow
-    this.container.classList.add('fuura-tapped');
-
-    // Surprised → move
+    var cfg = ROUND[this.current];
     var self = this;
+    this.state.found[this.current] = true;
+    saveState(this.state);
+
+    this.showBubble(cfg.message, 1800);
     this.animator.play('surprised', false, function () {
-      self.moveToNewPosition();
+      self.animator.play(cfg.leave === 'left' ? 'run' : 'walk', true);
+      self.container.classList.add('fuura-leaving', cfg.leave === 'left' ? 'fuura-leaving-left' : 'fuura-leaving-right');
+      self.showNextToast(cfg);
     });
-
-    // Speech
-    var msgs = ['……にゃ', '…にゃっ', 'にゃ……？', '…にゃん'];
-    this.showBubble(msgs[Math.min(this.state.tapCount - 1, msgs.length - 1)]);
-
-    // Background transition ramp up at tap 3+
-    if (this.state.tapCount >= 3) {
-      var progress = (this.state.tapCount - 2) / (TAP_THRESHOLD - 2);
-      document.body.style.transition = 'background-color 1.5s ease';
-      // Interpolate bg color
-      var r = Math.round(255 - progress * (255 - 26));
-      var g = Math.round(245 - progress * (245 - 14));
-      var b = Math.round(247 - progress * (247 - 46));
-      document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
-      // Overlay partial
-      this.overlay.style.opacity = String(progress * 0.6);
-    }
-  };
-
-  FuuraQuest.prototype.moveToNewPosition = function () {
-    var vw = window.innerWidth;
-    var vh = window.innerHeight;
-    var positions = [
-      { right: vw - 100, bottom: 20 },
-      { right: 20, bottom: 20 },
-      { right: vw - 100, bottom: Math.floor(vh * 0.25) },
-      { right: 20, bottom: Math.floor(vh * 0.25) },
-      { right: Math.floor(vw / 2 - 40), bottom: 20 },
-      { right: Math.floor(vw / 2 - 40), bottom: Math.floor(vh * 0.4) },
-    ];
-
-    // Pick a position different from current
-    var curR = parseInt(this.container.style.right) || 20;
-    var curB = parseInt(this.container.style.bottom) || 20;
-    var chosen;
-    for (var attempt = 0; attempt < 10; attempt++) {
-      chosen = positions[Math.floor(Math.random() * positions.length)];
-      if (Math.abs(chosen.right - curR) > 60 || Math.abs(chosen.bottom - curB) > 60) break;
-    }
-
-    // Flip sprite based on direction
-    var goingLeft = chosen.right > curR;
-    this.sprite.style.transform = goingLeft ? 'scaleX(-1)' : 'scaleX(1)';
-
-    // Run animation while moving
-    var useRun = this.state.tapCount >= 3;
-    this.animator.play(useRun ? 'run' : 'walk', true);
-
-    // Apply position
-    this.container.style.right = chosen.right + 'px';
-    this.container.style.bottom = chosen.bottom + 'px';
-
-    // Return to idle after move
-    var self = this;
-    setTimeout(function () {
-      self.sprite.style.transform = '';
-      self.startIdleBlink();
-    }, 800);
   };
 
   FuuraQuest.prototype.onComplete = function () {
-    if (this.blinkInterval) clearInterval(this.blinkInterval);
-
-    // Final bubble
-    this.showBubble('ついてきたのかにゃ', 4000);
-
-    // Full twilight mode
-    document.body.classList.add('oumagadoki-mode');
-
-    // Cat looks up then sits
     var self = this;
+    this.state.found.contact = true;
+    saveState(this.state);
+
+    this.showBubble(ROUND.contact.message, 3600);
+    document.body.classList.add('oumagadoki-mode');
+    this.overlay.style.opacity = '0.75';
+
+    this.container.classList.add('fuura-final');
     this.animator.play('look_up', false, function () {
       self.animator.play('sit', true);
     });
 
-    // Move to center
-    this.container.classList.add('fuura-final');
-
-    // Save & show player
     setTimeout(function () {
       self.state.unlocked = true;
       saveState(self.state);
       self.showPlayer();
-    }, 3500);
+    }, 3200);
   };
 
-  /* Already-unlocked page load */
   FuuraQuest.prototype.initUnlockedState = function () {
-    // Create overlay & particles
-    this.overlay = document.createElement('div');
-    this.overlay.className = 'oumagadoki-overlay';
-    document.body.appendChild(this.overlay);
-
-    this.particles = document.createElement('div');
-    this.particles.className = 'oumagadoki-particles';
-    for (var i = 0; i < 5; i++) {
-      var p = document.createElement('div');
-      p.className = 'oumagadoki-particle';
-      p.style.left = (15 + Math.random() * 70) + '%';
-      p.style.bottom = '-10px';
-      this.particles.appendChild(p);
-    }
-    document.body.appendChild(this.particles);
-
-    // Twilight mode
+    this.createOverlay();
     document.body.classList.add('oumagadoki-mode');
 
-    // Cat sitting at center
     this.container = document.createElement('div');
     this.container.className = 'fuura-container fuura-final';
+
     this.sprite = document.createElement('img');
     this.sprite.className = 'fuura-sprite';
     this.sprite.src = SPRITE_BASE + 'sit_01.png';
@@ -364,25 +341,20 @@
     this.container.appendChild(this.sprite);
     document.body.appendChild(this.container);
 
-    // Animate sit
     preloadAnim('sit');
     this.animator = new SpriteAnimator(this.sprite);
     this.animator.play('sit', true);
-
-    // Show player right away
     this.showPlayer();
   };
 
-  /* ============================================================
-     Secret Player
-     ============================================================ */
   FuuraQuest.prototype.showPlayer = function () {
+    if (document.querySelector('.secret-player-wrap')) return;
+
     var wrap = document.createElement('div');
     wrap.className = 'secret-player-wrap';
 
     var player = document.createElement('div');
     player.className = 'secret-player';
-
     player.innerHTML =
       '<div class="secret-player-title">逢魔時の寄り道</div>' +
       '<div class="secret-player-track">逢魔時 (piano-B)</div>' +
@@ -414,19 +386,15 @@
 
     wrap.appendChild(player);
     document.body.appendChild(wrap);
-
-    // Show with animation
     requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        wrap.classList.add('visible');
-      });
+      requestAnimationFrame(function () { wrap.classList.add('visible'); });
     });
 
-    this.setupAudio(wrap);
+    this.setupAudio();
     this.setupRating();
   };
 
-  FuuraQuest.prototype.setupAudio = function (wrap) {
+  FuuraQuest.prototype.setupAudio = function () {
     var audio = document.createElement('audio');
     audio.preload = 'metadata';
     var isPlaying = false;
@@ -442,7 +410,6 @@
     var playIcon = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
     var pauseIcon = '<svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
 
-    // HLS setup
     function loadSource() {
       if (typeof Hls !== 'undefined' && Hls.isSupported()) {
         hls = new Hls({ maxBufferLength: 30 });
@@ -455,9 +422,9 @@
         audio.src = REWARD_SRC;
       }
     }
-    loadSource();
 
-    // Play/Pause
+    ensureHls(loadSource);
+
     function togglePlay() {
       if (isPlaying) {
         audio.pause();
@@ -467,29 +434,27 @@
         audio.play().then(function () {
           isPlaying = true;
           playBtn.innerHTML = pauseIcon;
-          // Firebase play count
           if (typeof window.firebasePlayCount === 'function') {
             window.firebasePlayCount('oumagadoki-piano-b');
           }
-        }).catch(function () { /* autoplay blocked */ });
+        }).catch(function () { });
       }
     }
 
     playBtn.addEventListener('click', togglePlay);
 
-    // Progress update
     audio.addEventListener('timeupdate', function () {
       if (!audio.duration) return;
       var pct = (audio.currentTime / audio.duration) * 100;
       progressFill.style.width = pct + '%';
       timeCurrent.textContent = fmt(audio.currentTime);
+      if (audio.currentTime > audio.duration * 0.6) ratingSection.classList.add('visible');
     });
 
     audio.addEventListener('loadedmetadata', function () {
       timeTotal.textContent = fmt(audio.duration);
     });
 
-    // Seek
     progressBar.addEventListener('click', function (e) {
       if (!audio.duration) return;
       var rect = progressBar.getBoundingClientRect();
@@ -497,18 +462,11 @@
       audio.currentTime = pct * audio.duration;
     });
 
-    // Song ended → show rating
     audio.addEventListener('ended', function () {
       isPlaying = false;
       playBtn.innerHTML = playIcon;
       ratingSection.classList.add('visible');
-    });
-
-    // Also show rating after 60% of song played
-    audio.addEventListener('timeupdate', function () {
-      if (audio.duration && audio.currentTime > audio.duration * 0.6) {
-        ratingSection.classList.add('visible');
-      }
+      if (hls) { hls.destroy(); hls = null; }
     });
   };
 
@@ -516,22 +474,15 @@
     var btns = document.querySelectorAll('.secret-rating-btn');
     var thanks = document.getElementById('secretRatingThanks');
     var self = this;
-
     btns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var rating = btn.getAttribute('data-rating');
-
-        // Visual feedback
         btns.forEach(function (b) { b.classList.remove('selected'); });
         btn.classList.add('selected');
         thanks.classList.add('visible');
-
-        // Save to state
         self.state.rated = true;
         self.state.ratingValue = rating;
         saveState(self.state);
-
-        // Firebase: save rating
         if (typeof window.firebaseSecretRating === 'function') {
           window.firebaseSecretRating('oumagadoki-piano-b', rating);
         }
@@ -539,10 +490,9 @@
     });
   };
 
-  /* ============================================================
-     Init
-     ============================================================ */
   function startQuest() {
+    // Old same-page tap quest can conflict with the page-based version.
+    try { localStorage.removeItem(OLD_STORAGE_KEY); } catch (e) { }
     new FuuraQuest();
   }
 
@@ -551,5 +501,4 @@
   } else {
     startQuest();
   }
-
 })();

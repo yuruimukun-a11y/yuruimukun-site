@@ -1,0 +1,21 @@
+# Git Bash 用：ローカルのGitリポジトリ直下で実行
+# 前提：このZIPを Downloads に置く
+
+cd "/e/ルーティン用 イムなど/20260610-site/yuruimukun-site"
+
+git status
+
+rm -rf /tmp/yuru_secret_update
+mkdir -p /tmp/yuru_secret_update
+unzip -q "$HOME/Downloads/yuruimukun-site-local-update-pack.zip" -d /tmp/yuru_secret_update
+
+cp -r /tmp/yuru_secret_update/* ./
+
+git status
+git diff --stat
+
+git add css/secret.css js/secret.js index.html public/tracks/index.html blog/index.html about.html contact.html images/secret/*.png UPDATED_FILES.txt LOCAL_UPDATE_COMMANDS_GITBASH.txt
+
+git commit -m "Add page-based secret cat event and fix sprite rendering"
+
+git push origin main
