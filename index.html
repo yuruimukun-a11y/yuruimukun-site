@@ -88,10 +88,22 @@
         console.log('Firebase play count error:', err);
       }
     };
+
+    window.firebaseSecretRating = async function (trackId, rating) {
+      if (!trackId || !rating) return;
+      try {
+        const ratingRef = ref(db, 'secretRatings/' + trackId + '/' + rating);
+        await set(ratingRef, increment(1));
+        console.log('Secret rating saved:', trackId, rating);
+      } catch (err) {
+        console.log('Secret rating error:', err);
+      }
+    };
   </script>
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/secret.css">
 </head>
 
 <body>
@@ -513,6 +525,9 @@
 
   <!-- Player Script -->
   <script src="js/player.js"></script>
+
+  <!-- Secret Feature -->
+  <script src="js/secret.js"></script>
 
   <!-- Footer Script -->
   <script>
