@@ -408,7 +408,6 @@
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',boot,{ once:true });
     window.addEventListener('load',boot,{ once:true });
-  } else {
-    boot();
   }
+  boot();
 })();
