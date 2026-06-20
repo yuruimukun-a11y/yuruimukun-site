@@ -362,7 +362,10 @@
   }
 
   /* ==== Init ==== */
+  var started = false;
   function init() {
+    if (started) return;
+    started = true;
     var st=load(), page=curPage();
     if(!page)return;
     if(st.unlocked){if(page==='/')showUnlocked();return;}
@@ -374,6 +377,10 @@
       case 5:if(page==='/contact.html')round5();break;
     }
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
-  else init();
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init,{ once:true });
+    setTimeout(init, 0);
+  } else {
+    init();
+  }
 })();
