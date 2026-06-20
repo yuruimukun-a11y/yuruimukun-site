@@ -11,6 +11,12 @@
   var REWARD = 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki-piano-b/playlist.m3u8';
   var NEXT = 'oumagadoki-piano';
 
+  function markDebug(phase, extra) {
+    try {
+      window.__secretDebug = Object.assign({ phase: phase }, extra || {});
+    } catch (e) {}
+  }
+
   // Sprite files (9 static images)
   var IMG = {
     idle:      S + 'idle.png' + SPRITE_V,
@@ -91,6 +97,7 @@
      ========================================================== */
   function round1() {
     var anchor = qs('.hero-section');
+    markDebug('round1:enter', { hasAnchor: !!anchor });
     if (!anchor) return;
     anchor.style.position = 'relative';
 
@@ -101,6 +108,7 @@
     var bub = makeBubble();
     cat.appendChild(img); cat.appendChild(bub);
     anchor.appendChild(cat);
+    markDebug('round1:appended', { src: img.src });
 
     cat.addEventListener('click', function handler(e) {
       e.preventDefault(); e.stopPropagation();
@@ -389,7 +397,13 @@
   }
   function boot() {
     if (started) return;
-    if (init()) started = true;
+    markDebug('boot:before', { readyState: document.readyState });
+    if (init()) {
+      started = true;
+      markDebug('boot:started');
+    } else {
+      markDebug('boot:skipped');
+    }
   }
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',boot,{ once:true });
