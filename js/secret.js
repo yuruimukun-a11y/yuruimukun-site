@@ -6,7 +6,7 @@
   'use strict';
 
   var S = '/images/secret/';
-  var SPRITE_V = '?v=20260620c';
+  var SPRITE_V = '?v=20260620d';
   var KEY = 'fuura_quest_v2';
   var REWARD = 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki-piano-b/playlist.m3u8';
   var NEXT = 'oumagadoki-piano';
