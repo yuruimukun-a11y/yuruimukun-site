@@ -6,21 +6,22 @@
   'use strict';
 
   var S = '/images/secret/';
+  var SPRITE_V = '?v=20260620c';
   var KEY = 'fuura_quest_v2';
   var REWARD = 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki-piano-b/playlist.m3u8';
   var NEXT = 'oumagadoki-piano';
 
   // Sprite files (9 static images)
   var IMG = {
-    idle:      S + 'idle.png',
-    sit:       S + 'sit.png',
-    walk:      S + 'walk.png',
-    run:       S + 'run.png',
-    run2:      S + 'run2.png',
-    surprised: S + 'surprised.png',
-    cloak:     S + 'cloak.png',
-    sleep:     S + 'sleep.png',
-    back:      S + 'back.png',
+    idle:      S + 'idle.png' + SPRITE_V,
+    sit:       S + 'sit.png' + SPRITE_V,
+    walk:      S + 'walk.png' + SPRITE_V,
+    run:       S + 'run.png' + SPRITE_V,
+    run2:      S + 'run2.png' + SPRITE_V,
+    surprised: S + 'surprised.png' + SPRITE_V,
+    cloak:     S + 'cloak.png' + SPRITE_V,
+    sleep:     S + 'sleep.png' + SPRITE_V,
+    back:      S + 'back.png' + SPRITE_V,
   };
 
   function load() {
@@ -364,23 +365,36 @@
   /* ==== Init ==== */
   var started = false;
   function init() {
-    if (started) return;
-    started = true;
     var st=load(), page=curPage();
-    if(!page)return;
-    if(st.unlocked){if(page==='/')showUnlocked();return;}
+    if(!page)return false;
+    if(st.unlocked){if(page==='/')showUnlocked();return true;}
     switch(st.round){
-      case 1:if(page==='/')round1();break;
-      case 2:if(page==='/public/tracks/')round2();break;
-      case 3:if(page==='/blog/')round3();break;
-      case 4:if(page==='/about.html')round4();break;
-      case 5:if(page==='/contact.html')round5();break;
+      case 1:
+        if(page==='/' && qs('.hero-section')){round1();return true;}
+        break;
+      case 2:
+        if(page==='/public/tracks/' && document.querySelectorAll('.track-card').length){round2();return true;}
+        break;
+      case 3:
+        if(page==='/blog/' && qs('footer')){round3();return true;}
+        break;
+      case 4:
+        if(page==='/about.html' && document.querySelectorAll('h2').length){round4();return true;}
+        break;
+      case 5:
+        if(page==='/contact.html' && (qs('.contact-page') || qs('main'))){round5();return true;}
+        break;
     }
+    return false;
+  }
+  function boot() {
+    if (started) return;
+    if (init()) started = true;
   }
   if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',init,{ once:true });
-    setTimeout(init, 0);
+    document.addEventListener('DOMContentLoaded',boot,{ once:true });
+    window.addEventListener('load',boot,{ once:true });
   } else {
-    init();
+    boot();
   }
 })();
