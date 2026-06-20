@@ -48,7 +48,7 @@
     setTimeout(function(){b.classList.remove('visible');},dur||2200);
   }
   function showHint(text) {
-    var t=ce('div','fuura-hint-toast');t.textContent=text;
+    var t=ce('div','fuura-next-toast');t.textContent=text;
     document.body.appendChild(t);
     setTimeout(function(){t.classList.add('visible');},50);
     setTimeout(function(){t.classList.remove('visible');},5000);
@@ -116,7 +116,7 @@
       }, 900);
       setTimeout(function () {
         var st = load(); st.round = 2; save(st);
-        showHint('next : 楽曲一覧へ...');
+        showHint('あと四回……。どこにいるか、よければ探してみてね。');
       }, 1400);
     });
   }
@@ -157,7 +157,7 @@
       }, 700);
       setTimeout(function () {
         var st = load(); st.round = 3; save(st);
-        showHint('next : ブログへ...');
+        showHint('あと三回……。まだどこかにいるみたい。');
       }, 1200);
     });
   }
@@ -212,7 +212,7 @@
       }, 1800);
       setTimeout(function () {
         var st = load(); st.round = 4; save(st);
-        showHint('next : サイトについてへ...');
+        showHint('あと二回……。またふっと現れるかも。');
       }, 2200);
     });
   }
@@ -257,7 +257,7 @@
       }, 2000);
       setTimeout(function () {
         var st = load(); st.round = 5; save(st);
-        showHint('next : お問い合わせへ...');
+        showHint('あと一回……。最後の気配を探してみてね。');
       }, 2800);
     }
     target.style.cursor = 'pointer';
