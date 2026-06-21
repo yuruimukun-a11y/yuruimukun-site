@@ -100,57 +100,6 @@
       }
     };
 
-    function safeTrafficKey(value, fallback) {
-      const normalized = String(value || '')
-        .trim()
-        .replace(/[.#$/\[\]]/g, '-')
-        .replace(/\s+/g, '_')
-        .replace(/[^0-9A-Za-z_-]/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^[-_]+|[-_]+$/g, '');
-
-      return normalized || fallback || 'none';
-    }
-
-    function getTrafficContext() {
-      const params = new URLSearchParams(window.location.search);
-      return {
-        source: safeTrafficKey(params.get('src'), 'direct'),
-        entry: safeTrafficKey(params.get('entry'), 'none'),
-        via: safeTrafficKey(params.get('via'), 'direct')
-      };
-    }
-
-    async function incrementTrafficLog(path) {
-      try {
-        await set(ref(db, path), increment(1));
-      } catch (err) {
-        console.log('Shorts traffic error:', err);
-      }
-    }
-
-    window.firebaseTrafficLanding = async function (payload) {
-      const ctx = getTrafficContext();
-      const today = new Date().toISOString().split('T')[0];
-      const page = safeTrafficKey(payload && payload.page, 'unknown');
-      const trackId = safeTrafficKey(payload && payload.trackId, 'none');
-      await incrementTrafficLog('shortsTraffic/' + today + '/landings/' + ctx.source + '/' + ctx.entry + '/' + ctx.via + '/' + page + '/' + trackId);
-    };
-
-    window.firebaseTrafficClick = async function (payload) {
-      const ctx = getTrafficContext();
-      const today = new Date().toISOString().split('T')[0];
-      const trackId = safeTrafficKey(payload && payload.trackId, 'none');
-      const target = safeTrafficKey(payload && payload.target, 'unknown');
-      await incrementTrafficLog('shortsTraffic/' + today + '/clicks/' + ctx.source + '/' + ctx.entry + '/' + ctx.via + '/' + trackId + '/' + target);
-    };
-
-    window.firebaseTrafficPlay = async function (payload) {
-      const ctx = getTrafficContext();
-      const today = new Date().toISOString().split('T')[0];
-      const trackId = safeTrafficKey(payload && payload.trackId, 'none');
-      await incrementTrafficLog('shortsTraffic/' + today + '/plays/' + ctx.source + '/' + ctx.entry + '/' + ctx.via + '/' + trackId);
-    };
   </script>
 
   <!-- Styles -->
@@ -600,8 +549,6 @@
 
   <!-- Audio Element (hidden) -->
   <audio id="audioPlayer" preload="metadata"></audio>
-
-  <script src="js/shorts-traffic.js"></script>
 
   <!-- Player Script -->
   <script src="js/player.js"></script>
