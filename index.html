@@ -99,6 +99,58 @@
         console.log('Secret rating error:', err);
       }
     };
+
+    function safeTrafficKey(value, fallback) {
+      const normalized = String(value || '')
+        .trim()
+        .replace(/[.#$/\[\]]/g, '-')
+        .replace(/\s+/g, '_')
+        .replace(/[^0-9A-Za-z_-]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^[-_]+|[-_]+$/g, '');
+
+      return normalized || fallback || 'none';
+    }
+
+    function getTrafficContext() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        source: safeTrafficKey(params.get('src'), 'direct'),
+        entry: safeTrafficKey(params.get('entry'), 'none'),
+        via: safeTrafficKey(params.get('via'), 'direct')
+      };
+    }
+
+    async function incrementTrafficLog(path) {
+      try {
+        await set(ref(db, path), increment(1));
+      } catch (err) {
+        console.log('Shorts traffic error:', err);
+      }
+    }
+
+    window.firebaseTrafficLanding = async function (payload) {
+      const ctx = getTrafficContext();
+      const today = new Date().toISOString().split('T')[0];
+      const page = safeTrafficKey(payload && payload.page, 'unknown');
+      const trackId = safeTrafficKey(payload && payload.trackId, 'none');
+      await incrementTrafficLog('shortsTraffic/' + today + '/landings/' + ctx.source + '/' + ctx.entry + '/' + ctx.via + '/' + page + '/' + trackId);
+    };
+
+    window.firebaseTrafficClick = async function (payload) {
+      const ctx = getTrafficContext();
+      const today = new Date().toISOString().split('T')[0];
+      const trackId = safeTrafficKey(payload && payload.trackId, 'none');
+      const target = safeTrafficKey(payload && payload.target, 'unknown');
+      await incrementTrafficLog('shortsTraffic/' + today + '/clicks/' + ctx.source + '/' + ctx.entry + '/' + ctx.via + '/' + trackId + '/' + target);
+    };
+
+    window.firebaseTrafficPlay = async function (payload) {
+      const ctx = getTrafficContext();
+      const today = new Date().toISOString().split('T')[0];
+      const trackId = safeTrafficKey(payload && payload.trackId, 'none');
+      await incrementTrafficLog('shortsTraffic/' + today + '/plays/' + ctx.source + '/' + ctx.entry + '/' + ctx.via + '/' + trackId);
+    };
   </script>
 
   <!-- Styles -->
@@ -457,7 +509,8 @@
     <!-- Subscription Links -->
     <section class="subscribe-section">
       <h3 class="subscribe-title">各種ストリーミングで聴く</h3>
-      <p class="subscribe-sublabel">いつもの音楽アプリでも聴けます。</p>
+      <!-- 無料ストア（2列） -->
+      <p class="subscribe-sublabel">無料で聴ける</p>
       <div class="subscribe-links">
         <a href="https://open.spotify.com/intl-ja/artist/1s3ngPmgKOijhM5NcSks41" class="subscribe-link" target="_blank" rel="noopener">
           <span class="subscribe-icon">🎵</span>
@@ -467,6 +520,10 @@
           <span class="subscribe-icon">▶️</span>
           <span>YouTube Music</span>
         </a>
+      </div>
+      <!-- サブスクリプションストア（2列） -->
+      <p class="subscribe-sublabel" style="margin-top:0.75rem">サブスクリプション応対</p>
+      <div class="subscribe-links">
         <a href="https://music.apple.com/jp/artist/yuruimukun/1774673770" class="subscribe-link" target="_blank" rel="noopener">
           <span class="subscribe-icon">🎶</span>
           <span>Apple Music</span>
@@ -477,9 +534,9 @@
         </a>
       </div>
       <details class="home-fold-panel" style="margin-top:0.75rem">
-        <summary>そのほかの音楽サービスでも聴けます</summary>
+        <summary>その他のストアでも聴けます（SoundOn経由）</summary>
         <div style="padding:0.75rem 0 0.25rem;font-size:0.85rem;line-height:1.8;color:var(--color-text-muted,#888)">
-          <p style="margin:0 0 0.5rem">そのほかの音楽サービスでも「yuruimukun」で聴けます。</p>
+          <p style="margin:0 0 0.5rem">SoundOn（TikTok傘下の配信代行）を通じて、以下のストアにも配信されています。</p>
           <ul style="margin:0;padding-left:1.2rem;list-style:disc">
             <li>TikTok / TikTok Music</li>
             <li>Deezer</li>
@@ -487,6 +544,7 @@
             <li>Resso</li>
             <li>その他 50以上のストア</li>
           </ul>
+          <p style="margin:0.75rem 0 0">各ストアで「yuruimukun」と検索すると聴けます。</p>
         </div>
       </details>
     </section>
@@ -542,6 +600,8 @@
 
   <!-- Audio Element (hidden) -->
   <audio id="audioPlayer" preload="metadata"></audio>
+
+  <script src="js/shorts-traffic.js"></script>
 
   <!-- Player Script -->
   <script src="js/player.js"></script>
