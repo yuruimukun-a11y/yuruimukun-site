@@ -815,6 +815,11 @@
     if (typeof window.firebasePlayCount === 'function') {
       window.firebasePlayCount(trackId);
     }
+    if (typeof window.firebaseTrafficPlay === 'function' &&
+        window.shortsTrafficContext &&
+        window.shortsTrafficContext.active) {
+      window.firebaseTrafficPlay({ trackId: trackId });
+    }
   }
 
   function initHLS(src) {
