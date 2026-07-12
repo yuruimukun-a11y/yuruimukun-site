@@ -137,6 +137,27 @@
         <a class="hero-secondary-link ui-button ui-button--cream" href="/public/tracks/">楽曲一覧を見る</a>
       </div>
       <div class="ui-divider" aria-hidden="true"></div>
+      <section id="topArrivalBgm" class="top-arrival-bgm" aria-label="期間限定トップBGM" hidden>
+        <div class="top-arrival-bgm__copy">
+          <p class="top-arrival-bgm__eyebrow">LIMITED ARRIVAL BGM</p>
+          <p id="topArrivalBgmLabel" class="top-arrival-bgm__label"></p>
+        </div>
+        <button id="topArrivalBgmButton" class="top-arrival-bgm__button" type="button" aria-pressed="false">
+          <span id="topArrivalBgmButtonLabel">期間限定BGMを再生</span>
+          <span aria-hidden="true">♪</span>
+        </button>
+      </section>
+      <aside id="topArrivalBgmPopup" class="top-arrival-bgm-popup" aria-label="期間限定トップBGM" aria-live="polite" hidden>
+        <img id="topArrivalBgmImage" class="top-arrival-bgm-popup__image" alt="">
+        <div class="top-arrival-bgm-popup__body">
+          <p class="top-arrival-bgm-popup__eyebrow">LIMITED ARRIVAL BGM</p>
+          <p id="topArrivalBgmPopupLabel" class="top-arrival-bgm-popup__label"></p>
+          <button id="topArrivalBgmPopupButton" class="top-arrival-bgm-popup__button" type="button" aria-pressed="false">
+            <span id="topArrivalBgmPopupButtonLabel">この曲を再生</span>
+            <span aria-hidden="true">♪</span>
+          </button>
+        </div>
+      </aside>
       <div class="quick-links">
         <a class="quick-link" href="/public/tracks/oyasumi.html">
           <span class="quick-link-label">NIGHT / RISE</span>
@@ -547,6 +568,10 @@
 
   <!-- Audio Element (hidden) -->
   <audio id="audioPlayer" preload="metadata"></audio>
+  <audio id="topArrivalBgmAudio" preload="none"></audio>
+
+  <!-- Top page only: limited arrival BGM -->
+  <script src="js/top-arrival-bgm.js"></script>
 
   <!-- Player Script -->
   <script src="js/player.js"></script>

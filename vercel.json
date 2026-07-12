@@ -6,7 +6,10 @@
     {
       "source": "/:path*",
       "has": [
-        { "type": "host", "value": "www.yuruimukun.com" }
+        {
+          "type": "host",
+          "value": "www.yuruimukun.com"
+        }
       ],
       "destination": "https://yuruimukun.com/:path*",
       "permanent": true
@@ -15,6 +18,17 @@
       "source": "/public/ninja.html",
       "destination": "/public/tracks/ninja.html",
       "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/config/top-arrival-bgm.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0, must-revalidate"
+        }
+      ]
     }
   ]
 }

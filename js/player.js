@@ -865,6 +865,7 @@
 
   function play() {
     if (PLAYLIST.length === 0) return;
+    document.dispatchEvent(new CustomEvent('yuruimukun:main-player-play'));
     elements.audio.play().then(function () {
       state.isPlaying = true;
       updatePlayButton();
@@ -1132,8 +1133,12 @@
       }
     });
 
+    document.addEventListener('yuruimukun:top-arrival-bgm-play', function () {
+      if (state.isPlaying) pause();
+    });
+
     document.addEventListener('keydown', function (e) {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT') return;
       switch (e.code) {
         case 'Space': e.preventDefault(); togglePlay(); break;
         case 'ArrowLeft': e.preventDefault(); if (e.shiftKey) playPrev(); else seek((elements.audio.currentTime - 5) / elements.audio.duration); break;

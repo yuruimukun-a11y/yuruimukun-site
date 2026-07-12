@@ -2923,3 +2923,171 @@ body::after {
     grid-template-columns: 1fr;
   }
 }
+
+.top-arrival-bgm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(255, 143, 171, 0.28);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 20px rgba(255, 143, 171, 0.1);
+}
+
+.top-arrival-bgm__copy { min-width: 0; }
+
+.top-arrival-bgm__eyebrow {
+  margin: 0 0 0.1rem;
+  color: var(--color-primary-dark);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.top-arrival-bgm__label {
+  overflow: hidden;
+  margin: 0;
+  color: var(--color-text-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.top-arrival-bgm__button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.4rem;
+  border: 0;
+  border-radius: var(--radius-full);
+  padding: 0.62rem 0.82rem;
+  color: #fff;
+  background: var(--color-primary-dark);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.top-arrival-bgm__button:hover,
+.top-arrival-bgm__button:focus-visible {
+  background: var(--color-primary);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .top-arrival-bgm {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .top-arrival-bgm__button { justify-content: center; }
+}
+.top-arrival-bgm[hidden] { display: none; }
+
+.top-arrival-bgm-popup {
+  position: fixed;
+  z-index: 100;
+  top: max(0.9rem, env(safe-area-inset-top));
+  right: max(0.9rem, env(safe-area-inset-right));
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  width: min(360px, calc(100vw - 1.8rem));
+  overflow: hidden;
+  border: 1px solid rgba(255, 143, 171, 0.38);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 253, 0.95);
+  box-shadow: 0 18px 42px rgba(125, 58, 78, 0.25);
+  backdrop-filter: blur(12px);
+  animation: top-arrival-bgm-popup-in 0.32s ease-out both;
+}
+
+.top-arrival-bgm-popup[hidden] { display: none; }
+
+.top-arrival-bgm-popup__image {
+  display: block;
+  width: 92px;
+  height: 100%;
+  min-height: 130px;
+  object-fit: cover;
+  background: #f8e5eb;
+}
+
+.top-arrival-bgm-popup__body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.85rem;
+}
+
+.top-arrival-bgm-popup__eyebrow {
+  margin: 0 0 0.18rem;
+  color: var(--color-primary-dark);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.top-arrival-bgm-popup__label {
+  overflow: hidden;
+  margin: 0 0 0.6rem;
+  color: var(--color-text-dark);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.top-arrival-bgm-popup__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  border: 0;
+  border-radius: var(--radius-full);
+  padding: 0.48rem 0.7rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(255, 107, 138, 0.22);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.top-arrival-bgm-popup__button:hover,
+.top-arrival-bgm-popup__button:focus-visible {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(255, 107, 138, 0.3);
+}
+
+@keyframes top-arrival-bgm-popup-in {
+  from { opacity: 0; transform: translateY(-10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 480px) {
+  .top-arrival-bgm-popup {
+    grid-template-columns: 76px minmax(0, 1fr);
+    top: max(0.55rem, env(safe-area-inset-top));
+    right: max(0.55rem, env(safe-area-inset-right));
+    width: min(336px, calc(100vw - 1.1rem));
+  }
+
+  .top-arrival-bgm-popup__image { width: 76px; min-height: 112px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top-arrival-bgm-popup { animation: none; }
+}
