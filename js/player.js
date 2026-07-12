@@ -1137,6 +1137,11 @@
       if (state.isPlaying) pause();
     });
 
+    document.addEventListener('yuruimukun:play-all-shuffled', function () {
+      setMainList('all');
+      playShuffled();
+    });
+
     document.addEventListener('keydown', function (e) {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT') return;
       switch (e.code) {

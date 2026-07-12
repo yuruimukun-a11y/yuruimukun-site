@@ -3091,3 +3091,101 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .top-arrival-bgm-popup { animation: none; }
 }
+
+.top-arrival-bgm-next-dialog {
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.top-arrival-bgm-next-dialog[hidden] { display: none; }
+
+.top-arrival-bgm-next-dialog__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(67, 44, 53, 0.42);
+  backdrop-filter: blur(4px);
+}
+
+.top-arrival-bgm-next-dialog__panel {
+  position: relative;
+  width: min(430px, 100%);
+  padding: clamp(1.35rem, 5vw, 2rem);
+  border: 1px solid rgba(255, 143, 171, 0.35);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, #fffdfd 0%, #fff3f6 100%);
+  box-shadow: 0 22px 54px rgba(95, 54, 70, 0.28);
+  animation: top-arrival-bgm-dialog-in 0.22s ease-out both;
+}
+
+.top-arrival-bgm-next-dialog__eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--color-primary-dark);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.top-arrival-bgm-next-dialog h2 {
+  margin: 0 0 0.65rem;
+  color: var(--color-text-dark);
+  font-size: 1.18rem;
+  line-height: 1.5;
+}
+
+.top-arrival-bgm-next-dialog p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.top-arrival-bgm-next-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.top-arrival-bgm-next-dialog__yes,
+.top-arrival-bgm-next-dialog__no {
+  border-radius: var(--radius-full);
+  padding: 0.66rem 0.9rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.top-arrival-bgm-next-dialog__yes {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  box-shadow: 0 6px 14px rgba(255, 107, 138, 0.22);
+}
+
+.top-arrival-bgm-next-dialog__no {
+  border: 1px solid rgba(255, 143, 171, 0.3);
+  color: var(--color-text-dark);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.top-arrival-bgm-next-dialog__yes:hover,
+.top-arrival-bgm-next-dialog__yes:focus-visible,
+.top-arrival-bgm-next-dialog__no:hover,
+.top-arrival-bgm-next-dialog__no:focus-visible {
+  outline: none;
+  transform: translateY(-1px);
+}
+
+@keyframes top-arrival-bgm-dialog-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top-arrival-bgm-next-dialog__panel { animation: none; }
+}

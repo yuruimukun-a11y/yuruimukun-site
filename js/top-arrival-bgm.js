@@ -11,12 +11,15 @@
   var popupLabel = document.getElementById('topArrivalBgmPopupLabel');
   var popupButton = document.getElementById('topArrivalBgmPopupButton');
   var popupButtonLabel = document.getElementById('topArrivalBgmPopupButtonLabel');
+  var nextDialog = document.getElementById('topArrivalBgmNextDialog');
+  var nextYes = document.getElementById('topArrivalBgmNextYes');
+  var nextNo = document.getElementById('topArrivalBgmNextNo');
   var audio = document.getElementById('topArrivalBgmAudio');
   var hasEnded = false;
   var mode = '';
   var hasStarted = false;
 
-  if (!inlinePanel || !inlineLabel || !inlineButton || !inlineButtonLabel || !popup || !popupImage || !popupLabel || !popupButton || !popupButtonLabel || !audio) return;
+  if (!inlinePanel || !inlineLabel || !inlineButton || !inlineButtonLabel || !popup || !popupImage || !popupLabel || !popupButton || !popupButtonLabel || !nextDialog || !nextYes || !nextNo || !audio) return;
 
   function setButtonState(state) {
     var inlineText = '期間限定BGMを再生';
@@ -41,6 +44,15 @@
     mode = '';
   }
 
+  function closeNextDialog() {
+    nextDialog.hidden = true;
+  }
+
+  function showNextDialog() {
+    nextDialog.hidden = false;
+    nextYes.focus();
+  }
+
   function showInline() {
     popup.hidden = true;
     mode = 'inline';
@@ -63,6 +75,7 @@
 
   function start() {
     if (!audio.src) return;
+    closeNextDialog();
     if (!audio.paused) {
       stop();
       return;
@@ -93,6 +106,16 @@
 
   inlineButton.addEventListener('click', start);
   popupButton.addEventListener('click', start);
+  nextNo.addEventListener('click', closeNextDialog);
+  nextYes.addEventListener('click', function () {
+    closeNextDialog();
+    document.dispatchEvent(new CustomEvent('yuruimukun:play-all-shuffled'));
+    var player = document.getElementById('mainPlayer');
+    if (player) player.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !nextDialog.hidden) closeNextDialog();
+  });
   audio.addEventListener('play', function () {
     hasEnded = false;
     setButtonState('playing');
@@ -102,12 +125,17 @@
     else if (!hasEnded) setButtonState('paused');
   });
   audio.addEventListener('ended', function () {
+    if (!hasStarted) return;
     hasEnded = true;
     hasStarted = false;
     if (mode === 'popup') hideAll();
     else setButtonState('ended');
+    showNextDialog();
   });
-  audio.addEventListener('error', hideAll);
+  audio.addEventListener('error', function () {
+    hideAll();
+    closeNextDialog();
+  });
   document.addEventListener('yuruimukun:main-player-play', stop);
 
   fetch(CONFIG_URL, { cache: 'no-store' })
@@ -130,5 +158,8 @@
         showInline();
       }
     })
-    .catch(hideAll);
+    .catch(function () {
+      hideAll();
+      closeNextDialog();
+    });
 })();
