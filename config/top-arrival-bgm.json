@@ -1,10 +1,10 @@
 {
   "enabled": true,
-  "campaignId": "summer-2026-7",
-  "startsAt": "2026-07-12T20:23:00+09:00",
-  "endsAt": "2026-07-12T23:59:00+09:00",
-  "label": "??????????BGM",
-  "audioUrl": "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/campaigns/top-arrival/summer-2026-7/intro-1783855416736.mp3",
-  "imageUrl": "",
+  "campaignId": "akan-2026-07-16",
+  "startsAt": "2026-07-16T00:00:00+09:00",
+  "endsAt": "2026-07-16T23:00:00+09:00",
+  "label": "akan（期間限定BGM）",
+  "audioUrl": "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/campaigns/top-arrival/akan-2026-07-16/akan.mp3",
+  "imageUrl": "https://yuruimukun.com/images/tracks/akan.png",
   "volume": 0.35
 }
