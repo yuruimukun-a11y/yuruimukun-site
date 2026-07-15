@@ -8,6 +8,16 @@
 
   const PLAYLIST = [
     {
+      id: 'akan',
+      title: 'akan',
+      artist: 'yuruimukun',
+      genre: 'guitar',
+      description: '期間限定公開：2026年7月16日 23:00まで',
+      artwork: '/images/tracks/akan.png',
+      expiresAt: '2026-07-16T23:00:00+09:00',
+      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/akan/playlist.m3u8',
+    },
+    {
       id: 'hai',
       title: 'hai',
       artist: 'yuruimukun',
@@ -523,7 +533,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi', 'kitsuneko-zoku'],
-    normal: ['nekosanka', 'oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid', 'kitsune-punk', 'oumagadoki-piano'],
+    normal: ['akan', 'nekosanka', 'oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid', 'kitsune-punk', 'oumagadoki-piano'],
     all: null  // nullの場合は全曲を名前順で表示
   };
 
@@ -590,7 +600,7 @@
 
   function getGenres() {
     var genres = [];
-    PLAYLIST.forEach(function (track) {
+    getAvailablePlaylist().forEach(function (track) {
       if (track.genre && genres.indexOf(track.genre) === -1) {
         genres.push(track.genre);
       }
@@ -599,20 +609,39 @@
     return ['all'].concat(genres);
   }
 
+  function getAvailablePlaylist() {
+    var now = Date.now();
+    return PLAYLIST.filter(function (track) {
+      return !track.expiresAt || new Date(track.expiresAt).getTime() > now;
+    });
+  }
+
+  function scheduleExpiryRefresh() {
+    var nextExpiry = PLAYLIST.reduce(function (earliest, track) {
+      if (!track.expiresAt) return earliest;
+      var expiry = new Date(track.expiresAt).getTime();
+      return expiry > Date.now() && (!earliest || expiry < earliest) ? expiry : earliest;
+    }, 0);
+    if (nextExpiry) {
+      window.setTimeout(function () { window.location.reload(); }, nextExpiry - Date.now() + 250);
+    }
+  }
+
   function filterPlaylist(genre) {
     // まずメインリストでフィルタリング
     var mainListIds = MAIN_LISTS[state.currentMainList];
+    var availablePlaylist = getAvailablePlaylist();
     var baseList = [];
 
     if (mainListIds === null) {
       // ALLの場合は全曲を名前順でソート
-      baseList = PLAYLIST.slice().sort(function (a, b) {
+      baseList = availablePlaylist.slice().sort(function (a, b) {
         return a.id.toLowerCase().localeCompare(b.id.toLowerCase());
       });
     } else {
       // メインリストの順番を維持してフィルタリング
       mainListIds.forEach(function (id) {
-        var track = PLAYLIST.find(function (t) { return t.id === id; });
+        var track = availablePlaylist.find(function (t) { return t.id === id; });
         if (track) baseList.push(track);
       });
     }
@@ -847,13 +876,21 @@
   }
 
   function loadTrack(index, autoPlay) {
-    if (index < 0 || index >= PLAYLIST.length) return;
+    if (index < 0 || index >= PLAYLIST.length || getAvailablePlaylist().indexOf(PLAYLIST[index]) === -1) return;
     state.currentIndex = index;
     state.hasCountedPlay = false;
     var track = PLAYLIST[index];
     elements.trackTitle.textContent = track.title;
     elements.trackArtist.textContent = track.artist;
     elements.trackDescription.textContent = track.description || '';
+    if (track.artwork) {
+      var artwork = document.createElement('img');
+      artwork.src = track.artwork;
+      artwork.alt = track.title + ' のサムネイル';
+      elements.albumArt.replaceChildren(artwork);
+    } else {
+      elements.albumArt.innerHTML = '<span class="album-art-placeholder">🎵</span>';
+    }
     elements.timeCurrent.textContent = '0:00';
     elements.timeTotal.textContent = formatTime(track.duration);
     elements.progressFill.style.width = '0%';
@@ -1176,7 +1213,7 @@
     if (trackParam) {
       // 指定された曲を全PLAYLISTから検索
       for (var i = 0; i < PLAYLIST.length; i++) {
-        if (PLAYLIST[i].id === trackParam) {
+        if (PLAYLIST[i].id === trackParam && getAvailablePlaylist().indexOf(PLAYLIST[i]) !== -1) {
           initialTrackIndex = i;
           break;
         }
@@ -1202,6 +1239,7 @@
     updateVolumeIcon();
     updatePlaylistUI();
     setupEventListeners();
+    scheduleExpiryRefresh();
 
     // URLパラメータで曲が指定されていれば、その曲を自動再生
     if (initialTrackIndex >= 0) {
