@@ -8,16 +8,6 @@
 
   const PLAYLIST = [
     {
-      id: 'akan',
-      title: 'akan',
-      artist: 'yuruimukun',
-      genre: 'guitar',
-      description: '期間限定公開：2026年7月16日 23:00まで',
-      artwork: '/images/tracks/akan.png',
-      expiresAt: '2026-07-16T23:00:00+09:00',
-      src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/akan/playlist.m3u8',
-    },
-    {
       id: 'hai',
       title: 'hai',
       artist: 'yuruimukun',
@@ -541,7 +531,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
-    normal: ["akan","nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano"],
+    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano"],
     all: null  // nullの場合は全曲を名前順で表示
   };
 
