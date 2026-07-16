@@ -1,10 +1,10 @@
 {
-  "enabled": true,
-  "campaignId": "akan-2026-07-16",
-  "startsAt": "2026-07-16T00:00:00+09:00",
-  "endsAt": "2026-07-16T23:00:00+09:00",
-  "label": "akan（期間限定BGM）",
-  "audioUrl": "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/campaigns/top-arrival/akan-2026-07-16/akan.mp3",
-  "imageUrl": "https://yuruimukun.com/images/tracks/akan.png",
+  "enabled": false,
+  "campaignId": "",
+  "startsAt": "",
+  "endsAt": "",
+  "label": "期間限定BGMを聴く",
+  "audioUrl": "",
+  "imageUrl": "",
   "volume": 0.35
 }
