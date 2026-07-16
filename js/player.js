@@ -522,7 +522,15 @@
       description: '眠い猫さんを優しく起こすようなギター曲。ゆったりとした朝の空気感と、ほっこりする猫のモフモフ感が伝わる一曲です。',
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/wakeup-nekosan/playlist.m3u8',
     },
-  ];
+  
+    {
+      id: "marina",
+      title: "マリーナ",
+      artist: "yuruimukun",
+      genre: "Celtic",
+      description: "海辺の港町を意識しました。原曲参考は期間限定で配信しました。本当に素敵すぎて、どうしたらあんな曲が生まれるのか・・首をひねって地面に着くレベルです。\n\n今回意識したことは跳ねる三連、強めのスタッカート、民族楽器の生音感を参考にさせて頂きました。軽やかさの中に哀愁を織り込んだBGMにしました。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/marina/playlist.m3u8",
+    },];
 
   // Single track mode for individual track pages
   if (window.SINGLE_TRACK) {
@@ -532,8 +540,8 @@
 
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
-    lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi', 'kitsuneko-zoku'],
-    normal: ['akan', 'nekosanka', 'oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid', 'kitsune-punk', 'oumagadoki-piano'],
+    lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
+    normal: ["akan","nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano"],
     all: null  // nullの場合は全曲を名前順で表示
   };
 

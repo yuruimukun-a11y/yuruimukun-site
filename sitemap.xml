@@ -375,4 +375,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- ADMIN-TRACK: marina -->
+  <url>
+    <loc>https://yuruimukun.com/public/tracks/marina.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
