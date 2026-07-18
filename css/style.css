@@ -2778,6 +2778,15 @@ body::after {
   line-height: 1.2;
 }
 
+/* Keep all four official names readable on one line without shortening the
+   visible text used by visitors, assistive tech, or crawlers. */
+.subscribe-section--social .subscribe-link span:last-child {
+  min-width: 0;
+  white-space: nowrap;
+  font-size: clamp(0.9rem, 1.05vw, 0.98rem);
+  letter-spacing: 0;
+}
+
 .subscribe-link:focus-visible {
   outline: 2px solid rgba(178, 128, 71, 0.9);
   outline-offset: 5px;
