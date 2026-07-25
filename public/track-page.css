@@ -175,22 +175,6 @@ body {
   margin-bottom: 0;
 }
 
-/* Instrument List */
-.instrument-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
-}
-
-.instrument-list li {
-  background: var(--color-bg-card);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: 20px;
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-
 /* Related Tracks */
 .related-section {
   margin-top: var(--spacing-xl);
