@@ -2752,6 +2752,16 @@ body::after {
   max-width: 56rem;
 }
 
+.subscribe-section--blog .subscribe-links {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 56rem;
+}
+
+.subscribe-section--blog .subscribe-link {
+  max-width: none;
+  justify-self: stretch;
+}
+
 .subscribe-link {
   width: 100%;
   max-width: 34rem;
@@ -2858,7 +2868,8 @@ body::after {
 }
 
 @media (max-width: 900px) {
-  .subscribe-section:has(.subscribe-links > .subscribe-link:nth-child(2)) .subscribe-links {
+  .subscribe-section:has(.subscribe-links > .subscribe-link:nth-child(2)) .subscribe-links,
+  .subscribe-section--blog .subscribe-links {
     grid-template-columns: 1fr;
     max-width: 34rem;
   }
