@@ -1,4 +1,4 @@
-﻿/**
+/**
  * yuruimukun Music Player
  * HLS.js based streaming player with genre filter
  */
@@ -417,10 +417,10 @@
     },
     {
       id: 'onnrei',
-      title: 'おんれい',
+      title: '御礼',
       artist: 'yuruimukun',
       genre: 'vocaloid',
-      description: '音霊をテーマにしたボカロ曲。言葉に宿る魂と、音楽の持つ力を表現した神秘的な楽曲です。',
+      description: 'バーゲンセール、値札、猫、シャウトが入り乱れるカオスなメタル系ボカロ曲。勢いのある言葉とサウンドを楽しめる一曲です。',
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/onnrei/playlist.m3u8',
     },
     {

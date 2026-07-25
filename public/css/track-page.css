@@ -520,6 +520,21 @@ body {
   overflow: hidden;
 }
 
+/* Lyrics */
+.lyrics-section {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-lg);
+}
+
+.lyrics-text {
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+.lyrics-text p {
+  margin-bottom: var(--spacing-lg);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .site-header {
