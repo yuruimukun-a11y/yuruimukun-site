@@ -1077,6 +1077,9 @@
       var originalIndex = getOriginalIndex(filteredIndex);
       var li = document.createElement('li');
       li.className = 'playlist-item';
+      li.tabIndex = 0;
+      li.setAttribute('role', 'button');
+      li.setAttribute('aria-label', track.title + 'を再生');
       if (originalIndex === state.currentIndex) {
         li.classList.add('active');
         if (state.isPlaying) li.classList.add('playing');
@@ -1106,6 +1109,11 @@
       li.addEventListener('click', function () {
         if (originalIndex === state.currentIndex) togglePlay();
         else loadTrack(originalIndex, true);
+      });
+      li.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        li.click();
       });
       elements.playlist.appendChild(li);
     });

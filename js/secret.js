@@ -42,7 +42,7 @@
 
   function makeImg(src) {
     var img = ce('img');
-    img.src = src; img.alt = ''; img.draggable = false;
+    img.src = src; img.alt = ''; img.width = 200; img.height = 210; img.draggable = false;
     img.style.cssText = 'display:block;width:100px;height:auto;image-rendering:pixelated;image-rendering:crisp-edges;pointer-events:none;';
     return img;
   }
@@ -55,7 +55,7 @@
     setTimeout(function(){b.classList.remove('visible');},dur||2200);
   }
   function showHint(text) {
-    var t=ce('div','fuura-next-toast');t.textContent=text;
+    var t=ce('div','fuura-next-toast');t.textContent=text;t.setAttribute('role','status');t.setAttribute('aria-live','polite');
     document.body.appendChild(t);
     setTimeout(function(){t.classList.add('visible');},50);
     setTimeout(function(){t.classList.remove('visible');},5000);

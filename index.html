@@ -8,6 +8,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111722">
   <title>ゆるいむくん | 作業用BGM・睡眠用BGM・和風/幻想フリーBGM</title>
   <meta name="description" content="ゆるいむくんの公式サイト。作業用BGM、睡眠用BGM、和風ヒーリング、幻想系のオリジナル音楽を無料でストリーミング視聴できます。">
   <meta name="keywords" content="ゆるいむくん, 作業用BGM, 睡眠用BGM, フリーBGM, 和風BGM, lofi bgm 無料, 幻想音楽, オリジナル曲">
@@ -32,33 +33,39 @@
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://yuruimukun.com/">
+  <meta property="og:image:alt" content="ゆるいむくん公式サイトの共通ソーシャル画像">
 
   <!-- Structured Data (Schema.org) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "@id": "https://yuruimukun.com/#artist",
-    "name": "ゆるいむくん",
-    "alternateName": "yuruimukun",
-    "url": "https://yuruimukun.com/",
-    "sameAs": [
-      "https://x.com/yuruimukun_koho",
-      "https://www.youtube.com/channel/UConxNOIrPvDkxoOI-4O9crw",
-      "https://bsky.app/profile/yuruimukun.bsky.social",
-      "https://open.spotify.com/intl-ja/artist/1s3ngPmgKOijhM5NcSks41",
-      "https://music.apple.com/jp/artist/yuruimukun/1774673770"
-    ],
-    "subOrganization": {
-      "@type": "Organization",
-      "@id": "https://yuruimukun.com/#yuruneko-studio",
-      "name": "ゆるねこスタジオ",
-      "url": "https://yuruimukun.com/#yuruneko-studio",
-      "sameAs": ["https://www.youtube.com/channel/UCdqpN463kUQhBkt2J9SqAZw"],
-      "description": "マヌルネコやAI猫の映像を公開する、ゆるいむくんの公式YouTubeスタジオです。"
-    },
-    "genre": ["Lofi", "BGM", "Electronic", "Ambient", "Healing"],
-    "description": "作業用BGM、睡眠用BGM、和風ヒーリング、幻想系のオリジナル音楽を無料でストリーミング視聴できる公式サイトです。"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://yuruimukun.com/#website",
+        "url": "https://yuruimukun.com/",
+        "name": "ゆるいむくん",
+        "inLanguage": "ja",
+        "description": "ゆるいむくんのオリジナル楽曲、公式歌詞、制作背景をまとめた公式サイトです。",
+        "publisher": { "@id": "https://yuruimukun.com/#artist" }
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://yuruimukun.com/#artist",
+        "name": "ゆるいむくん",
+        "alternateName": "yuruimukun",
+        "url": "https://yuruimukun.com/",
+        "sameAs": [
+          "https://x.com/yuruimukun_koho",
+          "https://www.youtube.com/channel/UConxNOIrPvDkxoOI-4O9crw",
+          "https://bsky.app/profile/yuruimukun.bsky.social",
+          "https://open.spotify.com/intl-ja/artist/1s3ngPmgKOijhM5NcSks41",
+          "https://music.apple.com/jp/artist/yuruimukun/1774673770"
+        ],
+        "genre": ["Vocaloid", "Lofi", "BGM", "Electronic", "Ambient", "Healing"],
+        "description": "ボカロ曲、作業用BGM、睡眠用BGM、和風ヒーリングなどのオリジナル音楽を制作する個人音楽プロジェクトです。"
+      }
+    ]
   }
   </script>
 
@@ -125,6 +132,7 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#mainPlayer">メインプレイヤーへ移動</a>
   <div class="container">
     <!-- Header -->
     <header class="header">
@@ -149,7 +157,7 @@
           <p>気分に近い入口から入ってください。作業、夜、物語の3つから選べます。</p>
         </div>
         <figure class="hero-visual">
-          <img src="/images/home-start-map.svg" alt="作業、夜、物語の3つの入口から選んで、ゆったり、通常、全曲のリストで再生する流れを示した図" loading="lazy">
+          <img src="/images/home-start-map.svg" alt="作業、夜、物語の3つの入口から選んで、ゆったり、通常、全曲のリストで再生する流れを示した図" width="1200" height="620" loading="lazy">
         </figure>
       </div>
       <div class="hero-actions">
@@ -168,7 +176,7 @@
         </button>
       </section>
       <aside id="topArrivalBgmPopup" class="top-arrival-bgm-popup" aria-label="期間限定トップBGM" aria-live="polite" hidden>
-        <img id="topArrivalBgmImage" class="top-arrival-bgm-popup__image" alt="">
+        <img id="topArrivalBgmImage" class="top-arrival-bgm-popup__image" width="96" height="128" alt="">
         <div class="top-arrival-bgm-popup__body">
           <p class="top-arrival-bgm-popup__eyebrow">LIMITED ARRIVAL BGM</p>
           <p id="topArrivalBgmPopupLabel" class="top-arrival-bgm-popup__label"></p>
@@ -190,23 +198,48 @@
           </div>
         </div>
       </section>
-      <div class="quick-links">
-        <a class="quick-link" href="/public/tracks/oyasumi.html">
-          <span class="quick-link-label">NIGHT / RISE</span>
-          <span class="quick-link-title">oyasumi</span>
-          <span class="quick-link-copy">深夜に。</span>
-        </a>
-        <a class="quick-link" href="/public/tracks/kitsuneko-zoku.html">
-          <span class="quick-link-label">JAPANESE / QUIET</span>
-          <span class="quick-link-title">きつねこ続</span>
-          <span class="quick-link-copy">静かに沈みたい時に。</span>
-        </a>
-        <a class="quick-link" href="/public/tracks/sekaisora.html">
-          <span class="quick-link-label">SKY / OPEN</span>
-          <span class="quick-link-title">sekaisora</span>
-          <span class="quick-link-copy">前を向きたい時に。</span>
-        </a>
+    </section>
+
+    <section class="featured-works" aria-labelledby="featuredWorksTitle">
+      <div class="guide-section-header">
+        <span class="ui-badge ui-badge--small" aria-hidden="true"></span>
+        <p class="featured-works-kicker">LYRICS &amp; MUSIC</p>
+        <h2 id="featuredWorksTitle">歌詞・楽曲を見る</h2>
+        <p>作品ページでは、曲を聴きながら、公式歌詞や世界観、制作メモを読めます。まずは主要3曲からどうぞ。</p>
       </div>
+      <div class="featured-works-grid">
+        <article class="featured-work-card">
+          <p class="featured-work-label">歌詞なし / NIGHT</p>
+          <h3>oyasumi</h3>
+          <p>眠れない夜や、考えるのを終わりにしたい時間へ。静かな入りから少しずつほどけていく感触を、曲の説明と一緒に辿れます。</p>
+          <ul class="featured-work-facts">
+            <li>このページで曲を再生できます</li>
+            <li>本作に歌詞はありません</li>
+          </ul>
+          <a class="featured-work-link" href="/public/tracks/oyasumi.html">oyasumiの作品ページへ</a>
+        </article>
+        <article class="featured-work-card">
+          <p class="featured-work-label">公式歌詞 / TWILIGHT</p>
+          <h3>逢魔が時</h3>
+          <p>夕方から夜へ切り替わる境目と、過去の自分や誰かを送り出す区切りを描いたボカロ曲。公式歌詞を読みながら聴けます。</p>
+          <ul class="featured-work-facts">
+            <li>このページで曲を再生できます</li>
+            <li>公式歌詞を全文掲載しています</li>
+          </ul>
+          <a class="featured-work-link" href="/public/tracks/oumagadoki.html">逢魔が時の歌詞・作品ページへ</a>
+        </article>
+        <article class="featured-work-card">
+          <p class="featured-work-label">歌詞なし / JAPANESE QUIET</p>
+          <h3>きつねこ続</h3>
+          <p>狐さんと猫さんの世界をもう少し先へ歩かせた、和の静けさと余韻を残す曲。前作から続く世界観と聴きどころをまとめています。</p>
+          <ul class="featured-work-facts">
+            <li>このページで曲を再生できます</li>
+            <li>本作に歌詞はありません</li>
+          </ul>
+          <a class="featured-work-link" href="/public/tracks/kitsuneko-zoku.html">きつねこ続の作品ページへ</a>
+        </article>
+      </div>
+      <p class="featured-works-all"><a href="/public/tracks/">全楽曲を作品一覧から探す</a></p>
     </section>
 
     <section class="guide-section">
@@ -325,17 +358,17 @@
 
       <!-- Controls -->
       <div class="controls">
-        <button class="control-btn" id="shuffleBtn" title="シャッフル">
+        <button class="control-btn" id="shuffleBtn" type="button" aria-label="シャッフル再生を切り替える" title="シャッフル">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" />
           </svg>
         </button>
-        <button class="control-btn" id="prevBtn" title="前の曲">
+        <button class="control-btn" id="prevBtn" type="button" aria-label="前の曲を再生" title="前の曲">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
           </svg>
         </button>
-        <button class="control-btn play-btn" id="playBtn" title="再生/停止">
+        <button class="control-btn play-btn" id="playBtn" type="button" aria-label="再生または一時停止" title="再生/停止">
           <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z" />
           </svg>
@@ -343,12 +376,12 @@
             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
           </svg>
         </button>
-        <button class="control-btn" id="nextBtn" title="次の曲">
+        <button class="control-btn" id="nextBtn" type="button" aria-label="次の曲を再生" title="次の曲">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
           </svg>
         </button>
-        <button class="control-btn" id="repeatBtn" title="リピート">
+        <button class="control-btn" id="repeatBtn" type="button" aria-label="リピート再生を切り替える" title="リピート">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z" />
           </svg>
@@ -357,7 +390,7 @@
 
       <!-- Volume -->
       <div class="volume-container">
-        <button class="volume-btn" id="volumeBtn" title="ミュート">
+        <button class="volume-btn" id="volumeBtn" type="button" aria-label="ミュートを切り替える" title="ミュート">
           <svg class="icon-volume" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
           </svg>
@@ -383,7 +416,7 @@
 
         <div class="player-guide-layout">
           <figure class="player-guide-visual">
-            <img src="/images/player-guide.svg" alt="ゆるいむくんの通常プレイヤーで、曲選択、再生ボタン、シークバー、音量、再生モードの位置を示した説明図" loading="lazy">
+            <img src="/images/player-guide.svg" alt="ゆるいむくんの通常プレイヤーで、曲選択、再生ボタン、シークバー、音量、再生モードの位置を示した説明図" width="1200" height="760" loading="lazy">
           </figure>
 
           <div class="player-guide-steps">
@@ -496,13 +529,13 @@
       <p class="neko-section-copy">マヌルネコやAI猫の映像は、ゆるいむくんの映像チャンネル「ゆるねこスタジオ」で公開しています。<br>AI猫動画と音楽を一緒に楽しめます。</p>
       <div class="neko-thumb-grid">
         <div class="neko-thumb">
-          <img src="/images/neko/neko-thumb-1.jpg" alt="ゆるねこスタジオ - AI猫動画">
+          <img src="/images/neko/neko-thumb-1.jpg" alt="ゆるねこスタジオ - AI猫動画" width="1672" height="941" loading="lazy">
         </div>
         <div class="neko-thumb">
-          <img src="/images/neko/neko-thumb-2.jpg" alt="ゆるねこスタジオ - AI猫動画">
+          <img src="/images/neko/neko-thumb-2.jpg" alt="ゆるねこスタジオ - AI猫動画" width="1672" height="941" loading="lazy">
         </div>
         <div class="neko-thumb">
-          <img src="/images/neko/neko-thumb-3.jpg" alt="ゆるねこスタジオ - AI猫動画">
+          <img src="/images/neko/neko-thumb-3.jpg" alt="ゆるねこスタジオ - AI猫動画" width="1672" height="941" loading="lazy">
         </div>
       </div>
       <a class="neko-cta ui-button ui-button--night" href="https://www.youtube.com/channel/UCdqpN463kUQhBkt2J9SqAZw" target="_blank" rel="noopener"

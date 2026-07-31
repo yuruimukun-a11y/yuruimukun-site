@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
   <title>楽曲一覧 | 作業用BGM・睡眠用BGM・幻想音楽 - ゆるいむくん</title>
   <meta name="description" content="ゆるいむくんの全楽曲一覧。作業用BGM、睡眠用BGM、和風ヒーリング、ボカロ、幻想系インストまで幅広く無料で聴けます。">
   <meta name="keywords" content="ゆるいむくん, 楽曲一覧, 作業用BGM, 睡眠用BGM, 和風BGM, オリジナル曲, ボカロ">
@@ -15,6 +16,38 @@
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://yuruimukun.com/public/tracks/">
+  <meta property="og:image:alt" content="ゆるいむくん公式サイトの共通ソーシャル画像">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://yuruimukun.com/public/tracks/#page",
+        "url": "https://yuruimukun.com/public/tracks/",
+        "name": "ゆるいむくん 楽曲一覧",
+        "inLanguage": "ja",
+        "description": "オリジナル楽曲を、世界観、歌詞の有無、聴く場面から探せる作品ポータルです。"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuruimukun.com/" },
+          { "@type": "ListItem", "position": 2, "name": "楽曲一覧", "item": "https://yuruimukun.com/public/tracks/" }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "主要作品",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "url": "https://yuruimukun.com/public/tracks/oyasumi.html", "name": "oyasumi" },
+          { "@type": "ListItem", "position": 2, "url": "https://yuruimukun.com/public/tracks/oumagadoki.html", "name": "逢魔が時" },
+          { "@type": "ListItem", "position": 3, "url": "https://yuruimukun.com/public/tracks/kitsuneko-zoku.html", "name": "きつねこ続" }
+        ]
+      }
+    ]
+  }
+  </script>
 
     <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -30,15 +63,19 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">楽曲一覧へ移動</a>
   <header class="site-header">
     <a href="/" class="logo">ゆるいむくん</a>
     <nav class="nav">
       <a href="/">ホーム</a>
       <a href="/public/tracks/">楽曲一覧</a>
+      <a href="/public/lyrics/">公式歌詞</a>
+      <a href="/about.html">サイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
     </nav>
   </header>
 
-  <main class="track-list-page">
+  <main class="track-list-page" id="main-content">
     <h1 class="page-title">楽曲一覧</h1>
     <p class="page-description">ゆるいむくんが制作した全楽曲の一覧です。作業用BGM、睡眠前の静かな曲、和風ヒーリング、ボカロ、ロックまで、気分ごとの入口から選べます。</p>
 
@@ -64,275 +101,351 @@
       </div>
     </section>
 
+    <section class="featured-track-list" aria-labelledby="featuredTracksTitle">
+      <h2 id="featuredTracksTitle">主要作品から聴く</h2>
+      <p>主要3曲は、ページ内プレイヤーと作品ごとの読みものを一つのページにまとめています。曲別ジャケットは未掲載のため、音楽・歌詞・制作情報を中心に案内します。</p>
+      <div class="featured-track-grid">
+        <article class="featured-track-card">
+          <span class="featured-track-meta">歌詞なし / 深夜 / チルアウト</span>
+          <h3>oyasumi</h3>
+          <p>眠れない夜や、考えるのを終わりにしたい時間へ。深夜の空気を抱えたまま、力を抜く場所を小さく残す曲です。世界観と制作メモを読みながら聴けます。</p>
+          <div class="featured-track-actions">
+            <a href="./oyasumi.html">作品ページ</a>
+            <a href="/?track=oyasumi">トップで聴く</a>
+          </div>
+        </article>
+        <article class="featured-track-card">
+          <span class="featured-track-meta">公式歌詞 / ボカロ / 夕暮れ</span>
+          <h3>逢魔が時</h3>
+          <p>昼と夜の境界、過去の自分、誰かを送り出す区切りを描いたボカロ曲です。現行版の公式歌詞全文、旧インスト版からの変化、制作メモを掲載しています。</p>
+          <div class="featured-track-actions">
+            <a href="./oumagadoki.html">歌詞・作品ページ</a>
+            <a href="/?track=oumagadoki">トップで聴く</a>
+          </div>
+        </article>
+        <article class="featured-track-card">
+          <span class="featured-track-meta">歌詞なし / 和の静けさ / 余韻</span>
+          <h3>きつねこ続</h3>
+          <p>前作で生まれた狐さんと猫さんの世界を、もう少し先へ歩かせた曲です。和の静けさと、眠りへ向かう余白を大切にした世界観を、音と文章で辿れます。</p>
+          <div class="featured-track-actions">
+            <a href="./kitsuneko-zoku.html">作品ページ</a>
+            <a href="/?track=kitsuneko-zoku">トップで聴く</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <h2 class="featured-track-list">すべての作品</h2>
     <div class="track-grid">
       <!-- アンビエント / チルアウト系 -->
       <a href="./akari.html" class="track-card">
         <span class="track-card-title">灯</span>
         <span class="track-card-genre">アンビエント / エレクトロニカ</span>
-        <span class="track-card-description">暗闇の中でゆらめく小さな灯火をイメージした楽曲。深夜の読書やひとりの時間に合う静かなアンビエント。</span>
+        <span class="track-card-description">「灯」は、不安の奥にまだ小さな灯りが残っている夜に向いた曲です。静かなまま消えていくのではなく、暗さの中にかすかな温度だけが残っているような感触を、そのまま音にしています。 落ち着きたい時のBGMでもありますが、それだけではありません。ちゃんと見えないだけで、まだ消えていないものが心の奥にある。そんな夜に、部屋の隅へそっと置いておける一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./oyasumi.html" class="track-card">
         <span class="track-card-title">oyasumi</span>
         <span class="track-card-genre">チルアウト / ローファイ</span>
-        <span class="track-card-description">睡眠前や深夜の読書に合う、穏やかで温かみのあるローファイ楽曲。静かな入口としておすすめ。</span>
+        <span class="track-card-description">「oyasumi」は、眠れない夜にがんばるのをやめるための曲です。静かに落ち着かせるというより、考えすぎてほどけなくなった気分を、少しずつゆるめていくような温度で作っています。 うまく一日を終えられなかった夜や、もう考えるのを終わりにしたい夜に合います。深夜の空気をそのまま抱えたまま、力を抜く場所だけを小さく残した一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./reverth-going-back.html" class="track-card">
         <span class="track-card-title">reverth going back</span>
         <span class="track-card-genre">アンビエント / エクスペリメンタル</span>
-        <span class="track-card-description">「帰還」をテーマにした実験的アンビエント。時間の流れを逆行させるような不思議な音像。</span>
+        <span class="track-card-description">「reverth going back」は、時間が前へ進む感覚と、記憶の中で後ろへ引き戻される感覚を同時に扱ったアンビエント曲です。強いメロディや明確なリズムで引っ張るのではなく、残響の揺れや音の滲み方そのものを主役に置いています。深夜に考えごとが増える時間、静かな作業、気持ちを整理したい時のBGMとして機能するように、刺激よりも余韻を重視して組み立てました。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./forest-session.html" class="track-card">
         <span class="track-card-title">forest session</span>
         <span class="track-card-genre">ネイチャーサウンド / アンビエント</span>
-        <span class="track-card-description">森の中でのセッションを想像させる、自然と音楽が融合した楽曲。束の間の森林浴を届ける音楽。</span>
+        <span class="track-card-description">「forest session」は、森の中にいる時の空気の密度と、そこで誰かが静かに演奏を始めたような気配を重ねたアンビエント曲です。自然音だけに寄せるのではなく、楽器の存在感も少し残すことで、単なる環境音ではなく「森の中で生まれる小さなセッション」として成立させています。休憩時間、読書、作業の合間の深呼吸など、頭の速度をゆるめたい場面に合う一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <!-- ゲームミュージック系 -->
       <a href="./maron-battle.html" class="track-card">
         <span class="track-card-title">maron battle</span>
         <span class="track-card-genre">エレクトロニック / ゲームミュージック</span>
-        <span class="track-card-description">栗をテーマにした遊び心溢れるバトル曲。集中作業のBGMとしても使えるアップテンポな仕上がり。</span>
+        <span class="track-card-description">「maron battle」は、栗という秋らしい題材を、なぜかバトル曲の中心へ据えたゲーム風トラックです。可愛さのあるモチーフなのに、曲の中ではしっかり緊張感があり、そのズレがこのページの面白さになっています。大仰すぎないエレクトロニックな輪郭と、ゲームミュージックらしい推進力を合わせているので、集中したい時にも、創作のテンションを少し上げたい時にも使いやすい一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./danmaku.html" class="track-card">
         <span class="track-card-title">danmaku</span>
         <span class="track-card-genre">シューティングゲーム風 / エレクトロニック</span>
-        <span class="track-card-description">弾幕シューティングゲームの世界観を音楽で表現。緊張感と爽快感をサウンドに落とし込んだ楽曲。</span>
+        <span class="track-card-description">「danmaku」は、弾幕シューティングゲームで画面いっぱいに弾が広がる瞬間の緊張感と、それを抜け切った時の爽快感をそのまま音にしたトラックです。速度のあるエレクトロニックなリズムを軸にしながら、単純に激しいだけではなく、避け続ける集中の気持ちよさが残るように作っています。ゲーム風のBGMとしてはもちろん、手を止めたくない作業や、思考を加速させたい時の作業用BGMとしても使いやすい一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./kome-battle.html" class="track-card">
         <span class="track-card-title">kome battle</span>
         <span class="track-card-genre">ゲームミュージック / エレクトロニック</span>
-        <span class="track-card-description">米をテーマにしたバトル曲。王道RPGバトルを思い出させる、食文化への愛が詰まった一曲。</span>
+        <span class="track-card-description">「kome battle」は、日常の中であまりにも当たり前に存在している米を、もしRPGの主役級に扱ったらどうなるか、という少し脱力した発想から生まれたゲーム風バトル曲です。真面目に壮大な戦闘曲を作るのではなく、親しみやすい題材を王道のバトルBGMへ乗せることで、ゆるいむくんらしいユーモアを残しています。熱量はあるのに深刻すぎず、作業中でも流しやすい軽さがあるのが特徴です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./bingo.html" class="track-card">
         <span class="track-card-title">bingo</span>
         <span class="track-card-genre">ゲームミュージック / ファンファーレ</span>
-        <span class="track-card-description">ビンゴの当選を祝福するファンファーレ的な楽曲。小さな勝利を大きな祝福に変える。</span>
+        <span class="track-card-description">「bingo」は、名前の通りビンゴや抽選の当たりを祝う気分をそのまま音にしたファンファーレ系のトラックです。大げさすぎる勝利宣言ではなく、「やった」という一瞬の高揚感を少しだけ広げて見せるようなサイズ感にしています。ゲーム配信の結果発表、軽いリザルト演出、動画の区切り、あるいは日常の小さな達成を祝う短いBGMとしても使いやすい構成です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./battle.html" class="track-card">
         <span class="track-card-title">battle</span>
         <span class="track-card-genre">ゲームミュージック / オーケストラ</span>
-        <span class="track-card-description">純粋なバトルテーマ。ゲームのボス戦を彷彿とさせる、王道のオーケストラアレンジ。</span>
+        <span class="track-card-description">「battle」は、敵と対峙した瞬間の緊張感や、戦いに入る前の覚悟をそのまま音にしたゲームミュージック寄りの一曲です。ボス戦を思わせる王道のオーケストラアレンジを軸にしながら、ただ勇ましいだけではなく、少し重さや悲しみも残すことで、戦いの二面性を感じられるようにしています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <!-- 和風系 -->
       <a href="./orei.html" class="track-card">
         <span class="track-card-title">御礼</span>
         <span class="track-card-genre">和風メタル / ボーカル</span>
-        <span class="track-card-description">感謝と衝動を同時にぶつけた、和の情緒と荒さが同居するボーカル曲。</span>
+        <span class="track-card-description">「御礼」は、ギターの音色をかなりメタルゾーン寄りにしたことで、全体に強く潰れた質感が出ている曲です。普通ならこの手の音では速弾きで押し切るほうが自然なのですが、あえてコード弾きをメインにしたらどうなるんだろう、という発想から作り始めました。その結果、礼儀正しいタイトルとは裏腹に、荒々しく痛い熱量が前に出る曲になっています。</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./ninja.html" class="track-card">
         <span class="track-card-title">ninja</span>
         <span class="track-card-genre">和風ロック / エレクトロニック</span>
-        <span class="track-card-description">日本の忍者をテーマにした疾走感溢れる楽曲。和音階とロックサウンドが融合。</span>
+        <span class="track-card-description">「ninja」は、日本の忍者をテーマにした疾走感のある和風ロック楽曲です。Bマイナーの和音階を土台にしながら、ギターの鋭さとシンセの冷たさを重ねることで、ただ速いだけではない張りつめた空気を作っています。走り抜ける勢いはあっても、どこか姿を見せずに気配だけが残るような距離感を大切にした一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./antinomy-day.html" class="track-card">
         <span class="track-card-title">antinomy day</span>
         <span class="track-card-genre">和風 / エクスペリメンタル</span>
-        <span class="track-card-description">「二律背反」をテーマにした哲学的な和風楽曲。相反するものの調和を表現。</span>
+        <span class="track-card-description">「antinomy day」は、相反するものが同じ場所に存在してしまう感覚を、和風サウンドと電子的な質感の交差で描いた実験的な一曲です。静かなはずなのに緊張がある、冷たいのにどこか温度が残る、伝統的なのに新しい。そうした矛盾を否定せず、そのまま音楽の中で共存させることを目指しています。夜の読書や思索、整理しきれない考えをそのまま抱えていたい時間に合うページです。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./kitsuneko-zoku.html" class="track-card">
         <span class="track-card-title">きつねこ続</span>
         <span class="track-card-genre">和風ヒーリング / アンビエント</span>
-        <span class="track-card-description">静けさと余韻をゆっくり残していく和風ヒーリング曲。深夜や気持ちを落ち着けたい時間に向いた1曲。</span>
+        <span class="track-card-description">「きつねこ続」は、もともとあった「きつねこ」の続きを歩かせるような気持ちで作った曲です。前の曲で生まれた狐さんと猫さんの世界を、そのまま一度閉じるのではなく、もう少し先へ進ませたいと思ったことが出発点になっています。和の静けさをベースにしながら、ただ止まっているだけではない余韻を長く残す一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <!-- 歌もの -->
       <a href="./manji.html" class="track-card">
         <span class="track-card-title">卍（まんじ）</span>
         <span class="track-card-genre">uta / 歌もの</span>
-        <span class="track-card-description">「まんじ」という言葉の反復と、前を向いて進むフレーズが勢いを生む一曲です。</span>
+        <span class="track-card-description">「卍（まんじ）」は、「まんじ」という言葉の反復をフックにしながら、いつでも前を向いて進む感覚を歌った楽曲です。英語の掛け声と日本語のフレーズが交差し、言葉そのものの勢いをリズムとして楽しめます。 OH BABY まんじまんじまんじ まんじ まんじまんじ BABY それがおれたちのまんじだから OH!YEAH！</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./nekosanka.html" class="track-card">
         <span class="track-card-title">ねこさんか（猫賛歌）</span>
         <span class="track-card-genre">uta / 歌もの</span>
-        <span class="track-card-description">画面の中の騒がしさを、猫の温かさが無効化していく一曲です。</span>
+        <span class="track-card-description">「ねこさんか（猫賛歌）」は、正しさの押し付け合いで心が疲れた時、猫の温かい重みがその騒がしさを無効化してくれる感覚を歌った楽曲です。「賛歌」と「参加」を行き来する言葉遊びも、歌詞の中で大切なフックになっています。 画面の端で 誰かが吠えている 正しい正解 押し付け合って 心の中 砂嵐が吹く 「もういいよ」って 目を閉じたんだ</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./mujun-sanka.html" class="track-card">
         <span class="track-card-title">矛盾賛歌</span>
         <span class="track-card-genre">ボカロ</span>
-        <span class="track-card-description">折れない矛と割れない盾、相反する思いを抱えて進む言葉を読めます。</span>
+        <span class="track-card-description">「矛盾賛歌」は、折れることのない矛と割れることのない盾を並べながら、心の中に同時に存在する相反した思いを歌うボカロ曲です。矛盾を消すのではなく、抱えたまま進む言葉が繰り返されます。 かなしいことがら おきてもめげずに おれることのない わ・が・ほこよ</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./jibungajibunzyanainonara.html" class="track-card">
         <span class="track-card-title">自分が自分じゃないのなら</span>
         <span class="track-card-genre">ボカロ</span>
-        <span class="track-card-description">変わり続ける自分と、幸せや存在の意味を問いかける一曲です。</span>
+        <span class="track-card-description">「自分が自分じゃないのなら」は、日々変わっていく自分の中で、どの気持ちが本当の自分なのかを問い続けるボカロ曲です。幸せとは何か、存在するとは何かという答えのない問いを、ためらいや反復を残した言葉で描いています。 自分が自分じゃないのなら・・・</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./owatte-hajimatte.html" class="track-card">
         <span class="track-card-title">おわってはじまって</span>
         <span class="track-card-genre">ボカロ / ポップ</span>
-        <span class="track-card-description">終わりと始まりは表裏一体。前向きになりたい時に聴きたい、背中を押してくれる一曲。</span>
+        <span class="track-card-description">「おわってはじまって」は、自分が一番最初に作ったオリジナル曲を下敷きにして生まれた、かなり原点に近い曲です。だからこそ音数は少なく、言葉やメロディもできるだけまっすぐに置いています。終わることと始まること、切り替わることと更新されていくこと。その感覚を、自分の原点として鳴らし直したかった一曲です。</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./nekosan-wa-sugoi-uta.html" class="track-card">
         <span class="track-card-title">ねこさんはすごいうた</span>
         <span class="track-card-genre">uta / 歌もの</span>
-        <span class="track-card-description">猫のすごさを歌い上げた、ユーモア溢れる歌。聴くだけで幸せになれる、猫への愛が詰まった楽曲。</span>
+        <span class="track-card-description">「ねこさんはすごいうた」は、タイトル通り、猫のすごさをためらいなく真正面から歌い上げた歌ものです。比喩や遠回しな表現で逃げずに、猫がかわいくて、自由で、なぜか全部を許してしまう存在であることを、そのまま歌にしています。コミカルな明るさはありますが、ネタ曲として消費されるより、猫好きの人が普通に共感できる温度を大切にしているページです。</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./breakbeats.html" class="track-card">
         <span class="track-card-title">ブレイクブレイクビーツ</span>
         <span class="track-card-genre">uta / ビート</span>
-        <span class="track-card-description">ブレイクビーツのリズムにのせた歌もの。跳ねるビートと歌が絡み合う、体が動き出す一曲。</span>
+        <span class="track-card-description">跳ねるブレイクビーツのリズムにのせた歌もの。グルーヴと声が自然に絡み合い、体が動き出すような一曲に仕上がりました。 ビートを先に作り、そこに歌を乗せていったスタイル。リズムが気持ちいい瞬間を逃さないよう、感覚を優先して制作しました。 跳ねるビートと歌声のグルーヴ感。一度乗ると抜け出せないリズムをお楽しみください。</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./run.html" class="track-card">
         <span class="track-card-title">ラン</span>
         <span class="track-card-genre">uta / ポップ</span>
-        <span class="track-card-description">走ることをテーマにした歌もの。前へ駆け出したくなるような疾走感が詰まった一曲。</span>
+        <span class="track-card-description">走ることをテーマにした歌もの。前へ前へと向かっていく気持ちと、息が上がっても続けていく静かな意志を音にしました。 走り続けることのしんどさと、それでも足が動く感覚を歌いたかった。シンプルな構成の中に気持ちを込めています。 疾走感のあるサウンドと、静かな芯を持つボーカルのコントラスト。走りたくなる一曲です。</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./wasure-oto.html" class="track-card">
         <span class="track-card-title">忘音</span>
         <span class="track-card-genre">ボカロ / アンビエント</span>
-        <span class="track-card-description">忘れられた音、失われた記憶をテーマにしたボカロ曲。切なくも美しい一曲。</span>
+        <span class="track-card-description">「忘音」は、忘れられた音と失われた記憶をテーマにしたボカロ / アンビエント寄りの一曲です。Fメジャーのやわらかい明るさを土台にしつつ、すっきり前向きな方向には振り切らず、思い出せそうで思い出せない感覚や、感情だけが残っている記憶の曖昧さを音で描いています。</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./yoku.html" class="track-card">
         <span class="track-card-title">欲</span>
         <span class="track-card-genre">ボカロ / ダーク</span>
-        <span class="track-card-description">人間の「欲」をテーマにした、メッセージ性を持つボカロ曲。欲望と向き合う苦しさを歌う。</span>
+        <span class="track-card-description">「欲」は、その時の自分の悩みや構え方がかなり直接的に出た曲です。独白のようでもあり、苦しさの記録のようでもあり、今思えばかなり生々しい一曲でした。欲そのものを悪いものとして切り離すのではなく、進みたい気持ちと消耗してしまう気持ちが同じ場所にある、そのねじれごと残しています。</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <a href="./oumagadoki.html" class="track-card">
         <span class="track-card-title">逢魔が時</span>
         <span class="track-card-genre">ボカロ / シンセポップ</span>
-        <span class="track-card-description">夕暮れ時、現実と幻想の境界が曖昧になる時間を描いたボカロ曲。景色から入りたい人向け。</span>
+        <span class="track-card-description">「逢魔が時」は、夕方が夜へ切り替わるあの短い時間の、きれいさと落ち着かなさを同時に抱えた曲です。怖さだけに振り切るでもなく、ただ幻想的にまとめるでもなく、境目に立っている時の心細さと引力をそのまま残したいと思って作りました。景色としても感情としても、自分の中でかなり思い入れの強い一曲です。</span>
+        <span class="track-card-link-label">作品ページで公式歌詞を読む・聴く →</span>
       </a>
 
       <!-- 猫系 -->
       <a href="./kaosukneko.html" class="track-card">
         <span class="track-card-title">かおすねこ</span>
         <span class="track-card-genre">コミカル / Lofi</span>
-        <span class="track-card-description">マヌルネコの予測不能な日常を描いた一曲。少し脱力したローファイ感と遊び心が特徴。</span>
+        <span class="track-card-description">「かおすねこ」は、「何を考えているのか分からないのに、ずっと見ていられる」という猫特有の魅力を、そのまま音にしたような一曲です。マヌルネコの少し不機嫌そうな顔、急に入る変な間、意味があるのかないのか分からない動き。その全部を、コミカル寄りのローファイとしてまとめています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./mikan-nekosan.html" class="track-card">
         <span class="track-card-title">MIKAN NEKOSAN</span>
         <span class="track-card-genre">ポップ / エレクトロニック</span>
-        <span class="track-card-description">みかんと猫さんという日本の冬を象徴する組み合わせをテーマにした、ほっこりする楽曲。</span>
+        <span class="track-card-description">「MIKAN NEKOSAN」は、みかんと猫という日本の冬らしい組み合わせをそのまま音にしたような楽曲です。こたつで少しまどろむ時間、部屋の中は暖かいのに外の空気は冷たい、その対比が持つ独特の安心感をポップ / エレクトロニックの形でまとめています。冬の曲ではありますが、単なる季節ネタではなく、家の中の小さな幸福感を扱うページとして置いています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./nekos.html" class="track-card">
         <span class="track-card-title">NEKOズ</span>
         <span class="track-card-genre">ポップ / エレクトロニック</span>
-        <span class="track-card-description">猫たちをテーマにした楽曲。可愛らしさと遊び心が詰まった、猫好きのための一曲。</span>
+        <span class="track-card-description">「NEKOズ」は、猫という存在の可愛さだけでなく、予測できない動きや急な切り替わり、なぜか全部許されてしまう空気まで含めて音にしたポップ寄りの一曲です。猫の曲というと癒やし一辺倒になりがちですが、このページではもう少し遊び心を前に出しています。気まぐれで、自由で、見ているだけで生活のテンポを変えてしまう猫たちの存在感を、明るさと少しの電子感で包みました。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./celtic-music-nekos.html" class="track-card">
         <span class="track-card-title">celtic music nekos</span>
         <span class="track-card-genre">ケルティック / ワールドミュージック</span>
-        <span class="track-card-description">ケルト音楽と猫を融合。ティンホイッスルとボドランが猫たちの舞踏会を奏でる。</span>
+        <span class="track-card-description">「celtic music nekos」は、ケルト音楽の持つ素朴で少し幻想的な空気に、猫たちの自由で気まぐれな存在感を重ねたワールドミュージック寄りの一曲です。ティンホイッスルやボドランのような伝統的なイメージを借りながら、単なる民族音楽の再現ではなく、猫たちが夜のどこかで静かな舞踏会を開いているような物語性を持たせています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./wakeup-nekosan.html" class="track-card">
         <span class="track-card-title">ウェイクアップ・ねこさんs</span>
         <span class="track-card-genre">ギター / チル</span>
-        <span class="track-card-description">眠い猫さんを優しく起こすようなギター曲。朝の静けさとほっこり感が漂う一曲。</span>
+        <span class="track-card-description">眠り込んでいる猫さんを、音楽でそっと起こしてみるイメージで作りました。急かすわけでもなく、ただそこに音があるような朝の一曲です。 のんびりした朝の空気と、起きたくないけど起きる猫さんの感じを表現したかった。ギターの音色でその温度感を出しています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <!-- ハロウィン系 -->
       <a href="./halloween-okatazuke.html" class="track-card">
         <span class="track-card-title">ハロウィンおかたずけ</span>
         <span class="track-card-genre">ハロウィン / ポップ</span>
-        <span class="track-card-description">ハロウィンが終わった後の、ちょっと寂しくも温かい雰囲気を描いた楽曲。</span>
+        <span class="track-card-description">「ハロウィンおかたずけ」は、ハロウィン当日ではなく、その翌日に残る少し寂しくて温かい空気を描いた楽曲です。イベント曲というと盛り上がりの瞬間に焦点が当たりがちですが、この曲では飾りを片付ける時間や、楽しかった気配だけが部屋に残っている感覚をメインにしています。季節ものの曲でありながら、余韻を味わうページとして普段の生活にもつながるように作っています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./halloween-manul.html" class="track-card">
         <span class="track-card-title">ハロウィンマヌルネコ</span>
         <span class="track-card-genre">ハロウィン / エキゾチック</span>
-        <span class="track-card-description">マヌルネコとハロウィンを組み合わせた、唯一無二のテーマを持つ楽曲。</span>
+        <span class="track-card-description">「ハロウィンマヌルネコ」は、マヌルネコの独特な野性味と、ハロウィン特有の妖しさを一つの空間に閉じ込めたトラックです。可愛いだけのハロウィン曲ではなく、少し不穏で、でもどこかユーモラスな空気を保っています。エキゾチックなスケール感と不思議なハーモニーが前に出るので、夜の装飾や短い動画、季節の空気を切り替えたい場面のBGMとしても使いやすい一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <!-- ロック / ポップ系 -->
       <a href="./sekaisora.html" class="track-card">
         <span class="track-card-title">sekaisora</span>
         <span class="track-card-genre">J-Rock / オルタナティブ</span>
-        <span class="track-card-description">世界と空をテーマにした、開放感のあるJ-Rock。前向きさと広がりを感じたい時に。</span>
+        <span class="track-card-description">「sekaisora」は、昔バンド時代に作った曲で、今振り返ると自分の原風景がかなり濃く出ている一曲です。雲、空、海といった広い景色を、そのままギターロックの手触りで鳴らしたい気持ちが強くありました。勢いのあるサビを持ちながらも、全体としては余白をかなり大事にしていて、ただ突っ走るだけではない開放感を目指しています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./sakana.html" class="track-card">
         <span class="track-card-title">sakana</span>
         <span class="track-card-genre">ポップロック / インディー</span>
-        <span class="track-card-description">魚をテーマにした、どこか物憂げなポップロック。泳ぎ続ける魚の姿に人生の寓意を重ねた楽曲。</span>
+        <span class="track-card-description">「sakana」は、題材だけ見ると少しシュールなのに、根っこにはかなり素直な優しさが入っている曲です。魚屋さんで魚を選び、家で食べるという、何のひねりもない日常の風景をそのまま当たり前であってほしいものとして残したい気持ちから作っています。大きな出来事ではないけれど、そういう普通の時間こそ続いてほしい、という感覚の曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./picnic.html" class="track-card">
         <span class="track-card-title">picnic</span>
         <span class="track-card-genre">ポップ / アコースティック</span>
-        <span class="track-card-description">晴れた日のピクニックをイメージした、爽やかで幸せな楽曲。</span>
+        <span class="track-card-description">「picnic」は、外に出るほど元気ではないけれど、少しだけ気分を動かしたい日に向いた曲です。明るすぎず、沈みすぎず、部屋の中に小さな春を置くみたいな温度で鳴るようにしています。 大きな気分転換ではなく、お茶を入れたり机を片づけたりする程度の小さな動きにちょうど合います。何もしない日のまま、ほんの少しだけ景色を変えたい時のための一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <!-- ダンス / エレクトロニック系 -->
       <a href="./running-culture.html" class="track-card">
         <span class="track-card-title">running culture</span>
         <span class="track-card-genre">エレクトロニック / トラップ</span>
-        <span class="track-card-description">現代のランニングカルチャーをサウンドで表現。フィットネスのBGMに最適。</span>
+        <span class="track-card-description">「running culture」は、ランニングそのものよりも、走ることが生活のリズムになっている都市の空気を音にしたトラックです。フィットネス向けのBGMとしても使えますが、もっと広く、移動中の歩幅を整えたり、気分を停滞から前進へ切り替えたりするための曲として設計しています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./revolutionary-event.html" class="track-card">
         <span class="track-card-title">revolutionary event</span>
         <span class="track-card-genre">エピック / シネマティック</span>
-        <span class="track-card-description">革命的な出来事の到来を告げる、壮大なシネマティック楽曲。</span>
+        <span class="track-card-description">「revolutionary event」は、何か大きなことが始まる予感をそのまま音にしたシネマティック楽曲です。オーケストラ的な厚みと、前へ押し出すビートを重ねることで、ただ壮大なだけではなく「今ここから動き出す」という意志を感じられる構成にしています。映画の予告編のような強さもありますが、聴き手の気持ちを切り替えるBGMとしても使いやすい曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./odoro.html" class="track-card">
         <span class="track-card-title">踊ろ―</span>
         <span class="track-card-genre">ダンス / ポップ</span>
-        <span class="track-card-description">「踊ろう」という直球なメッセージを込めたダンスナンバー。突き抜けて明るい一曲。</span>
+        <span class="track-card-description">「踊ろ―」は、難しい説明を挟まずに「とりあえず体を動かそう」という気分をそのまま押し出したダンス寄りのポップ曲です。クラブ向けに作り込んだ重いトラックではなく、部屋の中でも、散歩の途中でも、ひと区切りつけたい仕事のあとでも自然に流せる軽さを残しています。ゆるいむくんの中では、景色や物語よりもまず身体感覚に寄せたページで、気分転換の入口として置いておきたい一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./atsu.html" class="track-card">
         <span class="track-card-title">暑！</span>
         <span class="track-card-genre">エレクトロニック / ダンス</span>
-        <span class="track-card-description">夏の暑さを音楽で表現した、エネルギッシュなトラック。夏フェスのような高揚感。</span>
+        <span class="track-card-description">「暑！」は、真夏の気温そのものを感情に変換したようなエレクトロニック寄りのダンストラックです。涼しさを探す曲ではなく、むしろ暑さの中で体がだるくなりながらも、妙に気分だけは上がっていくあの感覚を前に出しています。細かく刻むハイハット、体に張りつくようなキック、前へ押し出すベースで、夏の空気の密度をそのままビートに置き換えた一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./f.html" class="track-card">
         <span class="track-card-title">F</span>
         <span class="track-card-genre">ファンク / エレクトロニック</span>
-        <span class="track-card-description">タイトル「F」からインスピレーションを得た、力強いファンクナンバー。</span>
+        <span class="track-card-description">「F」は、一文字だけを置いたタイトルのとおり、意味を言い切らずに空気感を先に渡すタイプの曲です。骨格はファンクですが、明るく跳ねるよりも、低い位置で粘るグルーヴと少し影のある色味を前に出しています。ベースの動き、切れ味を抑えたギター、奥に敷いた電子音が同じ速度で進み続けることで、夜の街や机の前に似合う、落ち着いた推進力を作っています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./acid.html" class="track-card">
         <span class="track-card-title">acid</span>
         <span class="track-card-genre">アシッド / エレクトロニック</span>
-        <span class="track-card-description">反復するグルーヴとざらついた音像が前に出る、夜向けのアシッド系トラック。</span>
+        <span class="track-card-description">「acid」は、アシッドハウス的な反復の気持ちよさと、少し歪んだ有機的な質感を重ねたエレクトロニック寄りのトラックです。クラブのために一直線に作った曲というより、夜更けに意識が少しだけ外へずれていく感覚、同じ場所を回っているのに景色だけが変わっていく感覚を音にしたかった一曲です。規則的なグルーヴを持ちながら、輪郭はきれいに整えすぎず、少しざらついた手触りを残しています。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <a href="./kitsune-punk.html" class="track-card">
         <span class="track-card-title">狐パンク</span>
         <span class="track-card-genre">パンク / ガレージロック</span>
-        <span class="track-card-description">歪んだギターと太いベース、少し荒いライブ感を前に出したギターパンク曲。ラフな熱量と抜けの良い輪郭が同居する一曲。</span>
+        <span class="track-card-description">「狐パンク」は、歪んだギターの押し出しと太いベースのうねりを前面に出しつつ、少し荒い生ライブ感を残したギターパンク曲です。きれいに整いすぎたロックではなく、ステージの空気が少し混ざったようなラフさを保ちながら、輪郭はしっかり立つように仕上げています。鋭く走るフレーズと体に当たってくる低域の推進力が同時に感じられるので、気分を切り替えたい時や、作業のテンポを一気に上げたい時に向く一曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
 
       <!-- その他 -->
       <a href="./atawo.html" class="track-card">
         <span class="track-card-title">atawo</span>
         <span class="track-card-genre">アコースティック / クリーンギター</span>
-        <span class="track-card-description">ギターのやわらかな温度と余白を残した、読書や午後の休憩に合う静かなインスト曲。</span>
+        <span class="track-card-description">「atawo」は、タイトルの意味をひとつに固定しないまま、音の手触りだけを先に差し出したいと思って作ったアコースティック寄りのインスト曲です。派手な展開や大きなサビを置くのではなく、指先で弾いたクリーンギターの温度、少しだけ空気を残したドラム、奥に引いたベースで、静かな呼吸を邪魔しない流れを組みました。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a>
     
       <!-- ADMIN-TRACK: marina -->
       <a href="./marina.html" class="track-card" data-admin-track="marina">
         <span class="track-card-title">マリーナ</span>
         <span class="track-card-genre">Celtic</span>
-        <span class="track-card-description">海辺の港町を意識しました。原曲参考は期間限定で配信しました。本当に素敵すぎて、どうしたらあんな曲が生まれるのか・・首をひねって地面に着くレベルです。
-
-今回意識したことは跳ねる三連、強めのスタッカート、民族楽器の生音感を参考にさせて頂きました。軽やかさの中に哀愁を織り込んだBGMにしました。</span>
+        <span class="track-card-description">「マリーナ」は、スクエニ記念日に合わせて制作した、ゆるいむくんのオリジナルBGMです。海辺の港町で人や船が行き交う風景を思い浮かべ、軽やかさの中に少し哀愁が残る曲を目指しました。 本作はスクウェア・エニックスおよび原作の公式楽曲ではなく、作品への敬意を込めて個人で制作した楽曲です。</span>
+        <span class="track-card-link-label">作品ページで詳しく見る・聴く →</span>
       </a></div>
   </main>
 
@@ -341,6 +454,7 @@
     <nav class="footer-nav">
       <a href="/privacy.html">プライバシーポリシー</a>
       <a href="/terms.html">利用規約</a>
+      <a href="/about.html">サイトについて</a>
       <a href="/contact.html">お問い合わせ</a>
     </nav>
   </footer>

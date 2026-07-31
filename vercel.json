@@ -4,6 +4,50 @@
   "framework": null,
   "redirects": [
     {
+      "source": "/index.html",
+      "has": [{ "type": "host", "value": "www.yuruimukun.com" }],
+      "destination": "https://yuruimukun.com/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "has": [{ "type": "host", "value": "www.yuruimukun.com" }],
+      "destination": "https://yuruimukun.com/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/public/tracks/index.html",
+      "has": [{ "type": "host", "value": "www.yuruimukun.com" }],
+      "destination": "https://yuruimukun.com/public/tracks/",
+      "permanent": true
+    },
+    {
+      "source": "/public/ninja.html",
+      "has": [{ "type": "host", "value": "www.yuruimukun.com" }],
+      "destination": "https://yuruimukun.com/public/tracks/ninja.html",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "https://yuruimukun.com/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "https://yuruimukun.com/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/public/tracks/index.html",
+      "destination": "https://yuruimukun.com/public/tracks/",
+      "permanent": true
+    },
+    {
+      "source": "/public/ninja.html",
+      "destination": "https://yuruimukun.com/public/tracks/ninja.html",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
@@ -12,11 +56,6 @@
         }
       ],
       "destination": "https://yuruimukun.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/public/ninja.html",
-      "destination": "/public/tracks/ninja.html",
       "permanent": true
     }
   ],
