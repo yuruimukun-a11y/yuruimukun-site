@@ -177,7 +177,7 @@
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/nekosan-wa-sugoi-uta.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -195,19 +195,19 @@
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/orei.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/oumagadoki.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/owatte-hajimatte.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -255,38 +255,38 @@
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/wasure-oto.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/yoku.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://yuruimukun.com/public/tracks/manji.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/nekosanka.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/mujun-sanka.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/jibungajibunzyanainonara.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -384,13 +384,13 @@
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/breakbeats.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://yuruimukun.com/public/tracks/run.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -404,6 +404,12 @@
   <url>
     <loc>https://yuruimukun.com/public/tracks/marina.html</loc>
     <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yuruimukun.com/public/lyrics/</loc>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
