@@ -724,6 +724,10 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .track-card .fuura-cat {
+    right: 0 !important;
+  }
+
   .site-header {
     flex-direction: column;
     gap: var(--spacing-sm);
