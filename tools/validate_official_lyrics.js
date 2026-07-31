@@ -12,7 +12,7 @@ const expectedPages = new Map([
   ["nekosan-wa-sugoi-uta.html", "ねこさんはすごいうた"],
   ["run.html", "ラン"],
   ["orei.html", "御礼"],
-  ["oumagadoki.html", "逢魔が時"],
+  ["oumagadoki.html", "逢魔時"],
   ["owatte-hajimatte.html", "おわってはじまって"],
   ["wasure-oto.html", "忘音"],
   ["yoku.html", "欲"],

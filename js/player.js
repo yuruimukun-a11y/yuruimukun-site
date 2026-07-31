@@ -425,10 +425,10 @@
     },
     {
       id: 'oumagadoki',
-      title: '逢魔が時',
+      title: '逢魔時',
       artist: 'yuruimukun',
       genre: 'vocaloid',
-      description: '逢魔が時をテーマにしたボカロ曲。夕暮れ時の不思議な空気感と、現実と幻想の境界を描いた妖しい一曲です。',
+      description: '逢魔時をテーマにしたボカロ曲。夕暮れ時の不思議な空気感と、現実と幻想の境界を描いた妖しい一曲です。',
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki/playlist.m3u8',
     },
     {
