@@ -520,6 +520,14 @@
       genre: "Celtic",
       description: "海辺の港町を意識しました。原曲参考は期間限定で配信しました。本当に素敵すぎて、どうしたらあんな曲が生まれるのか・・首をひねって地面に着くレベルです。\n\n今回意識したことは跳ねる三連、強めのスタッカート、民族楽器の生音感を参考にさせて頂きました。軽やかさの中に哀愁を織り込んだBGMにしました。",
       src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/marina/playlist.m3u8",
+    },
+    {
+      id: "furikaeru",
+      title: "振り返る",
+      artist: "yuruimukun",
+      genre: "guitar-aco or clean",
+      description: "過ぎてきた時間を静かに見つめ直す、ギター中心のインスト曲。考えごとを整理したい夜や、落ち着いた作業時間に寄り添う一曲です。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/furikaeru/playlist.m3u8",
     },];
 
   // Single track mode for individual track pages
@@ -531,7 +539,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
-    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano"],
+    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru"],
     all: null  // nullの場合は全曲を名前順で表示
   };
 

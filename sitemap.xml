@@ -195,4 +195,11 @@
   <url>
     <loc>https://yuruimukun.com/public/tracks/yoku.html</loc>
   </url>
+  <!-- ADMIN-TRACK: furikaeru -->
+  <url>
+    <loc>https://yuruimukun.com/public/tracks/furikaeru.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
