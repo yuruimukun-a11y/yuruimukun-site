@@ -540,6 +540,15 @@
   const MAIN_LISTS = {
     lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
     normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru"],
+    timeline: [
+      "mujun-sanka","awafuki","battle","oumagadoki","wasure-oto","band CatsF","SUNMA","chirizakura","furikaeru","reverth going back",
+      "komebattle","odoro-","yabimi","atawo","antinomy day","nekokan","meitantei","acid","BINGO","kokokokomebattle","yoku",
+      "ie-cafe","neko-cafe","umi-cafe","atsu","picnic","sakana","forest session","runing culture","revolutionary event","second of the world",
+      "kelt","sekaizora","neko car","Danmaku","Marron battle","oyasumi","ninja","tomoshibi","halloween-manul neko","MIKAN NEKOSAN",
+      "halloween-okataduke","owatte-hajimatte","onnrei","yugudorasiru-1","yugudorasiru-2","yugudorasiru-3","yuruimukun-beat1",
+      "yuruimukun-beat2","travel-manul-nekosan","negai","meow","jibungajibunzyanainonara","manji","nekosan wa sugoi-uta","nekosanka",
+      "hai","oumagadoki-piano","sun-cafe","kitsune-punk","kitsuneko-zoku","breakbeats","run","wakeup-nekosan","marina"
+    ],
     all: null  // nullの場合は全曲を名前順で表示
   };
 

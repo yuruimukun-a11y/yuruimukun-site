@@ -1351,6 +1351,7 @@ body {
 /* Main List Filter */
 .main-list-filter {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
   justify-content: center;
