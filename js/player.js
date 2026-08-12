@@ -544,6 +544,14 @@
       genre: "kelt",
       description: "港町で宿泊してる猫さん達です。夏のリゾートの時間を楽しんでもらえれば幸いです。",
       src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/minatomati/playlist.m3u8",
+    },
+    {
+      id: "mizutabi",
+      title: "水旅",
+      artist: "yuruimukun",
+      genre: "kelt",
+      description: "猫さん達が小舟でいろんな場所を巡る旅です。少しでも涼しくなってもらえれば幸いです。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/mizutabi/playlist.m3u8",
     },];
 
   // Single track mode for individual track pages
@@ -555,7 +563,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
-    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru","namaenomama","minatomati"],
+    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru","namaenomama","minatomati","mizutabi"],
     timeline: [
       "mujun-sanka","awafuki","battle","oumagadoki","wasure-oto","band CatsF","SUNMA","chirizakura","furikaeru","reverth going back",
       "komebattle","odoro-","yabimi","atawo","antinomy day","nekokan","meitantei","acid","BINGO","kokokokomebattle","yoku",
