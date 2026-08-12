@@ -223,4 +223,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- ADMIN-TRACK: dancing-nekos -->
+  <url>
+    <loc>https://yuruimukun.com/public/tracks/dancing-nekos.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
