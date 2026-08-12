@@ -536,6 +536,14 @@
       genre: "vocaloid",
       description: "名前のままを改めて考え直した楽曲です。少しでも温かい気持ちになってもらえれば幸いです。",
       src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/namaenomama/playlist.m3u8",
+    },
+    {
+      id: "minatomati",
+      title: "港町",
+      artist: "yuruimukun",
+      genre: "kelt",
+      description: "港町で宿泊してる猫さん達です。夏のリゾートの時間を楽しんでもらえれば幸いです。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/minatomati/playlist.m3u8",
     },];
 
   // Single track mode for individual track pages
@@ -547,7 +555,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
-    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru","namaenomama"],
+    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru","namaenomama","minatomati"],
     timeline: [
       "mujun-sanka","awafuki","battle","oumagadoki","wasure-oto","band CatsF","SUNMA","chirizakura","furikaeru","reverth going back",
       "komebattle","odoro-","yabimi","atawo","antinomy day","nekokan","meitantei","acid","BINGO","kokokokomebattle","yoku",
