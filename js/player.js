@@ -528,6 +528,14 @@
       genre: "guitar-aco or clean",
       description: "過ぎてきた時間を静かに見つめ直す、ギター中心のインスト曲。考えごとを整理したい夜や、落ち着いた作業時間に寄り添う一曲です。",
       src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/furikaeru/playlist.m3u8",
+    },
+    {
+      id: "namaenomama",
+      title: "名前のまま",
+      artist: "yuruimukun",
+      genre: "vocaloid",
+      description: "名前のままを改めて考え直した楽曲です。少しでも温かい気持ちになってもらえれば幸いです。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/namaenomama/playlist.m3u8",
     },];
 
   // Single track mode for individual track pages
@@ -539,7 +547,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
-    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru"],
+    normal: ["nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru","namaenomama"],
     timeline: [
       "mujun-sanka","awafuki","battle","oumagadoki","wasure-oto","band CatsF","SUNMA","chirizakura","furikaeru","reverth going back",
       "komebattle","odoro-","yabimi","atawo","antinomy day","nekokan","meitantei","acid","BINGO","kokokokomebattle","yoku",

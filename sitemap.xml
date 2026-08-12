@@ -202,4 +202,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- ADMIN-TRACK: namaenomama -->
+  <url>
+    <loc>https://yuruimukun.com/public/tracks/namaenomama.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
