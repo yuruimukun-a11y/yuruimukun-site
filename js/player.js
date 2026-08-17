@@ -1,4 +1,4 @@
-﻿/**
+/**
  * yuruimukun Music Player
  * HLS.js based streaming player with genre filter
  */
@@ -427,10 +427,10 @@
     },
     {
       id: 'onnrei',
-      title: 'おんれい',
+      title: '御礼',
       artist: 'yuruimukun',
       genre: 'vocaloid',
-      description: '音霊をテーマにしたボカロ曲。言葉に宿る魂と、音楽の持つ力を表現した神秘的な楽曲です。',
+      description: 'バーゲンセール、値札、猫、シャウトが入り乱れるカオスなメタル系ボカロ曲。勢いのある言葉とサウンドを楽しめる一曲です。',
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/onnrei/playlist.m3u8',
     },
     {
@@ -577,7 +577,11 @@
     genreFilter: document.getElementById('genreFilter'),
     mainListFilter: document.getElementById('mainListFilter'),
     playShuffleBtn: document.getElementById('playShuffleBtn'),
-    playOrderBtn: document.getElementById('playOrderBtn')
+    playOrderBtn: document.getElementById('playOrderBtn'),
+    playlistEndModal: document.getElementById('playlistEndModal'),
+    playlistEndText: document.getElementById('playlistEndText'),
+    playlistEndConfirmBtn: document.getElementById('playlistEndConfirmBtn'),
+    playlistEndDismissBtn: document.getElementById('playlistEndDismissBtn')
   };
 
   function formatTime(seconds) {
@@ -952,6 +956,7 @@
         nextFilteredIndex = state.shuffleOrder[0];
       } else {
         pause();
+        showPlaylistEndModal();
         return;
       }
     } else {
@@ -961,6 +966,7 @@
         nextFilteredIndex = 0;
       } else {
         pause();
+        showPlaylistEndModal();
         return;
       }
     }
@@ -1040,6 +1046,39 @@
     elements.shuffleBtn.classList.remove('active');
     var firstOriginalIndex = getOriginalIndex(0);
     if (firstOriginalIndex >= 0) loadTrack(firstOriginalIndex, true);
+  }
+
+  function showPlaylistEndModal() {
+    if (!elements.playlistEndModal) return;
+    var isAllShuffle = state.currentMainList === 'all' && state.isShuffle;
+    if (elements.playlistEndText) {
+      elements.playlistEndText.textContent = isAllShuffle ?
+        '全曲を聴き終わりました。もう一度シャッフルで聴きますか？' :
+        '全曲リストをシャッフルで聴いてみますか？';
+    }
+    if (elements.playlistEndConfirmBtn) {
+      elements.playlistEndConfirmBtn.textContent = isAllShuffle ?
+        '🔀 もう一度シャッフル再生' : '🔀 全曲をシャッフル再生';
+    }
+    elements.playlistEndModal.hidden = false;
+  }
+
+  function hidePlaylistEndModal() {
+    if (!elements.playlistEndModal) return;
+    elements.playlistEndModal.hidden = true;
+  }
+
+  function confirmPlaylistEndSuggestion() {
+    hidePlaylistEndModal();
+    if (state.currentMainList !== 'all') {
+      state.currentMainList = 'all';
+      state.currentGenre = 'all';
+      filterPlaylist('all');
+      updateMainListFilter();
+      updateGenreFilter();
+      updatePlaylistUI();
+    }
+    playShuffled();
   }
 
   function updatePlayButton() {
@@ -1126,6 +1165,13 @@
     elements.volumeBtn.addEventListener('click', toggleMute);
     if (elements.playShuffleBtn) elements.playShuffleBtn.addEventListener('click', playShuffled);
     if (elements.playOrderBtn) elements.playOrderBtn.addEventListener('click', playInOrder);
+    if (elements.playlistEndConfirmBtn) elements.playlistEndConfirmBtn.addEventListener('click', confirmPlaylistEndSuggestion);
+    if (elements.playlistEndDismissBtn) elements.playlistEndDismissBtn.addEventListener('click', hidePlaylistEndModal);
+    if (elements.playlistEndModal) {
+      elements.playlistEndModal.addEventListener('click', function (e) {
+        if (e.target === elements.playlistEndModal) hidePlaylistEndModal();
+      });
+    }
 
     var isDraggingProgress = false;
     function handleProgressDrag(e) {

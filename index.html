@@ -601,6 +601,18 @@
   <!-- Audio Element (hidden) -->
   <audio id="audioPlayer" preload="metadata"></audio>
 
+  <!-- Playlist End Suggestion -->
+  <div class="playlist-end-modal" id="playlistEndModal" role="dialog" aria-modal="true" aria-labelledby="playlistEndTitle" hidden>
+    <div class="playlist-end-modal-card">
+      <p class="playlist-end-modal-title" id="playlistEndTitle">リストを最後まで再生しました</p>
+      <p class="playlist-end-modal-text" id="playlistEndText">全曲リストをシャッフルで聴いてみますか？</p>
+      <div class="playlist-end-modal-actions">
+        <button type="button" class="playlist-end-modal-btn playlist-end-modal-btn--primary" id="playlistEndConfirmBtn">🔀 全曲をシャッフル再生</button>
+        <button type="button" class="playlist-end-modal-btn playlist-end-modal-btn--secondary" id="playlistEndDismissBtn">閉じる</button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/shorts-traffic.js"></script>
 
   <!-- Player Script -->
