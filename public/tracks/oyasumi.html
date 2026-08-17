@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>oyasumi - ゆるいむくん</title>
-  <meta name="description" content="眠れない夜、がんばるのをやめたい時に寄り添う『oyasumi』。考えすぎた心をそっとほどく、静かな夜のための一曲です。">
+  <meta name="theme-color" content="#111111">
+  <title>oyasumi｜歌詞なし・深夜に聴くオリジナル曲 - ゆるいむくん</title>
+  <meta name="description" content="『oyasumi』をページ内で再生しながら、夜に寄り添う世界観、聴きどころ、制作メモを読める公式作品ページです。本作に歌詞はありません。">
   <meta name="keywords" content="oyasumi, おやすみ, チルアウト, ローファイ, ゆるいむくん, ストリーミング, 音楽, 睡眠用BGM">
-  <meta property="og:title" content="oyasumi - ゆるいむくん">
-  <meta property="og:description" content="考えすぎた夜に、力を抜く場所だけを残す一曲。">
+  <meta property="og:title" content="oyasumi｜歌詞なし・深夜に聴くオリジナル曲 - ゆるいむくん">
+  <meta property="og:description" content="考えすぎた夜に、力を抜く場所だけを残す『oyasumi』。曲を聴きながら世界観と制作メモを読めます。">
   <meta property="og:type" content="music.song">
     <!-- Canonical URL -->
   <link rel="canonical" href="https://yuruimukun.com/public/tracks/oyasumi.html">
@@ -15,31 +16,69 @@
   <!-- OGP URL -->
   <meta property="og:url" content="https://yuruimukun.com/public/tracks/oyasumi.html">
   <meta property="og:image" content="https://yuruimukun.com/images/ogp.png">
+  <meta property="og:image:alt" content="ゆるいむくん公式サイトの共通ソーシャル画像">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MusicRecording",
+        "@id": "https://yuruimukun.com/public/tracks/oyasumi.html#recording",
+        "name": "oyasumi",
+        "url": "https://yuruimukun.com/public/tracks/oyasumi.html",
+        "inLanguage": "ja",
+        "duration": "PT1M57S",
+        "genre": ["Chillout", "Lofi"],
+        "byArtist": { "@type": "MusicGroup", "@id": "https://yuruimukun.com/#artist", "name": "ゆるいむくん" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuruimukun.com/" },
+          { "@type": "ListItem", "position": 2, "name": "楽曲一覧", "item": "https://yuruimukun.com/public/tracks/" },
+          { "@type": "ListItem", "position": 3, "name": "oyasumi", "item": "https://yuruimukun.com/public/tracks/oyasumi.html" }
+        ]
+      }
+    ]
+  }
+  </script>
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+    <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/track-page.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+  <script defer src="/js/track-audio.js"></script>
 </head>
 <body data-track-id="oyasumi">
+  <a class="skip-link" href="#main-content">作品本文へ移動</a>
   <header class="site-header">
     <a href="/" class="logo">ゆるいむくん</a>
     <nav class="nav">
       <a href="/">ホーム</a>
       <a href="/public/tracks/">楽曲一覧</a>
+      <a href="/about.html">サイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
     </nav>
   </header>
 
-  <main class="track-detail">
+  <main class="track-detail" id="main-content">
     <article class="track-content">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a><span aria-hidden="true">/</span>
+        <a href="/public/tracks/">楽曲一覧</a><span aria-hidden="true">/</span>
+        <span aria-current="page">oyasumi</span>
+      </nav>
       <h1 class="track-title">oyasumi</h1>
+      <p class="track-lead">眠れないけれど、もう考えるのを終わりにしたい夜へ。深夜の空気を消さずに、力を抜く場所を小さく残す曲です。</p>
 
       <section class="track-meta">
         <div class="meta-item">
@@ -59,38 +98,43 @@
         <div class="track-link-cluster">
           <a href="/?track=oyasumi" class="track-link-chip track-link-chip--primary" data-traffic-target="official_site">公式サイトで聴く</a>
           <a href="https://open.spotify.com/intl-ja/artist/1s3ngPmgKOijhM5NcSks41" class="track-link-chip track-link-chip--secondary" target="_blank" rel="noopener" data-traffic-target="spotify">Spotify</a>
-          <a href="https://www.youtube.com/@yuruimukun" class="track-link-chip track-link-chip--secondary" target="_blank" rel="noopener" data-traffic-target="youtube">YouTube</a>
+          <a href="https://www.youtube.com/channel/UConxNOIrPvDkxoOI-4O9crw" class="track-link-chip track-link-chip--secondary" target="_blank" rel="me noopener" data-traffic-target="youtube">yuruimukun公式YouTube</a>
         </div>
         <p class="track-link-note">SoundOn など各配信先のリンクは、公式サイトにまとめています。</p>
       </section>
 
-      <section class="track-player">
-        <a href="/?track=oyasumi" class="play-link" data-traffic-target="play_link">トップページでこの曲を聴く</a>
+      <section class="track-player embedded-audio" data-track-audio data-src="https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oyasumi/playlist.m3u8" aria-labelledby="oyasumi-player-title">
+        <h2 id="oyasumi-player-title">歌詞の代わりに、音の流れを聴く</h2>
+        <p data-audio-status aria-live="polite">プレイヤーを準備しています。自動再生はしません。</p>
+        <audio controls preload="metadata" aria-label="oyasumi 音声プレイヤー"></audio>
+        <div class="embedded-audio-links">
+          <a href="/?track=oyasumi" class="track-link-chip track-link-chip--secondary" data-traffic-target="play_link">トップのプレイヤーで聴く</a>
+          <a href="https://open.spotify.com/intl-ja/artist/1s3ngPmgKOijhM5NcSks41" class="track-link-chip track-link-chip--secondary" target="_blank" rel="noopener" data-traffic-target="spotify">Spotifyで探す</a>
+        </div>
       </section>
 
-      
-      <details class="track-copy-accordion">
-        <summary>曲の説明を読む</summary>
-        <div class="track-copy-body">
-<section class="track-section">
-        <h2>楽曲について</h2>
+      <p class="lyrics-status"><strong>歌詞について：</strong>本作に歌詞はありません。音の流れと余韻をそのまま楽しむ作品です。</p>
+
+      <section class="track-section">
+        <h2>楽曲紹介</h2>
         <p>「oyasumi」は、眠れない夜にがんばるのをやめるための曲です。静かに落ち着かせるというより、考えすぎてほどけなくなった気分を、少しずつゆるめていくような温度で作っています。</p>
         <p>うまく一日を終えられなかった夜や、もう考えるのを終わりにしたい夜に合います。深夜の空気をそのまま抱えたまま、力を抜く場所だけを小さく残した一曲です。</p>
       </section>
 
       <section class="track-section">
-        <h2>使用楽器・音色</h2>
-        <ul class="instrument-list">
-          <li>ピアノ</li>
-          <li>シンセサイザー</li>
-          <li>ギター</li>
-          <li>ベース</li>
-          <li>ドラム</li>
-        </ul>
+        <h2>曲の世界観</h2>
+        <p>このページでは、「今日をうまく終われなかった猫が、布団の端でそっと丸くなる」という場面を入口にしています。今日をきれいに片づけられなくても、そのまま夜へ移っていい。そんな小さな居場所として置いている曲です。</p>
       </section>
 
-                      </div>
-      </details>
+      <section class="track-section">
+        <h2>聴きどころ</h2>
+        <p>約1分57秒の中で、静かな入りから音量の変化を重ね、最後には長めの余白を残します。眠る前だけでなく、深夜の読書や、作業を終える前の切り替えにも、最初から最後まで通して聴いてみてください。</p>
+      </section>
+
+      <section class="track-section">
+        <h2>制作メモ</h2>
+        <p>考えすぎてほどけなくなった気分を急に切り替えるのではなく、少しずつゆるめていく温度を大切にしました。深夜の空気を消すのではなく、そのまま抱えた状態でも力を抜ける場所を残すことが、この曲の制作上の軸です。</p>
+      </section>
 
       <section class="track-section related-section">
         <h2>関連する楽曲</h2>
@@ -107,8 +151,18 @@
             <span class="related-title">reverth going back</span>
             <span class="related-genre">アンビエント / エクスペリメンタル</span>
           </a>
+          <a href="./kitsuneko-zoku.html" class="related-track">
+            <span class="related-title">きつねこ続</span>
+            <span class="related-genre">和の静けさと余韻を聴きたい夜に</span>
+          </a>
         </div>
       </section>
+      <nav class="track-page-navigation" aria-label="前後の楽曲">
+        <a href="./akari.html">← 前の曲「灯」</a>
+        <a href="./">楽曲一覧へ戻る</a>
+        <a href="./reverth-going-back.html">次の曲「reverth going back」→</a>
+      </nav>
+      <p class="official-contact">作品についての連絡は<a href="/contact.html">お問い合わせ</a>へ。新作情報は<a href="https://x.com/yuruimukun_koho" target="_blank" rel="me noopener">公式X</a>で案内しています。</p>
 
       <section class="track-section related-section">
         <h2>猫村でよく聴かれている曲</h2>
@@ -136,6 +190,7 @@
     <nav class="footer-nav">
       <a href="/privacy.html">プライバシーポリシー</a>
       <a href="/terms.html">利用規約</a>
+      <a href="/about.html">サイトについて</a>
       <a href="/contact.html">お問い合わせ</a>
     </nav>
   </footer>

@@ -435,10 +435,10 @@
     },
     {
       id: 'oumagadoki',
-      title: '逢魔が時',
+      title: '逢魔時',
       artist: 'yuruimukun',
       genre: 'vocaloid',
-      description: '逢魔が時をテーマにしたボカロ曲。夕暮れ時の不思議な空気感と、現実と幻想の境界を描いた妖しい一曲です。',
+      description: '逢魔時をテーマにしたボカロ曲。夕暮れ時の不思議な空気感と、現実と幻想の境界を描いた妖しい一曲です。',
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/oumagadoki/playlist.m3u8',
     },
     {
@@ -522,7 +522,55 @@
       description: '眠い猫さんを優しく起こすようなギター曲。ゆったりとした朝の空気感と、ほっこりする猫のモフモフ感が伝わる一曲です。',
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/wakeup-nekosan/playlist.m3u8',
     },
-  ];
+  
+    {
+      id: "marina",
+      title: "マリーナ",
+      artist: "yuruimukun",
+      genre: "Celtic",
+      description: "海辺の港町を意識しました。原曲参考は期間限定で配信しました。本当に素敵すぎて、どうしたらあんな曲が生まれるのか・・首をひねって地面に着くレベルです。\n\n今回意識したことは跳ねる三連、強めのスタッカート、民族楽器の生音感を参考にさせて頂きました。軽やかさの中に哀愁を織り込んだBGMにしました。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/marina/playlist.m3u8",
+    },
+    {
+      id: "furikaeru",
+      title: "振り返る",
+      artist: "yuruimukun",
+      genre: "guitar-aco or clean",
+      description: "過ぎてきた時間を静かに見つめ直す、ギター中心のインスト曲。考えごとを整理したい夜や、落ち着いた作業時間に寄り添う一曲です。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/furikaeru/playlist.m3u8",
+    },
+    {
+      id: "namaenomama",
+      title: "名前のまま",
+      artist: "yuruimukun",
+      genre: "vocaloid",
+      description: "名前のままを改めて考え直した楽曲です。少しでも温かい気持ちになってもらえれば幸いです。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/namaenomama/playlist.m3u8",
+    },
+    {
+      id: "minatomati",
+      title: "港町",
+      artist: "yuruimukun",
+      genre: "kelt",
+      description: "港町で宿泊してる猫さん達です。夏のリゾートの時間を楽しんでもらえれば幸いです。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/minatomati/playlist.m3u8",
+    },
+    {
+      id: "mizutabi",
+      title: "水旅",
+      artist: "yuruimukun",
+      genre: "kelt",
+      description: "猫さん達が小舟でいろんな場所を巡る旅です。少しでも涼しくなってもらえれば幸いです。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/mizutabi/playlist.m3u8",
+    },
+    {
+      id: "dancing-nekos",
+      title: "ダンシング・ネコズ",
+      artist: "yuruimukun",
+      genre: "meow",
+      description: "南国の海辺の村で、猫たちがバンド演奏とダンスを楽しむ様子を描いたロックステディ風のインスト曲です。夏の風を感じながら、ゆったりと身体を揺らして楽しんでもらえれば幸いです。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/dancing-nekos/playlist.m3u8",
+    },];
 
   // Single track mode for individual track pages
   if (window.SINGLE_TRACK) {
@@ -532,8 +580,19 @@
 
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
-    lofi: ['picnic', 'ie-cafe', 'neko-cafe', 'umi-cafe', 'oyasumi', 'tomoshibi', 'kitsuneko-zoku'],
-    normal: ['akan', 'nekosanka', 'oumagadoki', 'chirizakura', 'awafuki', 'komebattle', 'neko car', 'reverth going back', 'band CatsF', 'sakana', 'atawo', 'SUNMA', 'acid', 'kitsune-punk', 'oumagadoki-piano'],
+    lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
+    normal: ["akan","nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru","namaenomama","minatomati","mizutabi","dancing-nekos"],
+    timeline: [
+      "mujun-sanka","awafuki","battle","oumagadoki","wasure-oto","band CatsF","SUNMA","chirizakura",
+      "furikaeru","reverth going back","komebattle","odoro-","yabimi","atawo","antinomy day","nekokan",
+      "meitantei","acid","BINGO","kokokokomebattle","yoku","ie-cafe","neko-cafe","umi-cafe",
+      "atsu","picnic","sakana","forest session","runing culture","revolutionary event","second of the world","kelt",
+      "sekaizora","neko car","Danmaku","Marron battle","oyasumi","ninja","tomoshibi","halloween-manul neko",
+      "MIKAN NEKOSAN","halloween-okataduke","owatte-hajimatte","onnrei","yugudorasiru-1","yugudorasiru-2","yugudorasiru-3","yuruimukun-beat1",
+      "yuruimukun-beat2","travel-manul-nekosan","negai","meow","jibungajibunzyanainonara","manji","nekosan wa sugoi-uta","nekosanka",
+      "hai","oumagadoki-piano","sun-cafe","kitsune-punk","kitsuneko-zoku","breakbeats","run","wakeup-nekosan",
+      "marina","namaenomama","minatomati","mizutabi","dancing-nekos"
+    ],
     all: null  // nullの場合は全曲を名前順で表示
   };
 
@@ -911,6 +970,7 @@
 
   function play() {
     if (PLAYLIST.length === 0) return;
+    document.dispatchEvent(new CustomEvent('yuruimukun:main-player-play'));
     elements.audio.play().then(function () {
       state.isPlaying = true;
       updatePlayButton();
@@ -1122,6 +1182,9 @@
       var originalIndex = getOriginalIndex(filteredIndex);
       var li = document.createElement('li');
       li.className = 'playlist-item';
+      li.tabIndex = 0;
+      li.setAttribute('role', 'button');
+      li.setAttribute('aria-label', track.title + 'を再生');
       if (originalIndex === state.currentIndex) {
         li.classList.add('active');
         if (state.isPlaying) li.classList.add('playing');
@@ -1151,6 +1214,11 @@
       li.addEventListener('click', function () {
         if (originalIndex === state.currentIndex) togglePlay();
         else loadTrack(originalIndex, true);
+      });
+      li.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        li.click();
       });
       elements.playlist.appendChild(li);
     });
@@ -1220,8 +1288,17 @@
       }
     });
 
+    document.addEventListener('yuruimukun:top-arrival-bgm-play', function () {
+      if (state.isPlaying) pause();
+    });
+
+    document.addEventListener('yuruimukun:play-all-shuffled', function () {
+      setMainList('all');
+      playShuffled();
+    });
+
     document.addEventListener('keydown', function (e) {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON' || e.target.tagName === 'SELECT') return;
       switch (e.code) {
         case 'Space': e.preventDefault(); togglePlay(); break;
         case 'ArrowLeft': e.preventDefault(); if (e.shiftKey) playPrev(); else seek((elements.audio.currentTime - 5) / elements.audio.duration); break;

@@ -1,41 +1,80 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>きつねこ続 - ゆるいむくん</title>
-  <meta name="description" content="静けさと余韻をゆっくり残していく和風ヒーリング曲『きつねこ続』。深夜や気持ちを落ち着けたい時間に向いた1曲です。">
+  <meta name="theme-color" content="#111111">
+  <title>きつねこ続｜歌詞なし・和の静けさを聴く曲 - ゆるいむくん</title>
+  <meta name="description" content="『きつねこ続』をページ内で再生しながら、狐さんと猫さんの世界観、聴きどころ、制作メモを読める公式作品ページです。本作に歌詞はありません。">
   <meta name="keywords" content="きつねこ続, kitsuneko-zoku, 和風ヒーリング, アンビエント, 睡眠用BGM, ゆるいむくん, ストリーミング, 音楽">
-  <meta property="og:title" content="きつねこ続 - ゆるいむくん">
-  <meta property="og:description" content="静けさをゆっくり残していく、深夜向きの和風ヒーリング曲。">
+  <meta property="og:title" content="きつねこ続｜歌詞なし・和の静けさを聴く曲 - ゆるいむくん">
+  <meta property="og:description" content="狐さんと猫さんの物語の続きを歩く『きつねこ続』。曲を聴きながら世界観と制作メモを読めます。">
   <meta property="og:type" content="music.song">
   <link rel="canonical" href="https://yuruimukun.com/public/tracks/kitsuneko-zoku.html">
   <meta property="og:url" content="https://yuruimukun.com/public/tracks/kitsuneko-zoku.html">
   <meta property="og:image" content="https://yuruimukun.com/images/ogp.png">
+  <meta property="og:image:alt" content="ゆるいむくん公式サイトの共通ソーシャル画像">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MusicRecording",
+        "@id": "https://yuruimukun.com/public/tracks/kitsuneko-zoku.html#recording",
+        "name": "きつねこ続",
+        "url": "https://yuruimukun.com/public/tracks/kitsuneko-zoku.html",
+        "inLanguage": "ja",
+        "duration": "PT3M22S",
+        "genre": ["和風ヒーリング", "Ambient"],
+        "byArtist": { "@type": "MusicGroup", "@id": "https://yuruimukun.com/#artist", "name": "ゆるいむくん" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://yuruimukun.com/" },
+          { "@type": "ListItem", "position": 2, "name": "楽曲一覧", "item": "https://yuruimukun.com/public/tracks/" },
+          { "@type": "ListItem", "position": 3, "name": "きつねこ続", "item": "https://yuruimukun.com/public/tracks/kitsuneko-zoku.html" }
+        ]
+      }
+    ]
+  }
+  </script>
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/track-page.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+  <script defer src="/js/track-audio.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">作品本文へ移動</a>
   <header class="site-header">
     <a href="/" class="logo">ゆるいむくん</a>
     <nav class="nav">
       <a href="/">ホーム</a>
       <a href="/public/tracks/">楽曲一覧</a>
+      <a href="/about.html">サイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
     </nav>
   </header>
 
-  <main class="track-detail">
+  <main class="track-detail" id="main-content">
     <article class="track-content">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a><span aria-hidden="true">/</span>
+        <a href="/public/tracks/">楽曲一覧</a><span aria-hidden="true">/</span>
+        <span aria-current="page">きつねこ続</span>
+      </nav>
       <h1 class="track-title">きつねこ続</h1>
+      <p class="track-lead">狐さんと猫さんの世界を、前作で閉じずにもう少し先へ。和の静けさを基調に、深夜へ長く余韻を残していく曲です。</p>
 
       <section class="track-meta">
         <div class="meta-item">
@@ -48,45 +87,40 @@
         </div>
       </section>
 
-      <section class="track-player">
-        <a href="/?track=kitsuneko-zoku" class="play-link">トップページでこの曲を聴く</a>
+      <section class="track-player embedded-audio" data-track-audio data-src="https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/kitsuneko-zoku/playlist.m3u8" aria-labelledby="kitsuneko-player-title">
+        <h2 id="kitsuneko-player-title">世界観を読みながら聴く</h2>
+        <p data-audio-status aria-live="polite">プレイヤーを準備しています。自動再生はしません。</p>
+        <audio controls preload="metadata" aria-label="きつねこ続 音声プレイヤー"></audio>
+        <div class="embedded-audio-links">
+          <a href="/?track=kitsuneko-zoku" class="track-link-chip track-link-chip--secondary">トップのプレイヤーで聴く</a>
+          <a href="https://www.youtube.com/channel/UConxNOIrPvDkxoOI-4O9crw" class="track-link-chip track-link-chip--secondary" target="_blank" rel="me noopener">公式YouTubeで探す</a>
+        </div>
       </section>
 
-      
-      <details class="track-copy-accordion">
-        <summary>曲の説明を読む</summary>
-        <div class="track-copy-body">
-<section class="track-section">
-        <h2>楽曲について</h2>
-        <p>「きつねこ続」は、和の静けさをそのまま長く残すように作った曲です。何かを強く押し出すより、少しずつ力を抜いていける空気を保つことを大事にしています。</p>
-        <p>深夜に小さく流したい時や、気持ちを落ち着けたい時に、その場の空気をやわらかく整えるような役割で置いています。静かさの中に少しだけ余韻を残したまま、長く居られる曲にしたかった1曲です。</p>
+      <p class="lyrics-status"><strong>歌詞について：</strong>本作に歌詞はありません。狐さんと猫さんの世界を、音と余韻で辿る作品です。</p>
+
+      <section class="track-section">
+        <h2>楽曲紹介</h2>
+        <p>「きつねこ続」は、もともとあった「きつねこ」の続きを歩かせるような気持ちで作った曲です。前の曲で生まれた狐さんと猫さんの世界を、そのまま一度閉じるのではなく、もう少し先へ進ませたいと思ったことが出発点になっています。和の静けさをベースにしながら、ただ止まっているだけではない余韻を長く残す一曲です。</p>
+        <p>深夜に小さく流したい時や、気持ちを落ち着けたい時に、その場の空気をやわらかく整える役割で置いています。何かを強く主張するというより、呼吸を深くして少しずつ力を抜いていけるような曲にしたかったので、和風ヒーリングとしてもかなり素直に聴ける入口になっていると思います。</p>
       </section>
 
       <section class="track-section">
-        <h2>制作背景・エピソード</h2>
-        <p>和風ヒーリングとして聴いた時に、ただ静かなだけで終わらず、もう少しその空気の中にいたいと思える長さと余白を意識して整えました。派手さよりも、音の残り方や呼吸のしやすさを優先しています。</p>
-        <p>音楽が前に出すぎないまま、それでも完全な環境音にはならない、その中間の居心地を狙っています。夜の読書や、考え事のあとに気持ちをほどきたい時間へ自然に置けるようにしています。</p>
+        <h2>曲の世界観</h2>
+        <p>前作で生まれた狐さんと猫さんが、この先も歩いていく。その「続き」を閉じずに残すことが、この曲の物語の軸です。前作を知っている人にはその先の景色として、初めて聴く人には静かな物語の入口として開いています。</p>
+      </section>
+
+      <section class="track-section">
+        <h2>制作メモ</h2>
+        <p>前の「きつねこ」を作った時点でも、日本的な情緒や雅な空気を歌うような曲にしたい気持ちはありました。ただ、その時はまだ形にしきれなかった部分が多く、自分の今の気分にも完全には重ならなかったところがあります。「きつねこ続」は、その時に残っていたものを、もう一度静かな形で消化したような曲でもあります。</p>
+        <p>特に終わり方については、ただ雰囲気よく閉じるだけではなく、ちゃんと落ち着いて眠りへ向かえるような余白を作りたいと思っていました。狐さんと猫さんがこの先どう歩んでいくのか、そんなことまで考えながら作っていたので、ひとつの物語の続きとしての感触もかなり強い曲です。</p>
       </section>
 
       <section class="track-section">
         <h2>聴きどころ</h2>
-        <p>この曲は、強い展開を追うより、静かなまま少しずつ沈んでいく感覚で聴いてもらうのが合っています。気づいたら空気が落ち着いていた、くらいの距離感で流れるのがちょうどよいです。</p>
-        <p>睡眠前の数分、夜の読書、考え事を整理したい時間など、音楽が主張しすぎないほうがよい場面と特に相性が良いです。和風ヒーリングとして、小さめの音で流しておく使い方が似合います。</p>
+        <p>この曲は、強い展開を追うより、静かなまま少しずつ沈んでいく感覚で聴いてもらうのが合っています。気づいたら空気が落ち着いていた、くらいの距離感で流れるのがちょうどよく、夜の読書や考え事の整理とも相性がいいです。</p>
+        <p>和風ヒーリングとして小さめの音で流しておくと、音楽が前に出すぎず、それでいて完全な環境音にもならない絶妙なところが伝わりやすいと思います。前作を知っている人には続きとして、初めての人には静かな物語の入口として受け取ってもらえたら嬉しいです。</p>
       </section>
-
-      <section class="track-section">
-        <h2>使用楽器・音色</h2>
-        <ul class="instrument-list">
-          <li>和風シンセ</li>
-          <li>アンビエントテクスチャー</li>
-          <li>控えめな余韻系リバーブ</li>
-          <li>静かなキーボード</li>
-        </ul>
-      </section>
-
-                      </div>
-      </details>
-
       <section class="track-section related-section">
         <h2>関連する楽曲</h2>
         <div class="related-tracks">
@@ -98,8 +132,18 @@
             <span class="related-title">oyasumi</span>
             <span class="related-genre">チルアウト / ローファイ</span>
           </a>
+          <a href="./oumagadoki.html" class="related-track">
+            <span class="related-title">逢魔時</span>
+            <span class="related-genre">夕暮れと境界の物語を歌詞から辿る</span>
+          </a>
         </div>
       </section>
+      <nav class="track-page-navigation" aria-label="前後の楽曲">
+        <a href="./antinomy-day.html">← 前の曲「antinomy day」</a>
+        <a href="./">楽曲一覧へ戻る</a>
+        <a href="./manji.html">次の曲「卍」→</a>
+      </nav>
+      <p class="official-contact">作品についての連絡は<a href="/contact.html">お問い合わせ</a>へ。新作情報は<a href="https://x.com/yuruimukun_koho" target="_blank" rel="me noopener">公式X</a>で案内しています。</p>
     </article>
   </main>
 
@@ -108,6 +152,7 @@
     <nav class="footer-nav">
       <a href="/privacy.html">プライバシーポリシー</a>
       <a href="/terms.html">利用規約</a>
+      <a href="/about.html">サイトについて</a>
       <a href="/contact.html">お問い合わせ</a>
     </nav>
   </footer>
