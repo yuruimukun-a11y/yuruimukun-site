@@ -220,6 +220,18 @@
       </div>
     </section>
 
+    <!-- 期間限定BGM（有効時だけ表示される） -->
+    <section id="topArrivalBgm" class="top-arrival-bgm" aria-label="期間限定トップBGM" hidden>
+      <div class="top-arrival-bgm__copy">
+        <p class="top-arrival-bgm__eyebrow">LIMITED ARRIVAL BGM</p>
+        <p id="topArrivalBgmLabel" class="top-arrival-bgm__label"></p>
+      </div>
+      <button id="topArrivalBgmButton" class="top-arrival-bgm__button" type="button" aria-pressed="false">
+        <span id="topArrivalBgmButtonLabel">期間限定BGMを再生</span>
+        <span aria-hidden="true">♪</span>
+      </button>
+    </section>
+
     <!-- 代表曲 -->
     <section class="lead-tracks" id="leadTracks" aria-labelledby="leadTracksTitle">
       <h2 id="leadTracksTitle" class="lead-tracks__title">まずはこの2曲から</h2>
@@ -262,16 +274,6 @@
       </div>
     </section>
 
-    <section id="topArrivalBgm" class="top-arrival-bgm" aria-label="期間限定トップBGM" hidden>
-      <div class="top-arrival-bgm__copy">
-        <p class="top-arrival-bgm__eyebrow">LIMITED ARRIVAL BGM</p>
-        <p id="topArrivalBgmLabel" class="top-arrival-bgm__label"></p>
-      </div>
-      <button id="topArrivalBgmButton" class="top-arrival-bgm__button" type="button" aria-pressed="false">
-        <span id="topArrivalBgmButtonLabel">期間限定BGMを再生</span>
-        <span aria-hidden="true">♪</span>
-      </button>
-    </section>
     <aside id="topArrivalBgmPopup" class="top-arrival-bgm-popup" aria-label="期間限定トップBGM" aria-live="polite" hidden>
       <img id="topArrivalBgmImage" class="top-arrival-bgm-popup__image" width="96" height="128" alt="">
       <div class="top-arrival-bgm-popup__body">
