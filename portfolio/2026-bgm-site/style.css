@@ -15,15 +15,15 @@
   --color-text-light: #8a8a8a;
   --color-text-dark: #2a2a2a;
   --color-border: #ffe4ec;
-  --ui-button-pink: url("../images/materials/ui-kit/button-primary-pink.png");
-  --ui-button-cream: url("../images/materials/ui-kit/button-secondary-cream.png");
-  --ui-button-night: url("../images/materials/ui-kit/button-night-navy.png");
-  --ui-badge-image: url("../images/materials/ui-kit/badge-lantern-music.png");
-  --ui-divider-image: url("../images/materials/ui-kit/divider-lantern-line.png");
-  --ui-frame-image: url("../images/materials/ui-kit/frame-floral-lantern.png");
-  --ui-hero-scene: url("../images/materials/yuru-hero-dusk-sky.jpg");
-  --ui-room-scene: url("../images/materials/yuru-night-room.jpg");
-  --ui-neko-scene: url("../images/materials/yuru-neko-bluehour.jpg");
+  --ui-button-pink: url("/images/materials/ui-kit/button-primary-pink.png");
+  --ui-button-cream: url("/images/materials/ui-kit/button-secondary-cream.png");
+  --ui-button-night: url("/images/materials/ui-kit/button-night-navy.png");
+  --ui-badge-image: url("/images/materials/ui-kit/badge-lantern-music.png");
+  --ui-divider-image: url("/images/materials/ui-kit/divider-lantern-line.png");
+  --ui-frame-image: url("/images/materials/ui-kit/frame-floral-lantern.png");
+  --ui-hero-scene: url("/images/materials/yuru-hero-dusk-sky.jpg");
+  --ui-room-scene: url("/images/materials/yuru-night-room.jpg");
+  --ui-neko-scene: url("/images/materials/yuru-neko-bluehour.jpg");
 
   /* Shadows */
   --shadow-soft: 0 4px 20px rgba(255, 143, 171, 0.15);
@@ -2211,13 +2211,13 @@ body::after {
    ======================================== */
 
 :root {
-  --scene-site-bg: url("../images/materials/clocktower-dusk-site-bg-vertical.png");
-  --scene-hero: url("../images/materials/clocktower-dusk-hero-wide.png");
-  --scene-cafe: url("../images/materials/clocktower-dusk-cafe-section.png");
-  --scene-neko: url("../images/materials/clocktower-dusk-neko-section.png");
-  --ornament-lantern-plaque: url("../images/materials/ui-kit/ornament-lantern-plaque-alpha.png");
-  --card-link-cafe: url("../images/materials/ui-kit/card-link-cafe-alpha.png");
-  --card-feature-clocktower: url("../images/materials/ui-kit/card-feature-clocktower-alpha.png");
+  --scene-site-bg: url("/images/materials/clocktower-dusk-site-bg-vertical.png");
+  --scene-hero: url("/images/materials/clocktower-dusk-hero-wide.png");
+  --scene-cafe: url("/images/materials/clocktower-dusk-cafe-section.png");
+  --scene-neko: url("/images/materials/clocktower-dusk-neko-section.png");
+  --ornament-lantern-plaque: url("/images/materials/ui-kit/ornament-lantern-plaque-alpha.png");
+  --card-link-cafe: url("/images/materials/ui-kit/card-link-cafe-alpha.png");
+  --card-feature-clocktower: url("/images/materials/ui-kit/card-feature-clocktower-alpha.png");
 }
 
 body {
@@ -3451,324 +3451,38 @@ body::after {
 }
 
 /* ========================================
-   トップページ: 2つの入口と代表曲
-   （プレイヤーを最初の画面へ引き上げるための導線）
+   PORTFOLIO ARCHIVE 用の帯（保存版のみ）
    ======================================== */
-
-.masthead-tagline {
-  letter-spacing: 0.02em;
-  line-height: 1.7;
-  max-width: 28rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* --- 2つの入口 --- */
-.entry-hero {
-  position: relative;
-  z-index: 1;
-  margin-bottom: var(--spacing-lg);
-  text-align: center;
-}
-
-.entry-hero__title {
-  margin: 0 0 var(--spacing-sm);
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: rgba(239, 230, 214, 0.82);
-}
-
-.entry-hero__actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.entry-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  min-height: 84px;
-  padding: 1rem 0.9rem;
-  border: 1px solid rgba(233, 196, 148, 0.28);
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(243, 236, 225, 0.94) 0%, rgba(236, 226, 212, 0.9) 100%);
-  color: var(--color-text-dark);
-  font-family: inherit;
-  cursor: pointer;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-  box-shadow: 0 10px 26px rgba(10, 14, 18, 0.22);
-}
-
-.entry-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(10, 14, 18, 0.28);
-}
-
-.entry-button:focus-visible {
-  outline: 3px solid rgba(255, 143, 171, 0.45);
-  outline-offset: 3px;
-}
-
-.entry-button[aria-pressed="true"] {
-  border-color: var(--color-primary-dark);
-  box-shadow: 0 0 0 2px rgba(255, 107, 138, 0.35), 0 14px 32px rgba(10, 14, 18, 0.28);
-}
-
-.entry-button__label {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.entry-button__note {
-  font-size: 0.72rem;
-  color: var(--color-text-light);
-  line-height: 1.5;
-}
-
-/* --- 代表曲カード --- */
-.lead-tracks {
-  position: relative;
-  z-index: 1;
-  margin-bottom: var(--spacing-lg);
-}
-
-.lead-tracks__title {
-  margin: 0 0 var(--spacing-sm);
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-align: center;
-  color: rgba(239, 230, 214, 0.82);
-}
-
-.lead-tracks__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.lead-track {
-  display: flex;
-  align-items: stretch;
-  overflow: hidden;
-  border: 1px solid rgba(233, 196, 148, 0.2);
-  border-radius: 18px;
-  background: var(--color-bg-card);
-  box-shadow: 0 12px 30px rgba(10, 14, 18, 0.24);
-}
-
-.lead-track__art {
-  position: relative;
-  flex: 0 0 6.5rem;
-  align-self: center;
-  width: 6.5rem;
-  height: 6.5rem;
-  margin: 0.75rem 0 0.75rem 0.75rem;
-  border-radius: 12px;
-  background: linear-gradient(150deg, #2c3b4d 0%, #5b4a52 55%, #b78a5f 100%);
-  overflow: hidden;
-}
-
-.lead-track__art img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.lead-track__art-fallback {
-  display: none;
-  position: absolute;
-  inset: 0;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.4rem;
-  color: rgba(255, 246, 235, 0.75);
-}
-
-.lead-track__art.is-missing img {
-  display: none;
-}
-
-.lead-track__art.is-missing .lead-track__art-fallback {
-  display: flex;
-}
-
-.lead-track__body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 0;
-  gap: 0.3rem;
-  padding: 0.75rem 0.85rem 0.8rem;
-}
-
-.lead-track__label {
-  margin: 0;
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  color: var(--color-primary-dark);
-}
-
-.lead-track__name {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.45;
-  color: var(--color-text-dark);
-}
-
-.lead-track__copy {
-  margin: 0;
-  font-size: 0.78rem;
-  line-height: 1.7;
-  color: var(--color-text-light);
-}
-
-.lead-track__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  margin-top: auto;
-  padding-top: 0.5rem;
-}
-
-.lead-track__play {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.65rem 1rem;
-  border: 0;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: #fff;
-  font-family: inherit;
+.portfolio-banner {
+  max-width: var(--container-max-width);
+  margin: 0 auto 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #2a2333;
+  color: #f3e9f0;
+  border-radius: var(--radius-md, 12px);
   font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(255, 107, 138, 0.35);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  line-height: 1.8;
 }
 
-.lead-track__play:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 107, 138, 0.45);
-}
-
-.lead-track__play:focus-visible {
-  outline: 3px solid rgba(255, 143, 171, 0.45);
-  outline-offset: 3px;
-}
-
-.lead-track__play-icon {
+.portfolio-banner__label {
+  margin: 0 0 0.35rem;
   font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--color-primary-light, #ffb3c6);
 }
 
-.lead-track__link {
-  text-align: center;
-  font-size: 0.76rem;
-  color: var(--color-text-light);
+.portfolio-banner__text {
+  margin: 0;
+}
+
+.portfolio-banner__links {
+  margin: 0.6rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.portfolio-banner__links a {
+  color: var(--color-primary-light, #ffb3c6);
   text-decoration: underline;
-}
-
-.lead-track__link:hover {
-  color: var(--color-primary-dark);
-}
-
-/* 「もっと知る」ゾーンの区切り */
-.more-section-intro {
-  position: relative;
-  z-index: 1;
-  margin: var(--spacing-lg) 0;
-}
-
-@media (max-width: 480px) {
-  .entry-hero__actions,
-  .lead-tracks__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .lead-track__art {
-    flex: 0 0 5rem;
-    width: 5rem;
-    height: 5rem;
-    margin: 0.6rem 0 0.6rem 0.6rem;
-  }
-
-  .lead-track__body {
-    padding: 0.6rem 0.7rem 0.65rem;
-  }
-}
-
-/* スマホでは「名前 → 入口 → 代表曲2曲」が一画面に収まるように詰める */
-@media (max-width: 600px) {
-  .site-masthead {
-    padding: 0.85rem 0.8rem 0.9rem;
-    margin-bottom: var(--spacing-md);
-  }
-
-  .site-masthead .logo {
-    font-size: 1.4rem;
-  }
-
-  .site-masthead .masthead-tagline {
-    font-size: 0.78rem;
-    line-height: 1.6;
-  }
-
-  .site-masthead .header-nav {
-    margin-top: 0.6rem;
-    gap: 0.4rem;
-  }
-
-  .site-masthead .header-nav-link {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.75rem;
-  }
-
-  .entry-hero {
-    margin-bottom: var(--spacing-md);
-  }
-
-  .entry-hero__title,
-  .lead-tracks__title {
-    margin-bottom: 0.55rem;
-    font-size: 0.85rem;
-  }
-
-  .entry-hero__actions {
-    gap: 0.5rem;
-  }
-
-  .entry-button {
-    min-height: 64px;
-    padding: 0.7rem 0.8rem;
-  }
-
-  .entry-button__label {
-    font-size: 0.92rem;
-  }
-
-  .lead-tracks__grid {
-    gap: 0.6rem;
-  }
-
-  .lead-track__copy {
-    font-size: 0.74rem;
-    line-height: 1.6;
-  }
-}
-
-/* ジャンルを絞り込み中は、折りたたんでいてもそれが分かるようにする */
-.genre-toggle-btn.has-selection {
-  border-color: var(--color-primary-dark);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: #fff;
-  font-weight: 700;
 }

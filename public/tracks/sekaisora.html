@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="../css/track-page.css">
 </head>
 
-<body>
+<body data-track-id="sekaizora">
   <header class="site-header">
     <a href="/" class="logo">ゆるいむくん</a>
     <nav class="nav">
@@ -63,7 +63,7 @@
       </section>
 
       <section class="track-player">
-        <a href="/?track=sekaizora" class="play-link">トップページでこの曲を聴く</a>
+        <a href="/?track=sekaizora" class="play-link" data-traffic-target="play_link">トップページでこの曲を聴く</a>
       </section>
 
       
@@ -120,6 +120,10 @@
       <a href="/contact.html">お問い合わせ</a>
     </nav>
   </footer>
+  <!-- 計測と曲別リンク -->
+  <script type="module" src="/js/firebase-traffic.js"></script>
+  <script src="/js/shorts-traffic.js"></script>
+  <script src="/js/track-links.js"></script>
 </body>
 
 </html>

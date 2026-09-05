@@ -48,7 +48,7 @@
   </script>
   <!-- OFFICIAL_LYRICS_JSON_LD:END -->
 </head>
-<body>
+<body data-track-id="namaenomama">
   <header class="site-header">
     <a href="/" class="logo">ゆるいむくん</a>
     <nav class="nav"><a href="/">ホーム</a><a href="/public/tracks/">楽曲一覧</a></nav>
@@ -57,7 +57,7 @@
     <article class="track-content">
       <h1 class="track-title">名前のまま 公式歌詞</h1>
       <section class="track-meta"><div class="meta-item"><span class="meta-label">ジャンル</span><span class="meta-value">vocaloid</span></div></section>
-      <section class="track-player"><a href="/?track=namaenomama" class="play-link">トップページでこの曲を聴く</a></section>
+      <section class="track-player"><a href="/?track=namaenomama" class="play-link" data-traffic-target="play_link">トップページでこの曲を聴く</a></section>
       <details class="track-copy-accordion" open>
         <summary>曲の説明を読む</summary>
         <div class="track-copy-body">
@@ -260,5 +260,9 @@
     </article>
   </main>
   <footer class="site-footer"><p>&copy; 2026 ゆるいむくん</p></footer>
+  <!-- 計測と曲別リンク -->
+  <script type="module" src="/js/firebase-traffic.js"></script>
+  <script src="/js/shorts-traffic.js"></script>
+  <script src="/js/track-links.js"></script>
 </body>
 </html>

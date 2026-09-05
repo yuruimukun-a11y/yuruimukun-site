@@ -54,7 +54,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
   <script defer src="/js/track-audio.js"></script>
 </head>
-<body>
+<body data-track-id="kitsuneko-zoku">
   <a class="skip-link" href="#main-content">作品本文へ移動</a>
   <header class="site-header">
     <a href="/" class="logo">ゆるいむくん</a>
@@ -92,7 +92,7 @@
         <p data-audio-status aria-live="polite">プレイヤーを準備しています。自動再生はしません。</p>
         <audio controls preload="metadata" aria-label="きつねこ続 音声プレイヤー"></audio>
         <div class="embedded-audio-links">
-          <a href="/?track=kitsuneko-zoku" class="track-link-chip track-link-chip--secondary">トップのプレイヤーで聴く</a>
+          <a href="/?track=kitsuneko-zoku" class="track-link-chip track-link-chip--secondary" data-traffic-target="play_link">トップのプレイヤーで聴く</a>
           <a href="https://www.youtube.com/channel/UConxNOIrPvDkxoOI-4O9crw" class="track-link-chip track-link-chip--secondary" target="_blank" rel="me noopener">公式YouTubeで探す</a>
         </div>
       </section>
@@ -156,6 +156,10 @@
       <a href="/contact.html">お問い合わせ</a>
     </nav>
   </footer>
+  <!-- 計測と曲別リンク -->
+  <script type="module" src="/js/firebase-traffic.js"></script>
+  <script src="/js/shorts-traffic.js"></script>
+  <script src="/js/track-links.js"></script>
 </body>
 </html>
 

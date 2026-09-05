@@ -67,3 +67,12 @@ window.firebaseTrafficPlay = async function (payload) {
 
   await incrementLog('shortsTraffic/' + today + '/plays/' + ctx.source + '/' + ctx.entry + '/' + ctx.via + '/' + trackId);
 };
+
+// 30秒以上聴かれた回数。再生ボタンが押された数と分けて見るための指標
+window.firebaseTrafficListen = async function (payload) {
+  var ctx = getTrafficContext();
+  var today = new Date().toISOString().split('T')[0];
+  var trackId = safeKey(payload && payload.trackId, 'none');
+
+  await incrementLog('shortsTraffic/' + today + '/listens30/' + ctx.source + '/' + ctx.entry + '/' + ctx.via + '/' + trackId);
+};

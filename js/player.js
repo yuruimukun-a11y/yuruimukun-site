@@ -317,8 +317,8 @@
       id: 'umi-cafe',
       title: '海カフェ',
       artist: 'yuruimukun',
-      genre: 'lofi',
-      description: '海辺のカフェをイメージしたLo-Fi曲。波の音と潮風を感じながら、リゾート気分でリラックスできる一曲です。',
+      genre: 'guitar-aco or clean',
+      description: '海辺のカフェをイメージして作った、夏の疲れと喜びを表現したアコースティックギター曲。波の音と潮風の気配を残しています。',
       src: 'https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/umi-cafe/playlist.m3u8',
     },
     {
@@ -758,6 +758,17 @@
     return -1;
   }
 
+  // 折りたたんでいる時も、今どのジャンルで絞り込んでいるか分かるようにする
+  function genreToggleLabel() {
+    if (state.isGenreExpanded) {
+      return '<span class="toggle-arrow">▼</span> 閉じる';
+    }
+    if (state.currentGenre && state.currentGenre !== 'all') {
+      return '<span class="toggle-arrow">▼</span> ジャンル: ' + state.currentGenre;
+    }
+    return '<span class="toggle-arrow">▼</span> ジャンル選択';
+  }
+
   function updateGenreFilter() {
     if (!elements.genreFilter) return;
     elements.genreFilter.innerHTML = '';
@@ -781,8 +792,8 @@
       var toggleBtn = document.createElement('button');
       toggleBtn.className = 'genre-toggle-btn';
       if (state.isGenreExpanded) toggleBtn.classList.add('expanded');
-      toggleBtn.innerHTML = '<span class="toggle-arrow">▼</span> ' +
-        (state.isGenreExpanded ? '閉じる' : 'ジャンル選択');
+      if (state.currentGenre !== 'all') toggleBtn.classList.add('has-selection');
+      toggleBtn.innerHTML = genreToggleLabel();
       toggleBtn.addEventListener('click', toggleGenreList);
       header.appendChild(toggleBtn);
     }
@@ -875,8 +886,8 @@
     }
     if (toggleBtn) {
       toggleBtn.classList.toggle('expanded', state.isGenreExpanded);
-      toggleBtn.innerHTML = '<span class="toggle-arrow">▼</span> ' +
-        (state.isGenreExpanded ? '閉じる' : 'ジャンル選択');
+      toggleBtn.classList.toggle('has-selection', state.currentGenre !== 'all');
+      toggleBtn.innerHTML = genreToggleLabel();
     }
   }
 
@@ -907,9 +918,8 @@
     if (typeof window.firebasePlayCount === 'function') {
       window.firebasePlayCount(trackId);
     }
-    if (typeof window.firebaseTrafficPlay === 'function' &&
-        window.shortsTrafficContext &&
-        window.shortsTrafficContext.active) {
+    // 流入元の有無に関わらず再生開始を記録する（直接来た人の再生も見たいため）
+    if (typeof window.firebaseTrafficPlay === 'function') {
       window.firebaseTrafficPlay({ trackId: trackId });
     }
   }
@@ -1368,6 +1378,50 @@
       if (firstOriginalIndex >= 0) loadTrack(firstOriginalIndex, false);
     }
   }
+
+  // トップページの導線ボタンから操作するための公開API
+  window.yuruimukunPlayer = {
+    // 指定IDの曲を再生する。表示中のリストに無ければ全曲リストへ切り替えてから鳴らす
+    playTrackById: function (trackId) {
+      if (!trackId) return false;
+      for (var i = 0; i < PLAYLIST.length; i++) {
+        if (PLAYLIST[i].id !== trackId) continue;
+        if (getAvailablePlaylist().indexOf(PLAYLIST[i]) === -1) return false;
+        if (getFilteredIndex(i) < 0) {
+          state.currentMainList = 'all';
+          state.currentGenre = 'all';
+          filterPlaylist('all');
+          updateMainListFilter();
+          updateGenreFilter();
+        }
+        loadTrack(i, true);
+        return true;
+      }
+      return false;
+    },
+
+    // リストとジャンルを切り替えるだけ（再生はしない）
+    selectList: function (listType, genre) {
+      if (listType) {
+        state.currentMainList = listType;
+      }
+      state.currentGenre = genre || 'all';
+      filterPlaylist(state.currentGenre);
+      updateMainListFilter();
+      updateGenreFilter();
+      updatePlaylistUI();
+      if (state.filteredPlaylist.length > 0) {
+        var firstOriginalIndex = getOriginalIndex(0);
+        if (firstOriginalIndex >= 0) loadTrack(firstOriginalIndex, false);
+      }
+      return state.filteredPlaylist.length;
+    },
+
+    // 表示中のリストが何曲あるか
+    getVisibleCount: function () {
+      return state.filteredPlaylist.length;
+    }
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
