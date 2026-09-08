@@ -49,8 +49,6 @@
     'halloween-okataduke': { youtube: '', niconico: '', spotify: '', apple: '' },
     // 自分が自分じゃないのなら（jibungajibunzyanainonara.html）
     'jibungajibunzyanainonara': { youtube: 'https://www.youtube.com/watch?v=CzqR3Doaz9c', niconico: 'https://www.nicovideo.jp/watch/sm45914776', spotify: '', apple: '' },
-    // かおすねこ（kaosukneko.html）
-    'kaosukneko': { youtube: '', niconico: '', spotify: '', apple: '' },
     // 狐パンク（kitsune-punk.html）
     'kitsune-punk': { youtube: '', niconico: '', spotify: '', apple: '' },
     // きつねこ続（kitsuneko-zoku.html）
@@ -73,8 +71,6 @@
     'mujun-sanka': { youtube: 'https://www.youtube.com/watch?v=vso4nNqfFfY', niconico: 'https://www.nicovideo.jp/watch/sm44180149', spotify: '', apple: '' },
     // 名前のまま（namaenomama.html）
     'namaenomama': { youtube: 'https://www.youtube.com/watch?v=ALLqwPJZFf4', niconico: 'https://www.nicovideo.jp/watch/sm46500897', spotify: '', apple: '' },
-    // NEKOズ（nekos.html）
-    'nekos': { youtube: '', niconico: '', spotify: '', apple: '' },
     // ねこさんはすごいうた（nekosan-wa-sugoi-uta.html）
     'nekosan wa sugoi-uta': { youtube: '', niconico: '', spotify: '', apple: '' },
     // ねこさんか（猫賛歌）（nekosanka.html）

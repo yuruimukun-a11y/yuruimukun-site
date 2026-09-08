@@ -48,6 +48,21 @@
       "permanent": true
     },
     {
+      "source": "/public/tracks/kaosukneko.html",
+      "destination": "https://yuruimukun.com/public/tracks/",
+      "permanent": true
+    },
+    {
+      "source": "/public/tracks/nekos.html",
+      "destination": "https://yuruimukun.com/public/tracks/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kaosukneko.html",
+      "destination": "https://yuruimukun.com/blog/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
