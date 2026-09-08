@@ -319,7 +319,6 @@ function createLyricsIndex(pages) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/track-page.css">
-  <link rel="stylesheet" href="/css/secret.css">
 </head>
 <body>
   <header class="site-header">
@@ -348,7 +347,6 @@ ${cards}
       <a href="/contact.html">お問い合わせ</a>
     </nav>
   </footer>
-  <script src="/js/secret.js?v=20260620e"></script>
 </body>
 </html>
 `;
