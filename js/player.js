@@ -570,6 +570,22 @@
       genre: "meow",
       description: "南国の海辺の村で、猫たちがバンド演奏とダンスを楽しむ様子を描いたロックステディ風のインスト曲です。夏の風を感じながら、ゆったりと身体を揺らして楽しんでもらえれば幸いです。",
       src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/dancing-nekos/playlist.m3u8",
+    },
+    {
+      id: "amazon",
+      title: "アマゾン",
+      artist: "yuruimukun",
+      genre: "kelt",
+      description: "笛の主旋律に撥弦楽器と幾重もの打楽器が重なる、Gマイナーのまま3度をぼかした響き、和音を相変わらず置きます。熱いけど少し涼しさも感じられるそんな気持ちになって頂けたら幸いです。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/amazon/playlist.m3u8",
+    },
+    {
+      id: "dum-di-ka-dum-dum",
+      title: "dum-di-ka-dum-dum",
+      artist: "yuruimukun",
+      genre: "uta",
+      description: "歌詞は和太鼓の口唱歌そのもの。「dum」はドン（中太鼓）、「di」はディ（締太鼓）、「ka」はカ（囃子木）——太鼓の歌です。意味を持つ言葉はひとつも使っていない。",
+      src: "https://pub-d7bcb1d667eb4d02a8c23a3291df3129.r2.dev/tracks/dum-di-ka-dum-dum/playlist.m3u8",
     },];
 
   // Single track mode for individual track pages
@@ -581,7 +597,7 @@
   // メインプレイリスト定義（ランキング順）
   const MAIN_LISTS = {
     lofi: ["picnic","ie-cafe","neko-cafe","umi-cafe","oyasumi","tomoshibi","kitsuneko-zoku"],
-    normal: ["akan","nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru","namaenomama","minatomati","mizutabi","dancing-nekos"],
+    normal: ["akan","nekosanka","oumagadoki","chirizakura","awafuki","komebattle","neko car","reverth going back","band CatsF","sakana","atawo","SUNMA","acid","kitsune-punk","oumagadoki-piano","furikaeru","namaenomama","minatomati","mizutabi","dancing-nekos","amazon","dum-di-ka-dum-dum"],
     timeline: [
       "mujun-sanka","awafuki","battle","oumagadoki","wasure-oto","band CatsF","SUNMA","chirizakura",
       "furikaeru","reverth going back","komebattle","odoro-","yabimi","atawo","antinomy day","nekokan",
@@ -591,7 +607,7 @@
       "MIKAN NEKOSAN","halloween-okataduke","owatte-hajimatte","onnrei","yugudorasiru-1","yugudorasiru-2","yugudorasiru-3","yuruimukun-beat1",
       "yuruimukun-beat2","travel-manul-nekosan","negai","meow","jibungajibunzyanainonara","manji","nekosan wa sugoi-uta","nekosanka",
       "hai","oumagadoki-piano","sun-cafe","kitsune-punk","kitsuneko-zoku","breakbeats","run","wakeup-nekosan",
-      "marina","namaenomama","minatomati","mizutabi","dancing-nekos"
+      "marina","namaenomama","minatomati","mizutabi","dancing-nekos","amazon","dum-di-ka-dum-dum"
     ],
     all: null  // nullの場合は全曲を名前順で表示
   };
