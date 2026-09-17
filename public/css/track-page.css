@@ -831,31 +831,3 @@ body {
   outline-offset: 3px;
 }
 
-/* 曲の流れとコード進行 */
-.structure-list {
-  list-style: none;
-  margin: var(--spacing-sm) 0;
-  padding: 0;
-  display: grid;
-  gap: 0.5rem;
-}
-
-.structure-list li {
-  display: grid;
-  grid-template-columns: 3.2rem 1fr;
-  gap: 0.75rem;
-  align-items: baseline;
-  color: var(--color-text-muted);
-  line-height: 1.7;
-}
-
-.structure-time {
-  color: var(--color-accent);
-  font-variant-numeric: tabular-nums;
-  font-weight: 700;
-}
-
-.track-section .structure-note {
-  color: var(--color-text-light);
-  font-size: 0.85rem;
-}
