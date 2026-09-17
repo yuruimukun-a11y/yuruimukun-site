@@ -39,6 +39,8 @@
     }
     .track-player .album-art-container { display: none; }
     .track-player .track-info { display: none; }
+    /* style.css の固定背景（body::before）が本文を覆うので前面に出す */
+    .track-detail, .site-footer { position: relative; z-index: 1; }
   </style>
   <!-- TRACK_RECORDING_JSON_LD:START -->
   <script type="application/ld+json">
