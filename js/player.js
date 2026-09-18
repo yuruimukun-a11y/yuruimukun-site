@@ -609,8 +609,37 @@
       "hai","oumagadoki-piano","sun-cafe","kitsune-punk","kitsuneko-zoku","breakbeats","run","wakeup-nekosan",
       "marina","namaenomama","minatomati","mizutabi","dancing-nekos","amazon","dum-di-ka-dum-dum"
     ],
+    // 歌もの。ジャンル uta と vocaloid（ジャンル絞り込みUIが「歌もの」として束ねている2つ）の全曲。
+    // 前半がゆるいむくん本人の歌、後半が初音ミク。歌い手が途中で行き来しないようまとめてある。
+    // 最後は逢魔時のピアノ版を余韻として置く。
+    uta: [
+      "nekosanka","nekosan wa sugoi-uta","run","breakbeats","manji","dum-di-ka-dum-dum",
+      "jibungajibunzyanainonara","oumagadoki","wasure-oto","mujun-sanka","yoku",
+      "owatte-hajimatte","namaenomama","onnrei","hai","oumagadoki-piano"
+    ],
     all: null  // nullの場合は全曲を名前順で表示
   };
+
+  // リストの表示名。プレイリストの見出しと、聴き終わりの案内で使う
+  const LIST_LABELS = {
+    lofi: 'ゆったり',
+    normal: '通常',
+    timeline: '時系列',
+    uta: '歌もの',
+    all: '全曲'
+  };
+
+  // ジャンルの表示名。歌ものは誰が歌っているかで分かれているのに、
+  // ボタンが uta / vocaloid のままだと分かれていることが伝わらないので日本語にする。
+  // インスト側は lofi や kelt のようにジャンル名として通じるのでそのまま。
+  const GENRE_LABELS = {
+    uta: '本人の歌',
+    vocaloid: '初音ミク'
+  };
+
+  function genreLabel(genre) {
+    return GENRE_LABELS[genre] || genre;
+  }
 
   const state = {
     currentIndex: 0,
@@ -654,6 +683,7 @@
     playShuffleBtn: document.getElementById('playShuffleBtn'),
     playOrderBtn: document.getElementById('playOrderBtn'),
     playlistEndModal: document.getElementById('playlistEndModal'),
+    playlistEndTitle: document.getElementById('playlistEndTitle'),
     playlistEndText: document.getElementById('playlistEndText'),
     playlistEndConfirmBtn: document.getElementById('playlistEndConfirmBtn'),
     playlistEndDismissBtn: document.getElementById('playlistEndDismissBtn')
@@ -780,7 +810,7 @@
       return '<span class="toggle-arrow">▼</span> 閉じる';
     }
     if (state.currentGenre && state.currentGenre !== 'all') {
-      return '<span class="toggle-arrow">▼</span> ジャンル: ' + state.currentGenre;
+      return '<span class="toggle-arrow">▼</span> ジャンル: ' + genreLabel(state.currentGenre);
     }
     return '<span class="toggle-arrow">▼</span> ジャンル選択';
   }
@@ -878,7 +908,7 @@
         vocalList.forEach(function (genre) {
           var btn = document.createElement('button');
           btn.className = 'genre-btn genre-btn-vocal';
-          btn.textContent = genre;
+          btn.textContent = genreLabel(genre);
           btn.dataset.genre = genre;
           if (genre === state.currentGenre) btn.classList.add('active');
           btn.addEventListener('click', function () { setGenre(genre); });
@@ -1137,10 +1167,21 @@
   function showPlaylistEndModal() {
     if (!elements.playlistEndModal) return;
     var isAllShuffle = state.currentMainList === 'all' && state.isShuffle;
+    // 何を聴き終えたのかを先に出す。区切りが分からないまま次を勧められると唐突になるため。
+    // ジャンルで絞って聴いていたなら、リスト名よりそのジャンル名のほうが実感に近い
+    var endedLabel = state.currentGenre && state.currentGenre !== 'all' ?
+      genreLabel(state.currentGenre) :
+      (LIST_LABELS[state.currentMainList] || '');
+
+    if (elements.playlistEndTitle) {
+      elements.playlistEndTitle.textContent = isAllShuffle ?
+        '全曲を聴き終わりました' :
+        (endedLabel ? endedLabel + 'を最後まで聴きました' : 'リストを最後まで再生しました');
+    }
     if (elements.playlistEndText) {
       elements.playlistEndText.textContent = isAllShuffle ?
-        '全曲を聴き終わりました。もう一度シャッフルで聴きますか？' :
-        '全曲リストをシャッフルで聴いてみますか？';
+        'もう一度シャッフルで聴きますか？' :
+        'ここで一区切りです。このまま全曲をシャッフルで聴きますか？';
     }
     if (elements.playlistEndConfirmBtn) {
       elements.playlistEndConfirmBtn.textContent = isAllShuffle ?
@@ -1354,6 +1395,11 @@
     var trackParam = urlParams.get('track');
     var initialTrackIndex = -1;
 
+    // トップの入口から「その気分のリストごと」渡されることがある。
+    // 例: /?list=uta なら歌ものが最後まで続けて鳴り、終わったら聴き終わりの案内が出る。
+    var listParam = urlParams.get('list');
+    var initialList = (listParam && Object.prototype.hasOwnProperty.call(MAIN_LISTS, listParam)) ? listParam : null;
+
     if (trackParam) {
       // 指定された曲を全PLAYLISTから検索
       for (var i = 0; i < PLAYLIST.length; i++) {
@@ -1374,8 +1420,8 @@
       });
     }
 
-    // デフォルトはlofi
-    state.currentMainList = 'lofi';
+    // 指定が無ければデフォルトのlofi
+    state.currentMainList = initialList || 'lofi';
     filterPlaylist('all');
     updateMainListFilter();
     updateGenreFilter();
@@ -1388,6 +1434,10 @@
     // URLパラメータで曲が指定されていれば、その曲を自動再生
     if (initialTrackIndex >= 0) {
       loadTrack(initialTrackIndex, true);
+    } else if (initialList && state.filteredPlaylist.length > 0) {
+      // リスト指定で来た時は、そのリストの1曲目から続けて鳴らす
+      var listFirstIndex = getOriginalIndex(0);
+      if (listFirstIndex >= 0) loadTrack(listFirstIndex, true);
     } else if (state.filteredPlaylist.length > 0) {
       // filteredPlaylistの最初の曲を読み込む
       var firstOriginalIndex = getOriginalIndex(0);

@@ -248,17 +248,17 @@
     <section class="work-entries" aria-labelledby="workEntriesTitle">
       <h2 id="workEntriesTitle" class="work-entries__title">どれから見ますか</h2>
       <div class="work-entries__grid">
-        <!-- 歌を聴く: 以前は /public/lyrics/ を指していたが、あのページは全カードが「読む」で
-             再生手段が無く、聴くまでに曲ページ→トップへ戻る往復が要るのでラベルと合わなかった。
-             既存の ?track= はトップのプレイヤーでその曲を直接鳴らすので、そちらへ変更。
-             曲を変えるときは id を差し替える。公式歌詞はヘッダーの「公式歌詞」から辿れる。 -->
-        <a class="work-entry" href="/?track=nekosanka#mainPlayer">
+        <!-- ?list= は player.js の MAIN_LISTS のキー。そのリストの1曲目から続けて鳴り、
+             最後まで行くと「◯◯を最後まで聴きました」の区切りと全曲シャッフルの案内が出る。
+             選んだ気分のまま最後まで流れるように、1曲だけ指す ?track= ではなくリストで渡している。
+             公式歌詞はヘッダーの「公式歌詞」、睡眠用BGMのページは下の「用途から探す」から辿れる。 -->
+        <a class="work-entry" href="/?list=uta#mainPlayer">
           <span class="work-entry__name">歌を聴く</span>
-          <span class="work-entry__note">ねこさんかがプレイヤーで始まります。ほかの歌ものも、そのまま一覧から。</span>
+          <span class="work-entry__note">歌ものが順に流れます。聴き終わると、そこで一度区切りが出ます。</span>
         </a>
-        <a class="work-entry" href="/sleep-bgm.html">
+        <a class="work-entry" href="/?list=lofi#mainPlayer">
           <span class="work-entry__name">静かな音を聴く</span>
-          <span class="work-entry__note">夜や、静かにしておきたい時間のためのインストです。</span>
+          <span class="work-entry__note">夜や、静かにしておきたい時間のためのインストが順に流れます。</span>
         </a>
         <a class="work-entry" href="https://www.youtube.com/channel/UCdqpN463kUQhBkt2J9SqAZw" target="_blank" rel="noopener">
           <span class="work-entry__name">猫を見る</span>
@@ -440,6 +440,7 @@
       <!-- Main List Filter -->
       <div class="main-list-filter" id="mainListFilter">
         <button class="main-list-btn active" data-list="lofi" title="ゆったり用にまとめた曲を表示">🎵 ゆったり</button>
+        <button class="main-list-btn" data-list="uta" title="歌詞のある曲だけを表示">🎤 歌もの</button>
         <button class="main-list-btn" data-list="normal" title="通常リストの曲を表示">🎸 通常</button>
         <button class="main-list-btn" data-list="timeline" title="全曲を制作・初出の古い順に表示">🕰️ 時系列</button>
         <button class="main-list-btn" data-list="all" title="曲数の多い全体リストを表示。ゆるいむくんのそのほかの曲も含めて一覧">📋 全曲</button>
