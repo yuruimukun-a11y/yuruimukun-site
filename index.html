@@ -248,9 +248,13 @@
     <section class="work-entries" aria-labelledby="workEntriesTitle">
       <h2 id="workEntriesTitle" class="work-entries__title">どれから見ますか</h2>
       <div class="work-entries__grid">
-        <a class="work-entry" href="/public/lyrics/">
+        <!-- 歌を聴く: 以前は /public/lyrics/ を指していたが、あのページは全カードが「読む」で
+             再生手段が無く、聴くまでに曲ページ→トップへ戻る往復が要るのでラベルと合わなかった。
+             既存の ?track= はトップのプレイヤーでその曲を直接鳴らすので、そちらへ変更。
+             曲を変えるときは id を差し替える。公式歌詞はヘッダーの「公式歌詞」から辿れる。 -->
+        <a class="work-entry" href="/?track=nekosanka#mainPlayer">
           <span class="work-entry__name">歌を聴く</span>
-          <span class="work-entry__note">歌詞のある曲をまとめています。曲のページでそのまま聴けます。</span>
+          <span class="work-entry__note">ねこさんかがプレイヤーで始まります。ほかの歌ものも、そのまま一覧から。</span>
         </a>
         <a class="work-entry" href="/sleep-bgm.html">
           <span class="work-entry__name">静かな音を聴く</span>
