@@ -3810,3 +3810,248 @@ body::after {
   color: #fff;
   font-weight: 700;
 }
+
+/* ========================================
+   トップページ: 人 → 最近の動き → 作品 の導入部
+   （検索向けのキーワードは title・構造化データと
+     「用途から探す」側に置き、ここには出さない）
+   ======================================== */
+
+.site-intro,
+.latest-work,
+.now-doing,
+.work-entries {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- 人となり --- */
+.site-intro {
+  margin: 0 0 var(--spacing-xl);
+  padding: 0 0.4rem;
+  text-align: center;
+}
+
+.site-intro__lead {
+  margin: 0;
+  font-size: clamp(1.15rem, 3.4vw, 1.5rem);
+  font-weight: 500;
+  line-height: 2.05;
+  letter-spacing: 0.03em;
+  color: rgba(246, 236, 220, 0.96);
+  text-shadow: 0 10px 26px rgba(6, 10, 14, 0.55);
+}
+
+.site-intro__sub {
+  margin: 1.35rem 0 0;
+  font-size: 0.85rem;
+  line-height: 2;
+  color: rgba(240, 232, 218, 0.82);
+  text-shadow: 0 6px 18px rgba(6, 10, 14, 0.62);
+}
+
+/* --- 最近できたもの --- */
+.latest-work {
+  margin-bottom: var(--spacing-xl);
+}
+
+.latest-work__title,
+.now-doing__title,
+.work-entries__title {
+  margin: 0 0 var(--spacing-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: rgba(239, 230, 214, 0.82);
+}
+
+.latest-work__card {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 1.15rem 1.25rem 1.2rem;
+  border: 1px solid rgba(110, 80, 53, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(248, 243, 235, 0.97) 0%, rgba(231, 221, 207, 0.94) 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+.latest-work__label {
+  margin: 0 0 0.3rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--color-primary-dark);
+}
+
+.latest-work__name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  color: var(--color-text-dark);
+}
+
+.latest-work__copy {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.85;
+  color: var(--color-text);
+}
+
+.latest-work__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.latest-work__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 107, 138, 0.35);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.latest-work__play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 138, 0.45);
+}
+
+.latest-work__play:focus-visible {
+  outline: 3px solid rgba(255, 143, 171, 0.45);
+  outline-offset: 3px;
+}
+
+.latest-work__play-icon {
+  font-size: 0.7rem;
+}
+
+.latest-work__link {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  text-decoration: underline;
+}
+
+.latest-work__link:hover,
+.latest-work__link:focus-visible {
+  color: var(--color-primary-dark);
+}
+
+/* --- いまこんなことをしています --- */
+.now-doing {
+  margin-bottom: var(--spacing-xl);
+}
+
+.now-doing__text {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 1.05rem 1.25rem;
+  border: 1px solid rgba(233, 196, 148, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(17, 25, 34, 0.46) 0%, rgba(17, 25, 34, 0.34) 100%);
+  backdrop-filter: blur(8px);
+  font-size: 0.87rem;
+  line-height: 2;
+  color: rgba(243, 236, 224, 0.92);
+}
+
+/* --- 作品の入口（歌 / 静かな音 / 猫） --- */
+.work-entries {
+  margin-bottom: var(--spacing-xl);
+}
+
+.work-entries__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr));
+  gap: 0.8rem;
+}
+
+.work-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.05rem 1.1rem 1.15rem;
+  border: 1px solid rgba(107, 84, 62, 0.18);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(248, 243, 235, 0.97) 0%, rgba(231, 221, 207, 0.94) 100%);
+  box-shadow: 0 16px 34px rgba(8, 12, 16, 0.12);
+  text-decoration: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.work-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(8, 12, 16, 0.18);
+}
+
+.work-entry:focus-visible {
+  outline: 3px solid rgba(255, 143, 171, 0.45);
+  outline-offset: 3px;
+}
+
+.work-entry__name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+}
+
+.work-entry__note {
+  font-size: 0.76rem;
+  line-height: 1.75;
+  color: var(--color-text-light);
+}
+
+@media (max-width: 600px) {
+  .site-intro {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .site-intro__lead {
+    line-height: 1.95;
+  }
+
+  .site-intro__sub {
+    margin-top: 1.1rem;
+    font-size: 0.8rem;
+  }
+
+  .latest-work,
+  .now-doing,
+  .work-entries {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .latest-work__title,
+  .now-doing__title,
+  .work-entries__title {
+    margin-bottom: 0.55rem;
+    font-size: 0.85rem;
+  }
+
+  .latest-work__card {
+    padding: 1rem 1rem 1.05rem;
+  }
+
+  .now-doing__text {
+    padding: 0.95rem 1rem;
+    font-size: 0.83rem;
+  }
+
+  .work-entries__grid {
+    gap: 0.6rem;
+  }
+}

@@ -195,7 +195,6 @@
     <!-- Masthead -->
     <header class="header site-masthead">
       <h1 class="logo">ゆるいむくん</h1>
-      <p class="tagline masthead-tagline">作業用BGM / 睡眠用BGM / 幻想音楽</p>
       <nav class="header-nav" aria-label="サイト内メニュー">
         <a href="/public/tracks/" class="header-nav-link">楽曲一覧</a>
         <a href="/public/lyrics/" class="header-nav-link">公式歌詞</a>
@@ -204,18 +203,63 @@
       </nav>
     </header>
 
-    <!-- 2つの入口 -->
-    <section class="entry-hero" aria-labelledby="entryHeroTitle">
-      <h2 id="entryHeroTitle" class="entry-hero__title">どちらから聴きますか？</h2>
-      <div class="entry-hero__actions">
-        <button type="button" class="entry-button entry-button--vocal" data-entry="vocaloid">
-          <span class="entry-button__label">ボカロを聴く</span>
-          <span class="entry-button__note">歌詞のあるオリジナル曲</span>
-        </button>
-        <button type="button" class="entry-button entry-button--bgm" data-entry="bgm">
-          <span class="entry-button__label">猫とカフェのBGMを聴く</span>
-          <span class="entry-button__note">作業・夜・休憩に流せるインスト</span>
-        </button>
+    <!-- ファーストビュー。
+         検索向けのキーワード（作業用BGM / 睡眠用BGM / 幻想音楽）は、
+         title・description・構造化データと、下の「用途から探す」に残してある。
+         最初に読む場所には置かない。 -->
+    <section class="site-intro" aria-label="ゆるいむくんについて">
+      <p class="site-intro__lead">
+        うまくいかない日も、<br>
+        そのまま置いておけるような<br>
+        音や物語を作っています。
+      </p>
+      <p class="site-intro__sub">
+        静かな曲を作ったり、歌を作ったり、猫を旅させたり。<br>
+        たまに少し変なものも混ざります。
+      </p>
+    </section>
+
+    <!-- 最近できたもの。
+         作品を差し替えるときは、この <article> の中だけを書き換える。
+         ・data-play-track と曲ページのURLは js/player.js の PLAYLIST にある id に合わせる
+         ・画像は、その作品用の画像が既にある時だけ足す（無い場合は今のまま文字だけでよい） -->
+    <section class="latest-work" aria-labelledby="latestWorkTitle">
+      <h2 id="latestWorkTitle" class="latest-work__title">最近できたもの</h2>
+      <article class="latest-work__card">
+        <p class="latest-work__label">うた</p>
+        <h3 class="latest-work__name">dum-di-ka-dum-dum</h3>
+        <p class="latest-work__copy">和太鼓の口唱歌だけでできた歌です。意味のある言葉は、ひとつも出てきません。</p>
+        <div class="latest-work__actions">
+          <button type="button" class="latest-work__play" data-play-track="dum-di-ka-dum-dum">
+            <span class="latest-work__play-icon" aria-hidden="true">▶</span>聴く
+          </button>
+          <a class="latest-work__link" href="/public/tracks/dum-di-ka-dum-dum.html">曲のページ</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- 近況。更新日は管理しない。気が向いた時に本文だけ差し替える。 -->
+    <section class="now-doing" aria-labelledby="nowDoingTitle">
+      <h2 id="nowDoingTitle" class="now-doing__title">いまこんなことをしています</h2>
+      <p class="now-doing__text">曲を作ったり、猫たちを旅させたりしています。きれいにまとまってくると少し崩したくなるので、ときどき自分で仕事を増やしています。</p>
+    </section>
+
+    <!-- 作品の入口。用途ではなく、作っているものの種類で分ける。 -->
+    <section class="work-entries" aria-labelledby="workEntriesTitle">
+      <h2 id="workEntriesTitle" class="work-entries__title">どれから見ますか</h2>
+      <div class="work-entries__grid">
+        <a class="work-entry" href="/public/lyrics/">
+          <span class="work-entry__name">歌を聴く</span>
+          <span class="work-entry__note">歌詞のある曲をまとめています。曲のページでそのまま聴けます。</span>
+        </a>
+        <a class="work-entry" href="/sleep-bgm.html">
+          <span class="work-entry__name">静かな音を聴く</span>
+          <span class="work-entry__note">夜や、静かにしておきたい時間のためのインストです。</span>
+        </a>
+        <a class="work-entry" href="https://www.youtube.com/channel/UCdqpN463kUQhBkt2J9SqAZw" target="_blank" rel="noopener">
+          <span class="work-entry__name">猫を見る</span>
+          <span class="work-entry__note">猫の映像は「ゆるねこスタジオ」（YouTube）で公開しています。</span>
+        </a>
       </div>
     </section>
 
@@ -294,6 +338,21 @@
           <button id="topArrivalBgmNextYes" class="top-arrival-bgm-next-dialog__yes" type="button">はい、全曲をランダム再生</button>
           <button id="topArrivalBgmNextNo" class="top-arrival-bgm-next-dialog__no" type="button">今はしない</button>
         </div>
+      </div>
+    </section>
+
+    <!-- 2つの入口。プレイヤーの一覧を切り替えるボタンなので、プレイヤーの直前に置く -->
+    <section class="entry-hero" aria-labelledby="entryHeroTitle">
+      <h2 id="entryHeroTitle" class="entry-hero__title">プレイヤーでどちらから聴きますか？</h2>
+      <div class="entry-hero__actions">
+        <button type="button" class="entry-button entry-button--vocal" data-entry="vocaloid">
+          <span class="entry-button__label">ボカロを聴く</span>
+          <span class="entry-button__note">歌詞のあるオリジナル曲</span>
+        </button>
+        <button type="button" class="entry-button entry-button--bgm" data-entry="bgm">
+          <span class="entry-button__label">猫とカフェのBGMを聴く</span>
+          <span class="entry-button__note">作業・夜・休憩に流せるインスト</span>
+        </button>
       </div>
     </section>
 
