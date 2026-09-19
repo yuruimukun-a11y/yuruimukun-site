@@ -345,20 +345,9 @@
       </div>
     </section>
 
-    <!-- 2つの入口。プレイヤーの一覧を切り替えるボタンなので、プレイヤーの直前に置く -->
-    <section class="entry-hero" aria-labelledby="entryHeroTitle">
-      <h2 id="entryHeroTitle" class="entry-hero__title">プレイヤーでどちらから聴きますか？</h2>
-      <div class="entry-hero__actions">
-        <button type="button" class="entry-button entry-button--vocal" data-entry="vocaloid">
-          <span class="entry-button__label">ボカロを聴く</span>
-          <span class="entry-button__note">歌詞のあるオリジナル曲</span>
-        </button>
-        <button type="button" class="entry-button entry-button--bgm" data-entry="bgm">
-          <span class="entry-button__label">猫とカフェのBGMを聴く</span>
-          <span class="entry-button__note">作業・夜・休憩に流せるインスト</span>
-        </button>
-      </div>
-    </section>
+    <!-- ここにあった「プレイヤーでどちらから聴きますか？」は削除した。
+         「猫とカフェのBGMを聴く」は上の「静かな音を聴く」と動作が完全に同じ（どちらも lofi リスト）で、
+         「ボカロを聴く」も「歌を聴く」とプレイヤーの「🎤 歌もの」ボタンと役目が重なっていたため。 -->
 
     <!-- Player Section -->
     <main class="player-section" id="mainPlayer">
@@ -478,63 +467,22 @@
       <div class="ui-divider" aria-hidden="true"></div>
     </section>
 
-    <section class="featured-works" aria-labelledby="featuredWorksTitle">
-      <div class="guide-section-header">
-        <span class="ui-badge ui-badge--small" aria-hidden="true"></span>
-        <p class="featured-works-kicker">LYRICS &amp; MUSIC</p>
-        <h2 id="featuredWorksTitle">歌詞・楽曲を見る</h2>
-        <p>作品ページでは、曲を聴きながら、公式歌詞や世界観、制作メモを読めます。まずは主要3曲から聴いてもらえたら嬉しいです。</p>
-      </div>
-      <div class="featured-works-grid">
-        <article class="featured-work-card">
-          <p class="featured-work-label">歌詞なし / NIGHT</p>
-          <h3>oyasumi</h3>
-          <p>眠れない夜や、考えるのを終わりにしたい時間へ。静かな入りから少しずつほどけていく感触を、曲の説明と一緒に辿れます。</p>
-          <ul class="featured-work-facts">
-            <li>このページで曲を再生できます</li>
-            <li>本作に歌詞はありません</li>
-          </ul>
-          <a class="featured-work-link" href="/public/tracks/oyasumi.html">oyasumiの作品ページへ</a>
-        </article>
-        <article class="featured-work-card">
-          <p class="featured-work-label">公式歌詞 / TWILIGHT</p>
-          <h3>逢魔時</h3>
-          <p>夕方から夜へ切り替わる境目と、過去の自分や誰かを送り出す区切りを描いたボカロ曲。公式歌詞を読みながら聴けます。</p>
-          <ul class="featured-work-facts">
-            <li>このページで曲を再生できます</li>
-            <li>公式歌詞を全文掲載しています</li>
-          </ul>
-          <a class="featured-work-link" href="/public/tracks/oumagadoki.html">逢魔時の歌詞・作品ページへ</a>
-        </article>
-        <article class="featured-work-card">
-          <p class="featured-work-label">歌詞なし / JAPANESE QUIET</p>
-          <h3>きつねこ続</h3>
-          <p>狐さんと猫さんの世界をもう少し先へ歩かせた、和の静けさと余韻を残す曲。前作から続く世界観と聴きどころをまとめています。</p>
-          <ul class="featured-work-facts">
-            <li>このページで曲を再生できます</li>
-            <li>本作に歌詞はありません</li>
-          </ul>
-          <a class="featured-work-link" href="/public/tracks/kitsuneko-zoku.html">きつねこ続の作品ページへ</a>
-        </article>
-      </div>
-      <p class="featured-works-all"><a href="/public/tracks/">全楽曲を作品一覧から探す</a></p>
-    </section>
-
-    <!-- 作風の紹介。ジャンルがばらばらに見える理由を、聴く前に一度だけ説明しておくためのセクション -->
+    <!-- 作風の紹介。以前はここで作り方を4通りに分類して長く説明していたが、
+         読んだ人に「次は何をずらした曲か」という枠を渡してしまうのと、
+         その枠に入らない曲（dum-di-ka-dum-dum など）が増えてきたので短くした。
+         おすすめ曲のカードもここにあったが、すぐ上のプレイヤーと下の入門ルートと
+         同じ仕事をしていた（逢魔時が1ページに3回出ていた）ため畳んだ。 -->
     <section class="guide-section" aria-labelledby="aboutMusicTitle">
       <div class="guide-section-header">
         <span class="ui-badge ui-badge--small" aria-hidden="true"></span>
-        <p class="featured-works-kicker">ABOUT THE MUSIC</p>
-        <h2 id="aboutMusicTitle">どんな音楽を作っているのか</h2>
-        <p>ジャンルはばらばらに見えると思いますが、やっていることは毎回だいたい同じです。</p>
+        <p class="featured-works-kicker">ABOUT</p>
+        <h2 id="aboutMusicTitle">ゆるいむくんについて</h2>
         <div class="ui-divider ui-divider--compact" aria-hidden="true"></div>
       </div>
       <div class="about-music-text">
-        <p>曲の形そのものは、王道のまま作ります。ゲームの戦闘曲なら戦闘曲らしく、休日の曲なら休日の曲らしく。そのうえで、題材か、感情か、着地点のどれか一つだけをずらす。ほとんどの曲がこのやり方でできています。</p>
-        <p>たとえば <a href="/public/tracks/kome-battle.html">kome battle</a> は、昔のRPGの戦闘曲として真面目に作っています。ずらしたのは戦う相手のほうで、主役は米です。<a href="/public/tracks/picnic.html">picnic</a> は晴れた休日の音楽ですが、外に出るほどの元気はなくて、部屋の中で小さなピクニックをします。<a href="/public/tracks/halloween-okatazuke.html">ハロウィンおかたずけ</a> が描いているのも、当日の盛り上がりではなく翌日の片付けです。音楽をふざけさせないぶん、題材のズレのほうがよく見えます。</p>
-        <p>もう一つは、盛り上げ切らずに終わる曲です。<a href="/public/tracks/oyasumi.html">oyasumi</a> は進むほど力を抜いていって、最後は余白で終わります。眠れない夜に無理やり気分を切り替えさせるより、少しずつ緩むほうがいいと思って作りました。<a href="/public/tracks/wasure-oto.html">忘音</a> は明るい響きを土台にしたまま、思い出せない記憶のほうを歌います。<a href="/public/tracks/antinomy-day.html">antinomy day</a> は、和と電子、静と動を最後までどちらにも決めません。答えを出さないまま置いておく曲も、同じくらいよく作ります。</p>
-        <p>ただ、変わったことをしていても聴きづらくならないようには気をつけています。何かを崩したときは、代わりにつかまれるものを残す。<a href="/public/tracks/breakbeats.html">ブレイクブレイクビーツ</a> ならビート、<a href="/public/tracks/manji.html">卍</a> なら繰り返す言葉、oyasumi なら静かな流れです。意味を追いかけなくても、そのまま流しておける。作業中でも夜でも、後ろで鳴らしてもらえたら十分です。</p>
-        <p>大きな音で小さなことを歌って、小さな音で大きなことを考える。だいたいそういう音楽です。「作業 / 夜 / 物語」のどれかに近い気分なら、たぶん合うと思います。</p>
+        <p>ジャンルはその時々で変わります。静かな曲も、歌も、少し変なものも作ります。</p>
+        <p>大きな音で小さなことを歌って、小さな音で大きなことを考える。</p>
+        <p>よくやるのは、普通に作ったものを少しだけずらすことです。うまくまとまらないものは、無理に答えを出さず、そのまま置いておくこともあります。</p>
       </div>
     </section>
 
@@ -718,32 +666,6 @@
         </div>
 
         <p class="player-guide-note"><a href="/public/tracks/kitsuneko-zoku.html">きつねこ続</a> は、深夜や静かな時間に向いた和風ヒーリング寄りの1曲です。</p>
-      </section>
-    </details>
-
-    <details class="home-fold-panel">
-      <summary>サイトの説明とおすすめを見る</summary>
-      <!-- About Section -->
-      <section class="about-section">
-        <h2 class="about-title">3つの入口から</h2>
-        <div class="about-content">
-          <p>「作業 / 夜 / 物語」どれかに近ければ大丈夫です。</p>
-          <p class="about-note">登録なし、すぐ聴けます。</p>
-        </div>
-        <div class="pillar-list">
-          <div class="pillar-item">
-            <strong>作業用BGM / chill</strong>
-            生活の後ろで、邪魔をしない程度に鳴っている曲。
-          </div>
-          <div class="pillar-item">
-            <strong>睡眠・静けさ / healing</strong>
-            深夜や眠る前に、盛り上げずに小さく。
-          </div>
-          <div class="pillar-item">
-            <strong>幻想・情景 / story</strong>
-            景色や物語のほうへ気分を寄せたい時に。
-          </div>
-        </div>
       </section>
     </details>
 

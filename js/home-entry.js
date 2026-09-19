@@ -1,16 +1,14 @@
 /**
  * トップページの導線
- * - 「ボカロを聴く」「猫とカフェのBGMを聴く」でプレイヤーのリストを切り替える
- * - 代表曲カードの再生ボタンでその曲を直接鳴らす
+ * - 代表曲カードと「最近できたもの」の再生ボタンで、その曲を直接鳴らす
  * - ジャケット画像が未用意でも崩れないようにフォールバックを出す
+ *
+ * 「ボカロを聴く」「猫とカフェのBGMを聴く」の2ボタンはトップから削除した。
+ * 上の3入口（歌 / 静かな音 / 猫）が ?list= で同じことをするようになり、
+ * 「猫とカフェのBGM」は「静かな音を聴く」と完全に同じ動作だったため。
  */
 (function () {
   'use strict';
-
-  var ENTRIES = {
-    vocaloid: { list: 'all', genre: 'vocaloid', label: 'ボカロ' },
-    bgm: { list: 'lofi', genre: 'all', label: '猫とカフェのBGM' }
-  };
 
   function player() {
     return window.yuruimukunPlayer || null;
@@ -25,38 +23,6 @@
 
   function scrollToPlayer() {
     scrollTo('#mainPlayer');
-  }
-
-  // 入口ボタンは「その曲が並んでいる場所」まで送る。
-  // プレイヤーだけ見せても、絞り込み結果が画面外だと切り替わったことが伝わらないため。
-  function scrollToPlaylist() {
-    scrollTo('.playlist-section');
-  }
-
-  function setEntryPressed(activeKey) {
-    var buttons = document.querySelectorAll('[data-entry]');
-    buttons.forEach(function (btn) {
-      btn.setAttribute('aria-pressed', btn.getAttribute('data-entry') === activeKey ? 'true' : 'false');
-    });
-  }
-
-  function bindEntryButtons() {
-    var buttons = document.querySelectorAll('[data-entry]');
-    if (!buttons.length) return;
-
-    buttons.forEach(function (btn) {
-      btn.setAttribute('aria-pressed', 'false');
-      btn.addEventListener('click', function () {
-        var key = btn.getAttribute('data-entry');
-        var entry = ENTRIES[key];
-        var api = player();
-        if (!entry || !api) return;
-
-        api.selectList(entry.list, entry.genre);
-        setEntryPressed(key);
-        scrollToPlaylist();
-      });
-    });
   }
 
   function bindLeadTrackButtons() {
@@ -77,7 +43,6 @@
           return;
         }
 
-        setEntryPressed(null);
         scrollToPlayer();
       });
     });
@@ -113,25 +78,8 @@
     });
   }
 
-  // プレイリスト側のボタンで絞り込みを変えたら、入口ボタンの選択表示は外す。
-  // 押したままに見えると、今どちらで絞っているのか分からなくなるため。
-  function bindManualFilterReset() {
-    var section = document.querySelector('.playlist-section');
-    if (!section) return;
-
-    section.addEventListener('click', function (event) {
-      var target = event.target;
-      if (!target || !target.closest) return;
-      if (target.closest('.main-list-btn') || target.closest('.genre-btn')) {
-        setEntryPressed(null);
-      }
-    });
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
-    bindEntryButtons();
     bindLeadTrackButtons();
     bindArtworkFallback();
-    bindManualFilterReset();
   });
 })();
