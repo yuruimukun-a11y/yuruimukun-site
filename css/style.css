@@ -3256,6 +3256,60 @@ body::after {
   line-height: 1.75;
 }
 
+.top-arrival-bgm-next-dialog__feedback {
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(98, 70, 45, 0.2);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.top-arrival-bgm-next-dialog .top-arrival-bgm-next-dialog__feedback-title {
+  color: var(--color-text-dark);
+  font-weight: 700;
+}
+
+.top-arrival-bgm-next-dialog__feedback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
+
+.top-arrival-bgm-next-dialog__feedback-actions button {
+  flex: 1 1 8.5rem;
+  min-height: 2.6rem;
+  border: 1px solid rgba(98, 70, 45, 0.3);
+  border-radius: 0.65rem;
+  background: #fff;
+  color: var(--color-text-dark);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.top-arrival-bgm-next-dialog__feedback-actions button:hover:not(:disabled),
+.top-arrival-bgm-next-dialog__feedback-actions button:focus-visible {
+  border-color: var(--color-primary-dark);
+  outline: 2px solid rgba(98, 70, 45, 0.25);
+  outline-offset: 2px;
+}
+
+.top-arrival-bgm-next-dialog__feedback-actions button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.top-arrival-bgm-next-dialog .top-arrival-bgm-next-dialog__feedback-status {
+  margin-top: 0.45rem;
+  font-size: 0.75rem;
+}
+
+.top-arrival-bgm-next-dialog .top-arrival-bgm-next-dialog__next-copy {
+  margin-top: 1rem;
+}
+
 .top-arrival-bgm-next-dialog__actions {
   display: flex;
   flex-wrap: wrap;

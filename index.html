@@ -114,13 +114,15 @@
     };
 
     window.firebaseSecretRating = async function (trackId, rating) {
-      if (!trackId || !rating) return;
+      if (!trackId || !rating) return false;
       try {
         const ratingRef = ref(db, 'secretRatings/' + trackId + '/' + rating);
         await set(ratingRef, increment(1));
         console.log('Secret rating saved:', trackId, rating);
+        return true;
       } catch (err) {
         console.log('Secret rating error:', err);
+        return false;
       }
     };
 
@@ -335,9 +337,17 @@
     <section id="topArrivalBgmNextDialog" class="top-arrival-bgm-next-dialog" role="dialog" aria-modal="true" aria-labelledby="topArrivalBgmNextTitle" hidden>
       <div class="top-arrival-bgm-next-dialog__backdrop" aria-hidden="true"></div>
       <div class="top-arrival-bgm-next-dialog__panel">
-        <p class="top-arrival-bgm-next-dialog__eyebrow">NEXT LISTENING</p>
-        <h2 id="topArrivalBgmNextTitle">このまま全曲をランダム再生しますか？</h2>
-        <p>期間限定BGMを聴き終えました。ゆるいむくんの全曲から、次の一曲をランダムに選びます。</p>
+        <p class="top-arrival-bgm-next-dialog__eyebrow">THANK YOU FOR LISTENING</p>
+        <h2 id="topArrivalBgmNextTitle">聴いてくれてありがとう</h2>
+        <div class="top-arrival-bgm-next-dialog__feedback" aria-labelledby="topArrivalBgmFeedbackTitle">
+          <p id="topArrivalBgmFeedbackTitle" class="top-arrival-bgm-next-dialog__feedback-title">この曲、どうでしたか？</p>
+          <div class="top-arrival-bgm-next-dialog__feedback-actions">
+            <button id="topArrivalBgmFeedbackGood" type="button">👍 よかった</button>
+            <button id="topArrivalBgmFeedbackBad" type="button">👎 合わなかった</button>
+          </div>
+          <p id="topArrivalBgmFeedbackStatus" class="top-arrival-bgm-next-dialog__feedback-status" role="status" aria-live="polite">匿名で制作者に届きます。</p>
+        </div>
+        <p class="top-arrival-bgm-next-dialog__next-copy">このまま、ゆるいむくんの全曲から次の一曲をランダム再生しますか？</p>
         <div class="top-arrival-bgm-next-dialog__actions">
           <button id="topArrivalBgmNextYes" class="top-arrival-bgm-next-dialog__yes" type="button">はい、全曲をランダム再生</button>
           <button id="topArrivalBgmNextNo" class="top-arrival-bgm-next-dialog__no" type="button">今はしない</button>

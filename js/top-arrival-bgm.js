@@ -14,12 +14,57 @@
   var nextDialog = document.getElementById('topArrivalBgmNextDialog');
   var nextYes = document.getElementById('topArrivalBgmNextYes');
   var nextNo = document.getElementById('topArrivalBgmNextNo');
+  var feedbackGood = document.getElementById('topArrivalBgmFeedbackGood');
+  var feedbackBad = document.getElementById('topArrivalBgmFeedbackBad');
+  var feedbackStatus = document.getElementById('topArrivalBgmFeedbackStatus');
   var audio = document.getElementById('topArrivalBgmAudio');
   var hasEnded = false;
   var mode = '';
   var hasStarted = false;
+  var activeCampaignId = '';
+  var sessionVote = '';
+  var feedbackBusy = false;
 
-  if (!inlinePanel || !inlineLabel || !inlineButton || !inlineButtonLabel || !popup || !popupImage || !popupLabel || !popupButton || !popupButtonLabel || !nextDialog || !nextYes || !nextNo || !audio) return;
+  if (!inlinePanel || !inlineLabel || !inlineButton || !inlineButtonLabel || !popup || !popupImage || !popupLabel || !popupButton || !popupButtonLabel || !nextDialog || !nextYes || !nextNo || !feedbackGood || !feedbackBad || !feedbackStatus || !audio) return;
+
+  function storedVote() {
+    if (sessionVote) return sessionVote;
+    try {
+      var vote = localStorage.getItem('yuruimukun:top-bgm-vote:' + activeCampaignId);
+      return vote === 'good' || vote === 'bad' ? vote : '';
+    } catch (_) {
+      return '';
+    }
+  }
+
+  function setFeedbackState(message) {
+    var voted = storedVote();
+    feedbackGood.disabled = Boolean(voted) || feedbackBusy;
+    feedbackBad.disabled = Boolean(voted) || feedbackBusy;
+    feedbackStatus.textContent = message || (voted ? '回答ありがとうございました。今後の曲作りの参考にします。' : '匿名で制作者に届きます。');
+  }
+
+  function saveVoteLocally(rating) {
+    sessionVote = rating;
+    try { localStorage.setItem('yuruimukun:top-bgm-vote:' + activeCampaignId, rating); } catch (_) { /* This session still remembers the vote. */ }
+  }
+
+  async function sendFeedback(rating) {
+    if (!activeCampaignId || storedVote() || feedbackBusy) return;
+    feedbackBusy = true;
+    setFeedbackState('送信中…');
+    try {
+      if (typeof window.firebaseSecretRating !== 'function' || !(await window.firebaseSecretRating(activeCampaignId, rating))) {
+        throw new Error('Firebase rating unavailable');
+      }
+      saveVoteLocally(rating);
+      feedbackBusy = false;
+      setFeedbackState();
+    } catch (_) {
+      feedbackBusy = false;
+      setFeedbackState('送信できませんでした。もう一度お試しください。');
+    }
+  }
 
   function setButtonState(state) {
     var inlineText = '期間限定BGMを再生';
@@ -50,7 +95,8 @@
 
   function showNextDialog() {
     nextDialog.hidden = false;
-    nextYes.focus();
+    setFeedbackState();
+    (storedVote() ? nextYes : feedbackGood).focus();
   }
 
   function showInline() {
@@ -106,6 +152,8 @@
 
   inlineButton.addEventListener('click', start);
   popupButton.addEventListener('click', start);
+  feedbackGood.addEventListener('click', function () { void sendFeedback('good'); });
+  feedbackBad.addEventListener('click', function () { void sendFeedback('bad'); });
   nextNo.addEventListener('click', closeNextDialog);
   nextYes.addEventListener('click', function () {
     closeNextDialog();
@@ -145,6 +193,7 @@
     })
     .then(function (config) {
       if (!isActiveConfig(config)) return;
+      activeCampaignId = config.campaignId;
       inlineLabel.textContent = config.label.trim();
       popupLabel.textContent = config.label.trim();
       audio.volume = config.volume;
