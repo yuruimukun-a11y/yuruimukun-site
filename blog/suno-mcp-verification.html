@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunoに自分の曲のパートを作ってもらった検証 - ゆるいむくん ブログ</title>
+  <meta name="description" content="AIからSunoを直接操作できるMCPを使って、自作曲のパート素材を作れるか試しました。文字だけの指示と、自作の音を渡す方法の結果を、数字も交えてまとめます。">
+  <link rel="canonical" href="https://yuruimukun.com/blog/suno-mcp-verification.html">
+  <meta property="og:title" content="Sunoに自分の曲のパートを作ってもらった検証 - ゆるいむくん ブログ">
+  <meta property="og:description" content="AIからSunoを直接操作できるMCPを使って、自作曲のパート素材を作れるか試しました。文字だけの指示と、自作の音を渡す方法の結果を、数字も交えてまとめます。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yuruimukun.com/blog/suno-mcp-verification.html">
+  <meta property="og:image" content="https://yuruimukun.com/images/ogp.png">
+  <meta property="og:image:alt" content="ゆるいむくん公式サイトの共通ソーシャル画像">
+  <meta property="article:published_time" content="2026-11-02">
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .blog-container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: clamp(1.2rem, 4vw, var(--spacing-lg)); }
+    .back-link { display: inline-block; margin-bottom: var(--spacing-md); color: #ecd2b0; text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+    .article-content { background: var(--color-bg-card); border-radius: var(--radius-md); padding: clamp(1.4rem, 5vw, 2.6rem); box-shadow: var(--shadow-soft); line-height: 1.95; color: var(--color-text); overflow-wrap: anywhere; }
+    .article-header { margin-bottom: var(--spacing-lg); padding-bottom: var(--spacing-md); border-bottom: 1px solid var(--color-border); }
+    .article-date { display: block; color: var(--color-text-light); font-size: 0.9rem; margin-bottom: var(--spacing-xs); }
+    .article-title { color: var(--color-text-dark); font-size: clamp(1.35rem, 4.2vw, 1.7rem); line-height: 1.5; margin: 0; }
+    .article-content p { margin: 0 0 1.1rem; }
+    .article-content h2 { color: var(--color-text-dark); font-size: 1.2rem; line-height: 1.5; margin: var(--spacing-xl) 0 var(--spacing-md); padding-bottom: var(--spacing-xs); border-bottom: 1px solid var(--color-border); }
+    .article-content h3 { color: var(--color-text-dark); font-size: 1.05rem; margin: var(--spacing-md) 0 var(--spacing-xs); }
+    .article-content hr { border: 0; border-top: 1px solid var(--color-border); margin: var(--spacing-xl) 0 var(--spacing-lg); }
+    .article-content a { color: var(--color-primary-dark); text-decoration: underline; text-underline-offset: 3px; }
+    .article-content strong { color: var(--color-text-dark); }
+    .article-content .article-emphasis { margin: var(--spacing-md) 0; font-size: 1.08em; }
+    .article-content .article-note { color: var(--color-text-light); font-size: 0.88rem; }
+    .article-content ul { margin: 0 0 1.1rem; padding-left: 1.4em; }
+    .article-content blockquote { margin: 0 0 1.1rem; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--color-primary-light); color: var(--color-text-light); }
+    .article-content table { width: 100%; border-collapse: collapse; margin: 0 0 1.1rem; font-size: 0.95rem; }
+    .article-content th, .article-content td { padding: 0.5rem; border-bottom: 1px solid var(--color-border); text-align: left; }
+    .article-content .signature { margin-top: var(--spacing-lg); padding-top: var(--spacing-md); border-top: 1px solid var(--color-border); color: var(--color-text-light); }
+    .blog-footer { margin-top: var(--spacing-xl); text-align: center; color: rgba(243, 236, 225, 0.72); font-size: 0.85rem; }
+    .blog-footer a { color: inherit; margin: 0 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="blog-container">
+    <a href="/blog/" class="back-link">← ブログ一覧に戻る</a>
+    <article class="article-content">
+      <header class="article-header">
+        <time class="article-date" datetime="2026-11-02">2026年11月2日</time>
+        <h1 class="article-title">Sunoに自分の曲のパートを作ってもらった検証</h1>
+      </header>
+      <p>Sunoが、MCPという仕組みでAIから直接操作できるようになりました。僕はClaudeと話しながら制作を進めることがあるので、会話の流れのままSunoを動かせるなら面白そうだと思い、実際の制作で試してみました。</p>
+      <p>題材は、テンポが200ほどある速い曲で、バンドで組み直している途中でした。知りたかったのは、Sunoに曲を丸ごと作ってもらえるかではなく、この曲に足りないパートだけを作ってもらえるかです。</p>
+      <p>先に結論を書くと、Sunoはすごいです。ただ、すごさが出たのは文字で頼んだときではなく、音を渡して頼んだときでした。</p>
+      <h2>1. 文字だけで頼むと、別の曲になる</h2>
+      <p>最初はテンポ、キー、コード進行、音色を文字で細かく伝えて、シンセパッドとリードギターを2本ずつ、計4本作ってもらいました。使ったのは20クレジットです。</p>
+      <p>どれも雰囲気はちゃんと出ていました。短い文章からここまでの曲になること自体が驚きです。ただ、聴いてみると全部別の曲でした。テンポも200〜207とばらついていて、旋律も指定どおりにはなりません。自分の曲に重ねるパートとしては使えませんでした。</p>
+      <p>これはSunoが悪いのではなく、頼み方の問題だと思います。曲を生み出す道具に、部品の寸法まで文字で伝えようとしていました。</p>
+      <h2>2. 音を渡すと、音色だけを置き換えてくれる</h2>
+      <p>そこで、やり方を変えました。曲のコードを、MIDIから鳴らした飾り気のない単純な音にして、それをSunoのカバー機能に渡します。指示は「コードとタイミングはそのままで、丸いシンセパッドにしてほしい。ドラムもベースもギターも歌もいらない」というものです。</p>
+      <p>すると、ほとんど音色のない音が、そのまま重ねられそうなシンセパッドになって返ってきました。ここが一番驚いたところです。念のためコードが合っているかを小節ごとに測ると、こうなりました。</p>
+      <table>
+      <tr><th>作ったもの</th><th>長さ</th><th>コードが合っていた小節</th></tr>
+      <tr><td>シンセパッド（短い版）</td><td>約16秒</td><td>13小節中11小節（良かった方）</td></tr>
+      <tr><td>シンセパッド（長い版）1本目</td><td>約38秒</td><td>31小節中30小節</td></tr>
+      <tr><td>シンセパッド（長い版）2本目</td><td>約37秒</td><td>31小節中31小節</td></tr>
+      </table>
+      <p>頼まなかったドラムも混ざっていませんでした。長い版は2本で10クレジットです。このパッドは聴いても「悪くない」と思える音で、全部の小節が合った2本目は、実際に曲へ重ねて試すことができました。</p>
+      <p>コードだけでなく、旋律を含むシンセも試しました。テンポ200の曲で約57秒、リードと同じ旋律にコードを添えたガイドを渡しても、数分もかからず2本が返ってきます。</p>
+      <h2>3. 苦手なところも見えた</h2>
+      <p>もちろん、そのまま使えるわけではありません。測ってわかった癖もあります。</p>
+      <p>ひとつはテンポです。57秒の版は、テンポが0.5%ほど速くなっていました。曲の頭と終わりで合わせて約0.3秒ずれます。ただ、ずれ方がまっすぐだったので、全体の長さを少し伸ばすだけで0.02秒ほどの差まで直せました。</p>
+      <p>もうひとつは細かい旋律です。ガイドと音の高さが合っていた割合は、2本それぞれ63%と56%でした。和音も鳴っている音なので測り方は少し大まかですが、終盤の数小節は数字でも外れが多く、聴いても怪しく感じました。パッドでも音の膨らみがゆっくりなぶん、0.2秒ほど前に寄せる必要があります。短い版には、1か所だけコードの響きが変わってリードとぶつかる小節もありました。</p>
+      <p>長く伸ばす音やコードはとても正確で、速く細かい旋律はまだ少し苦手。今回の範囲では、そんな印象です。</p>
+      <h2>4. AIから動かせると、検証が続けられる</h2>
+      <p>MCPのよさは、作って終わりにならないことでした。音を上げて、カバーを作って、できたものを取り込み、コードやずれを測って、曲の時間に合わせる。ここまでが会話の中でつながります。ひとつずつ画面を行き来していたら、今回のように何度も測り直す気にはならなかったと思います。</p>
+      <p>もっとも、AIは音を聴くことができません。測った数字がそろっていても、良いか悪いかは別の話です。最後に決めるのは、やはり自分の耳でした。</p>
+      <h2>5. 結局、この曲には入れなかった</h2>
+      <p>正直に書くと、今回完成した曲にSunoの音は入っていません。シンセを重ねた版は終盤に怪しいところも残っていましたが、外した一番の理由は曲の方向でした。</p>
+      <p>それでも、検証としては大きな収穫でした。文字で頼めば曲のアイデアが返ってきて、音を渡せばパートが返ってくる。頼み方ひとつで、Sunoは別の楽器のようになります。</p>
+      <h2>まとめ：Sunoはやっぱりすごい</h2>
+      <p>自分で鳴らした飾り気のない音が、31小節すべてのコードを守ったまま、曲に重ねられるシンセに変わる。しかも数分で、何度でも試せる。少し前までなら、音源を探して音色を作り込むところから始めていた作業です。</p>
+      <p>曲を丸ごと任せる道具としてだけ見ると、もったいないと感じました。自分の曲の設計図を渡せば、音色を一緒に探してくれる相手にもなります。</p>
+      <p class="signature">僕の音楽の真ん中がギターであることは変わりません。ただ、そのギターの隣で鳴る音の選び方は、また少し広がった気がします。こんな試行錯誤も含めて、曲の裏側を楽しんでもらえたら嬉しいです。</p>
+    </article>
+    <footer class="blog-footer">
+      <p>© 2026 ゆるいむくん</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="/privacy.html">プライバシーポリシー</a>
+        <a href="/contact.html">お問い合わせ</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
